@@ -58,7 +58,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                   : 'border-[#2E2E2E] opacity-60 cursor-not-allowed'
               }`}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20 z-10" />
 
               {!discipline.is_active && (
                 <div className="absolute inset-0 bg-black/80 z-20 flex items-center justify-center">
@@ -82,23 +82,23 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 <img
                   src={
                     discipline.name === 'Boxing'
-                      ? 'https://images.pexels.com/photos/4761774/pexels-photo-4761774.jpeg?auto=compress&cs=tinysrgb&w=800'
+                      ? 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1200&h=675&fit=crop&crop=center'
                       : discipline.name === 'Muay Thai'
-                      ? 'https://images.pexels.com/photos/7045856/pexels-photo-7045856.jpeg?auto=compress&cs=tinysrgb&w=800'
+                      ? 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=1200&h=675&fit=crop&crop=center'
                       : discipline.name === 'BJJ'
-                      ? 'https://images.pexels.com/photos/7045594/pexels-photo-7045594.jpeg?auto=compress&cs=tinysrgb&w=800'
+                      ? 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=1200&h=675&fit=crop&crop=center'
                       : discipline.name === 'Kickboxing'
-                      ? 'https://images.pexels.com/photos/7045849/pexels-photo-7045849.jpeg?auto=compress&cs=tinysrgb&w=800'
+                      ? 'https://images.unsplash.com/photo-1571019613914-85f342c55f2a?w=1200&h=675&fit=crop&crop=center'
                       : discipline.name === 'Karate'
-                      ? 'https://images.pexels.com/photos/7045577/pexels-photo-7045577.jpeg?auto=compress&cs=tinysrgb&w=800'
+                      ? 'https://images.unsplash.com/photo-1605296867724-fa87a8ef2f08?w=1200&h=675&fit=crop&crop=center'
                       : discipline.name === 'Taekwondo'
-                      ? 'https://images.pexels.com/photos/7045624/pexels-photo-7045624.jpeg?auto=compress&cs=tinysrgb&w=800'
+                      ? 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1200&h=675&fit=crop&crop=center'
                       : discipline.name === 'Judo'
-                      ? 'https://images.pexels.com/photos/6253310/pexels-photo-6253310.jpeg?auto=compress&cs=tinysrgb&w=800'
-                      : 'https://images.pexels.com/photos/4761792/pexels-photo-4761792.jpeg?auto=compress&cs=tinysrgb&w=800'
+                      ? 'https://images.unsplash.com/photo-1615111784767-4d8b8e6b6b53?w=1200&h=675&fit=crop&crop=center'
+                      : 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1200&h=675&fit=crop&crop=center'
                   }
                   alt={discipline.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center brightness-90 contrast-125"
                 />
               </div>
             </button>
