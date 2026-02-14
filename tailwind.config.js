@@ -12,8 +12,9 @@ export default {
         'text-secondary': '#A0A0A0',
       },
       fontFamily: {
-        heading: ['Progress', 'sans-serif'],
-        body: ['KGRedHands', 'sans-serif'],
+        display: ['Teko', 'sans-serif'],
+        heading: ['Rajdhani', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
       },
     },
   },

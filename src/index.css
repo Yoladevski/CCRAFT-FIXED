@@ -20,13 +20,14 @@
 }
 
 :root {
-  --font-astro: 'Astronomus', 'Impact', sans-serif;
-  --font-roboto: 'Robot', 'Arial', sans-serif;
-  --font-robot: 'Robot', 'Arial', sans-serif;
-  --font-h1: 'Astronomus', 'Impact', sans-serif;
-  --font-h2: 'Astronomus', 'Impact', sans-serif;
-  --font-heading: 'Astronomus', 'Impact', sans-serif;
-  --font-body: 'Robot', 'Arial', sans-serif;
+  --font-display: 'Teko', sans-serif;
+  --font-heading: 'Rajdhani', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-astro: 'Teko', sans-serif;
+  --font-roboto: 'Inter', sans-serif;
+  --font-robot: 'Inter', sans-serif;
+  --font-h1: 'Teko', sans-serif;
+  --font-h2: 'Rajdhani', sans-serif;
 }
 
 [data-theme="dark"] {
@@ -56,7 +57,9 @@
 }
 
 body {
-  font-family: var(--font-roboto);
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.01em;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.5;
@@ -94,10 +97,10 @@ body::before {
 }
 
 h1 {
-  font-family: var(--font-h1);
+  font-family: var(--font-display);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-weight: normal;
+  letter-spacing: 0.08em;
   line-height: 1.2;
   -webkit-text-stroke: 4px var(--stroke-color);
   text-stroke: 4px var(--stroke-color);
@@ -105,10 +108,10 @@ h1 {
 }
 
 h2 {
-  font-family: var(--font-h2);
+  font-family: var(--font-heading);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-weight: normal;
+  letter-spacing: 0.05em;
   line-height: 1.2;
   -webkit-text-stroke: 4px var(--stroke-color);
   text-stroke: 4px var(--stroke-color);
@@ -116,11 +119,12 @@ h2 {
 }
 
 h3, h4, h5, h6,
-.heading-font {
+.heading-font,
+.section-title {
   font-family: var(--font-heading);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-weight: bold;
+  letter-spacing: 0.05em;
   line-height: 1.2;
   -webkit-text-stroke: 3px var(--stroke-color);
   text-stroke: 3px var(--stroke-color);
@@ -128,17 +132,20 @@ h3, h4, h5, h6,
 }
 
 button {
-  font-family: var(--font-roboto);
+  font-family: var(--font-body);
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
 label, input, select, textarea {
-  font-family: var(--font-roboto);
+  font-family: var(--font-body);
+  font-weight: 500;
 }
 
 p, span, div {
-  font-family: var(--font-roboto);
+  font-family: var(--font-body);
+  font-weight: 500;
 }
 
 .numeric-display,
