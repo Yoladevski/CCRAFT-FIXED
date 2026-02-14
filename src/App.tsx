@@ -87,7 +87,7 @@ function AppContent() {
 
   if (!user && navState.page !== 'Home') {
     return (
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-[#0E0E0E]">
         <Navigation currentPage="Home" onNavigate={(page, id) => navigate(page as Page, id)} />
         <Auth onNavigate={(page) => navigate(page as Page)} />
         <Footer onNavigate={(page) => navigate(page as Page)} />
@@ -96,10 +96,10 @@ function AppContent() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen relative">
+    <div className="flex flex-col min-h-screen relative bg-[#0E0E0E]">
       <Navigation currentPage={navState.page} onNavigate={(page, id) => navigate(page as Page, id)} />
 
-      <main className="flex-grow relative z-10">
+      <main className="flex-grow relative z-10 bg-[#0E0E0E]">
         {navState.page === 'Home' && <Home onNavigate={(page) => navigate(page as Page)} />}
 
         {navState.page === 'Disciplines' && (

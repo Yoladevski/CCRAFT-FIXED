@@ -21,9 +21,6 @@ const QUOTES = [
   { text: "The greatest glory in living lies not in never falling, but in rising every time we fall.", author: "Nelson Mandela" },
   { text: "It always seems impossible until it's done.", author: "Nelson Mandela" },
   { text: "I learned that courage was not the absence of fear, but the triumph over it.", author: "Nelson Mandela" },
-  { text: "The temporary satisfaction of quitting is outweighed by the eternal suffering of being a nobody.", author: "Andrew Tate" },
-  { text: "The man who goes to the gym every single day regardless of how he feels will always beat the man who goes to the gym when he feels like going.", author: "Andrew Tate" },
-  { text: "Your mind must be stronger than your feelings.", author: "Andrew Tate" },
 ];
 
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
