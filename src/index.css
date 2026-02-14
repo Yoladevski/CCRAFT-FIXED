@@ -148,6 +148,16 @@ p, span, div {
   font-weight: 500;
 }
 
+.bg-\[\#1A1A1A\],
+.bg-\[\#2E2E2E\],
+[class*="bg-[#"],
+.border,
+[class*="border-"],
+.rounded,
+[class*="rounded"] {
+  border-radius: 0.375rem !important;
+}
+
 .numeric-display,
 [data-numeric="true"] {
   font-family: var(--font-robot) !important;

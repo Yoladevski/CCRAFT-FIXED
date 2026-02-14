@@ -141,7 +141,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0E0E0E] border-b border-[#2E2E2E]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0E0E0E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8">
             <div className="hidden lg:flex items-center justify-start">
@@ -153,7 +153,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               </button>
             </div>
 
-            <div className="hidden lg:flex items-center justify-center space-x-6">
+            <div className="hidden lg:flex items-center justify-center space-x-8">
               <button
                 onClick={() => handleNavigate('Home')}
                 className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
@@ -329,7 +329,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   className="text-white hover:text-[#B11226] transition-colors"
                   aria-label="Toggle menu"
                 >
-                  {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                  {isMobileMenuOpen ? <X size={31} /> : <Menu size={31} />}
                 </button>
               </div>
 
@@ -338,11 +338,11 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   onClick={() => handleNavigate('Home')}
                   className="hover:opacity-80 transition-opacity"
                 >
-                  <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-10 w-auto max-w-[130px]" />
+                  <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-11 w-auto max-w-[143px]" />
                 </button>
               </div>
 
-              <div className="flex items-center justify-end">
+              <div className="flex items-center justify-end scale-110">
                 <LanguageSelector compact />
               </div>
             </div>
