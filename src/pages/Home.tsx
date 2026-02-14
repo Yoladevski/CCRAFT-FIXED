@@ -18,7 +18,7 @@ export default function Home({ onNavigate }: HomeProps) {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-[center_20%] md:scale-75"
+          className="absolute inset-0 w-full h-full object-cover object-center md:object-[center_40%]"
           poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
         >
           <source
@@ -32,7 +32,7 @@ export default function Home({ onNavigate }: HomeProps) {
             MASTER YOUR CRAFT
           </h1>
 
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#A0A0A0] mb-14 sm:mb-16 tracking-[0.08em] max-w-4xl mx-auto" style={{ textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)' }}>
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#A0A0A0] mb-14 sm:mb-16 tracking-[0.08em] max-w-4xl mx-auto" style={{ textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)', fontFamily: 'Progress, sans-serif' }}>
             Structured AI Powered<br />Combat Training
           </p>
 
@@ -40,7 +40,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <button
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
               className="w-full sm:w-auto px-12 py-6 bg-[#B11226] text-white text-xl font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
-              style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)' }}
+              style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)', fontFamily: 'Progress, sans-serif' }}
             >
               START TRAINING
             </button>

@@ -148,7 +148,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                   currentPage === 'Home' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
-                style={{ fontSize: '0.9rem' }}
+                style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
               >
                 HOME
                 {currentPage === 'Home' && (
@@ -162,7 +162,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                     currentPage === 'Dashboard' ? 'text-white' : 'text-[#A0A0A0]'
                   }`}
-                  style={{ fontSize: '0.9rem' }}
+                  style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
                 >
                   DASHBOARD
                   {currentPage === 'Dashboard' && (
@@ -185,7 +185,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                           ? 'text-white'
                           : 'text-[#A0A0A0]'
                       }`}
-                      style={{ fontSize: '0.9rem' }}
+                      style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
                     >
                       DISCIPLINES
                       {(currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique') && (
@@ -275,7 +275,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                   currentPage === 'News' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
-                style={{ fontSize: '0.9rem' }}
+                style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
               >
                 NEWS
                 {currentPage === 'News' && (
@@ -289,7 +289,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 whitespace-nowrap ${
                     currentPage === 'Account' ? 'text-white' : 'text-[#A0A0A0]'
                   }`}
-                  style={{ fontSize: '0.9rem' }}
+                  style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
                 >
                   MY ACCOUNT
                   {currentPage === 'Account' && (
@@ -300,6 +300,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 <button
                   onClick={() => handleNavigate('Auth')}
                   className="px-6 py-3 bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105"
+                  style={{ fontFamily: 'Progress, sans-serif' }}
                 >
                   SIGN UP
                 </button>

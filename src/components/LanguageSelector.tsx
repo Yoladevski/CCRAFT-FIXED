@@ -132,7 +132,7 @@ export default function LanguageSelector({ compact = false }: LanguageSelectorPr
         aria-label="Select language"
       >
         <Globe size={compact ? 18 : 20} className="text-[#B11226]" />
-        <span className="text-white font-medium text-sm">
+        <span className="text-white font-medium text-sm" style={{ fontFamily: 'Progress, sans-serif' }}>
           {compact ? selectedLanguage.toUpperCase() : currentLanguage.name}
         </span>
       </button>
