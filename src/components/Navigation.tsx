@@ -156,9 +156,10 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             <div className="hidden lg:flex items-center justify-center space-x-6">
               <button
                 onClick={() => handleNavigate('Home')}
-                className={`relative text-lg font-bold hover:text-[#B11226] transition-colors pb-1 ${
+                className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                   currentPage === 'Home' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
+                style={{ fontSize: '0.9rem' }}
               >
                 HOME
                 {currentPage === 'Home' && (
@@ -169,9 +170,10 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user && (
                 <button
                   onClick={() => handleNavigate('Dashboard')}
-                  className={`relative text-lg font-bold hover:text-[#B11226] transition-colors pb-1 ${
+                  className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                     currentPage === 'Dashboard' ? 'text-white' : 'text-[#A0A0A0]'
                   }`}
+                  style={{ fontSize: '0.9rem' }}
                 >
                   DASHBOARD
                   {currentPage === 'Dashboard' && (
@@ -189,14 +191,15 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                         setDisciplinesDropdownOpen(false);
                         setHoveredDiscipline(null);
                       }}
-                      className={`relative flex items-center gap-1 text-lg font-bold hover:text-[#B11226] transition-colors pb-1 ${
+                      className={`relative flex items-center gap-1 font-bold hover:text-[#B11226] transition-colors pb-1 ${
                         currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
                           ? 'text-white'
                           : 'text-[#A0A0A0]'
                       }`}
+                      style={{ fontSize: '0.9rem' }}
                     >
                       DISCIPLINES
-                      <ChevronDown size={18} />
+                      <ChevronDown size={14} />
                       {(currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique') && (
                         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                       )}
@@ -281,9 +284,10 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('News')}
-                className={`relative text-lg font-bold hover:text-[#B11226] transition-colors pb-1 ${
+                className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                   currentPage === 'News' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
+                style={{ fontSize: '0.9rem' }}
               >
                 NEWS
                 {currentPage === 'News' && (
@@ -294,9 +298,10 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user ? (
                 <button
                   onClick={() => handleNavigate('Account')}
-                  className={`relative text-lg font-bold hover:text-[#B11226] transition-colors pb-1 ${
+                  className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 whitespace-nowrap ${
                     currentPage === 'Account' ? 'text-white' : 'text-[#A0A0A0]'
                   }`}
+                  style={{ fontSize: '0.9rem' }}
                 >
                   MY ACCOUNT
                   {currentPage === 'Account' && (
