@@ -43,17 +43,6 @@ const disciplines = [
     ]
   },
   {
-    id: 'kickboxing',
-    name: 'Kickboxing',
-    isActive: true,
-    categories: [
-      { id: 'attacks', name: 'Attacks' },
-      { id: 'defence', name: 'Defence' },
-      { id: 'footwork', name: 'Footwork' },
-      { id: 'combos', name: 'Combos' }
-    ]
-  },
-  {
     id: 'karate',
     name: 'Karate',
     isActive: true,
@@ -191,7 +180,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                         setDisciplinesDropdownOpen(false);
                         setHoveredDiscipline(null);
                       }}
-                      className={`relative flex items-center gap-1 font-bold hover:text-[#B11226] transition-colors pb-1 ${
+                      className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                         currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
                           ? 'text-white'
                           : 'text-[#A0A0A0]'
@@ -199,7 +188,6 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                       style={{ fontSize: '0.9rem' }}
                     >
                       DISCIPLINES
-                      <ChevronDown size={14} />
                       {(currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique') && (
                         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                       )}
