@@ -84,7 +84,7 @@ SELECT
   1,
   'https://www.youtube.com/embed/0bRi6XcjEwI',
   50,
-  'The jab is the most fundamental punch in boxing. It sets up combinations, maintains distance, and disrupts your opponent''s rhythm. Mastering the jab is essential before progressing to power punches.',
+  '',
   'Start in your boxing stance. Extend your lead hand straight out, rotating your fist so the palm faces down at full extension. Your shoulder should come up to protect your chin. Return the hand quickly to guard position. Keep your rear hand protecting your face.',
   'Use the jab to gauge distance, interrupt opponent attacks, set up power punches, and control the pace of the fight. It''s your most versatile tool.',
   'Common mistakes include: dropping the rear hand, not returning the jab quickly enough, telegraphing by pulling back before punching, not turning the fist over, and poor foot positioning.',
