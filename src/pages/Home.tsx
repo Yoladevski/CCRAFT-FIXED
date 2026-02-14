@@ -8,8 +8,8 @@ export default function Home({ onNavigate }: HomeProps) {
   const { user } = useAuth();
 
   return (
-    <div>
-      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+    <div className="-mt-16">
+      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0E0E0E] z-10" />
 
         <video
@@ -17,7 +17,7 @@ export default function Home({ onNavigate }: HomeProps) {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_25%]"
           poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
         >
           <source
