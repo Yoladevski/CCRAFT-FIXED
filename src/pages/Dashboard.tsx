@@ -1,0 +1,555 @@
+import { useEffect, useState } from 'react';
+import { User, Shield, Award, Star, Crown, Trophy } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import { useAuth } from '../contexts/AuthContext';
+import { Database } from '../lib/supabase';
+import { BGPattern } from '../components/ui/bg-pattern';
+
+type Profile = Database['public']['Tables']['profiles']['Row'];
+type Technique = Database['public']['Tables']['techniques']['Row'];
+type UserProgress = Database['public']['Tables']['user_progress']['Row'];
+type Discipline = Database['public']['Tables']['disciplines']['Row'];
+type Category = Database['public']['Tables']['categories']['Row'];
+
+interface DashboardProps {
+  onNavigate: (page: string) => void;
+}
+
+interface CircularProgressProps {
+  percentage: number;
+  completed: number;
+  total: number;
+}
+
+interface ProfileImageProps {
+  rank: string;
+  imageUrl?: string | null;
+}
+
+function ProfileImage({ rank, imageUrl }: ProfileImageProps) {
+  const getRankBadgeClass = (rank: string) => {
+    switch (rank.toLowerCase()) {
+      case 'champion':
+        return 'rank-badge-champion';
+      case 'elite':
+        return 'rank-badge-elite';
+      case 'challenger':
+        return 'rank-badge-challenger';
+      case 'contender':
+        return 'rank-badge-contender';
+      default:
+        return 'rank-badge-amateur';
+    }
+  };
+
+  const getRankEmblem = (rank: string) => {
+    const iconSize = 20;
+    const iconColor = '#FFD700';
+
+    switch (rank.toLowerCase()) {
+      case 'champion':
+        return <Crown size={iconSize} color={iconColor} strokeWidth={2.5} />;
+      case 'elite':
+        return <Trophy size={iconSize} color="#C0C0C0" strokeWidth={2.5} />;
+      case 'challenger':
+        return <Star size={iconSize} color="#4A90E2" strokeWidth={2.5} />;
+      case 'contender':
+        return <Award size={iconSize} color="#6BCF7F" strokeWidth={2.5} />;
+      default:
+        return <Shield size={iconSize} color="#A0A0A0" strokeWidth={2.5} />;
+    }
+  };
+
+  return (
+    <div className="profile-container">
+      {imageUrl ? (
+        <img src={imageUrl} alt="Profile" className="profile-image" />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-[#1A1A1A] rounded-full">
+          <User size={48} className="text-[#A0A0A0]" />
+        </div>
+      )}
+      <div className={`rank-badge ${getRankBadgeClass(rank)}`}>
+        {getRankEmblem(rank)}
+      </div>
+    </div>
+  );
+}
+
+function CircularProgress({ percentage, completed, total }: CircularProgressProps) {
+  const radius = 45;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (percentage / 100) * circumference;
+
+  return (
+    <div className="flex flex-col items-center justify-center">
+      <div className="relative w-32 h-32">
+        <svg className="circular-progress w-full h-full" viewBox="0 0 100 100">
+          <circle className="circular-progress-ring" cx="50" cy="50" r={radius} />
+          <circle
+            className="circular-progress-value"
+            cx="50"
+            cy="50"
+            r={radius}
+            strokeDasharray={circumference}
+            strokeDashoffset={offset}
+          />
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+            {percentage}%
+          </span>
+        </div>
+      </div>
+      <p className="text-sm text-[#A0A0A0] mt-4" style={{ fontFamily: 'var(--font-astro)' }}>
+        <span className="text-white font-bold" style={{ fontFamily: 'var(--font-robot)' }}>{completed}</span> / <span className="text-white font-bold" style={{ fontFamily: 'var(--font-robot)' }}>{total}</span> Techniques Mastered
+      </p>
+    </div>
+  );
+}
+
+const motivationalMessages = [
+  "RISE AND GRIND",
+  "EMBRACE THE WARRIOR WITHIN",
+  "EVERY CHAMPION WAS ONCE A CONTENDER",
+  "TRAIN HARD, FIGHT EASY",
+  "YOUR ONLY LIMIT IS YOU",
+  "PUSH BEYOND YOUR LIMITS",
+  "VICTORY LOVES PREPARATION",
+  "DISCIPLINE IS FREEDOM",
+  "BE STRONGER THAN YOUR EXCUSES",
+  "CHAMPIONS TRAIN, LOSERS COMPLAIN",
+  "SWEAT NOW, SHINE LATER",
+  "NO PAIN, NO GAIN",
+  "THE FIGHT IS WON IN TRAINING",
+  "RESPECT ALL, FEAR NONE",
+  "TRAIN LIKE A BEAST, FIGHT LIKE A WARRIOR",
+  "MASTER YOUR CRAFT",
+  "UNLEASH YOUR POTENTIAL",
+  "PAIN IS TEMPORARY, GLORY IS FOREVER",
+  "FORGE YOUR LEGACY",
+  "DOMINATE YOUR DOUBTS"
+];
+
+const getRandomMotivation = () => {
+  return motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
+};
+
+export default function Dashboard({ onNavigate }: DashboardProps) {
+  const { user } = useAuth();
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [totalTechniques, setTotalTechniques] = useState(0);
+  const [completedTechniques, setCompletedTechniques] = useState(0);
+  const [recentProgress, setRecentProgress] = useState<(UserProgress & { technique: Technique })[]>([]);
+  const [nextTechnique, setNextTechnique] = useState<{ discipline: string; category: string; technique: string } | null>(null);
+  const [lastSessionDate, setLastSessionDate] = useState<string>('');
+  const [loading, setLoading] = useState(true);
+  const [dailyMotivation] = useState(getRandomMotivation());
+
+  useEffect(() => {
+    async function loadDashboardData() {
+      if (!user) return;
+
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('user_id', user.id)
+        .single();
+
+      const { data: techniquesData } = await supabase
+        .from('techniques')
+        .select('*');
+
+      const { data: progressData } = await supabase
+        .from('user_progress')
+        .select(`
+          *,
+          technique:techniques(*)
+        `)
+        .eq('user_id', user.id)
+        .order('completed_at', { ascending: false })
+        .limit(3);
+
+      const { data: allProgressData } = await supabase
+        .from('user_progress')
+        .select('id, completed_at')
+        .eq('user_id', user.id)
+        .order('completed_at', { ascending: false })
+        .limit(1);
+
+      if (profileData) setProfile(profileData);
+      if (techniquesData) setTotalTechniques(techniquesData.length);
+      if (progressData) {
+        setCompletedTechniques(progressData.length);
+        setRecentProgress(progressData as any);
+      }
+
+      if (allProgressData && allProgressData.length > 0) {
+        setLastSessionDate(new Date(allProgressData[0].completed_at).toLocaleDateString());
+      }
+
+      if (techniquesData && progressData) {
+        const completedIds = new Set(progressData.map(p => p.technique_id));
+        const nextIncomplete = techniquesData.find(t => !completedIds.has(t.id));
+
+        if (nextIncomplete) {
+          const { data: categoryData } = await supabase
+            .from('categories')
+            .select('name, discipline_id')
+            .eq('id', nextIncomplete.category_id)
+            .single();
+
+          if (categoryData) {
+            const { data: disciplineData } = await supabase
+              .from('disciplines')
+              .select('name')
+              .eq('id', categoryData.discipline_id)
+              .single();
+
+            if (disciplineData) {
+              setNextTechnique({
+                discipline: disciplineData.name,
+                category: categoryData.name,
+                technique: nextIncomplete.name
+              });
+            }
+          }
+        }
+      }
+
+      setLoading(false);
+    }
+
+    loadDashboardData();
+  }, [user]);
+
+  const getRankColor = (rank: string) => {
+    switch (rank) {
+      case 'Champion': return '#FFD700';
+      case 'Elite': return '#C0C0C0';
+      case 'Challenger': return '#4A90E2';
+      case 'Contender': return '#6BCF7F';
+      default: return '#A0A0A0';
+    }
+  };
+
+  const getNextRankThreshold = (powerLevel: number) => {
+    if (powerLevel < 200) return { next: 'Contender', required: 200 };
+    if (powerLevel < 500) return { next: 'Challenger', required: 500 };
+    if (powerLevel < 1000) return { next: 'Elite', required: 1000 };
+    if (powerLevel < 2000) return { next: 'Champion', required: 2000 };
+    return null;
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>LOADING...</div>
+      </div>
+    );
+  }
+
+  if (!profile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>PROFILE NOT FOUND</div>
+      </div>
+    );
+  }
+
+  const nextRank = getNextRankThreshold(profile.power_level);
+  const progressToNext = nextRank
+    ? ((profile.power_level - (nextRank.required === 200 ? 0 : nextRank.required === 500 ? 200 : nextRank.required === 1000 ? 500 : 1000)) / (nextRank.required - (nextRank.required === 200 ? 0 : nextRank.required === 500 ? 200 : nextRank.required === 1000 ? 500 : 1000))) * 100
+    : 100;
+
+  const completionPercentage = totalTechniques > 0 ? Math.round((completedTechniques / totalTechniques) * 100) : 0;
+
+  return (
+    <div className="min-h-screen py-6 px-4 relative">
+      <BGPattern variant="grid" mask="fade-edges" size={24} fill="#2a2a2a" className="opacity-30" />
+      <div className="max-w-7xl mx-auto space-y-6 relative z-10">
+
+        {/* WELCOME MESSAGE */}
+        <div className="bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A] to-transparent border-l-4 border-[#B11226] p-4 md:p-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-astro)' }}>
+            WELCOME BACK, {(profile.full_name || 'FIGHTER').toUpperCase()}
+          </h2>
+          <p className="text-sm sm:text-base text-[#B11226] font-bold" style={{ fontFamily: 'var(--font-astro)' }}>
+            {dailyMotivation}
+          </p>
+        </div>
+
+        {/* XP PROGRESS BAR TO NEXT RANK */}
+        {nextRank && (
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-xs text-[#A0A0A0] tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                NEXT RANK: {nextRank.next.toUpperCase()}
+              </p>
+              <p className="text-sm font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-robot)' }}>
+                {profile.power_level} / {nextRank.required}
+              </p>
+            </div>
+            <div className="w-full h-3 bg-[#2E2E2E] rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-[#B11226] to-[#FFD700] transition-all duration-1000 ease-out origin-left"
+                style={{ width: `${progressToNext}%` }}
+              />
+            </div>
+            <p className="text-xs text-[#A0A0A0] mt-2 text-center" style={{ fontFamily: 'var(--font-astro)' }}>
+              <span className="text-white font-bold" style={{ fontFamily: 'var(--font-robot)' }}>{nextRank.required - profile.power_level}</span> XP REMAINING
+            </p>
+          </div>
+        )}
+
+        {/* PROFILE AND RANK COMMAND PANEL - MOBILE OPTIMIZED */}
+        <div className="relative bg-[#1A1A1A] border border-[#2E2E2E] overflow-hidden">
+          <div className="diagonal-slash"></div>
+          <div className="relative z-10 p-6">
+
+            {/* Mobile: Center Profile with Rank Below */}
+            <div className="flex flex-col items-center gap-4 mb-6 md:hidden">
+              <ProfileImage rank={profile.rank} imageUrl={profile.profile_picture_url} />
+
+              <div className="text-center">
+                <p className="text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                  CURRENT RANK
+                </p>
+                <h1
+                  className="text-4xl font-bold mb-3"
+                  style={{
+                    fontFamily: 'var(--font-astro)',
+                    color: getRankColor(profile.rank),
+                    WebkitTextStroke: '2px black',
+                    textStroke: '2px black',
+                    paintOrder: 'stroke fill'
+                  }}
+                >
+                  {profile.rank.toUpperCase()}
+                </h1>
+              </div>
+
+              <div className="w-full max-w-xs">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-xs text-[#A0A0A0] tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                    POWER LEVEL
+                  </p>
+                  <div
+                    className="text-3xl font-bold text-[#B11226]"
+                    style={{ fontFamily: 'var(--font-robot)' }}
+                  >
+                    {profile.power_level}
+                  </div>
+                </div>
+
+                {nextRank && (
+                  <>
+                    <div className="w-full h-2 bg-[#2E2E2E] rounded-full overflow-hidden mb-2">
+                      <div
+                        className="h-full bg-[#B11226] transition-all duration-1000 ease-out origin-left"
+                        style={{ width: `${progressToNext}%` }}
+                      />
+                    </div>
+                    <p className="text-xs text-[#A0A0A0] text-center" style={{ fontFamily: 'var(--font-astro)' }}>
+                      <span style={{ fontFamily: 'var(--font-robot)' }}>{nextRank.required - profile.power_level}</span> XP to {nextRank.next}
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Desktop: Side by Side Layout */}
+            <div className="hidden md:flex md:flex-row gap-6 mb-8">
+              <div className="flex justify-start">
+                <ProfileImage rank={profile.rank} imageUrl={profile.profile_picture_url} />
+              </div>
+
+              <div className="flex-1 flex flex-row items-end justify-between gap-6">
+                <div>
+                  <p className="text-xs text-[#A0A0A0] mb-2 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                    CURRENT RANK
+                  </p>
+                  <h1
+                    className="text-7xl font-bold mb-0"
+                    style={{
+                      fontFamily: 'var(--font-astro)',
+                      color: getRankColor(profile.rank),
+                      WebkitTextStroke: '3px black',
+                      textStroke: '3px black',
+                      paintOrder: 'stroke fill'
+                    }}
+                  >
+                    {profile.rank.toUpperCase()}
+                  </h1>
+                </div>
+                <div className="text-right">
+                  <p className="text-xs text-[#A0A0A0] mb-2 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                    POWER LEVEL
+                  </p>
+                  <div
+                    className="text-6xl font-bold text-[#B11226]"
+                    style={{ fontFamily: 'var(--font-robot)' }}
+                  >
+                    {profile.power_level}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop XP Bar */}
+            {nextRank && (
+              <div className="hidden md:block">
+                <div className="w-full h-2 bg-[#2E2E2E] rounded-full overflow-hidden mb-3">
+                  <div
+                    className="h-full bg-[#B11226] transition-all duration-1000 ease-out origin-left"
+                    style={{ width: `${progressToNext}%` }}
+                  />
+                </div>
+                <p className="text-sm text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <span style={{ fontFamily: 'var(--font-robot)' }}>{nextRank.required - profile.power_level}</span> XP to {nextRank.next}
+                </p>
+              </div>
+            )}
+          </div>
+          <div className="h-1 bg-[#B11226] w-full"></div>
+        </div>
+
+        {/* STAT GRID */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+            <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+              TECHNIQUES
+            </p>
+            <p className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+              {completedTechniques}
+            </p>
+          </div>
+
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+            <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+              TOTAL XP
+            </p>
+            <p className="text-2xl md:text-3xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-robot)' }}>
+              {profile.power_level}
+            </p>
+          </div>
+
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+            <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+              RANK
+            </p>
+            <p className="text-xl md:text-3xl font-bold" style={{ fontFamily: 'var(--font-astro)', color: getRankColor(profile.rank) }}>
+              {profile.rank}
+            </p>
+          </div>
+
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+            <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+              LAST SESSION
+            </p>
+            <p className="text-sm md:text-lg font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+              {lastSessionDate || 'N/A'}
+            </p>
+          </div>
+        </div>
+
+        {/* PROGRESS AND TRAINING GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          {/* PROGRESS SECTION */}
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 flex flex-col items-center justify-center">
+            <h2 className="text-xl md:text-2xl font-bold mb-6 text-center" style={{ fontFamily: 'var(--font-astro)' }}>
+              OVERALL PROGRESS
+            </h2>
+            <CircularProgress
+              percentage={completionPercentage}
+              completed={completedTechniques}
+              total={totalTechniques}
+            />
+          </div>
+
+          {/* CURRENT TRAINING PANEL */}
+          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-6">
+            <h2 className="text-xl md:text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-astro)' }}>
+              CURRENT TRAINING
+            </h2>
+
+            {nextTechnique ? (
+              <div className="space-y-3 mb-6">
+                <div>
+                  <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                    DISCIPLINE
+                  </p>
+                  <p className="text-base md:text-xl text-white" style={{ fontFamily: 'var(--font-astro)' }}>
+                    {nextTechnique.discipline}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                    CATEGORY
+                  </p>
+                  <p className="text-base md:text-xl text-white" style={{ fontFamily: 'var(--font-astro)' }}>
+                    {nextTechnique.category}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                    NEXT TECHNIQUE
+                  </p>
+                  <p className="text-lg md:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-astro)' }}>
+                    {nextTechnique.technique}
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="mb-6">
+                <p className="text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>
+                  All techniques completed!
+                </p>
+              </div>
+            )}
+
+            <button
+              onClick={() => onNavigate('Disciplines')}
+              className="w-full py-3 md:py-4 bg-[#B11226] text-white text-base md:text-xl font-bold hover:bg-[#8B0E1C] transition-colors"
+              style={{ fontFamily: 'var(--font-astro)' }}
+            >
+              {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
+            </button>
+          </div>
+        </div>
+
+        {/* RECENT VICTORIES */}
+        {recentProgress.length > 0 && (
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-astro)' }}>
+              RECENT VICTORIES
+            </h2>
+            <div className="space-y-2">
+              {recentProgress.map((progress) => (
+                <div
+                  key={progress.id}
+                  className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 md:p-6 flex items-center justify-between hover:border-[#B11226] transition-colors"
+                >
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base md:text-xl font-bold mb-1 truncate" style={{ fontFamily: 'var(--font-astro)' }}>
+                      {progress.technique?.name}
+                    </h3>
+                    <p className="text-xs md:text-sm text-[#A0A0A0]" style={{ fontFamily: 'var(--font-robot)' }}>
+                      {new Date(progress.completed_at).toLocaleDateString()}
+                    </p>
+                  </div>
+                  <div className="text-[#B11226] font-bold text-xl md:text-2xl ml-4 flex-shrink-0" style={{ fontFamily: 'var(--font-robot)' }}>
+                    +{progress.technique?.xp_reward}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
