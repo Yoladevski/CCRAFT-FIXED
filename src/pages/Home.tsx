@@ -1,4 +1,5 @@
 import { useAuth } from '../contexts/AuthContext';
+import { ShimmerButton } from '../components/ui/ShimmerButton';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -36,13 +37,13 @@ export default function Home({ onNavigate }: HomeProps) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
-            <button
+            <ShimmerButton
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
-              className="w-full sm:w-auto px-12 py-6 bg-[#B11226] text-white text-xl font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
+              className="w-full sm:w-auto px-12 py-6 text-xl font-bold shadow-lg tracking-wide"
               style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)' }}
             >
               START TRAINING
-            </button>
+            </ShimmerButton>
           </div>
         </div>
       </section>
