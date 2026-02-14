@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Lock, ArrowLeft } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 type Category = Database['public']['Tables']['categories']['Row'];
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
@@ -47,8 +48,9 @@ export default function DisciplinePage({ disciplineId, onNavigate }: DisciplineP
   }
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen py-12 px-4 relative">
+      <BGPattern variant="grid" size={24} fill="#252525" mask="fade-edges" />
+      <div className="max-w-7xl mx-auto relative z-10">
         <button
           onClick={() => onNavigate('Disciplines')}
           className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors mb-8"

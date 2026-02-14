@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface AuthProps {
   onNavigate: (page: string) => void;
@@ -37,8 +38,9 @@ export default function Auth({ onNavigate }: AuthProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center px-4 relative">
+      <BGPattern variant="grid" size={24} fill="#252525" mask="fade-edges" />
+      <div className="w-full max-w-md relative z-10">
         <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-8">
           <h2 className="text-3xl font-bold text-center mb-8">
             {isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}

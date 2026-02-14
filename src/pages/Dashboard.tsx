@@ -3,6 +3,7 @@ import { User, Shield, Award, Star, Crown, Trophy } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 type Technique = Database['public']['Tables']['techniques']['Row'];
@@ -265,6 +266,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
   return (
     <div className="min-h-screen py-6 px-4 relative">
+      <BGPattern variant="grid" size={24} fill="#252525" mask="fade-edges" />
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
 
         {/* WELCOME MESSAGE */}

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Lock } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
 
@@ -38,8 +39,9 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
   }
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen py-12 px-4 relative">
+      <BGPattern variant="grid" size={24} fill="#252525" mask="fade-edges" />
+      <div className="max-w-7xl mx-auto relative z-10">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
           CHOOSE YOUR DISCIPLINE
         </h1>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import BackButton from '../components/BackButton';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface NewsProps {
   onBack: () => void;
@@ -43,8 +44,9 @@ export default function News({ onBack }: NewsProps) {
       : mockArticles.filter((article) => article.discipline === selectedDiscipline);
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen py-12 px-4 relative">
+      <BGPattern variant="grid" size={24} fill="#252525" mask="fade-edges" />
+      <div className="max-w-6xl mx-auto relative z-10">
         <BackButton onBack={onBack} />
         <h1 className="text-4xl sm:text-5xl font-bold text-center mb-12" style={{ textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000' }}>NEWS</h1>
 

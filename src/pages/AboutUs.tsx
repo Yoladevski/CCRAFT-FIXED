@@ -1,4 +1,5 @@
 import BackButton from '../components/BackButton';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface AboutUsProps {
   onNavigate: (page: string) => void;
@@ -14,8 +15,9 @@ export default function AboutUs({ onNavigate, onBack }: AboutUsProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0E0E0E] py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-[#0E0E0E] py-16 px-4 sm:px-6 lg:px-8 relative">
+      <BGPattern variant="grid" size={24} fill="#252525" mask="fade-edges" />
+      <div className="max-w-4xl mx-auto relative z-10">
         <BackButton onBack={onBack} />
         <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 heading-font">
