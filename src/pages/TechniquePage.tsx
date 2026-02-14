@@ -268,7 +268,7 @@ export default function TechniquePage({ techniqueId, onNavigate, onBack }: Techn
               </button>
               {openSections.why && (
                 <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed">{technique.why}</p>
+                  <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.why}</p>
                 </div>
               )}
             </div>
