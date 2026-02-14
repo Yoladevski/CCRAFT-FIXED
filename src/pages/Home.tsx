@@ -9,7 +9,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
   return (
     <div>
-      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0E0E0E] z-10" />
 
         <video
