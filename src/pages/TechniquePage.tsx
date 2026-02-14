@@ -27,18 +27,14 @@ export default function TechniquePage({ techniqueId, onNavigate, onBack }: Techn
   const [openSections, setOpenSections] = useState({
     why: false,
     how: false,
-    when: false,
     mistakes: false,
-    tactical: false,
     drills: false,
   });
 
   const [sectionsRead, setSectionsRead] = useState({
     why: false,
     how: false,
-    when: false,
     mistakes: false,
-    tactical: false,
     drills: false,
   });
 
@@ -113,9 +109,7 @@ export default function TechniquePage({ techniqueId, onNavigate, onBack }: Techn
           setSectionsRead({
             why: savedSections.why || false,
             how: savedSections.how || false,
-            when: savedSections.when || false,
             mistakes: savedSections.mistakes || false,
-            tactical: savedSections.tactical || false,
             drills: savedSections.drills || false,
           });
         }
@@ -177,9 +171,7 @@ export default function TechniquePage({ techniqueId, onNavigate, onBack }: Techn
     const availableSections = [
       technique?.why ? 'why' : null,
       technique?.how ? 'how' : null,
-      technique?.when_to_use ? 'when' : null,
       technique?.common_mistakes ? 'mistakes' : null,
-      technique?.tactical_uses ? 'tactical' : null,
       technique?.simple_drills ? 'drills' : null,
     ].filter(Boolean) as (keyof typeof sectionsRead)[];
 
@@ -299,31 +291,6 @@ export default function TechniquePage({ techniqueId, onNavigate, onBack }: Techn
             </div>
           )}
 
-          {technique.when_to_use && (
-            <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden">
-              <button
-                onClick={() => toggleSection('when')}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <h3 className="text-2xl font-bold text-[#B11226]">WHEN</h3>
-                  {sectionsRead.when && (
-                    <Check size={24} className="text-[#B11226]" />
-                  )}
-                </div>
-                <ChevronDown
-                  size={24}
-                  className={`text-[#B11226] transition-transform ${openSections.when ? 'rotate-180' : ''}`}
-                />
-              </button>
-              {openSections.when && (
-                <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed">{technique.when_to_use}</p>
-                </div>
-              )}
-            </div>
-          )}
-
           {technique.common_mistakes && (
             <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden">
               <button
@@ -344,31 +311,6 @@ export default function TechniquePage({ techniqueId, onNavigate, onBack }: Techn
               {openSections.mistakes && (
                 <div className="px-6 pb-6">
                   <p className="text-[#A0A0A0] text-body leading-relaxed">{technique.common_mistakes}</p>
-                </div>
-              )}
-            </div>
-          )}
-
-          {technique.tactical_uses && (
-            <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden">
-              <button
-                onClick={() => toggleSection('tactical')}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <h3 className="text-2xl font-bold text-[#B11226]">TACTICAL USES</h3>
-                  {sectionsRead.tactical && (
-                    <Check size={24} className="text-[#B11226]" />
-                  )}
-                </div>
-                <ChevronDown
-                  size={24}
-                  className={`text-[#B11226] transition-transform ${openSections.tactical ? 'rotate-180' : ''}`}
-                />
-              </button>
-              {openSections.tactical && (
-                <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed">{technique.tactical_uses}</p>
                 </div>
               )}
             </div>
