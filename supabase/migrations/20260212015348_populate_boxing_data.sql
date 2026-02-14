@@ -84,7 +84,15 @@ SELECT
   1,
   'https://www.youtube.com/embed/0bRi6XcjEwI',
   50,
-  '',
+  'The Jab is one of the most important punches in boxing.
+  1. The Jab controls distance and manages range. 
+  2. It keeps opponents at the end of your reach.
+  3. Sharp Jabs disrupts rhythm and timing.
+  4. Jabbing breaks opponents flow and keeps them defencive.
+  5. Clean jabs help to score points and impress judges
+  6. The Jab creates openings and sets up for attacks
+  7. The jab is faster, safer and less likely to leave you exposed
+  8. A solid, consistant and scoring jab does not just physically hurt your opponent it also breaks their heart.'
   'Start in your boxing stance. Extend your lead hand straight out, rotating your fist so the palm faces down at full extension. Your shoulder should come up to protect your chin. Return the hand quickly to guard position. Keep your rear hand protecting your face.',
   'Use the jab to gauge distance, interrupt opponent attacks, set up power punches, and control the pace of the fight. It''s your most versatile tool.',
   'Common mistakes include: dropping the rear hand, not returning the jab quickly enough, telegraphing by pulling back before punching, not turning the fist over, and poor foot positioning.',
