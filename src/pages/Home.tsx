@@ -49,7 +49,7 @@ export default function Home({ onNavigate }: HomeProps) {
       </section>
 
       <section className="py-16 sm:py-24 px-4 bg-[#0E0E0E] relative">
-        <BGPattern variant="grid" size={24} fill="#252525" mask="fade-edges" />
+        <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
             <div className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105">

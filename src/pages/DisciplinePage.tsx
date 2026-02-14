@@ -48,8 +48,8 @@ export default function DisciplinePage({ disciplineId, onNavigate }: DisciplineP
   }
 
   return (
-    <div className="min-h-screen py-12 px-4 relative">
-      <BGPattern variant="grid" size={24} fill="#252525" mask="fade-edges" />
+    <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
+      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-7xl mx-auto relative z-10">
         <button
           onClick={() => onNavigate('Disciplines')}

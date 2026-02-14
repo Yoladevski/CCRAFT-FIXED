@@ -44,8 +44,8 @@ export default function News({ onBack }: NewsProps) {
       : mockArticles.filter((article) => article.discipline === selectedDiscipline);
 
   return (
-    <div className="min-h-screen py-12 px-4 relative">
-      <BGPattern variant="grid" size={24} fill="#252525" mask="fade-edges" />
+    <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
+      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-6xl mx-auto relative z-10">
         <BackButton onBack={onBack} />
         <h1 className="text-4xl sm:text-5xl font-bold text-center mb-12" style={{ textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000' }}>NEWS</h1>
