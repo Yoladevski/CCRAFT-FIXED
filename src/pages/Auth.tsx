@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { ShimmerButton } from '../components/ui/ShimmerButton';
 
 interface AuthProps {
   onNavigate: (page: string) => void;
@@ -81,13 +80,13 @@ export default function Auth({ onNavigate }: AuthProps) {
               />
             </div>
 
-            <ShimmerButton
+            <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'LOADING...' : isSignUp ? 'SIGN UP' : 'SIGN IN'}
-            </ShimmerButton>
+            </button>
           </form>
 
           <div className="mt-6 text-center">

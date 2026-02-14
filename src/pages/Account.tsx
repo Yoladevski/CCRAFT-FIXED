@@ -4,7 +4,6 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import BackButton from '../components/BackButton';
-import { ShimmerButton } from '../components/ui/ShimmerButton';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
@@ -473,14 +472,14 @@ export default function Account({ onBack }: AccountProps) {
                     </select>
                   </div>
 
-                  <ShimmerButton
+                  <button
                     type="submit"
                     disabled={saving}
-                    className="w-full py-4 font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ fontFamily: 'var(--font-astro)' }}
                   >
                     {saving ? 'SAVING...' : 'SAVE PROFILE'}
-                  </ShimmerButton>
+                  </button>
                 </form>
               </div>
             )}
@@ -526,14 +525,14 @@ export default function Account({ onBack }: AccountProps) {
                       placeholder="newemail@example.com"
                     />
                   </div>
-                  <ShimmerButton
+                  <button
                     type="submit"
                     disabled={saving || !newEmail}
-                    className="w-full py-3 sm:py-4 text-sm sm:text-base font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ fontFamily: 'var(--font-astro)' }}
                   >
                     {saving ? 'UPDATING...' : 'UPDATE EMAIL'}
-                  </ShimmerButton>
+                  </button>
                 </form>
 
                 <form onSubmit={handlePhoneChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
@@ -553,14 +552,14 @@ export default function Account({ onBack }: AccountProps) {
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
-                  <ShimmerButton
+                  <button
                     type="submit"
                     disabled={saving || !phoneNumber}
-                    className="w-full py-3 sm:py-4 text-sm sm:text-base font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ fontFamily: 'var(--font-astro)' }}
                   >
                     {saving ? 'UPDATING...' : 'UPDATE PHONE'}
-                  </ShimmerButton>
+                  </button>
                 </form>
 
                 <form onSubmit={handlePasswordChange} className="space-y-4 sm:space-y-6">
@@ -637,14 +636,14 @@ export default function Account({ onBack }: AccountProps) {
                     </div>
                   </div>
 
-                  <ShimmerButton
+                  <button
                     type="submit"
                     disabled={saving || !newPassword || !confirmPassword}
-                    className="w-full py-3 sm:py-4 text-sm sm:text-base font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ fontFamily: 'var(--font-astro)' }}
                   >
                     {saving ? 'UPDATING...' : 'UPDATE PASSWORD'}
-                  </ShimmerButton>
+                  </button>
                 </form>
               </div>
             )}
