@@ -23,7 +23,7 @@ const disciplines = [
   {
     id: 'muay-thai',
     name: 'Muay Thai',
-    isActive: false,
+    isActive: true,
     categories: [
       { id: 'attacks', name: 'Attacks' },
       { id: 'defence', name: 'Defence' },
@@ -34,18 +34,18 @@ const disciplines = [
   {
     id: 'bjj',
     name: 'BJJ',
-    isActive: false,
+    isActive: true,
     categories: [
-      { id: 'positions', name: 'Positions' },
-      { id: 'submissions', name: 'Submissions' },
-      { id: 'escapes', name: 'Escapes' },
-      { id: 'transitions', name: 'Transitions' }
+      { id: 'attacks', name: 'Attacks' },
+      { id: 'defence', name: 'Defence' },
+      { id: 'footwork', name: 'Footwork' },
+      { id: 'combos', name: 'Combos' }
     ]
   },
   {
     id: 'kickboxing',
     name: 'Kickboxing',
-    isActive: false,
+    isActive: true,
     categories: [
       { id: 'attacks', name: 'Attacks' },
       { id: 'defence', name: 'Defence' },
@@ -56,31 +56,34 @@ const disciplines = [
   {
     id: 'karate',
     name: 'Karate',
-    isActive: false,
+    isActive: true,
     categories: [
-      { id: 'kihon', name: 'Kihon' },
-      { id: 'kata', name: 'Kata' },
-      { id: 'kumite', name: 'Kumite' }
+      { id: 'attacks', name: 'Attacks' },
+      { id: 'defence', name: 'Defence' },
+      { id: 'footwork', name: 'Footwork' },
+      { id: 'combos', name: 'Combos' }
     ]
   },
   {
     id: 'taekwondo',
     name: 'Taekwondo',
-    isActive: false,
+    isActive: true,
     categories: [
-      { id: 'kicks', name: 'Kicks' },
-      { id: 'poomsae', name: 'Poomsae' },
-      { id: 'sparring', name: 'Sparring' }
+      { id: 'attacks', name: 'Attacks' },
+      { id: 'defence', name: 'Defence' },
+      { id: 'footwork', name: 'Footwork' },
+      { id: 'combos', name: 'Combos' }
     ]
   },
   {
     id: 'judo',
     name: 'Judo',
-    isActive: false,
+    isActive: true,
     categories: [
-      { id: 'throws', name: 'Throws' },
-      { id: 'groundwork', name: 'Groundwork' },
-      { id: 'pins', name: 'Pins' }
+      { id: 'attacks', name: 'Attacks' },
+      { id: 'defence', name: 'Defence' },
+      { id: 'footwork', name: 'Footwork' },
+      { id: 'combos', name: 'Combos' }
     ]
   },
 ];
@@ -186,7 +189,6 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                         setDisciplinesDropdownOpen(false);
                         setHoveredDiscipline(null);
                       }}
-                      onClick={() => handleNavigate('Disciplines')}
                       className={`relative flex items-center gap-1 text-lg font-bold hover:text-[#B11226] transition-colors pb-1 ${
                         currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
                           ? 'text-white'
@@ -210,6 +212,12 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                         className="absolute top-full left-0 pt-2 w-56 bg-[#1A1A1A] border border-[#2E2E2E] rounded-lg shadow-xl pb-2 animate-fade-in"
                         style={{ marginTop: '-8px', paddingTop: '10px' }}
                       >
+                        <button
+                          onClick={() => handleNavigate('Disciplines')}
+                          className="w-full text-left px-4 py-3 text-white hover:bg-[#2E2E2E] transition-colors font-bold border-b border-[#2E2E2E]"
+                        >
+                          VIEW ALL
+                        </button>
                         {disciplines.map((discipline) => (
                           <div
                             key={discipline.id}
@@ -409,6 +417,12 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
                 {mobileDisciplinesOpen && (
                   <div className="mt-2 ml-4 space-y-1 animate-fade-in">
+                    <button
+                      onClick={() => handleNavigate('Disciplines')}
+                      className="w-full text-left py-3 px-4 rounded text-white hover:bg-[#2E2E2E] transition-all font-bold border-b border-[#2E2E2E] mb-2"
+                    >
+                      VIEW ALL
+                    </button>
                     {disciplines.map((discipline) => (
                       <div key={discipline.id}>
                         <button
