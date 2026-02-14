@@ -22,7 +22,6 @@ import AboutUs from './pages/AboutUs';
 import Vision from './pages/Vision';
 import Contact from './pages/Contact';
 import Affiliates from './pages/Affiliates';
-import { BGPattern } from './components/ui/bg-pattern';
 
 type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates';
 
@@ -98,7 +97,6 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen relative">
-      <BGPattern variant="grid" mask="fade-edges" size={24} fill="#2a2a2a" className="opacity-30" />
       <Navigation currentPage={navState.page} onNavigate={(page, id) => navigate(page as Page, id)} />
 
       <main className="flex-grow relative z-10">
