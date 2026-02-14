@@ -52,9 +52,7 @@ SELECT
   'Jab',
   1,
   'https://www.youtube.com/embed/0bRi6XcjEwI',
-  50,
-  'The Jab is one of the most important punches in boxing.
-
+  50,'The Jab is one of the most important punches in boxing.
 • The Jab controls distance and manages range.
 • It keeps opponents at the end of your reach.
 • The Jab creates openings and sets up for attacks.
