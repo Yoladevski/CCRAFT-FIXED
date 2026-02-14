@@ -18,7 +18,7 @@ export default function Home({ onNavigate }: HomeProps) {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_20%] md:scale-75"
           poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
         >
           <source

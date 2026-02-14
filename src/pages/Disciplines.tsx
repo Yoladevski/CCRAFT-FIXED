@@ -22,7 +22,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
         .order('order_index');
 
       if (data) {
-        setDisciplines(data);
+        setDisciplines(data.filter(d => d.name !== 'Kickboxing'));
       }
       setLoading(false);
     }
@@ -88,7 +88,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                       : discipline.name === 'Muay Thai'
                       ? 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=1200&h=675&fit=crop&crop=center'
                       : discipline.name === 'BJJ'
-                      ? 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=1200&h=675&fit=crop&crop=center'
+                      ? 'https://i.postimg.cc/MHT6KD7s/bjjjj.png'
                       : discipline.name === 'Kickboxing'
                       ? 'https://images.unsplash.com/photo-1571019613914-85f342c55f2a?w=1200&h=675&fit=crop&crop=center'
                       : discipline.name === 'Karate'
