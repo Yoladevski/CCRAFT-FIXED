@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Menu, X, ChevronDown, ChevronRight, Lock } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
+import { BGPattern } from './ui/bg-pattern';
 
 interface NavigationProps {
   currentPage: string;
@@ -141,17 +142,8 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50" style={{
-        backgroundImage: `
-          linear-gradient(45deg, #0A0A0A 25%, transparent 25%),
-          linear-gradient(-45deg, #0A0A0A 25%, transparent 25%),
-          linear-gradient(45deg, transparent 75%, #0A0A0A 75%),
-          linear-gradient(-45deg, transparent 75%, #0A0A0A 75%)
-        `,
-        backgroundSize: '20px 20px',
-        backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px',
-        backgroundColor: '#0E0E0E'
-      }}>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0E0E0E] relative">
+        <BGPattern variant="grid" mask="fade-edges" size={24} fill="#2a2a2a" className="opacity-30" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8">
             <div className="hidden lg:flex items-center justify-start">
@@ -370,19 +362,9 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
       <div
         className={`fixed top-0 left-0 bottom-0 w-full sm:w-96 z-50 transform transition-transform duration-300 ease-out lg:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } border-r border-[#2E2E2E] overflow-y-auto`}
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, #0A0A0A 25%, transparent 25%),
-            linear-gradient(-45deg, #0A0A0A 25%, transparent 25%),
-            linear-gradient(45deg, transparent 75%, #0A0A0A 75%),
-            linear-gradient(-45deg, transparent 75%, #0A0A0A 75%)
-          `,
-          backgroundSize: '20px 20px',
-          backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px',
-          backgroundColor: '#0E0E0E'
-        }}
+        } border-r border-[#2E2E2E] overflow-y-auto bg-[#0E0E0E] relative`}
       >
+        <BGPattern variant="grid" mask="fade-edges" size={24} fill="#2a2a2a" className="opacity-30" />
         <div className="flex items-center justify-between p-4 border-b border-[#2E2E2E]">
           <button
             onClick={() => handleNavigate('Home')}

@@ -1,4 +1,5 @@
 import { Instagram } from 'lucide-react';
+import { BGPattern } from './ui/bg-pattern';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -6,17 +7,8 @@ interface FooterProps {
 
 export default function Footer({ onNavigate }: FooterProps) {
   return (
-    <footer className="border-t border-[#2E2E2E] mt-auto" style={{
-      backgroundImage: `
-        linear-gradient(45deg, #0D0D0D 25%, transparent 25%),
-        linear-gradient(-45deg, #0D0D0D 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #0D0D0D 75%),
-        linear-gradient(-45deg, transparent 75%, #0D0D0D 75%)
-      `,
-      backgroundSize: '20px 20px',
-      backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px',
-      backgroundColor: '#111111'
-    }}>
+    <footer className="border-t border-[#2E2E2E] mt-auto bg-[#111111] relative">
+      <BGPattern variant="grid" mask="fade-edges" size={24} fill="#2a2a2a" className="opacity-30" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center space-y-4">
           <div className="flex justify-center items-center gap-8">
