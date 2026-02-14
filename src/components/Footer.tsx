@@ -13,7 +13,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <img
               src="https://i.postimg.cc/KcNxkd4T/new-2.png"
               alt="CombatCraft Logo"
-              className="h-52 w-auto object-contain"
+              className="h-40 w-auto object-contain"
             />
           </div>
 
