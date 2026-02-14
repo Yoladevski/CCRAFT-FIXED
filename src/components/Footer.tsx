@@ -9,28 +9,18 @@ export default function Footer({ onNavigate }: FooterProps) {
     <footer className="bg-[#111111] border-t border-[#2E2E2E] mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center space-y-4">
-          <div className="pt-2">
-            <p className="text-[#A0A0A0] text-body">
-              Copyright © 2025 COMBATCRAFT<br />
-              All rights reserved
-            </p>
-          </div>
-
           <div className="relative py-8">
-            <div
-              className="absolute inset-0 flex items-end justify-center pointer-events-none"
-              style={{
-                backgroundImage: 'url(https://i.postimg.cc/QNRwMmJb/footer-cc.png)',
-                backgroundPosition: 'center bottom',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
-                opacity: 0.1,
-                maxHeight: '120px',
-                marginTop: '20px'
-              }}
-            />
+            <div className="relative z-10 space-y-6">
+              {/* Logo Image */}
+              <div className="flex justify-center mb-6">
+                <img
+                  src="https://i.postimg.cc/KcNxkd4T/new-2.png"
+                  alt="CombatCraft Logo"
+                  className="h-32 w-auto object-contain opacity-100"
+                  style={{ filter: 'drop-shadow(0 0 20px rgba(0, 0, 0, 0.5))' }}
+                />
+              </div>
 
-            <div className="relative z-10">
               <div className="flex justify-center items-center gap-8 mb-4">
                 <button
                   onClick={() => onNavigate('Legal')}
@@ -105,6 +95,13 @@ export default function Footer({ onNavigate }: FooterProps) {
                 </a>
               </div>
             </div>
+          </div>
+
+          <div className="pt-2">
+            <p className="text-[#A0A0A0] text-body">
+              Copyright © 2025 COMBATCRAFT<br />
+              All rights reserved
+            </p>
           </div>
         </div>
       </div>
