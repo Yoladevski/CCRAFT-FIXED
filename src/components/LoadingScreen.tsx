@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -28,6 +27,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const [isComplete, setIsComplete] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
   const quote = useMemo(() => QUOTES[Math.floor(Math.random() * QUOTES.length)], []);
 
   useEffect(() => {
@@ -47,8 +47,11 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         requestAnimationFrame(animate);
       } else {
         setTimeout(() => {
-          setIsComplete(true);
-          setTimeout(onComplete, 300);
+          setIsExiting(true);
+          setTimeout(() => {
+            setIsComplete(true);
+            onComplete();
+          }, 300);
         }, 200);
       }
     };
@@ -56,59 +59,97 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     requestAnimationFrame(animate);
   }, [onComplete]);
 
+  if (isComplete) {
+    return null;
+  }
+
   return (
-    <AnimatePresence>
-      {!isComplete && (
-        <motion.div
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[9999] bg-[#0A0A0A] flex items-center justify-center"
+    <div
+      className={`fixed inset-0 z-[9999] bg-[#0A0A0A] flex items-center justify-center ${
+        isExiting ? 'loading-screen-exit' : ''
+      }`}
+    >
+      <div className="flex flex-col items-center gap-8 max-w-3xl px-8">
+        <div
+          className={`flex flex-col items-center gap-6 ${
+            showLoading ? 'loading-section-enter' : 'opacity-0'
+          }`}
         >
-          <div className="flex flex-col items-center gap-8 max-w-3xl px-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showLoading ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-              className="flex flex-col items-center gap-6"
+          <div className="relative">
+            <div
+              className="overflow-hidden"
+              style={{
+                clipPath: `inset(0 ${100 - progress}% 0 0)`,
+              }}
             >
-              <div className="relative">
-                <div
-                  className="overflow-hidden"
-                  style={{
-                    clipPath: `inset(0 ${100 - progress}% 0 0)`,
-                  }}
-                >
-                  <img
-                    src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png"
-                    alt="Combat Craft"
-                    className="h-32 w-auto"
-                    draggable={false}
-                  />
-                </div>
-              </div>
-
-              <div className="text-4xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
-                {progress}%
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showQuote ? 1 : 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex flex-col items-center gap-4 text-center"
-            >
-              <p className="text-2xl md:text-3xl font-light text-white leading-relaxed">
-                "{quote.text}"
-              </p>
-              <p className="text-sm md:text-base uppercase tracking-[0.3em] text-white/60 font-light">
-                {quote.author}
-              </p>
-            </motion.div>
+              <img
+                src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png"
+                alt="Combat Craft"
+                className="h-32 w-auto"
+                draggable={false}
+              />
+            </div>
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+
+          <div className="text-4xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+            {progress}%
+          </div>
+        </div>
+
+        <div
+          className={`flex flex-col items-center gap-4 text-center ${
+            showQuote ? 'quote-section-enter' : 'opacity-0'
+          }`}
+        >
+          <p className="text-2xl md:text-3xl font-light text-white leading-relaxed">
+            "{quote.text}"
+          </p>
+          <p className="text-sm md:text-base uppercase tracking-[0.3em] text-white/60 font-light">
+            {quote.author}
+          </p>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes loadingScreenExit {
+          from {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
+          }
+        }
+
+        @keyframes loadingSectionEnter {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes quoteSectionEnter {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .loading-screen-exit {
+          animation: loadingScreenExit 0.3s ease-out forwards;
+        }
+
+        .loading-section-enter {
+          animation: loadingSectionEnter 0.3s ease-out forwards;
+        }
+
+        .quote-section-enter {
+          animation: quoteSectionEnter 0.8s ease-out forwards;
+        }
+      `}</style>
+    </div>
   );
 }
