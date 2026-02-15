@@ -21,7 +21,7 @@
 
 @font-face {
   font-family: 'Progress';
-  src: url('/src/assets/fonts/PROGRESS PERSONAL USE.ttf') format('truetype');
+  src: url('/src/assets/fonts/PROGRESS-PERSONAL-USE.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
