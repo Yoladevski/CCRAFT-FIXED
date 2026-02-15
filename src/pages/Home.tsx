@@ -45,6 +45,12 @@ export default function Home({ onNavigate }: HomeProps) {
               START TRAINING
             </button>
           </div>
+
+          <div className="mt-16 sm:mt-20 text-center">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[0.08em] leading-tight" style={{ textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)', fontFamily: 'Progress, sans-serif' }}>
+              TRAIN WITH PURPOSE<br />IMPROVE WITH STRUCTURE
+            </p>
+          </div>
         </div>
       </section>
 
