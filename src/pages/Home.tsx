@@ -47,7 +47,7 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
         </div>
       </section>
-
+"BUILD REAL SKILLS<br />ONE MOVE AT A TIME"
       <section className="py-16 sm:py-24 px-4 bg-[#0E0E0E] relative">
         <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
         <div className="max-w-7xl mx-auto relative z-10">
