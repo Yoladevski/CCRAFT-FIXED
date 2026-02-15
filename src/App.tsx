@@ -1,27 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
-import Home from './pages/Home';
-import Auth from './pages/Auth';
-import Disciplines from './pages/Disciplines';
-import DisciplinePage from './pages/DisciplinePage';
-import CategoryPage from './pages/CategoryPage';
-import TechniquePage from './pages/TechniquePage';
-import Dashboard from './pages/Dashboard';
-import News from './pages/News';
-import Account from './pages/Account';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import CookiePolicy from './pages/CookiePolicy';
-import Disclaimer from './pages/Disclaimer';
-import Legal from './pages/Legal';
-import AboutUs from './pages/AboutUs';
-import Vision from './pages/Vision';
-import Contact from './pages/Contact';
-import Affiliates from './pages/Affiliates';
+
+const Home = lazy(() => import('./pages/Home'));
+const Auth = lazy(() => import('./pages/Auth'));
+const Disciplines = lazy(() => import('./pages/Disciplines'));
+const DisciplinePage = lazy(() => import('./pages/DisciplinePage'));
+const CategoryPage = lazy(() => import('./pages/CategoryPage'));
+const TechniquePage = lazy(() => import('./pages/TechniquePage'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const News = lazy(() => import('./pages/News'));
+const Account = lazy(() => import('./pages/Account'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
+const Disclaimer = lazy(() => import('./pages/Disclaimer'));
+const Legal = lazy(() => import('./pages/Legal'));
+const AboutUs = lazy(() => import('./pages/AboutUs'));
+const Vision = lazy(() => import('./pages/Vision'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Affiliates = lazy(() => import('./pages/Affiliates'));
 
 type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates';
 
@@ -89,7 +90,13 @@ function AppContent() {
     return (
       <div className="flex flex-col min-h-screen bg-[#0E0E0E]">
         <Navigation currentPage="Home" onNavigate={(page, id) => navigate(page as Page, id)} />
-        <Auth onNavigate={(page) => navigate(page as Page)} />
+        <Suspense fallback={
+          <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center">
+            <div className="text-2xl text-[#A0A0A0] heading-font">LOADING...</div>
+          </div>
+        }>
+          <Auth onNavigate={(page) => navigate(page as Page)} />
+        </Suspense>
         <Footer onNavigate={(page) => navigate(page as Page)} />
       </div>
     );
@@ -100,59 +107,65 @@ function AppContent() {
       <Navigation currentPage={navState.page} onNavigate={(page, id) => navigate(page as Page, id)} />
 
       <main className="flex-grow relative z-10 bg-[#0E0E0E]">
-        {navState.page === 'Home' && <Home onNavigate={(page) => navigate(page as Page)} />}
+        <Suspense fallback={
+          <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center">
+            <div className="text-2xl text-[#A0A0A0] heading-font">LOADING...</div>
+          </div>
+        }>
+          {navState.page === 'Home' && <Home onNavigate={(page) => navigate(page as Page)} />}
 
-        {navState.page === 'Disciplines' && (
-          <Disciplines onNavigate={(page, id) => navigate(page as Page, id)} />
-        )}
+          {navState.page === 'Disciplines' && (
+            <Disciplines onNavigate={(page, id) => navigate(page as Page, id)} />
+          )}
 
-        {navState.page === 'Discipline' && navState.disciplineId && (
-          <DisciplinePage
-            disciplineId={navState.disciplineId}
-            onNavigate={(page, id) => navigate(page as Page, id)}
-          />
-        )}
+          {navState.page === 'Discipline' && navState.disciplineId && (
+            <DisciplinePage
+              disciplineId={navState.disciplineId}
+              onNavigate={(page, id) => navigate(page as Page, id)}
+            />
+          )}
 
-        {navState.page === 'Category' && navState.categoryId && (
-          <CategoryPage
-            categoryId={navState.categoryId}
-            onNavigate={(page, id) => navigate(page as Page, id)}
-          />
-        )}
+          {navState.page === 'Category' && navState.categoryId && (
+            <CategoryPage
+              categoryId={navState.categoryId}
+              onNavigate={(page, id) => navigate(page as Page, id)}
+            />
+          )}
 
-        {navState.page === 'Technique' && navState.techniqueId && (
-          <TechniquePage
-            techniqueId={navState.techniqueId}
-            onNavigate={(page) => navigate(page as Page)}
-            onBack={goBack}
-          />
-        )}
+          {navState.page === 'Technique' && navState.techniqueId && (
+            <TechniquePage
+              techniqueId={navState.techniqueId}
+              onNavigate={(page) => navigate(page as Page)}
+              onBack={goBack}
+            />
+          )}
 
-        {navState.page === 'Dashboard' && user && (
-          <Dashboard onNavigate={(page) => navigate(page as Page)} />
-        )}
+          {navState.page === 'Dashboard' && user && (
+            <Dashboard onNavigate={(page) => navigate(page as Page)} />
+          )}
 
-        {navState.page === 'News' && <News onBack={goBack} />}
+          {navState.page === 'News' && <News onBack={goBack} />}
 
-        {navState.page === 'Account' && user && <Account onBack={goBack} />}
+          {navState.page === 'Account' && user && <Account onBack={goBack} />}
 
-        {navState.page === 'PrivacyPolicy' && <PrivacyPolicy onBack={goBack} />}
+          {navState.page === 'PrivacyPolicy' && <PrivacyPolicy onBack={goBack} />}
 
-        {navState.page === 'TermsOfService' && <TermsOfService onBack={goBack} />}
+          {navState.page === 'TermsOfService' && <TermsOfService onBack={goBack} />}
 
-        {navState.page === 'CookiePolicy' && <CookiePolicy onBack={goBack} />}
+          {navState.page === 'CookiePolicy' && <CookiePolicy onBack={goBack} />}
 
-        {navState.page === 'Disclaimer' && <Disclaimer onBack={goBack} />}
+          {navState.page === 'Disclaimer' && <Disclaimer onBack={goBack} />}
 
-        {navState.page === 'Legal' && <Legal onNavigate={(page) => navigate(page as Page)} onBack={goBack} />}
+          {navState.page === 'Legal' && <Legal onNavigate={(page) => navigate(page as Page)} onBack={goBack} />}
 
-        {navState.page === 'AboutUs' && <AboutUs onNavigate={(page) => navigate(page as Page)} onBack={goBack} />}
+          {navState.page === 'AboutUs' && <AboutUs onNavigate={(page) => navigate(page as Page)} onBack={goBack} />}
 
-        {navState.page === 'Vision' && <Vision onBack={goBack} />}
+          {navState.page === 'Vision' && <Vision onBack={goBack} />}
 
-        {navState.page === 'Contact' && <Contact onBack={goBack} />}
+          {navState.page === 'Contact' && <Contact onBack={goBack} />}
 
-        {navState.page === 'Affiliates' && <Affiliates onBack={goBack} />}
+          {navState.page === 'Affiliates' && <Affiliates onBack={goBack} />}
+        </Suspense>
       </main>
 
       <Footer onNavigate={(page) => navigate(page as Page)} />
