@@ -28,7 +28,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </video>
 
         <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-8 tracking-[0.05em] leading-tight" style={{ textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000' }}>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-8 tracking-[0.05em] leading-tight min-h-[80px] sm:min-h-[96px] md:min-h-[112px] lg:min-h-[128px] xl:min-h-[144px]" style={{ textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000' }}>
             MASTER YOUR CRAFT
           </h1>
 
@@ -58,6 +58,8 @@ export default function Home({ onNavigate }: HomeProps) {
                   src="https://i.postimg.cc/D0fKBBM2/fightcraft1.jpg"
                   alt="Structured Progression"
                   className="w-24 h-24 object-cover rounded"
+                  width="96"
+                  height="96"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">STRUCTURED PROGRESSION</h3>
@@ -72,6 +74,8 @@ export default function Home({ onNavigate }: HomeProps) {
                   src="https://i.postimg.cc/fyWhBBrT/fightcraft2.jpg"
                   alt="AI Enhanced Instruction"
                   className="w-24 h-24 object-cover rounded"
+                  width="96"
+                  height="96"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">AI ENHANCED INSTRUCTION</h3>
@@ -86,6 +90,8 @@ export default function Home({ onNavigate }: HomeProps) {
                   src="https://i.postimg.cc/zvD100cG/fightcraft3.jpg"
                   alt="Multi Discipline System"
                   className="w-24 h-24 object-cover rounded"
+                  width="96"
+                  height="96"
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">MULTI DISCIPLINE SYSTEM</h3>

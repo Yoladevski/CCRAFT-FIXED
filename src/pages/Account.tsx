@@ -358,9 +358,9 @@ export default function Account({ onBack }: AccountProps) {
               <div className="space-y-8">
                 <div className="flex flex-col items-center gap-4 pb-8 border-b border-[#2E2E2E]">
                   <div className="relative">
-                    <div className="w-32 h-32 rounded-full border-4 border-[#B11226] overflow-hidden bg-[#2E2E2E] flex items-center justify-center">
+                    <div className="w-32 h-32 min-w-[128px] min-h-[128px] rounded-full border-4 border-[#B11226] overflow-hidden bg-[#2E2E2E] flex items-center justify-center">
                       {profilePicture ? (
-                        <img src={profilePicture} alt="Profile" className="w-full h-full object-cover" />
+                        <img src={profilePicture} alt="Profile" className="w-full h-full object-cover" width="128" height="128" />
                       ) : (
                         <User size={64} className="text-[#A0A0A0]" />
                       )}

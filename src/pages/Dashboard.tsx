@@ -63,7 +63,7 @@ function ProfileImage({ rank, imageUrl }: ProfileImageProps) {
   return (
     <div className="profile-container">
       {imageUrl ? (
-        <img src={imageUrl} alt="Profile" className="profile-image" />
+        <img src={imageUrl} alt="Profile" className="profile-image" width="90" height="90" />
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-[#1A1A1A] rounded-full">
           <User size={48} className="text-[#A0A0A0]" />
@@ -83,8 +83,8 @@ function CircularProgress({ percentage, completed, total }: CircularProgressProp
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="relative w-32 h-32">
-        <svg className="circular-progress w-full h-full" viewBox="0 0 100 100">
+      <div className="relative w-32 h-32 min-w-[128px] min-h-[128px]">
+        <svg className="circular-progress w-full h-full" viewBox="0 0 100 100" width="128" height="128">
           <circle className="circular-progress-ring" cx="50" cy="50" r={radius} />
           <circle
             className="circular-progress-value"
@@ -290,7 +290,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 {profile.power_level} / {nextRank.required}
               </p>
             </div>
-            <div className="w-full h-3 bg-[#2E2E2E] rounded-full overflow-hidden">
+            <div className="w-full h-3 min-h-[12px] bg-[#2E2E2E] rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-[#B11226] to-[#FFD700] transition-all duration-1000 ease-out origin-left"
                 style={{ width: `${progressToNext}%` }}
@@ -344,7 +344,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
                 {nextRank && (
                   <>
-                    <div className="w-full h-2 bg-[#2E2E2E] rounded-full overflow-hidden mb-2">
+                    <div className="w-full h-2 min-h-[8px] bg-[#2E2E2E] rounded-full overflow-hidden mb-2">
                       <div
                         className="h-full bg-[#B11226] transition-all duration-1000 ease-out origin-left"
                         style={{ width: `${progressToNext}%` }}
@@ -399,7 +399,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             {/* Desktop XP Bar */}
             {nextRank && (
               <div className="hidden md:block">
-                <div className="w-full h-2 bg-[#2E2E2E] rounded-full overflow-hidden mb-3">
+                <div className="w-full h-2 min-h-[8px] bg-[#2E2E2E] rounded-full overflow-hidden mb-3">
                   <div
                     className="h-full bg-[#B11226] transition-all duration-1000 ease-out origin-left"
                     style={{ width: `${progressToNext}%` }}
