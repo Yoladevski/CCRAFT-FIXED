@@ -287,7 +287,7 @@ export default function TechniquePage({ techniqueId, onNavigate, onBack }: Techn
               </button>
               {openSections.how && (
                 <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed">{technique.how}</p>
+                  <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.how}</p>
                 </div>
               )}
             </div>
@@ -312,7 +312,7 @@ export default function TechniquePage({ techniqueId, onNavigate, onBack }: Techn
               </button>
               {openSections.mistakes && (
                 <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed">{technique.common_mistakes}</p>
+                  <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.common_mistakes}</p>
                 </div>
               )}
             </div>
@@ -337,7 +337,7 @@ export default function TechniquePage({ techniqueId, onNavigate, onBack }: Techn
               </button>
               {openSections.drills && (
                 <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed">{technique.simple_drills}</p>
+                  <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.simple_drills}</p>
                 </div>
               )}
             </div>
