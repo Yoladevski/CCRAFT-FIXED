@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, ChevronDown, Check, ChevronRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
@@ -8,12 +9,14 @@ import { BGPattern } from '../components/ui/bg-pattern';
 type Technique = Database['public']['Tables']['techniques']['Row'];
 
 interface TechniquePageProps {
-  techniqueId: string;
+  techniqueId?: string;
   onNavigate: (page: string) => void;
   onBack: () => void;
 }
 
-export default function TechniquePage({ techniqueId, onNavigate, onBack }: TechniquePageProps) {
+export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps) {
+  const { id } = useParams<{ id: string }>();
+  const techniqueId = id || '';
   const { user } = useAuth();
   const [technique, setTechnique] = useState<Technique | null>(null);
   const [isCompleted, setIsCompleted] = useState(false);

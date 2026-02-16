@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Lock, ArrowLeft } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
@@ -8,11 +9,13 @@ type Category = Database['public']['Tables']['categories']['Row'];
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
 
 interface DisciplinePageProps {
-  disciplineId: string;
+  disciplineId?: string;
   onNavigate: (page: string, id?: string) => void;
 }
 
-export default function DisciplinePage({ disciplineId, onNavigate }: DisciplinePageProps) {
+export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
+  const { id } = useParams<{ id: string }>();
+  const disciplineId = id || '';
   const [discipline, setDiscipline] = useState<Discipline | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);

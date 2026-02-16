@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Lock, ArrowLeft, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
@@ -10,11 +11,13 @@ type Technique = Database['public']['Tables']['techniques']['Row'];
 type UserProgress = Database['public']['Tables']['user_progress']['Row'];
 
 interface CategoryPageProps {
-  categoryId: string;
+  categoryId?: string;
   onNavigate: (page: string, id?: string) => void;
 }
 
-export default function CategoryPage({ categoryId, onNavigate }: CategoryPageProps) {
+export default function CategoryPage({ onNavigate }: CategoryPageProps) {
+  const { id } = useParams<{ id: string }>();
+  const categoryId = id || '';
   const { user } = useAuth();
   const [category, setCategory] = useState<Category | null>(null);
   const [techniques, setTechniques] = useState<Technique[]>([]);

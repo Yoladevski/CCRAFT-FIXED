@@ -1,4 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navigation from './components/Navigation';
@@ -23,6 +24,8 @@ const AboutUs = lazy(() => import('./pages/AboutUs'));
 const Vision = lazy(() => import('./pages/Vision'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Affiliates = lazy(() => import('./pages/Affiliates'));
+const PostVerify = lazy(() => import('./pages/PostVerify'));
+const CreateProfile = lazy(() => import('./pages/CreateProfile'));
 
 type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates';
 
@@ -36,13 +39,43 @@ interface NavigationState {
 
 function AppContent() {
   const { user, loading } = useAuth();
+  const navigate = useNavigate();
   const [navState, setNavState] = useState<NavigationState>({
     page: 'Home',
     history: [],
   });
 
-  const navigate = (page: Page, id?: string) => {
+  const handleNavigate = (page: Page, id?: string) => {
     window.scrollTo(0, 0);
+
+    const routes: Record<string, string> = {
+      'Home': '/',
+      'Auth': '/auth',
+      'Disciplines': '/disciplines',
+      'Dashboard': '/dashboard',
+      'News': '/news',
+      'Account': '/account',
+      'PrivacyPolicy': '/privacy-policy',
+      'TermsOfService': '/terms-of-service',
+      'CookiePolicy': '/cookie-policy',
+      'Disclaimer': '/disclaimer',
+      'Legal': '/legal',
+      'AboutUs': '/about-us',
+      'Vision': '/vision',
+      'Contact': '/contact',
+      'Affiliates': '/affiliates',
+    };
+
+    if (page === 'Discipline' && id) {
+      navigate(`/discipline/${id}`);
+    } else if (page === 'Category' && id) {
+      navigate(`/category/${id}`);
+    } else if (page === 'Technique' && id) {
+      navigate(`/technique/${id}`);
+    } else if (routes[page]) {
+      navigate(routes[page]);
+    }
+
     setNavState((prev) => {
       const newState: NavigationState = {
         page,
@@ -66,16 +99,7 @@ function AppContent() {
 
   const goBack = () => {
     window.scrollTo(0, 0);
-    setNavState((prev) => {
-      if (prev.history.length === 0) {
-        return { page: 'Home', history: [] };
-      }
-      const previous = prev.history[prev.history.length - 1];
-      return {
-        ...previous,
-        history: prev.history.slice(0, -1),
-      };
-    });
+    navigate(-1);
   };
 
   if (loading) {
@@ -86,90 +110,45 @@ function AppContent() {
     );
   }
 
-  if (!user && navState.page !== 'Home') {
-    return (
-      <div className="flex flex-col min-h-screen bg-[#0E0E0E]">
-        <Navigation currentPage="Home" onNavigate={(page, id) => navigate(page as Page, id)} />
-        <Suspense fallback={
-          <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center">
-            <div className="text-2xl text-[#A0A0A0] heading-font">LOADING...</div>
-          </div>
-        }>
-          <Auth onNavigate={(page) => navigate(page as Page)} />
-        </Suspense>
-        <Footer onNavigate={(page) => navigate(page as Page)} />
-      </div>
-    );
-  }
-
   return (
-    <div className="flex flex-col min-h-screen relative bg-[#0E0E0E]">
-      <Navigation currentPage={navState.page} onNavigate={(page, id) => navigate(page as Page, id)} />
-
-      <main className="flex-grow relative z-10 bg-[#0E0E0E]">
-        <Suspense fallback={
-          <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center">
-            <div className="text-2xl text-[#A0A0A0] heading-font">LOADING...</div>
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center">
+        <div className="text-2xl text-[#A0A0A0] heading-font">LOADING...</div>
+      </div>
+    }>
+      <Routes>
+        <Route path="/post-verify" element={<PostVerify />} />
+        <Route path="/create-profile" element={<CreateProfile />} />
+        <Route path="*" element={
+          <div className="flex flex-col min-h-screen relative bg-[#0E0E0E]">
+            <Navigation currentPage={navState.page} onNavigate={(page, id) => handleNavigate(page as Page, id)} />
+            <main className="flex-grow relative z-10 bg-[#0E0E0E]">
+              <Routes>
+                <Route path="/" element={<Home onNavigate={(page) => handleNavigate(page as Page)} />} />
+                <Route path="/auth" element={<Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
+                <Route path="/disciplines" element={<Disciplines onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
+                <Route path="/discipline/:id" element={<DisciplinePage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
+                <Route path="/category/:id" element={<CategoryPage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
+                <Route path="/technique/:id" element={<TechniquePage onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} />} />
+                <Route path="/dashboard" element={user ? <Dashboard onNavigate={(page) => handleNavigate(page as Page)} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
+                <Route path="/news" element={<News onBack={goBack} />} />
+                <Route path="/account" element={user ? <Account onBack={goBack} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy onBack={goBack} />} />
+                <Route path="/terms-of-service" element={<TermsOfService onBack={goBack} />} />
+                <Route path="/cookie-policy" element={<CookiePolicy onBack={goBack} />} />
+                <Route path="/disclaimer" element={<Disclaimer onBack={goBack} />} />
+                <Route path="/legal" element={<Legal onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} />} />
+                <Route path="/about-us" element={<AboutUs onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} />} />
+                <Route path="/vision" element={<Vision onBack={goBack} />} />
+                <Route path="/contact" element={<Contact onBack={goBack} />} />
+                <Route path="/affiliates" element={<Affiliates onBack={goBack} />} />
+              </Routes>
+            </main>
+            <Footer onNavigate={(page) => handleNavigate(page as Page)} />
           </div>
-        }>
-          {navState.page === 'Home' && <Home onNavigate={(page) => navigate(page as Page)} />}
-
-          {navState.page === 'Disciplines' && (
-            <Disciplines onNavigate={(page, id) => navigate(page as Page, id)} />
-          )}
-
-          {navState.page === 'Discipline' && navState.disciplineId && (
-            <DisciplinePage
-              disciplineId={navState.disciplineId}
-              onNavigate={(page, id) => navigate(page as Page, id)}
-            />
-          )}
-
-          {navState.page === 'Category' && navState.categoryId && (
-            <CategoryPage
-              categoryId={navState.categoryId}
-              onNavigate={(page, id) => navigate(page as Page, id)}
-            />
-          )}
-
-          {navState.page === 'Technique' && navState.techniqueId && (
-            <TechniquePage
-              techniqueId={navState.techniqueId}
-              onNavigate={(page) => navigate(page as Page)}
-              onBack={goBack}
-            />
-          )}
-
-          {navState.page === 'Dashboard' && user && (
-            <Dashboard onNavigate={(page) => navigate(page as Page)} />
-          )}
-
-          {navState.page === 'News' && <News onBack={goBack} />}
-
-          {navState.page === 'Account' && user && <Account onBack={goBack} />}
-
-          {navState.page === 'PrivacyPolicy' && <PrivacyPolicy onBack={goBack} />}
-
-          {navState.page === 'TermsOfService' && <TermsOfService onBack={goBack} />}
-
-          {navState.page === 'CookiePolicy' && <CookiePolicy onBack={goBack} />}
-
-          {navState.page === 'Disclaimer' && <Disclaimer onBack={goBack} />}
-
-          {navState.page === 'Legal' && <Legal onNavigate={(page) => navigate(page as Page)} onBack={goBack} />}
-
-          {navState.page === 'AboutUs' && <AboutUs onNavigate={(page) => navigate(page as Page)} onBack={goBack} />}
-
-          {navState.page === 'Vision' && <Vision onBack={goBack} />}
-
-          {navState.page === 'Contact' && <Contact onBack={goBack} />}
-
-          {navState.page === 'Affiliates' && <Affiliates onBack={goBack} />}
-        </Suspense>
-      </main>
-
-      <Footer onNavigate={(page) => navigate(page as Page)} />
-    </div>
+        } />
+      </Routes>
+    </Suspense>
   );
 }
 
@@ -191,14 +170,16 @@ function App() {
   };
 
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        {showLoading && !loadingComplete && (
-          <LoadingScreen onComplete={handleLoadingComplete} />
-        )}
-        {loadingComplete && <AppContent />}
-      </AuthProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <AuthProvider>
+          {showLoading && !loadingComplete && (
+            <LoadingScreen onComplete={handleLoadingComplete} />
+          )}
+          {loadingComplete && <AppContent />}
+        </AuthProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
