@@ -85,20 +85,20 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 <img
                   src={
                     discipline.name === 'Boxing'
-                      ? 'https://i.postimg.cc/zGrGjPbd/boxing.png'
+                      ? 'https://i.postimg.cc/1R0dtft2/booxing.png'
                       : discipline.name === 'Muay Thai'
-                      ? 'https://i.postimg.cc/HxwGnkJn/muaythai.png'
+                      ? 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg'
                       : discipline.name === 'BJJ'
                       ? 'https://i.postimg.cc/MHT6KD7s/bjjjj.png'
                       : discipline.name === 'Kickboxing'
                       ? 'https://i.postimg.cc/qRBvLNb4/kickboxing.png'
                       : discipline.name === 'Karate'
-                      ? 'https://i.postimg.cc/Bn0hyCYd/karate.png'
+                      ? 'https://i.postimg.cc/3xZrFKnC/karate.png'
                       : discipline.name === 'Taekwondo'
-                      ? 'https://i.postimg.cc/zfQSRXBJ/taekwondo.png'
+                      ? 'https://i.postimg.cc/MpntyTW0/tikwan.png'
                       : discipline.name === 'Judo'
-                      ? 'https://i.postimg.cc/zfxKCJxN/judo.png'
-                      : 'https://i.postimg.cc/zGrGjPbd/boxing.png'
+                      ? 'https://i.postimg.cc/JzQ751PX/judo.png'
+                      : 'https://i.postimg.cc/1R0dtft2/booxing.png'
                   }
                   alt={discipline.name}
                   className="w-full h-full object-cover object-center brightness-90 contrast-125"
