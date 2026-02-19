@@ -28,27 +28,52 @@ export default function Home({ onNavigate }: HomeProps) {
         </video>
 
         <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center pt-12">
-          <h1 className="text-[2.55rem] sm:text-[3.06rem] md:text-[4.48rem] lg:text-[5.12rem] xl:text-[5.76rem] font-bold mb-8 tracking-[0.05em] leading-tight min-h-[68px] sm:min-h-[82px] md:min-h-[90px] lg:min-h-[102px] xl:min-h-[115px]" style={{ textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000' }}>
-            MASTER YOUR CRAFT
+          <h1
+            className="font-bold mb-6 tracking-[0.05em] leading-tight"
+            style={{
+              fontSize: 'clamp(2rem, 8vw, 5rem)',
+              textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000'
+            }}
+          >
+            Master your<br />Craft
           </h1>
 
-          <p className="text-[1.02rem] sm:text-[1.22rem] md:text-[1.53rem] lg:text-[2.04rem] text-white mb-14 sm:mb-16 tracking-[0.08em] max-w-4xl mx-auto" style={{ textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)', fontFamily: 'Progress, sans-serif' }}>
+          <p
+            className="text-white mb-8 tracking-[0.08em] max-w-xs sm:max-w-sm md:max-w-md mx-auto"
+            style={{
+              fontSize: 'clamp(0.8rem, 3vw, 1.5rem)',
+              lineHeight: '1.5',
+              textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
+              fontFamily: 'Progress, sans-serif'
+            }}
+          >
             Structured AI Powered<br />Combat Training
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8">
             <button
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
-              className="w-3/4 sm:w-auto px-9 py-[1.125rem] bg-[#B11226] text-white text-xl font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
-              style={{ textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)', fontFamily: 'Progress, sans-serif' }}
+              className="w-1/2 sm:w-auto px-7 py-3 bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
+              style={{
+                fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
+                textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)',
+                fontFamily: 'Progress, sans-serif'
+              }}
             >
               START TRAINING
             </button>
           </div>
 
-          <div className="mt-16 sm:mt-20 text-center">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[0.08em] leading-tight" style={{ textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)', fontFamily: 'Progress, sans-serif' }}>
-              TRAIN WITH PURPOSE<br />IMPROVE WITH STRUCTURE
+          <div className="text-center">
+            <p
+              className="font-bold tracking-[0.08em] leading-tight max-w-xs sm:max-w-sm mx-auto"
+              style={{
+                fontSize: 'clamp(0.65rem, 2vw, 1rem)',
+                textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
+                fontFamily: 'Progress, sans-serif'
+              }}
+            >
+              Train with purpose, improve with structure.
             </p>
           </div>
         </div>
