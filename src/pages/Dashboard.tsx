@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { User, Shield, Award, Star, Crown, Trophy } from 'lucide-react';
+import { User, Shield, Award, Star, Crown, Trophy, Lock } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
@@ -245,6 +245,42 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>LOADING...</div>
+      </div>
+    );
+  }
+
+  // Show sign-up prompt for non-authenticated users
+  if (!user) {
+    return (
+      <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20 flex items-center justify-center">
+        <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
+        <div className="max-w-2xl mx-auto relative z-10">
+          <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center">
+            <div className="mb-6">
+              <Lock size={64} className="mx-auto text-[#B11226]" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+              AUTHENTICATION REQUIRED
+            </h2>
+            <p className="text-[#A0A0A0] text-base sm:text-lg mb-8 leading-relaxed">
+              The dashboard is only accessible to registered members. Sign up or log in to track your progress, view your stats, and continue your training journey.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => onNavigate('Auth')}
+                className="px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105"
+              >
+                SIGN UP / LOG IN
+              </button>
+              <button
+                onClick={() => onNavigate('Home')}
+                className="px-8 py-4 bg-[#2E2E2E] text-white font-bold rounded hover:bg-[#3E3E3E] transition-all"
+              >
+                BACK TO HOME
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
