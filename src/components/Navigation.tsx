@@ -117,8 +117,8 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               ) : (
                 <button
                   onClick={() => handleNavigate('Auth')}
-                  className="px-6 py-3 bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105"
-                  style={{ fontFamily: 'Progress, sans-serif' }}
+                  className="px-4 py-2 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
+                  style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
                 >
                   SIGN UP
                 </button>
