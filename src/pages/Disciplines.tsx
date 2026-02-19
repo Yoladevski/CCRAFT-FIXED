@@ -60,7 +60,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                     <img
                       src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
                       alt="Coming Soon"
-                      className="w-full h-full object-cover opacity-80"
+                      className="w-full h-full object-cover opacity-0"
                     />
                   </div>
                 )}
