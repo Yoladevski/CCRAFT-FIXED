@@ -35,7 +35,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
         <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center pt-12">
           <h1
-            className="font-bold mb-6 lg:mb-10 tracking-[0.05em] leading-tight"
+            className="font-bold mb-6 lg:mb-10 -mt-5 lg:mt-0 tracking-[0.05em] leading-tight"
             style={{
               fontSize: 'clamp(2.42rem, 8.8vw, 5.5rem)',
               textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000',
@@ -48,7 +48,7 @@ export default function Home({ onNavigate }: HomeProps) {
           </h1>
 
           <p
-            className="text-white mb-8 lg:mb-16 tracking-[0.08em] mx-auto"
+            className="text-white mb-8 lg:mb-16 -mt-2.5 lg:mt-0 tracking-[0.08em] mx-auto"
             style={{
               fontSize: 'clamp(0.968rem, 3.3vw, 1.65rem)',
               lineHeight: '1.5',
@@ -60,7 +60,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <span className="block">Powered by AI</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8 lg:mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8 lg:mb-16 mt-2.5 lg:mt-0">
             <button
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
               className="bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
@@ -77,7 +77,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </button>
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-5 lg:mt-0">
             <p
               className="font-bold tracking-[0.08em] leading-snug mx-auto"
               style={{
