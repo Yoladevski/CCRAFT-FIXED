@@ -33,7 +33,7 @@ export default function Home({ onNavigate }: HomeProps) {
           </video>
         </div>
 
-        <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center pt-12">
+        <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center pt-12" style={{ marginTop: '30mm' }}>
           <h1
             className="font-bold mb-6 lg:mb-10 -mt-[7.5rem] lg:mt-0 tracking-[0.05em] leading-tight"
             style={{
