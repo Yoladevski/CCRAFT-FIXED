@@ -13,20 +13,22 @@ export default function Home({ onNavigate }: HomeProps) {
       <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden -mt-20">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0E0E0E] z-10" />
 
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full"
-          style={{ objectFit: 'contain', objectPosition: 'center' }}
-          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
-        >
-          <source
-            src="https://image2url.com/r2/default/videos/1770858582620-ae5b1808-3859-4637-b784-cc115c44e502.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full"
+            style={{ objectFit: 'cover' }}
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
+          >
+            <source
+              src="https://image2url.com/r2/default/videos/1770858582620-ae5b1808-3859-4637-b784-cc115c44e502.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
 
         <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center pt-12">
           <h1
@@ -81,11 +83,10 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontSize: 'clamp(0.75rem, 2vw, 1rem)',
                 textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
                 fontFamily: 'Progress, sans-serif',
-                whiteSpace: 'nowrap',
               }}
             >
-              <span className="hidden lg:inline">Train with purpose, improve with structure.</span>
-              <span className="lg:hidden" style={{ whiteSpace: 'pre-line', display: 'block' }}>{'Train with purpose\nImprove with structure.'}</span>
+              <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap' }}>Train with purpose, improve with structure.</span>
+              <span className="lg:hidden block" style={{ whiteSpace: 'pre-line' }}>{'Train with purpose\nImprove with structure.'}</span>
             </p>
           </div>
         </div>
