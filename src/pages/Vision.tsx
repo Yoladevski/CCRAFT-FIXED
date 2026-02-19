@@ -7,10 +7,12 @@ interface VisionProps {
 
 export default function Vision({ onBack }: VisionProps) {
   return (
-    <div className="min-h-screen bg-[#0E0E0E] py-16 px-4 sm:px-6 lg:px-8 relative -mt-20 pt-20">
+    <div className="min-h-screen bg-[#0E0E0E] py-6 sm:py-16 px-4 sm:px-6 lg:px-8 relative -mt-20 pt-20 sm:pt-24">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-4xl mx-auto relative z-10">
-        <BackButton onBack={onBack} />
+        <div className="mb-4 sm:mb-6">
+          <BackButton onBack={onBack} />
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-12 heading-font">
           VISION
         </h1>

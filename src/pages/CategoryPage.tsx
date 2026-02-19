@@ -142,16 +142,18 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
   }
 
   return (
-    <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
+    <div className="min-h-screen py-6 sm:py-12 px-4 relative -mt-20 pt-20 sm:pt-24">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-4xl mx-auto relative z-10">
-        <button
-          onClick={() => onNavigate('Disciplines')}
-          className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors mb-8"
-        >
-          <ArrowLeft size={20} />
-          <span className="text-body">BACK</span>
-        </button>
+        <div className="mb-6 sm:mb-8">
+          <button
+            onClick={() => onNavigate('Disciplines')}
+            className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
+          >
+            <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
+            <span className="text-body font-medium">BACK</span>
+          </button>
+        </div>
 
         <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8">
           {category?.name}
