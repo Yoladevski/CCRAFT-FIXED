@@ -56,11 +56,14 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
             >
               <div className="relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#2E2E2E] group">
                 {!discipline.is_active && (
-                  <div className="absolute inset-0 z-20 flex items-center justify-center p-4 sm:p-6">
+                  <div className="absolute inset-0 z-20 flex items-center justify-center p-2 sm:p-4">
                     <img
                       src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
                       alt="Coming Soon"
-                      className="w-[140%] h-[140%] object-contain"
+                      className="w-[150%] h-[150%] object-contain"
+                      style={{
+                        filter: 'drop-shadow(0 0 3px black) drop-shadow(0 0 3px black) drop-shadow(0 0 3px black)'
+                      }}
                     />
                   </div>
                 )}
@@ -91,9 +94,9 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
               </div>
 
               <div className="mt-4 px-2">
-                <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-center">
+                <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-center">
                   {discipline.name}
-                </h3>
+                </h1>
                 {discipline.description && (
                   <p className="text-sm text-[#A0A0A0] text-center mb-4 min-h-[2.5rem]">
                     {discipline.description}
