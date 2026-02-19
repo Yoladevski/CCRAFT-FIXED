@@ -33,62 +33,64 @@ export default function Home({ onNavigate }: HomeProps) {
           </video>
         </div>
 
-        <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center pt-12" style={{ marginTop: '30mm' }}>
-          <h1
-            className="font-bold mb-6 lg:mb-10 -mt-[7.5rem] lg:mt-0 tracking-[0.05em] leading-tight"
-            style={{
-              fontSize: 'clamp(2.42rem, 8.8vw, 5.5rem)',
-              textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000',
-              whiteSpace: 'pre-line',
-              wordBreak: 'keep-all',
-              overflowWrap: 'normal',
-            }}
-          >
-            {'Master your\nCraft'}
-          </h1>
-
-          <p
-            className="text-white mb-8 lg:mb-16 -mt-2.5 lg:mt-0 tracking-[0.08em] mx-auto"
-            style={{
-              fontSize: 'clamp(0.968rem, 3.3vw, 1.65rem)',
-              lineHeight: '1.5',
-              textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
-              fontFamily: 'Progress, sans-serif',
-            }}
-          >
-            <span className="block">Structured Combat Training</span>
-            <span className="block">Powered by AI</span>
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8 lg:mb-16 mt-2.5 lg:mt-0">
-            <button
-              onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
-              className="bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
+        <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center pt-12">
+          <div style={{ marginTop: '30mm' }} className="lg:mt-0">
+            <h1
+              className="font-bold mb-6 lg:mb-10 tracking-[0.05em] leading-tight"
               style={{
-                fontSize: 'clamp(0.825rem, 2.75vw, 1.1rem)',
-                padding: 'clamp(0.385rem, 1.32vw, 0.825rem) clamp(1.1rem, 3.3vw, 1.925rem)',
-                display: 'inline-block',
-                textAlign: 'center',
-                textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)',
-                fontFamily: 'Progress, sans-serif',
+                fontSize: 'clamp(2.42rem, 8.8vw, 5.5rem)',
+                textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000',
+                whiteSpace: 'pre-line',
+                wordBreak: 'keep-all',
+                overflowWrap: 'normal',
               }}
             >
-              START TRAINING
-            </button>
-          </div>
+              {'Master your\nCraft'}
+            </h1>
 
-          <div className="text-center mt-5 lg:mt-0">
             <p
-              className="font-bold tracking-[0.08em] leading-snug mx-auto"
+              className="text-white mb-8 lg:mb-16 -mt-2.5 lg:mt-0 tracking-[0.08em] mx-auto"
               style={{
-                fontSize: 'clamp(0.825rem, 2.2vw, 1.1rem)',
+                fontSize: 'clamp(0.968rem, 3.3vw, 1.65rem)',
+                lineHeight: '1.5',
                 textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
                 fontFamily: 'Progress, sans-serif',
               }}
             >
-              <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap' }}>Train with purpose, improve with structure.</span>
-              <span className="lg:hidden block" style={{ whiteSpace: 'pre-line' }}>{'Train with purpose\nImprove with structure.'}</span>
+              <span className="block">Structured Combat Training</span>
+              <span className="block">Powered by AI</span>
             </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8 lg:mb-16 mt-2.5 lg:mt-0">
+              <button
+                onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
+                className="bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
+                style={{
+                  fontSize: 'clamp(0.825rem, 2.75vw, 1.1rem)',
+                  padding: 'clamp(0.385rem, 1.32vw, 0.825rem) clamp(1.1rem, 3.3vw, 1.925rem)',
+                  display: 'inline-block',
+                  textAlign: 'center',
+                  textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)',
+                  fontFamily: 'Progress, sans-serif',
+                }}
+              >
+                START TRAINING
+              </button>
+            </div>
+
+            <div className="text-center mt-5 lg:mt-0">
+              <p
+                className="font-bold tracking-[0.08em] leading-snug mx-auto"
+                style={{
+                  fontSize: 'clamp(0.825rem, 2.2vw, 1.1rem)',
+                  textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
+                  fontFamily: 'Progress, sans-serif',
+                }}
+              >
+                <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap' }}>Train with purpose, improve with structure.</span>
+                <span className="lg:hidden block" style={{ whiteSpace: 'pre-line' }}>{'Train with purpose\nImprove with structure.'}</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
