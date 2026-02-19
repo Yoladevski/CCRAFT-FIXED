@@ -35,7 +35,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
         <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center pt-12">
           <h1
-            className="font-bold mb-6 lg:mb-10 -mt-5 lg:mt-0 tracking-[0.05em] leading-tight"
+            className="font-bold mb-6 lg:mb-10 -mt-[7.5rem] lg:mt-0 tracking-[0.05em] leading-tight"
             style={{
               fontSize: 'clamp(2.42rem, 8.8vw, 5.5rem)',
               textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000',
