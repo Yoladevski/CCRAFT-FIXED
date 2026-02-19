@@ -10,7 +10,7 @@ type Technique = Database['public']['Tables']['techniques']['Row'];
 
 interface TechniquePageProps {
   techniqueId?: string;
-  onNavigate: (page: string) => void;
+  onNavigate: (page: string, id?: string) => void;
   onBack: () => void;
 }
 
@@ -184,7 +184,8 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
 
   const handleNextTechnique = () => {
     if (nextTechnique) {
-      onNavigate(`technique/${nextTechnique.id}`);
+      onNavigate('Technique', nextTechnique.id);
+      window.scrollTo(0, 0);
     }
   };
 

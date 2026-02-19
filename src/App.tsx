@@ -137,7 +137,7 @@ function AppContent() {
                 <Route path="/disciplines" element={<Disciplines onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
                 <Route path="/discipline/:id" element={<DisciplinePage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
                 <Route path="/category/:id" element={<CategoryPage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
-                <Route path="/technique/:id" element={<TechniquePage onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} />} />
+                <Route path="/technique/:id" element={<TechniquePage onNavigate={(page, id) => handleNavigate(page as Page, id)} onBack={goBack} />} />
                 <Route path="/dashboard" element={user ? <Dashboard onNavigate={(page) => handleNavigate(page as Page)} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
                 <Route path="/news" element={<News onBack={goBack} />} />
                 <Route path="/merchandise" element={<Merchandise onBack={goBack} />} />
