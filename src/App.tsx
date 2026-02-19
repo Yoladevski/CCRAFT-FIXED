@@ -14,6 +14,7 @@ const CategoryPage = lazy(() => import('./pages/CategoryPage'));
 const TechniquePage = lazy(() => import('./pages/TechniquePage'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const News = lazy(() => import('./pages/News'));
+const Merchandise = lazy(() => import('./pages/Merchandise'));
 const Account = lazy(() => import('./pages/Account'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
@@ -27,7 +28,7 @@ const Affiliates = lazy(() => import('./pages/Affiliates'));
 const PostVerify = lazy(() => import('./pages/PostVerify'));
 const CreateProfile = lazy(() => import('./pages/CreateProfile'));
 
-type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates';
+type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates';
 
 interface NavigationState {
   page: Page;
@@ -54,6 +55,7 @@ function AppContent() {
       'Disciplines': '/disciplines',
       'Dashboard': '/dashboard',
       'News': '/news',
+      'Merchandise': '/merchandise',
       'Account': '/account',
       'PrivacyPolicy': '/privacy-policy',
       'TermsOfService': '/terms-of-service',
@@ -132,6 +134,7 @@ function AppContent() {
                 <Route path="/technique/:id" element={<TechniquePage onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} />} />
                 <Route path="/dashboard" element={user ? <Dashboard onNavigate={(page) => handleNavigate(page as Page)} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
                 <Route path="/news" element={<News onBack={goBack} />} />
+                <Route path="/merchandise" element={<Merchandise onBack={goBack} />} />
                 <Route path="/account" element={user ? <Account onBack={goBack} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy onBack={goBack} />} />
                 <Route path="/terms-of-service" element={<TermsOfService onBack={goBack} />} />
