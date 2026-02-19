@@ -10,7 +10,7 @@ interface AuthProps {
 const WAIVER_VERSION = '1.0_Feb_2026';
 
 export default function Auth({ onNavigate }: AuthProps) {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
