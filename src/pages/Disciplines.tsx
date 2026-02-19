@@ -56,11 +56,11 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
             >
               <div className="relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#2E2E2E] group">
                 {!discipline.is_active && (
-                  <div className="absolute inset-0 z-20 flex items-center justify-center">
+                  <div className="absolute inset-0 z-20 flex items-center justify-center p-4">
                     <img
                       src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
                       alt="Coming Soon"
-                      className="w-full h-full object-cover opacity-0"
+                      className="w-4/5 h-auto object-contain"
                     />
                   </div>
                 )}
