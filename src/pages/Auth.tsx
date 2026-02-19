@@ -73,7 +73,7 @@ export default function Auth({ onNavigate }: AuthProps) {
           setError(signInError.message);
         } else {
           window.scrollTo(0, 0);
-          onNavigate('Account');
+          onNavigate('Dashboard');
         }
       }
     } catch (err: any) {
@@ -239,7 +239,7 @@ export default function Auth({ onNavigate }: AuthProps) {
           <div className="mt-6 text-center">
             <button
               onClick={toggleMode}
-              className="text-[#A0A0A0] hover:text-white transition-colors text-sm sm:text-base text-body"
+              className="text-[#A0A0A0] hover:text-white transition-colors text-sm sm:text-base text-body underline hover:no-underline"
             >
               {isSignUp
                 ? 'Already have an account? Sign in'
