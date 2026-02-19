@@ -18,7 +18,8 @@ export default function Home({ onNavigate }: HomeProps) {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-contain"
+          className="absolute inset-0 w-full h-full"
+          style={{ objectFit: 'contain', objectPosition: 'center' }}
           poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
         >
           <source
@@ -31,33 +32,42 @@ export default function Home({ onNavigate }: HomeProps) {
           <h1
             className="font-bold mb-6 tracking-[0.05em] leading-tight"
             style={{
-              fontSize: 'clamp(2rem, 8vw, 5rem)',
-              textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000'
+              fontSize: 'clamp(2.2rem, 8vw, 5rem)',
+              textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000',
+              whiteSpace: 'pre-line',
+              wordBreak: 'keep-all',
+              overflowWrap: 'normal',
             }}
           >
-            Master your<br />Craft
+            {'Master your\nCraft'}
           </h1>
 
           <p
-            className="text-white mb-8 tracking-[0.08em] max-w-xs sm:max-w-sm md:max-w-md mx-auto"
+            className="text-white mb-8 tracking-[0.08em] mx-auto"
             style={{
-              fontSize: 'clamp(0.8rem, 3vw, 1.5rem)',
+              fontSize: 'clamp(0.88rem, 3vw, 1.5rem)',
               lineHeight: '1.5',
               textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
-              fontFamily: 'Progress, sans-serif'
+              fontFamily: 'Progress, sans-serif',
+              whiteSpace: 'pre-line',
+              wordBreak: 'keep-all',
+              overflowWrap: 'normal',
             }}
           >
-            Structured AI Powered<br />Combat Training
+            {'Structured AI Powered\nCombat Training'}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8">
             <button
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
-              className="w-1/2 sm:w-auto px-7 py-3 bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
+              className="bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
               style={{
                 fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
+                padding: 'clamp(0.35rem, 1.2vw, 0.75rem) clamp(1rem, 3vw, 1.75rem)',
+                display: 'inline-block',
+                textAlign: 'center',
                 textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)',
-                fontFamily: 'Progress, sans-serif'
+                fontFamily: 'Progress, sans-serif',
               }}
             >
               START TRAINING
@@ -66,14 +76,16 @@ export default function Home({ onNavigate }: HomeProps) {
 
           <div className="text-center">
             <p
-              className="font-bold tracking-[0.08em] leading-tight max-w-xs sm:max-w-sm mx-auto"
+              className="font-bold tracking-[0.08em] leading-snug mx-auto"
               style={{
-                fontSize: 'clamp(0.65rem, 2vw, 1rem)',
+                fontSize: 'clamp(0.75rem, 2vw, 1rem)',
                 textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
-                fontFamily: 'Progress, sans-serif'
+                fontFamily: 'Progress, sans-serif',
+                whiteSpace: 'nowrap',
               }}
             >
-              Train with purpose, improve with structure.
+              <span className="hidden lg:inline">Train with purpose, improve with structure.</span>
+              <span className="lg:hidden" style={{ whiteSpace: 'pre-line', display: 'block' }}>{'Train with purpose\nImprove with structure.'}</span>
             </p>
           </div>
         </div>
