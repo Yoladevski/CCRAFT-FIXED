@@ -27,8 +27,11 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Affiliates = lazy(() => import('./pages/Affiliates'));
 const PostVerify = lazy(() => import('./pages/PostVerify'));
 const CreateProfile = lazy(() => import('./pages/CreateProfile'));
+const StructuredProgression = lazy(() => import('./pages/StructuredProgression'));
+const AIInstruction = lazy(() => import('./pages/AIInstruction'));
+const MultiDiscipline = lazy(() => import('./pages/MultiDiscipline'));
 
-type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates';
+type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline';
 
 interface NavigationState {
   page: Page;
@@ -66,6 +69,9 @@ function AppContent() {
       'Vision': '/vision',
       'Contact': '/contact',
       'Affiliates': '/affiliates',
+      'StructuredProgression': '/structured-progression',
+      'AIInstruction': '/ai-instruction',
+      'MultiDiscipline': '/multi-discipline',
     };
 
     if (page === 'Discipline' && id) {
@@ -145,6 +151,9 @@ function AppContent() {
                 <Route path="/vision" element={<Vision onBack={goBack} />} />
                 <Route path="/contact" element={<Contact onBack={goBack} />} />
                 <Route path="/affiliates" element={<Affiliates onBack={goBack} />} />
+                <Route path="/structured-progression" element={<StructuredProgression onBack={goBack} />} />
+                <Route path="/ai-instruction" element={<AIInstruction onBack={goBack} />} />
+                <Route path="/multi-discipline" element={<MultiDiscipline onBack={goBack} />} />
               </Routes>
             </main>
             <Footer onNavigate={(page) => handleNavigate(page as Page)} />

@@ -97,7 +97,10 @@ export default function Home({ onNavigate }: HomeProps) {
         <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
-            <div className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105">
+            <button
+              onClick={() => onNavigate('StructuredProgression')}
+              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+            >
               <div className="mb-6 mx-auto flex items-center justify-center">
                 <img
                   src="https://i.postimg.cc/D0fKBBM2/fightcraft1.jpg"
@@ -111,9 +114,12 @@ export default function Home({ onNavigate }: HomeProps) {
               <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
                 Sequential unlock system ensures mastery before advancement. Build foundations properly.
               </p>
-            </div>
+            </button>
 
-            <div className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105">
+            <button
+              onClick={() => onNavigate('AIInstruction')}
+              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+            >
               <div className="mb-6 mx-auto flex items-center justify-center">
                 <img
                   src="https://i.postimg.cc/fyWhBBrT/fightcraft2.jpg"
@@ -127,9 +133,12 @@ export default function Home({ onNavigate }: HomeProps) {
               <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
                 Detailed technique breakdowns with common mistakes and tactical applications.
               </p>
-            </div>
+            </button>
 
-            <div className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105">
+            <button
+              onClick={() => onNavigate('MultiDiscipline')}
+              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+            >
               <div className="mb-6 mx-auto flex items-center justify-center">
                 <img
                   src="https://i.postimg.cc/zvD100cG/fightcraft3.jpg"
@@ -143,7 +152,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
                 Train across Boxing, Muay Thai, BJJ, and more. Become a complete fighter.
               </p>
-            </div>
+            </button>
           </div>
         </div>
       </section>

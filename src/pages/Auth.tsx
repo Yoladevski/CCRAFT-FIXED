@@ -99,8 +99,11 @@ export default function Auth({ onNavigate }: AuthProps) {
         <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
           {/* Background image with opacity - only visible in the card background */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none"
-            style={{ backgroundImage: 'url(https://i.postimg.cc/sx1hGTSM/backround-email.jpg)' }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 pointer-events-none"
+            style={{
+              backgroundImage: 'url(https://i.postimg.cc/sx1hGTSM/backround-email.jpg)',
+              backgroundSize: '120%'
+            }}
           />
 
           <div className="relative z-10">
