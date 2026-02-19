@@ -13,14 +13,17 @@ export default function Home({ onNavigate }: HomeProps) {
       <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden -mt-20">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0E0E0E] z-10" />
 
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
             className="w-full h-full"
-            style={{ objectFit: 'cover' }}
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center 20%'
+            }}
             poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
           >
             <source
@@ -51,12 +54,11 @@ export default function Home({ onNavigate }: HomeProps) {
               lineHeight: '1.5',
               textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
               fontFamily: 'Progress, sans-serif',
-              whiteSpace: 'pre-line',
-              wordBreak: 'keep-all',
-              overflowWrap: 'normal',
             }}
           >
-            {'Structured Combat Training\nPowered by AI'}
+            <span className="block sm:inline">Structured Combat Training</span>
+            <span className="hidden sm:inline"> </span>
+            <span className="block sm:inline">Powered by AI</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8">
