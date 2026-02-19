@@ -96,10 +96,17 @@ export default function Auth({ onNavigate }: AuthProps) {
     <div className="min-h-screen flex items-center justify-center px-4 py-8 relative -mt-20 pt-20">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="w-full max-w-2xl relative z-10">
-        <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
-            {isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
-          </h2>
+        <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
+          {/* Background image with opacity - only visible in the card background */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none"
+            style={{ backgroundImage: 'url(https://i.postimg.cc/sx1hGTSM/backround-email.jpg)' }}
+          />
+
+          <div className="relative z-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
+              {isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
+            </h2>
 
           {error && (
             <div className="mb-4 p-4 bg-[#B11226]/20 border border-[#B11226] rounded text-center text-sm sm:text-base">
@@ -245,6 +252,7 @@ export default function Auth({ onNavigate }: AuthProps) {
                 ? 'Already have an account? Sign in'
                 : "Don't have an account? Sign up"}
             </button>
+          </div>
           </div>
         </div>
       </div>
