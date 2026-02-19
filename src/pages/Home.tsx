@@ -56,7 +56,7 @@ export default function Home({ onNavigate }: HomeProps) {
               overflowWrap: 'normal',
             }}
           >
-            {'Structured AI Powered\nCombat Training'}
+            {'Structured Combat Training\nPowered by AI'}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8">
