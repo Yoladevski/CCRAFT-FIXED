@@ -308,7 +308,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           <div className="relative z-10 p-6">
 
             {/* Mobile: Center Profile with Rank Below */}
-            <div className="flex flex-col items-center gap-4 mb-6 md:hidden">
+            <div className="flex flex-col items-center gap-3 mb-6 md:hidden">
               <ProfileImage rank={profile.rank} imageUrl={profile.profile_picture_url} />
 
               <div className="text-center">
@@ -316,12 +316,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   CURRENT RANK
                 </p>
                 <h1
-                  className="text-4xl font-bold mb-3"
+                  className="text-3xl font-bold mb-2"
                   style={{
                     fontFamily: 'var(--font-astro)',
                     color: getRankColor(profile.rank),
-                    WebkitTextStroke: '2px black',
-                    textStroke: '2px black',
+                    WebkitTextStroke: '1.5px black',
+                    textStroke: '1.5px black',
                     paintOrder: 'stroke fill'
                   }}
                 >
@@ -335,7 +335,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                     POWER LEVEL
                   </p>
                   <div
-                    className="text-3xl font-bold text-[#B11226]"
+                    className="text-2xl font-bold text-[#B11226]"
                     style={{ fontFamily: 'var(--font-robot)' }}
                   >
                     {profile.power_level}
@@ -456,31 +456,19 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* PROGRESS AND TRAINING GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-          {/* PROGRESS SECTION */}
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 flex flex-col items-center justify-center">
-            <h2 className="text-xl md:text-2xl font-bold mb-6 text-center" style={{ fontFamily: 'var(--font-astro)' }}>
-              OVERALL PROGRESS
-            </h2>
-            <CircularProgress
-              percentage={completionPercentage}
-              completed={completedTechniques}
-              total={totalTechniques}
-            />
-          </div>
-
           {/* CURRENT TRAINING PANEL */}
-          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-6">
-            <h2 className="text-xl md:text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-astro)' }}>
+          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-4 md:p-6">
+            <h2 className="text-lg md:text-2xl font-bold mb-3 md:mb-4" style={{ fontFamily: 'var(--font-astro)' }}>
               CURRENT TRAINING
             </h2>
 
             {nextTechnique ? (
-              <div className="space-y-3 mb-6">
+              <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                 <div>
                   <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
                     DISCIPLINE
                   </p>
-                  <p className="text-base md:text-xl text-white" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-sm md:text-xl text-white" style={{ fontFamily: 'var(--font-astro)' }}>
                     {nextTechnique.discipline}
                   </p>
                 </div>
@@ -489,7 +477,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
                     CATEGORY
                   </p>
-                  <p className="text-base md:text-xl text-white" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-sm md:text-xl text-white" style={{ fontFamily: 'var(--font-astro)' }}>
                     {nextTechnique.category}
                   </p>
                 </div>
@@ -498,14 +486,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
                     NEXT TECHNIQUE
                   </p>
-                  <p className="text-lg md:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-base md:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-astro)' }}>
                     {nextTechnique.technique}
                   </p>
                 </div>
               </div>
             ) : (
-              <div className="mb-6">
-                <p className="text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>
+              <div className="mb-4 md:mb-6">
+                <p className="text-[#A0A0A0] text-sm md:text-base" style={{ fontFamily: 'var(--font-astro)' }}>
                   All techniques completed!
                 </p>
               </div>
@@ -513,11 +501,23 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
             <button
               onClick={() => onNavigate('Disciplines')}
-              className="w-full py-3 md:py-4 bg-[#B11226] text-white text-base md:text-xl font-bold hover:bg-[#8B0E1C] transition-colors"
+              className="w-full py-3 md:py-4 bg-[#B11226] text-white text-sm md:text-xl font-bold hover:bg-[#8B0E1C] transition-colors"
               style={{ fontFamily: 'var(--font-astro)' }}
             >
               {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
             </button>
+          </div>
+
+          {/* PROGRESS SECTION */}
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 md:p-6 flex flex-col items-center justify-center">
+            <h2 className="text-lg md:text-2xl font-bold mb-4 md:mb-6 text-center" style={{ fontFamily: 'var(--font-astro)' }}>
+              OVERALL PROGRESS
+            </h2>
+            <CircularProgress
+              percentage={completionPercentage}
+              completed={completedTechniques}
+              total={totalTechniques}
+            />
           </div>
         </div>
 
