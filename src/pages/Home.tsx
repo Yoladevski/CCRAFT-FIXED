@@ -34,7 +34,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <h1
             className="font-bold mb-6 tracking-[0.05em] leading-tight"
             style={{
-              fontSize: 'clamp(2.2rem, 8vw, 5rem)',
+              fontSize: 'clamp(2.42rem, 8.8vw, 5.5rem)',
               textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000',
               whiteSpace: 'pre-line',
               wordBreak: 'keep-all',
@@ -47,7 +47,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <p
             className="text-white mb-8 tracking-[0.08em] mx-auto"
             style={{
-              fontSize: 'clamp(0.88rem, 3vw, 1.5rem)',
+              fontSize: 'clamp(0.968rem, 3.3vw, 1.65rem)',
               lineHeight: '1.5',
               textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
               fontFamily: 'Progress, sans-serif',
@@ -64,8 +64,8 @@ export default function Home({ onNavigate }: HomeProps) {
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
               className="bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
               style={{
-                fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
-                padding: 'clamp(0.35rem, 1.2vw, 0.75rem) clamp(1rem, 3vw, 1.75rem)',
+                fontSize: 'clamp(0.825rem, 2.75vw, 1.1rem)',
+                padding: 'clamp(0.385rem, 1.32vw, 0.825rem) clamp(1.1rem, 3.3vw, 1.925rem)',
                 display: 'inline-block',
                 textAlign: 'center',
                 textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)',
@@ -80,7 +80,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <p
               className="font-bold tracking-[0.08em] leading-snug mx-auto"
               style={{
-                fontSize: 'clamp(0.75rem, 2vw, 1rem)',
+                fontSize: 'clamp(0.825rem, 2.2vw, 1.1rem)',
                 textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
                 fontFamily: 'Progress, sans-serif',
               }}
