@@ -63,11 +63,12 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20 z-10" />
 
               {!discipline.is_active && (
-                <div className="absolute inset-0 bg-black/80 z-20 flex items-center justify-center">
-                  <div className="text-center">
-                    <Lock size={48} className="mx-auto mb-4 text-[#A0A0A0]" />
-                    <p className="text-xl font-bold text-[#A0A0A0]">COMING SOON</p>
-                  </div>
+                <div className="absolute inset-0 z-20 flex items-center justify-center">
+                  <img
+                    src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
+                    alt="Coming Soon"
+                    className="w-full h-full object-cover opacity-70"
+                  />
                 </div>
               )}
 
@@ -84,20 +85,20 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 <img
                   src={
                     discipline.name === 'Boxing'
-                      ? 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1200&h=675&fit=crop&crop=center'
+                      ? 'https://i.postimg.cc/zGrGjPbd/boxing.png'
                       : discipline.name === 'Muay Thai'
-                      ? 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=1200&h=675&fit=crop&crop=center'
+                      ? 'https://i.postimg.cc/HxwGnkJn/muaythai.png'
                       : discipline.name === 'BJJ'
                       ? 'https://i.postimg.cc/MHT6KD7s/bjjjj.png'
                       : discipline.name === 'Kickboxing'
-                      ? 'https://images.unsplash.com/photo-1571019613914-85f342c55f2a?w=1200&h=675&fit=crop&crop=center'
+                      ? 'https://i.postimg.cc/qRBvLNb4/kickboxing.png'
                       : discipline.name === 'Karate'
-                      ? 'https://images.unsplash.com/photo-1605296867724-fa87a8ef2f08?w=1200&h=675&fit=crop&crop=center'
+                      ? 'https://i.postimg.cc/Bn0hyCYd/karate.png'
                       : discipline.name === 'Taekwondo'
-                      ? 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1200&h=675&fit=crop&crop=center'
+                      ? 'https://i.postimg.cc/zfQSRXBJ/taekwondo.png'
                       : discipline.name === 'Judo'
-                      ? 'https://images.unsplash.com/photo-1615111784767-4d8b8e6b6b53?w=1200&h=675&fit=crop&crop=center'
-                      : 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1200&h=675&fit=crop&crop=center'
+                      ? 'https://i.postimg.cc/zfxKCJxN/judo.png'
+                      : 'https://i.postimg.cc/zGrGjPbd/boxing.png'
                   }
                   alt={discipline.name}
                   className="w-full h-full object-cover object-center brightness-90 contrast-125"
