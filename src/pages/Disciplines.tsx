@@ -46,65 +46,70 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
           CHOOSE YOUR DISCIPLINE
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {disciplines.map((discipline) => (
-            <button
+            <div
               key={discipline.id}
-              onClick={() =>
-                discipline.is_active && onNavigate('Discipline', discipline.id)
-              }
-              disabled={!discipline.is_active}
-              className={`relative group h-64 rounded-lg overflow-hidden border-2 transition-all transform ${
-                discipline.is_active
-                  ? 'border-[#2E2E2E] hover:border-[#B11226] hover:scale-105 cursor-pointer'
-                  : 'border-[#2E2E2E] opacity-60 cursor-not-allowed'
+              className={`flex flex-col ${
+                !discipline.is_active ? 'opacity-60' : ''
               }`}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20 z-10" />
+              <div className="relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#2E2E2E] group">
+                {!discipline.is_active && (
+                  <div className="absolute inset-0 z-20 flex items-center justify-center">
+                    <img
+                      src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
+                      alt="Coming Soon"
+                      className="w-full h-full object-cover opacity-80"
+                    />
+                  </div>
+                )}
 
-              {!discipline.is_active && (
-                <div className="absolute inset-0 z-20 flex items-center justify-center">
+                <div className="absolute inset-0 bg-[#1A1A1A]">
                   <img
-                    src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
-                    alt="Coming Soon"
-                    className="w-full h-full object-cover opacity-70"
+                    src={
+                      discipline.name === 'Boxing'
+                        ? 'https://i.postimg.cc/1R0dtft2/booxing.png'
+                        : discipline.name === 'Muay Thai'
+                        ? 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg'
+                        : discipline.name === 'BJJ'
+                        ? 'https://i.postimg.cc/MHT6KD7s/bjjjj.png'
+                        : discipline.name === 'Kickboxing'
+                        ? 'https://i.postimg.cc/qRBvLNb4/kickboxing.png'
+                        : discipline.name === 'Karate'
+                        ? 'https://i.postimg.cc/3xZrFKnC/karate.png'
+                        : discipline.name === 'Taekwondo'
+                        ? 'https://i.postimg.cc/MpntyTW0/tikwan.png'
+                        : discipline.name === 'Judo'
+                        ? 'https://i.postimg.cc/JzQ751PX/judo.png'
+                        : 'https://i.postimg.cc/1R0dtft2/booxing.png'
+                    }
+                    alt={discipline.name}
+                    className="w-full h-full object-cover object-center brightness-90 contrast-125"
                   />
                 </div>
-              )}
+              </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-6 z-30">
-                <h3 className="text-2xl font-bold mb-2">{discipline.name}</h3>
+              <div className="mt-4 px-2">
+                <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-center">
+                  {discipline.name}
+                </h3>
                 {discipline.description && (
-                  <p className="text-sm text-[#A0A0A0] text-body">
+                  <p className="text-sm text-[#A0A0A0] text-center mb-4 min-h-[2.5rem]">
                     {discipline.description}
                   </p>
                 )}
-              </div>
 
-              <div className="absolute inset-0 bg-[#1A1A1A]">
-                <img
-                  src={
-                    discipline.name === 'Boxing'
-                      ? 'https://i.postimg.cc/1R0dtft2/booxing.png'
-                      : discipline.name === 'Muay Thai'
-                      ? 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg'
-                      : discipline.name === 'BJJ'
-                      ? 'https://i.postimg.cc/MHT6KD7s/bjjjj.png'
-                      : discipline.name === 'Kickboxing'
-                      ? 'https://i.postimg.cc/qRBvLNb4/kickboxing.png'
-                      : discipline.name === 'Karate'
-                      ? 'https://i.postimg.cc/3xZrFKnC/karate.png'
-                      : discipline.name === 'Taekwondo'
-                      ? 'https://i.postimg.cc/MpntyTW0/tikwan.png'
-                      : discipline.name === 'Judo'
-                      ? 'https://i.postimg.cc/JzQ751PX/judo.png'
-                      : 'https://i.postimg.cc/1R0dtft2/booxing.png'
-                  }
-                  alt={discipline.name}
-                  className="w-full h-full object-cover object-center brightness-90 contrast-125"
-                />
+                {discipline.is_active && (
+                  <button
+                    onClick={() => onNavigate('Discipline', discipline.id)}
+                    className="w-full py-3 bg-[#B11226] hover:bg-[#8B0E1E] transition-colors rounded-lg font-bold text-xl tracking-wider"
+                  >
+                    ENTER
+                  </button>
+                )}
               </div>
-            </button>
+            </div>
           ))}
         </div>
       </div>
