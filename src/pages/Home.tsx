@@ -33,14 +33,9 @@ export default function Home({ onNavigate }: HomeProps) {
           </video>
         </div>
 
-        <div
-          className="absolute left-1/2 -translate-x-1/2 text-center z-30 animate-fade-in px-6"
-          style={{
-            top: 'clamp(70px, 8vh, 110px)',
-          }}
-        >
-          <p
-            className="text-white tracking-[0.08em]"
+        <div className="hero-content-grid px-6">
+          <div
+            className="hero-top-text text-white tracking-[0.08em] animate-fade-in"
             style={{
               fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
               lineHeight: '1.5',
@@ -49,41 +44,32 @@ export default function Home({ onNavigate }: HomeProps) {
               fontWeight: 700,
             }}
           >
-            <span className="block" style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Structured Training</span>
-            <span className="block" style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Powered by AI</span>
-          </p>
-        </div>
+            <span style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>STRUCTURED TRAINING</span>
+            <span style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>POWERED BY AI</span>
+          </div>
 
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
-        >
-          <button
-            onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
-            className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
-            style={{
-              width: 'clamp(250px, 60vw, 400px)',
-              maxWidth: '100%',
-            }}
-          >
-            <img
-              src="https://i.postimg.cc/3rvPNrqD/gpptbutton.png"
-              alt="Start Training"
-              className="w-full h-auto"
+          <div className="hero-middle-button">
+            <button
+              onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
+              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
               style={{
-                filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
+                width: 'clamp(250px, 60vw, 400px)',
+                maxWidth: '100%',
               }}
-            />
-          </button>
-        </div>
+            >
+              <img
+                src="https://i.postimg.cc/3rvPNrqD/gpptbutton.png"
+                alt="Start Training"
+                className="w-full h-auto"
+                style={{
+                  filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
+                }}
+              />
+            </button>
+          </div>
 
-        <div
-          className="absolute left-1/2 -translate-x-1/2 text-center z-30 px-6"
-          style={{
-            bottom: 'clamp(20px, 4vh, 40px)',
-          }}
-        >
-          <p
-            className="font-bold tracking-[0.08em] leading-snug"
+          <div
+            className="hero-bottom-text font-bold tracking-[0.08em] leading-snug"
             style={{
               fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
               textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
@@ -91,9 +77,9 @@ export default function Home({ onNavigate }: HomeProps) {
               fontWeight: 700,
             }}
           >
-            <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Train with purpose, improve with structure.</span>
-            <span className="lg:hidden block" style={{ whiteSpace: 'pre-line', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>{'Train with purpose\nImprove with structure.'}</span>
-          </p>
+            <span style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>TRAIN WITH PURPOSE</span>
+            <span style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>IMPROVE WITH STRUCTURE</span>
+          </div>
         </div>
       </section>
 

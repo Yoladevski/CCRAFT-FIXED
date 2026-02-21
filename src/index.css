@@ -326,3 +326,25 @@ nav a {
   border: 2px solid #FFD700;
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
 }
+
+.hero-content-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  z-index: 30;
+}
+
+.hero-top-text span,
+.hero-bottom-text span {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hero-middle-button {
+    transform: translateY(12px);
+  }
+}
