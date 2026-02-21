@@ -70,7 +70,7 @@ export default function Home({ onNavigate }: HomeProps) {
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
               className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
               style={{
-                width: 'clamp(250px, 60vw, 400px)',
+                width: 'clamp(325px, 78vw, 520px)',
                 maxWidth: '100%',
               }}
             >
