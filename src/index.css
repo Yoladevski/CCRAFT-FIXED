@@ -343,7 +343,21 @@ nav a {
   display: block;
 }
 
+@media (max-width: 767px) {
+  .hero-bottom-text span {
+    display: inline;
+  }
+
+  .hero-bottom-text span:first-child::after {
+    content: ' ';
+  }
+}
+
 @media (min-width: 768px) {
+  .hero-content-grid {
+    transform: translateY(100px);
+  }
+
   .hero-middle-button {
     transform: translateY(12px);
   }
