@@ -308,7 +308,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* WELCOME MESSAGE */}
         <div className="bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A] to-transparent border-l-4 border-[#B11226] p-4 md:p-6 text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-astro)' }}>
-            WELCOME BACK, {(profile.full_name || 'FIGHTER').toUpperCase()}
+            WELCOME BACK {(profile.full_name || 'FIGHTER').toUpperCase()}
           </h2>
           <p className="text-sm sm:text-base text-[#B11226] font-bold" style={{ fontFamily: 'var(--font-astro)' }}>
             {dailyMotivation}
