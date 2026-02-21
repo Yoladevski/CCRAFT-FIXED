@@ -55,27 +55,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
 
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-30 px-6"
-        >
-          <p
-            className="font-bold tracking-[0.08em] leading-snug"
-            style={{
-              fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
-              textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
-            }}
-          >
-            <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Train with purpose, improve with structure.</span>
-            <span className="lg:hidden block" style={{ whiteSpace: 'pre-line', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>{'Train with purpose\nImprove with structure.'}</span>
-          </p>
-        </div>
-
-        <div
-          className="absolute left-1/2 -translate-x-1/2 z-30"
-          style={{
-            bottom: 'clamp(20px, 4vh, 40px)',
-          }}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
         >
           <button
             onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
@@ -94,6 +74,26 @@ export default function Home({ onNavigate }: HomeProps) {
               }}
             />
           </button>
+        </div>
+
+        <div
+          className="absolute left-1/2 -translate-x-1/2 text-center z-30 px-6"
+          style={{
+            bottom: 'clamp(20px, 4vh, 40px)',
+          }}
+        >
+          <p
+            className="font-bold tracking-[0.08em] leading-snug"
+            style={{
+              fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
+              textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
+              fontFamily: 'Redhawk, sans-serif',
+              fontWeight: 700,
+            }}
+          >
+            <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Train with purpose, improve with structure.</span>
+            <span className="lg:hidden block" style={{ whiteSpace: 'pre-line', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>{'Train with purpose\nImprove with structure.'}</span>
+          </p>
         </div>
       </section>
 
