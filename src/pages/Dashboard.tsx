@@ -306,7 +306,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
 
         {/* WELCOME MESSAGE */}
-        <div className="bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A] to-transparent border-l-4 border-[#B11226] p-4 md:p-6">
+        <div className="bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A] to-transparent border-l-4 border-[#B11226] p-4 md:p-6 text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-astro)' }}>
             WELCOME BACK, {(profile.full_name || 'FIGHTER').toUpperCase()}
           </h2>
@@ -315,16 +315,25 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </p>
         </div>
 
+        {/* CONTINUE BUTTON */}
+        <button
+          onClick={() => onNavigate('Disciplines')}
+          className="w-full py-3 md:py-4 bg-[#B11226] text-white text-sm md:text-xl font-bold hover:bg-[#8B0E1C] transition-colors"
+          style={{ fontFamily: 'var(--font-astro)' }}
+        >
+          {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
+        </button>
+
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* CURRENT TRAINING PANEL */}
-          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-4 md:p-6">
+          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-4 md:p-6 text-center">
             <h2 className="text-lg md:text-2xl font-bold mb-3 md:mb-4" style={{ fontFamily: 'var(--font-astro)' }}>
               CURRENT TRAINING
             </h2>
 
             {nextTechnique ? (
-              <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
+              <div className="space-y-2 md:space-y-3">
                 <div>
                   <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
                     DISCIPLINE
@@ -353,20 +362,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 </div>
               </div>
             ) : (
-              <div className="mb-4 md:mb-6">
+              <div>
                 <p className="text-[#A0A0A0] text-sm md:text-base" style={{ fontFamily: 'var(--font-astro)' }}>
                   All techniques completed!
                 </p>
               </div>
             )}
-
-            <button
-              onClick={() => onNavigate('Disciplines')}
-              className="w-full py-3 md:py-4 bg-[#B11226] text-white text-sm md:text-xl font-bold hover:bg-[#8B0E1C] transition-colors"
-              style={{ fontFamily: 'var(--font-astro)' }}
-            >
-              {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
-            </button>
           </div>
 
           {/* CURRENT RANK CARD - SQUARE */}
@@ -421,7 +422,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* XP PROGRESS BAR TO NEXT RANK */}
         {nextRank && (
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
             <div className="flex items-center justify-between mb-2">
               <p className="text-xs text-[#A0A0A0] tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
                 NEXT RANK: {nextRank.next.toUpperCase()}
@@ -436,7 +437,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 style={{ width: `${progressToNext}%` }}
               />
             </div>
-            <p className="text-xs text-[#A0A0A0] mt-2 text-center" style={{ fontFamily: 'var(--font-astro)' }}>
+            <p className="text-xs text-[#A0A0A0] mt-2" style={{ fontFamily: 'var(--font-astro)' }}>
               <span className="text-white font-bold" style={{ fontFamily: 'var(--font-robot)' }}>{nextRank.required - profile.power_level}</span> XP REMAINING
             </p>
           </div>
@@ -445,7 +446,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* STAT GRID */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
             <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
               TECHNIQUES
             </p>
@@ -454,7 +455,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </p>
           </div>
 
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
             <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
               TOTAL XP
             </p>
@@ -463,7 +464,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </p>
           </div>
 
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
             <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
               RANK
             </p>
@@ -472,7 +473,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </p>
           </div>
 
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4">
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
             <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
               LAST SESSION
             </p>
@@ -485,7 +486,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* RECENT VICTORIES */}
         {recentProgress.length > 0 && (
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-astro)' }}>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center" style={{ fontFamily: 'var(--font-astro)' }}>
               RECENT VICTORIES
             </h2>
             <div className="space-y-2">
@@ -494,7 +495,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   key={progress.id}
                   className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 md:p-6 flex items-center justify-between hover:border-[#B11226] transition-colors"
                 >
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 text-center">
                     <h3 className="text-base md:text-xl font-bold mb-1 truncate" style={{ fontFamily: 'var(--font-astro)' }}>
                       {progress.technique?.name}
                     </h3>
