@@ -58,7 +58,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}
             >
               <img
-                src="https://i.postimg.cc/bvtKt6Bw/final-button-components.jpg"
+                src="https://i.postimg.cc/Y9VGsCxy/BUTTON.png"
                 alt="Start Training"
                 className="w-full h-auto"
                 style={{
