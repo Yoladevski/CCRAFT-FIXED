@@ -286,7 +286,7 @@ export default function Account({ onBack }: AccountProps) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>LOADING...</div>
+        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'Redhawk' }}>LOADING...</div>
       </div>
     );
   }
@@ -301,7 +301,7 @@ export default function Account({ onBack }: AccountProps) {
         <h1
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-12"
           style={{
-            fontFamily: 'var(--font-astro)',
+            fontFamily: 'Redhawk',
             textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000'
           }}
         >
@@ -313,7 +313,7 @@ export default function Account({ onBack }: AccountProps) {
             message.includes('success')
               ? 'bg-green-500/20 border border-green-500 text-green-500'
               : 'bg-[#B11226]/20 border border-[#B11226] text-[#B11226]'
-          }`} style={{ fontFamily: 'var(--font-astro)' }}>
+          }`} style={{ fontFamily: 'Redhawk' }}>
             {message}
           </div>
         )}
@@ -327,7 +327,7 @@ export default function Account({ onBack }: AccountProps) {
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
-              style={{ fontFamily: 'var(--font-astro)' }}
+              style={{ fontFamily: 'Redhawk' }}
             >
               PROFILE
             </button>
@@ -338,7 +338,7 @@ export default function Account({ onBack }: AccountProps) {
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
-              style={{ fontFamily: 'var(--font-astro)' }}
+              style={{ fontFamily: 'Redhawk' }}
             >
               SECURITY
             </button>
@@ -349,7 +349,7 @@ export default function Account({ onBack }: AccountProps) {
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
-              style={{ fontFamily: 'var(--font-astro)' }}
+              style={{ fontFamily: 'Redhawk' }}
             >
               SETTINGS
             </button>
@@ -384,18 +384,18 @@ export default function Account({ onBack }: AccountProps) {
                     />
                   </div>
                   {uploadingPicture && (
-                    <p className="text-sm text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <p className="text-sm text-[#A0A0A0]" style={{ fontFamily: 'Redhawk' }}>
                       UPLOADING...
                     </p>
                   )}
-                  <p className="text-xs text-[#A0A0A0] text-center max-w-sm" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-xs text-[#A0A0A0] text-center max-w-sm" style={{ fontFamily: 'Redhawk' }}>
                     Click the camera icon to upload a profile picture (max 5MB)
                   </p>
                 </div>
 
                 <form onSubmit={handleProfileSave} className="space-y-6">
                   <div>
-                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       FULL NAME
                     </label>
                     <input
@@ -403,14 +403,14 @@ export default function Account({ onBack }: AccountProps) {
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'var(--font-astro)' }}
+                      style={{ fontFamily: 'Redhawk' }}
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                      <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                         WEIGHT (LBS)
                       </label>
                       <input
@@ -418,13 +418,13 @@ export default function Account({ onBack }: AccountProps) {
                         value={weight}
                         onChange={(e) => setWeight(e.target.value)}
                         className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
-                        style={{ fontFamily: 'var(--font-astro)' }}
+                        style={{ fontFamily: 'Redhawk' }}
                         placeholder="185"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                      <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                         HEIGHT (INCHES)
                       </label>
                       <input
@@ -432,21 +432,21 @@ export default function Account({ onBack }: AccountProps) {
                         value={height}
                         onChange={(e) => setHeight(e.target.value)}
                         className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
-                        style={{ fontFamily: 'var(--font-astro)' }}
+                        style={{ fontFamily: 'Redhawk' }}
                         placeholder="72"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       EXPERIENCE LEVEL
                     </label>
                     <select
                       value={experienceLevel}
                       onChange={(e) => setExperienceLevel(e.target.value)}
                       className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'var(--font-astro)' }}
+                      style={{ fontFamily: 'Redhawk' }}
                     >
                       <option value="Beginner">BEGINNER</option>
                       <option value="Intermediate">INTERMEDIATE</option>
@@ -456,14 +456,14 @@ export default function Account({ onBack }: AccountProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       PREFERRED DISCIPLINE
                     </label>
                     <select
                       value={preferredDiscipline}
                       onChange={(e) => setPreferredDiscipline(e.target.value)}
                       className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'var(--font-astro)' }}
+                      style={{ fontFamily: 'Redhawk' }}
                     >
                       <option value="">SELECT...</option>
                       <option value="Boxing">BOXING</option>
@@ -480,7 +480,7 @@ export default function Account({ onBack }: AccountProps) {
                     type="submit"
                     disabled={saving}
                     className="w-full py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ fontFamily: 'var(--font-astro)' }}
+                    style={{ fontFamily: 'Redhawk' }}
                   >
                     {saving ? 'SAVING...' : 'SAVE PROFILE'}
                   </button>
@@ -491,33 +491,33 @@ export default function Account({ onBack }: AccountProps) {
             {activeTab === 'security' && (
               <div className="space-y-6 sm:space-y-8">
                 <div className="pb-6 sm:pb-8 border-b border-[#2E2E2E]">
-                  <h2 className="text-xl sm:text-2xl font-bold mb-4" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <h2 className="text-xl sm:text-2xl font-bold mb-4" style={{ fontFamily: 'Redhawk' }}>
                     ACCOUNT INFO
                   </h2>
                   <div className="mt-4">
-                    <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'var(--font-astro)' }}>CURRENT EMAIL</div>
-                    <div className="text-sm sm:text-base break-all" style={{ fontFamily: 'var(--font-astro)' }}>{user?.email}</div>
+                    <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'Redhawk' }}>CURRENT EMAIL</div>
+                    <div className="text-sm sm:text-base break-all" style={{ fontFamily: 'Redhawk' }}>{user?.email}</div>
                   </div>
                   {profile && (
                     <div className="grid grid-cols-2 gap-3 sm:gap-6 mt-6">
                       <div>
-                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'var(--font-astro)' }}>RANK</div>
-                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-astro)' }}>{profile.rank}</div>
+                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'Redhawk' }}>RANK</div>
+                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'Redhawk' }}>{profile.rank}</div>
                       </div>
                       <div>
-                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'var(--font-astro)' }}>POWER LEVEL</div>
-                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-robot)' }}>{profile.power_level}</div>
+                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'Redhawk' }}>POWER LEVEL</div>
+                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'Inter' }}>{profile.power_level}</div>
                       </div>
                     </div>
                   )}
                 </div>
 
                 <form onSubmit={handleEmailChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
-                  <h2 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <h2 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'Redhawk' }}>
                     CHANGE EMAIL
                   </h2>
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       NEW EMAIL ADDRESS
                     </label>
                     <input
@@ -525,7 +525,7 @@ export default function Account({ onBack }: AccountProps) {
                       value={newEmail}
                       onChange={(e) => setNewEmail(e.target.value)}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'var(--font-astro)' }}
+                      style={{ fontFamily: 'Redhawk' }}
                       placeholder="newemail@example.com"
                     />
                   </div>
@@ -533,18 +533,18 @@ export default function Account({ onBack }: AccountProps) {
                     type="submit"
                     disabled={saving || !newEmail}
                     className="w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ fontFamily: 'var(--font-astro)' }}
+                    style={{ fontFamily: 'Redhawk' }}
                   >
                     {saving ? 'UPDATING...' : 'UPDATE EMAIL'}
                   </button>
                 </form>
 
                 <form onSubmit={handlePhoneChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
-                  <h2 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <h2 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'Redhawk' }}>
                     PHONE NUMBER
                   </h2>
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       PHONE NUMBER
                     </label>
                     <input
@@ -552,7 +552,7 @@ export default function Account({ onBack }: AccountProps) {
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'var(--font-robot)' }}
+                      style={{ fontFamily: 'Inter' }}
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -560,19 +560,19 @@ export default function Account({ onBack }: AccountProps) {
                     type="submit"
                     disabled={saving || !phoneNumber}
                     className="w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ fontFamily: 'var(--font-astro)' }}
+                    style={{ fontFamily: 'Redhawk' }}
                   >
                     {saving ? 'UPDATING...' : 'UPDATE PHONE'}
                   </button>
                 </form>
 
                 <form onSubmit={handlePasswordChange} className="space-y-4 sm:space-y-6">
-                  <h2 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <h2 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'Redhawk' }}>
                     CHANGE PASSWORD
                   </h2>
 
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       CURRENT PASSWORD
                     </label>
                     <div className="relative">
@@ -581,7 +581,7 @@ export default function Account({ onBack }: AccountProps) {
                         value={currentPassword}
                         onChange={(e) => setCurrentPassword(e.target.value)}
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
-                        style={{ fontFamily: 'var(--font-astro)' }}
+                        style={{ fontFamily: 'Redhawk' }}
                         placeholder="••••••••"
                       />
                       <button
@@ -595,7 +595,7 @@ export default function Account({ onBack }: AccountProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       NEW PASSWORD
                     </label>
                     <div className="relative">
@@ -604,7 +604,7 @@ export default function Account({ onBack }: AccountProps) {
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
-                        style={{ fontFamily: 'var(--font-astro)' }}
+                        style={{ fontFamily: 'Redhawk' }}
                         placeholder="••••••••"
                       />
                       <button
@@ -618,7 +618,7 @@ export default function Account({ onBack }: AccountProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       CONFIRM NEW PASSWORD
                     </label>
                     <div className="relative">
@@ -627,7 +627,7 @@ export default function Account({ onBack }: AccountProps) {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
-                        style={{ fontFamily: 'var(--font-astro)' }}
+                        style={{ fontFamily: 'Redhawk' }}
                         placeholder="••••••••"
                       />
                       <button
@@ -644,7 +644,7 @@ export default function Account({ onBack }: AccountProps) {
                     type="submit"
                     disabled={saving || !newPassword || !confirmPassword}
                     className="w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ fontFamily: 'var(--font-astro)' }}
+                    style={{ fontFamily: 'Redhawk' }}
                   >
                     {saving ? 'UPDATING...' : 'UPDATE PASSWORD'}
                   </button>
@@ -655,28 +655,28 @@ export default function Account({ onBack }: AccountProps) {
             {activeTab === 'settings' && (
               <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{ fontFamily: 'Redhawk' }}>
                     REFERRAL PROGRAM
                   </h2>
-                  <p className="text-sm sm:text-base text-[#A0A0A0] mb-4 sm:mb-6" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-sm sm:text-base text-[#A0A0A0] mb-4 sm:mb-6" style={{ fontFamily: 'Redhawk' }}>
                     Share your unique referral link with friends and earn rewards when they join!
                   </p>
 
                   {profile?.referral_code && (
                     <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded p-3 sm:p-4">
-                      <div className="text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'var(--font-astro)' }}>
+                      <div className="text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                         YOUR REFERRAL CODE
                       </div>
                       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
                         <div className="flex-1 bg-[#1A1A1A] border border-[#2E2E2E] rounded px-3 sm:px-4 py-2 sm:py-3 overflow-x-auto">
-                          <code className="text-[#B11226] font-bold text-sm sm:text-lg whitespace-nowrap" style={{ fontFamily: 'var(--font-astro)' }}>
+                          <code className="text-[#B11226] font-bold text-sm sm:text-lg whitespace-nowrap" style={{ fontFamily: 'Redhawk' }}>
                             {profile.referral_code}
                           </code>
                         </div>
                         <button
                           onClick={handleCopyReferralLink}
                           className="px-4 sm:px-6 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all flex items-center justify-center gap-2"
-                          style={{ fontFamily: 'var(--font-astro)' }}>
+                          style={{ fontFamily: 'Redhawk' }}>
                           {copiedReferral ? (
                             <>
                               <Check size={18} />
@@ -690,7 +690,7 @@ export default function Account({ onBack }: AccountProps) {
                           )}
                         </button>
                       </div>
-                      <div className="mt-2 sm:mt-3 text-[10px] sm:text-xs text-[#A0A0A0] break-all" style={{ fontFamily: 'var(--font-astro)' }}>
+                      <div className="mt-2 sm:mt-3 text-[10px] sm:text-xs text-[#A0A0A0] break-all" style={{ fontFamily: 'Redhawk' }}>
                         {window.location.origin}?ref={profile.referral_code}
                       </div>
                     </div>
@@ -698,14 +698,14 @@ export default function Account({ onBack }: AccountProps) {
                 </div>
 
                 <div className="pt-6 sm:pt-8 border-t border-[#2E2E2E]">
-                  <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B11226]" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B11226]" style={{ fontFamily: 'Redhawk' }}>
                     DANGER ZONE
                   </h2>
                   <div className="space-y-3">
                     <button
                       onClick={handleSignOut}
                       className="w-full py-3 sm:py-4 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all flex items-center justify-center gap-2"
-                      style={{ fontFamily: 'var(--font-astro)' }}
+                      style={{ fontFamily: 'Redhawk' }}
                     >
                       <LogOut size={18} />
                       SIGN OUT
@@ -715,14 +715,14 @@ export default function Account({ onBack }: AccountProps) {
                       <button
                         onClick={() => setShowDeleteConfirm(true)}
                         className="w-full py-3 sm:py-4 bg-[#B11226]/20 border-2 border-[#B11226] text-[#B11226] text-sm sm:text-base font-bold rounded hover:bg-[#B11226] hover:text-white transition-all flex items-center justify-center gap-2"
-                        style={{ fontFamily: 'var(--font-astro)' }}
+                        style={{ fontFamily: 'Redhawk' }}
                       >
                         <Trash2 size={18} />
                         DELETE ACCOUNT
                       </button>
                     ) : (
                       <div className="bg-[#B11226]/10 border-2 border-[#B11226] rounded p-3 sm:p-4">
-                        <p className="text-xs sm:text-sm text-[#B11226] mb-3 sm:mb-4 font-bold" style={{ fontFamily: 'var(--font-astro)' }}>
+                        <p className="text-xs sm:text-sm text-[#B11226] mb-3 sm:mb-4 font-bold" style={{ fontFamily: 'Redhawk' }}>
                           WARNING: This action cannot be undone. All your data will be permanently deleted.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
@@ -730,7 +730,7 @@ export default function Account({ onBack }: AccountProps) {
                             onClick={handleDeleteAccount}
                             disabled={saving}
                             className="flex-1 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50"
-                            style={{ fontFamily: 'var(--font-astro)' }}
+                            style={{ fontFamily: 'Redhawk' }}
                           >
                             {saving ? 'DELETING...' : 'CONFIRM DELETE'}
                           </button>
@@ -738,7 +738,7 @@ export default function Account({ onBack }: AccountProps) {
                             onClick={() => setShowDeleteConfirm(false)}
                             disabled={saving}
                             className="flex-1 py-2 sm:py-3 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all disabled:opacity-50"
-                            style={{ fontFamily: 'var(--font-astro)' }}
+                            style={{ fontFamily: 'Redhawk' }}
                           >
                             CANCEL
                           </button>

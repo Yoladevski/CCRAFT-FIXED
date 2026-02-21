@@ -37,7 +37,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                   currentPage === 'Home' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
-                style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
+                style={{ fontSize: '0.9rem', fontFamily: 'Redhawk' }}
               >
                 HOME
                 {currentPage === 'Home' && (
@@ -51,7 +51,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                     currentPage === 'Dashboard' ? 'text-white' : 'text-[#A0A0A0]'
                   }`}
-                  style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
+                  style={{ fontSize: '0.9rem', fontFamily: 'Redhawk' }}
                 >
                   DASHBOARD
                   {currentPage === 'Dashboard' && (
@@ -67,7 +67,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                     ? 'text-white'
                     : 'text-[#A0A0A0]'
                 }`}
-                style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
+                style={{ fontSize: '0.9rem', fontFamily: 'Redhawk' }}
               >
                 DISCIPLINES
                 {(currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique') && (
@@ -80,7 +80,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                   currentPage === 'News' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
-                style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
+                style={{ fontSize: '0.9rem', fontFamily: 'Redhawk' }}
               >
                 NEWS
                 {currentPage === 'News' && (
@@ -93,7 +93,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 ${
                   currentPage === 'Merchandise' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
-                style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
+                style={{ fontSize: '0.9rem', fontFamily: 'Redhawk' }}
               >
                 MERCHANDISE
                 {currentPage === 'Merchandise' && (
@@ -107,7 +107,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   className={`relative font-bold hover:text-[#B11226] transition-colors pb-1 whitespace-nowrap ${
                     currentPage === 'Account' ? 'text-white' : 'text-[#A0A0A0]'
                   }`}
-                  style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
+                  style={{ fontSize: '0.9rem', fontFamily: 'Redhawk' }}
                 >
                   MY ACCOUNT
                   {currentPage === 'Account' && (
@@ -118,7 +118,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 <button
                   onClick={() => handleNavigate('Auth')}
                   className="px-4 py-2 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
-                  style={{ fontSize: '0.9rem', fontFamily: 'Progress, sans-serif' }}
+                  style={{ fontSize: '0.9rem', fontFamily: 'Redhawk' }}
                 >
                   SIGN IN
                 </button>

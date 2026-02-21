@@ -1,31 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: 'Astronomus';
-  src: url('/src/assets/fonts/Astronomus.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0020-007E, U+00A0-00FF;
-}
-
-@font-face {
-  font-family: 'Robot';
-  src: url('/src/assets/fonts/Robot_Font.otf') format('opentype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Progress';
-  src: url('/src/assets/fonts/PROGRESS-PERSONAL-USE.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
 
 @font-face {
   font-family: 'Redhawk';
@@ -36,14 +13,8 @@
 }
 
 :root {
-  --font-display: 'Progress', sans-serif;
-  --font-heading: 'Rajdhani', sans-serif;
+  --font-heading: 'Redhawk', sans-serif;
   --font-body: 'Inter', sans-serif;
-  --font-astro: 'Progress', sans-serif;
-  --font-roboto: 'Inter', sans-serif;
-  --font-robot: 'Inter', sans-serif;
-  --font-h1: 'Progress', sans-serif;
-  --font-h2: 'Progress', sans-serif;
 }
 
 [data-theme="dark"] {
@@ -73,7 +44,7 @@
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   letter-spacing: 0.01em;
   background-color: var(--color-bg-primary);
@@ -112,57 +83,50 @@ body::before {
   display: none !important;
 }
 
-h1 {
-  font-family: var(--font-display);
-  font-weight: 900;
+h1, h2, h3, h4, h5, h6,
+.heading-font,
+.section-title {
+  font-family: 'Redhawk', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  line-height: 1.1;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
   -webkit-text-stroke: 2px var(--stroke-color);
   text-stroke: 2px var(--stroke-color);
   paint-order: stroke fill;
+}
+
+h1 {
+  letter-spacing: 0.1em;
+  line-height: 1.1;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-  font-family: var(--font-display);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   line-height: 1.1;
-  -webkit-text-stroke: 2px var(--stroke-color);
-  text-stroke: 2px var(--stroke-color);
-  paint-order: stroke fill;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
-h3, h4, h5, h6,
-.heading-font,
-.section-title {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  text-transform: uppercase;
+h3, h4, h5, h6 {
   letter-spacing: 0.05em;
-  line-height: 1.2;
   -webkit-text-stroke: 1.5px var(--stroke-color);
   text-stroke: 1.5px var(--stroke-color);
-  paint-order: stroke fill;
 }
 
 button {
-  font-family: var(--font-body);
-  font-weight: 500;
+  font-family: 'Redhawk', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
 }
 
 label, input, select, textarea {
-  font-family: var(--font-body);
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
 }
 
-p, span, div {
-  font-family: var(--font-body);
+p, span, div, li, small {
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
 }
 
@@ -178,19 +142,24 @@ p, span, div {
 
 .numeric-display,
 [data-numeric="true"] {
-  font-family: var(--font-robot) !important;
+  font-family: 'Inter', sans-serif !important;
   font-feature-settings: 'tnum' 1;
+  font-weight: 700;
 }
 
 nav button,
 nav a {
+  font-family: 'Redhawk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   -webkit-text-stroke: 3px var(--stroke-color);
   text-stroke: 3px var(--stroke-color);
   paint-order: stroke fill;
 }
 
 .text-body {
-  font-family: var(--font-body);
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
 }
 

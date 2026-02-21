@@ -91,7 +91,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             </div>
           </div>
 
-          <div className="text-4xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+          <div className="text-4xl font-bold text-white" style={{ fontFamily: 'Inter' }}>
             {progress}%
           </div>
         </div>

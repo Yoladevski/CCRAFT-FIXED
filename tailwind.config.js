@@ -12,8 +12,7 @@ export default {
         'text-secondary': '#A0A0A0',
       },
       fontFamily: {
-        display: ['Teko', 'sans-serif'],
-        heading: ['Rajdhani', 'sans-serif'],
+        heading: ['Redhawk', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
     },

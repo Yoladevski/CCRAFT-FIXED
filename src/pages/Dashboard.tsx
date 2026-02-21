@@ -96,13 +96,13 @@ function CircularProgress({ percentage, completed, total }: CircularProgressProp
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+          <span className="text-3xl font-bold text-white" style={{ fontFamily: 'Inter' }}>
             {percentage}%
           </span>
         </div>
       </div>
-      <p className="text-sm text-[#A0A0A0] mt-4" style={{ fontFamily: 'var(--font-astro)' }}>
-        <span className="text-white font-bold" style={{ fontFamily: 'var(--font-robot)' }}>{completed}</span> / <span className="text-white font-bold" style={{ fontFamily: 'var(--font-robot)' }}>{total}</span> Techniques Mastered
+      <p className="text-sm text-[#A0A0A0] mt-4" style={{ fontFamily: 'Redhawk' }}>
+        <span className="text-white font-bold" style={{ fontFamily: 'Inter' }}>{completed}</span> / <span className="text-white font-bold" style={{ fontFamily: 'Inter' }}>{total}</span> Techniques Mastered
       </p>
     </div>
   );
@@ -244,7 +244,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>LOADING...</div>
+        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'Redhawk' }}>LOADING...</div>
       </div>
     );
   }
@@ -288,7 +288,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   if (!profile) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>PROFILE NOT FOUND</div>
+        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'Redhawk' }}>PROFILE NOT FOUND</div>
       </div>
     );
   }
@@ -394,7 +394,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 </p>
                 <div
                   className="text-4xl md:text-5xl font-bold text-[#B11226]"
-                  style={{ fontFamily: 'var(--font-robot)' }}
+                  style={{ fontFamily: 'Inter' }}
                 >
                   {profile.power_level}
                 </div>
@@ -408,10 +408,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   OVERALL PROGRESS
                 </p>
                 <div className="flex items-center justify-center gap-3">
-                  <span className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+                  <span className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: 'Inter' }}>
                     {completionPercentage}%
                   </span>
-                  <span className="text-base md:text-lg text-[#A0A0A0]" style={{ fontFamily: 'var(--font-robot)' }}>
+                  <span className="text-base md:text-lg text-[#A0A0A0]" style={{ fontFamily: 'Inter' }}>
                     ({completedTechniques}/{totalTechniques})
                   </span>
                 </div>
@@ -427,7 +427,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               <p className="text-sm md:text-base text-[#A0A0A0] tracking-wider font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                 NEXT RANK: {nextRank.next.toUpperCase()}
               </p>
-              <p className="text-base md:text-lg font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-robot)' }}>
+              <p className="text-base md:text-lg font-bold text-[#B11226]" style={{ fontFamily: 'Inter' }}>
                 {profile.power_level} / {nextRank.required}
               </p>
             </div>
@@ -438,7 +438,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               />
             </div>
             <p className="text-sm md:text-base text-[#A0A0A0] mt-3" style={{ fontFamily: 'Redhawk, sans-serif' }}>
-              <span className="text-white font-bold text-lg md:text-xl" style={{ fontFamily: 'var(--font-robot)' }}>{nextRank.required - profile.power_level}</span> XP REMAINING
+              <span className="text-white font-bold text-lg md:text-xl" style={{ fontFamily: 'Inter' }}>{nextRank.required - profile.power_level}</span> XP REMAINING
             </p>
           </div>
         )}
@@ -450,7 +450,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
               TECHNIQUES
             </p>
-            <p className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+            <p className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: 'Inter' }}>
               {completedTechniques}
             </p>
           </div>
@@ -459,7 +459,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
               TOTAL XP
             </p>
-            <p className="text-3xl md:text-4xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-robot)' }}>
+            <p className="text-3xl md:text-4xl font-bold text-[#B11226]" style={{ fontFamily: 'Inter' }}>
               {profile.power_level}
             </p>
           </div>
@@ -477,7 +477,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
               LAST SESSION
             </p>
-            <p className="text-base md:text-xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+            <p className="text-base md:text-xl font-bold text-white" style={{ fontFamily: 'Inter' }}>
               {lastSessionDate || 'N/A'}
             </p>
           </div>
@@ -499,11 +499,11 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                     <h3 className="text-lg md:text-2xl font-bold mb-2 truncate" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                       {progress.technique?.name}
                     </h3>
-                    <p className="text-sm md:text-base text-[#A0A0A0]" style={{ fontFamily: 'var(--font-robot)' }}>
+                    <p className="text-sm md:text-base text-[#A0A0A0]" style={{ fontFamily: 'Inter' }}>
                       {new Date(progress.completed_at).toLocaleDateString()}
                     </p>
                   </div>
-                  <div className="text-[#B11226] font-bold text-2xl md:text-3xl ml-4 flex-shrink-0" style={{ fontFamily: 'var(--font-robot)' }}>
+                  <div className="text-[#B11226] font-bold text-2xl md:text-3xl ml-4 flex-shrink-0" style={{ fontFamily: 'Inter' }}>
                     +{progress.technique?.xp_reward}
                   </div>
                 </div>

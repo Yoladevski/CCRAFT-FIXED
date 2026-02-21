@@ -40,7 +40,7 @@ export default function Home({ onNavigate }: HomeProps) {
               fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
               lineHeight: '1.5',
               textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
-              fontFamily: 'Progress, sans-serif',
+              fontFamily: 'Redhawk',
             }}
           >
             <span className="block">Structured Training</span>
@@ -57,7 +57,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 display: 'inline-block',
                 textAlign: 'center',
                 textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)',
-                fontFamily: 'Progress, sans-serif',
+                fontFamily: 'Redhawk',
               }}
             >
               START TRAINING
@@ -70,7 +70,7 @@ export default function Home({ onNavigate }: HomeProps) {
               style={{
                 fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
                 textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
-                fontFamily: 'Progress, sans-serif',
+                fontFamily: 'Redhawk',
               }}
             >
               <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap' }}>Train with purpose, improve with structure.</span>
