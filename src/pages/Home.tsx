@@ -34,29 +34,16 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
 
         <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-center pt-12">
-          <h1
-            className="font-bold mb-6 lg:mb-10 -mt-[7.5rem] lg:mt-0 tracking-[0.05em] leading-tight"
-            style={{
-              fontSize: 'clamp(2.42rem, 8.8vw, 5.5rem)',
-              textShadow: '0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9), -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000',
-              whiteSpace: 'pre-line',
-              wordBreak: 'keep-all',
-              overflowWrap: 'normal',
-            }}
-          >
-            {'Master your\nCraft'}
-          </h1>
-
           <p
             className="text-white mb-8 lg:mb-16 -mt-2.5 lg:mt-0 tracking-[0.08em] mx-auto"
             style={{
-              fontSize: 'clamp(0.968rem, 3.3vw, 1.65rem)',
+              fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
               lineHeight: '1.5',
               textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
               fontFamily: 'Progress, sans-serif',
             }}
           >
-            <span className="block">Structured Combat Training</span>
+            <span className="block">Structured Training</span>
             <span className="block">Powered by AI</span>
           </p>
 
@@ -65,8 +52,8 @@ export default function Home({ onNavigate }: HomeProps) {
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
               className="bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
               style={{
-                fontSize: 'clamp(0.825rem, 2.75vw, 1.1rem)',
-                padding: 'clamp(0.385rem, 1.32vw, 0.825rem) clamp(1.1rem, 3.3vw, 1.925rem)',
+                fontSize: 'clamp(1.2375rem, 4.125vw, 1.65rem)',
+                padding: 'clamp(0.5775rem, 1.98vw, 1.2375rem) clamp(1.65rem, 4.95vw, 2.8875rem)',
                 display: 'inline-block',
                 textAlign: 'center',
                 textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)',
@@ -81,7 +68,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <p
               className="font-bold tracking-[0.08em] leading-snug mx-auto"
               style={{
-                fontSize: 'clamp(0.825rem, 2.2vw, 1.1rem)',
+                fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
                 textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
                 fontFamily: 'Progress, sans-serif',
               }}

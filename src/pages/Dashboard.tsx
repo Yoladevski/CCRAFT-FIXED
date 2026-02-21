@@ -307,10 +307,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* WELCOME MESSAGE */}
         <div className="bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A] to-transparent border-l-4 border-[#B11226] p-4 md:p-6 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-astro)' }}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2" style={{ fontFamily: 'Redhawk, sans-serif' }}>
             WELCOME BACK {(profile.full_name || 'FIGHTER').toUpperCase()}
           </h2>
-          <p className="text-sm sm:text-base text-[#B11226] font-bold" style={{ fontFamily: 'var(--font-astro)' }}>
+          <p className="text-base sm:text-lg md:text-xl text-[#B11226] font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
             {dailyMotivation}
           </p>
         </div>
@@ -318,8 +318,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* CONTINUE BUTTON */}
         <button
           onClick={() => onNavigate('Disciplines')}
-          className="w-full py-3 md:py-4 bg-[#B11226] text-white text-sm md:text-xl font-bold hover:bg-[#8B0E1C] transition-colors"
-          style={{ fontFamily: 'var(--font-astro)' }}
+          className="w-full py-4 md:py-5 bg-[#B11226] text-white text-lg md:text-2xl font-bold hover:bg-[#8B0E1C] transition-colors"
+          style={{ fontFamily: 'Redhawk, sans-serif' }}
         >
           {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
         </button>
@@ -327,59 +327,59 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* CURRENT TRAINING PANEL */}
-          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-4 md:p-6 text-center">
-            <h2 className="text-lg md:text-2xl font-bold mb-3 md:mb-4" style={{ fontFamily: 'var(--font-astro)' }}>
+          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-6 md:p-8 text-center flex flex-col justify-center min-h-[280px]">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6" style={{ fontFamily: 'Redhawk, sans-serif' }}>
               CURRENT TRAINING
             </h2>
 
             {nextTechnique ? (
-              <div className="space-y-2 md:space-y-3">
+              <div className="space-y-4 md:space-y-5">
                 <div>
-                  <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                     DISCIPLINE
                   </p>
-                  <p className="text-sm md:text-xl text-white" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-lg md:text-2xl text-white font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                     {nextTechnique.discipline}
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                     CATEGORY
                   </p>
-                  <p className="text-sm md:text-xl text-white" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-lg md:text-2xl text-white font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                     {nextTechnique.category}
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                     NEXT TECHNIQUE
                   </p>
-                  <p className="text-base md:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-astro)' }}>
+                  <p className="text-xl md:text-3xl font-bold text-[#B11226]" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                     {nextTechnique.technique}
                   </p>
                 </div>
               </div>
             ) : (
               <div>
-                <p className="text-[#A0A0A0] text-sm md:text-base" style={{ fontFamily: 'var(--font-astro)' }}>
+                <p className="text-[#A0A0A0] text-lg md:text-xl" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                   All techniques completed!
                 </p>
               </div>
             )}
           </div>
 
-          {/* CURRENT RANK CARD - SQUARE */}
-          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-4 md:p-6 flex flex-col items-center justify-between aspect-square md:aspect-auto">
-            <div className="flex-1 flex flex-col items-center justify-center">
-              <p className="text-xs text-[#A0A0A0] mb-2 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+          {/* CURRENT RANK CARD */}
+          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-6 md:p-8 flex flex-col items-center justify-center min-h-[280px]">
+            <div className="flex-1 flex flex-col items-center justify-center w-full">
+              <p className="text-base md:text-lg text-[#A0A0A0] mb-3 tracking-wider" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                 CURRENT RANK
               </p>
               <h1
-                className="text-4xl md:text-5xl font-bold mb-4"
+                className="text-5xl md:text-6xl font-bold mb-5"
                 style={{
-                  fontFamily: 'var(--font-astro)',
+                  fontFamily: 'Redhawk, sans-serif',
                   color: getRankColor(profile.rank),
                   WebkitTextStroke: '2px black',
                   textStroke: '2px black',
@@ -388,12 +388,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               >
                 {profile.rank.toUpperCase()}
               </h1>
-              <div className="text-center mb-4">
-                <p className="text-xs text-[#A0A0A0] mb-1" style={{ fontFamily: 'var(--font-astro)' }}>
+              <div className="text-center mb-5">
+                <p className="text-base md:text-lg text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                   POWER LEVEL
                 </p>
                 <div
-                  className="text-3xl md:text-4xl font-bold text-[#B11226]"
+                  className="text-4xl md:text-5xl font-bold text-[#B11226]"
                   style={{ fontFamily: 'var(--font-robot)' }}
                 >
                   {profile.power_level}
@@ -402,16 +402,16 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </div>
 
             {/* Progress Info */}
-            <div className="w-full mt-4 pt-4 border-t border-[#2E2E2E]">
+            <div className="w-full pt-5 border-t border-[#2E2E2E]">
               <div className="text-center">
-                <p className="text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'var(--font-astro)' }}>
+                <p className="text-base md:text-lg text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                   OVERALL PROGRESS
                 </p>
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+                <div className="flex items-center justify-center gap-3">
+                  <span className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
                     {completionPercentage}%
                   </span>
-                  <span className="text-xs text-[#A0A0A0]" style={{ fontFamily: 'var(--font-robot)' }}>
+                  <span className="text-base md:text-lg text-[#A0A0A0]" style={{ fontFamily: 'var(--font-robot)' }}>
                     ({completedTechniques}/{totalTechniques})
                   </span>
                 </div>
@@ -422,62 +422,62 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* XP PROGRESS BAR TO NEXT RANK */}
         {nextRank && (
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
-            <div className="flex items-center justify-between mb-2">
-              <p className="text-xs text-[#A0A0A0] tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-5 md:p-6 text-center">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-sm md:text-base text-[#A0A0A0] tracking-wider font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                 NEXT RANK: {nextRank.next.toUpperCase()}
               </p>
-              <p className="text-sm font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-robot)' }}>
+              <p className="text-base md:text-lg font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-robot)' }}>
                 {profile.power_level} / {nextRank.required}
               </p>
             </div>
-            <div className="w-full h-3 min-h-[12px] bg-[#2E2E2E] rounded-full overflow-hidden">
+            <div className="w-full h-4 md:h-5 bg-[#2E2E2E] rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-[#B11226] to-[#FFD700] transition-all duration-1000 ease-out origin-left"
                 style={{ width: `${progressToNext}%` }}
               />
             </div>
-            <p className="text-xs text-[#A0A0A0] mt-2" style={{ fontFamily: 'var(--font-astro)' }}>
-              <span className="text-white font-bold" style={{ fontFamily: 'var(--font-robot)' }}>{nextRank.required - profile.power_level}</span> XP REMAINING
+            <p className="text-sm md:text-base text-[#A0A0A0] mt-3" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+              <span className="text-white font-bold text-lg md:text-xl" style={{ fontFamily: 'var(--font-robot)' }}>{nextRank.required - profile.power_level}</span> XP REMAINING
             </p>
           </div>
         )}
 
 
         {/* STAT GRID */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
-            <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-5 md:p-6 text-center">
+            <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
               TECHNIQUES
             </p>
-            <p className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+            <p className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
               {completedTechniques}
             </p>
           </div>
 
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
-            <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-5 md:p-6 text-center">
+            <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
               TOTAL XP
             </p>
-            <p className="text-2xl md:text-3xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-robot)' }}>
+            <p className="text-3xl md:text-4xl font-bold text-[#B11226]" style={{ fontFamily: 'var(--font-robot)' }}>
               {profile.power_level}
             </p>
           </div>
 
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
-            <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-5 md:p-6 text-center">
+            <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
               RANK
             </p>
-            <p className="text-xl md:text-3xl font-bold" style={{ fontFamily: 'var(--font-astro)', color: getRankColor(profile.rank) }}>
+            <p className="text-2xl md:text-3xl font-bold" style={{ fontFamily: 'Redhawk, sans-serif', color: getRankColor(profile.rank) }}>
               {profile.rank}
             </p>
           </div>
 
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center">
-            <p className="text-[10px] md:text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-5 md:p-6 text-center">
+            <p className="text-sm md:text-base text-[#A0A0A0] mb-2 tracking-wider font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
               LAST SESSION
             </p>
-            <p className="text-sm md:text-lg font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+            <p className="text-base md:text-xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
               {lastSessionDate || 'N/A'}
             </p>
           </div>
@@ -486,24 +486,24 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* RECENT VICTORIES */}
         {recentProgress.length > 0 && (
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center" style={{ fontFamily: 'var(--font-astro)' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-5 text-center" style={{ fontFamily: 'Redhawk, sans-serif' }}>
               RECENT VICTORIES
             </h2>
-            <div className="space-y-2">
+            <div className="space-y-3">
               {recentProgress.map((progress) => (
                 <div
                   key={progress.id}
-                  className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 md:p-6 flex items-center justify-between hover:border-[#B11226] transition-colors"
+                  className="bg-[#1A1A1A] border border-[#2E2E2E] p-5 md:p-6 flex items-center justify-between hover:border-[#B11226] transition-colors"
                 >
                   <div className="flex-1 min-w-0 text-center">
-                    <h3 className="text-base md:text-xl font-bold mb-1 truncate" style={{ fontFamily: 'var(--font-astro)' }}>
+                    <h3 className="text-lg md:text-2xl font-bold mb-2 truncate" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                       {progress.technique?.name}
                     </h3>
-                    <p className="text-xs md:text-sm text-[#A0A0A0]" style={{ fontFamily: 'var(--font-robot)' }}>
+                    <p className="text-sm md:text-base text-[#A0A0A0]" style={{ fontFamily: 'var(--font-robot)' }}>
                       {new Date(progress.completed_at).toLocaleDateString()}
                     </p>
                   </div>
-                  <div className="text-[#B11226] font-bold text-xl md:text-2xl ml-4 flex-shrink-0" style={{ fontFamily: 'var(--font-robot)' }}>
+                  <div className="text-[#B11226] font-bold text-2xl md:text-3xl ml-4 flex-shrink-0" style={{ fontFamily: 'var(--font-robot)' }}>
                     +{progress.technique?.xp_reward}
                   </div>
                 </div>
