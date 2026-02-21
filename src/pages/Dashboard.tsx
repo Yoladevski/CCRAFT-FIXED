@@ -315,7 +315,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </p>
         </div>
 
-        {/* CURRENT TRAINING AND PROGRESS - Mobile: Stacked, Desktop: Side by Side */}
+        {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* CURRENT TRAINING PANEL */}
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-4 md:p-6">
@@ -369,16 +369,53 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </button>
           </div>
 
-          {/* OVERALL PROGRESS SECTION */}
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 md:p-6 flex flex-col items-center justify-center">
-            <h2 className="text-lg md:text-2xl font-bold mb-4 md:mb-6 text-center" style={{ fontFamily: 'var(--font-astro)' }}>
-              OVERALL PROGRESS
-            </h2>
-            <CircularProgress
-              percentage={completionPercentage}
-              completed={completedTechniques}
-              total={totalTechniques}
-            />
+          {/* CURRENT RANK CARD - SQUARE */}
+          <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-4 md:p-6 flex flex-col items-center justify-between aspect-square md:aspect-auto">
+            <div className="flex-1 flex flex-col items-center justify-center">
+              <p className="text-xs text-[#A0A0A0] mb-2 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
+                CURRENT RANK
+              </p>
+              <h1
+                className="text-4xl md:text-5xl font-bold mb-4"
+                style={{
+                  fontFamily: 'var(--font-astro)',
+                  color: getRankColor(profile.rank),
+                  WebkitTextStroke: '2px black',
+                  textStroke: '2px black',
+                  paintOrder: 'stroke fill'
+                }}
+              >
+                {profile.rank.toUpperCase()}
+              </h1>
+              <div className="text-center mb-4">
+                <p className="text-xs text-[#A0A0A0] mb-1" style={{ fontFamily: 'var(--font-astro)' }}>
+                  POWER LEVEL
+                </p>
+                <div
+                  className="text-3xl md:text-4xl font-bold text-[#B11226]"
+                  style={{ fontFamily: 'var(--font-robot)' }}
+                >
+                  {profile.power_level}
+                </div>
+              </div>
+            </div>
+
+            {/* Progress Info */}
+            <div className="w-full mt-4 pt-4 border-t border-[#2E2E2E]">
+              <div className="text-center">
+                <p className="text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'var(--font-astro)' }}>
+                  OVERALL PROGRESS
+                </p>
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-robot)' }}>
+                    {completionPercentage}%
+                  </span>
+                  <span className="text-xs text-[#A0A0A0]" style={{ fontFamily: 'var(--font-robot)' }}>
+                    ({completedTechniques}/{totalTechniques})
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -405,117 +442,6 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </div>
         )}
 
-        {/* PROFILE AND RANK COMMAND PANEL - MOBILE OPTIMIZED */}
-        <div className="relative bg-[#1A1A1A] border border-[#2E2E2E] overflow-hidden">
-          <div className="diagonal-slash"></div>
-          <div className="relative z-10 p-6">
-
-            {/* Mobile: Center Profile with Rank Below */}
-            <div className="flex flex-col items-center gap-3 mb-6 md:hidden">
-              <ProfileImage rank={profile.rank} imageUrl={profile.profile_picture_url} />
-
-              <div className="text-center">
-                <p className="text-xs text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
-                  CURRENT RANK
-                </p>
-                <h1
-                  className="text-3xl font-bold mb-2"
-                  style={{
-                    fontFamily: 'var(--font-astro)',
-                    color: getRankColor(profile.rank),
-                    WebkitTextStroke: '1.5px black',
-                    textStroke: '1.5px black',
-                    paintOrder: 'stroke fill'
-                  }}
-                >
-                  {profile.rank.toUpperCase()}
-                </h1>
-              </div>
-
-              <div className="w-full max-w-xs">
-                <div className="flex items-center justify-between mb-2">
-                  <p className="text-xs text-[#A0A0A0] tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
-                    POWER LEVEL
-                  </p>
-                  <div
-                    className="text-2xl font-bold text-[#B11226]"
-                    style={{ fontFamily: 'var(--font-robot)' }}
-                  >
-                    {profile.power_level}
-                  </div>
-                </div>
-
-                {nextRank && (
-                  <>
-                    <div className="w-full h-2 min-h-[8px] bg-[#2E2E2E] rounded-full overflow-hidden mb-2">
-                      <div
-                        className="h-full bg-[#B11226] transition-all duration-1000 ease-out origin-left"
-                        style={{ width: `${progressToNext}%` }}
-                      />
-                    </div>
-                    <p className="text-xs text-[#A0A0A0] text-center" style={{ fontFamily: 'var(--font-astro)' }}>
-                      <span style={{ fontFamily: 'var(--font-robot)' }}>{nextRank.required - profile.power_level}</span> XP to {nextRank.next}
-                    </p>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* Desktop: Side by Side Layout */}
-            <div className="hidden md:flex md:flex-row gap-6 mb-8">
-              <div className="flex justify-start">
-                <ProfileImage rank={profile.rank} imageUrl={profile.profile_picture_url} />
-              </div>
-
-              <div className="flex-1 flex flex-row items-end justify-between gap-6">
-                <div>
-                  <p className="text-xs text-[#A0A0A0] mb-2 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
-                    CURRENT RANK
-                  </p>
-                  <h1
-                    className="text-7xl font-bold mb-0"
-                    style={{
-                      fontFamily: 'var(--font-astro)',
-                      color: getRankColor(profile.rank),
-                      WebkitTextStroke: '3px black',
-                      textStroke: '3px black',
-                      paintOrder: 'stroke fill'
-                    }}
-                  >
-                    {profile.rank.toUpperCase()}
-                  </h1>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-[#A0A0A0] mb-2 tracking-wider" style={{ fontFamily: 'var(--font-astro)' }}>
-                    POWER LEVEL
-                  </p>
-                  <div
-                    className="text-6xl font-bold text-[#B11226]"
-                    style={{ fontFamily: 'var(--font-robot)' }}
-                  >
-                    {profile.power_level}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Desktop XP Bar */}
-            {nextRank && (
-              <div className="hidden md:block">
-                <div className="w-full h-2 min-h-[8px] bg-[#2E2E2E] rounded-full overflow-hidden mb-3">
-                  <div
-                    className="h-full bg-[#B11226] transition-all duration-1000 ease-out origin-left"
-                    style={{ width: `${progressToNext}%` }}
-                  />
-                </div>
-                <p className="text-sm text-[#A0A0A0]" style={{ fontFamily: 'var(--font-astro)' }}>
-                  <span style={{ fontFamily: 'var(--font-robot)' }}>{nextRank.required - profile.power_level}</span> XP to {nextRank.next}
-                </p>
-              </div>
-            )}
-          </div>
-          <div className="h-1 bg-[#B11226] w-full"></div>
-        </div>
 
         {/* STAT GRID */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
