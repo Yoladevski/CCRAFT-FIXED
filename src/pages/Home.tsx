@@ -56,7 +56,7 @@ export default function Home({ onNavigate }: HomeProps) {
             style={{
               fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
               lineHeight: '1.5',
-              textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
+              textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
               fontFamily: 'Redhawk, sans-serif',
               fontWeight: 700,
             }}
@@ -89,7 +89,7 @@ export default function Home({ onNavigate }: HomeProps) {
             className="hero-bottom-text font-bold tracking-[0.08em] leading-snug"
             style={{
               fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
-              textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
+              textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
               fontFamily: 'Redhawk, sans-serif',
               fontWeight: 700,
             }}
