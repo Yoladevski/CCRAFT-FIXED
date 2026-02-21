@@ -51,18 +51,20 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8 lg:mb-16 mt-2.5 lg:mt-0">
             <button
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
-              className="bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105 shadow-lg tracking-wide"
+              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
               style={{
-                fontSize: 'clamp(1.2375rem, 4.125vw, 1.65rem)',
-                padding: 'clamp(0.5775rem, 1.98vw, 1.2375rem) clamp(1.65rem, 4.95vw, 2.8875rem)',
-                display: 'inline-block',
-                textAlign: 'center',
-                textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)',
-                fontFamily: 'Redhawk, sans-serif',
-                fontWeight: 700,
+                width: 'clamp(250px, 60vw, 400px)',
+                maxWidth: '100%',
               }}
             >
-              START TRAINING
+              <img
+                src="https://i.postimg.cc/bvtKt6Bw/final-button-components.jpg"
+                alt="Start Training"
+                className="w-full h-auto"
+                style={{
+                  filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
+                }}
+              />
             </button>
           </div>
 
