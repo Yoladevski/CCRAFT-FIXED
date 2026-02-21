@@ -10,10 +10,10 @@ export default function Home({ onNavigate }: HomeProps) {
 
   return (
     <div>
-      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden -mt-20">
+      <section className="relative w-full overflow-hidden -mt-20" style={{ height: '100vh' }}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0E0E0E] z-10" />
 
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
           <video
             autoPlay
             loop
@@ -33,11 +33,15 @@ export default function Home({ onNavigate }: HomeProps) {
           </video>
         </div>
 
-        <div className="relative z-20 text-center px-6 max-w-6xl animate-fade-in flex flex-col h-full justify-between pt-12 pb-8">
+        <div
+          className="absolute left-1/2 -translate-x-1/2 text-center z-30 animate-fade-in px-6"
+          style={{
+            top: 'clamp(70px, 8vh, 110px)',
+          }}
+        >
           <p
-            className="text-white tracking-[0.08em] mx-auto"
+            className="text-white tracking-[0.08em]"
             style={{
-              marginTop: '100mm',
               fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
               lineHeight: '1.5',
               textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
@@ -48,48 +52,48 @@ export default function Home({ onNavigate }: HomeProps) {
             <span className="block" style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Structured Training</span>
             <span className="block" style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Powered by AI</span>
           </p>
+        </div>
 
-          <div className="flex-1 flex items-center justify-center">
-            <div className="text-center">
-              <p
-                className="font-bold tracking-[0.08em] leading-snug mx-auto mb-8 lg:mb-12"
-                style={{
-                  fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
-                  textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                }}
-              >
-                <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Train with purpose, improve with structure.</span>
-                <span className="lg:hidden block" style={{ whiteSpace: 'pre-line', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>{'Train with purpose\nImprove with structure.'}</span>
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto"
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-30 px-6"
+        >
+          <p
+            className="font-bold tracking-[0.08em] leading-snug"
             style={{
-              marginBottom: '150mm'
+              fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
+              textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
+              fontFamily: 'Redhawk, sans-serif',
+              fontWeight: 700,
             }}
           >
-            <button
-              onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
-              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
+            <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Train with purpose, improve with structure.</span>
+            <span className="lg:hidden block" style={{ whiteSpace: 'pre-line', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>{'Train with purpose\nImprove with structure.'}</span>
+          </p>
+        </div>
+
+        <div
+          className="absolute left-1/2 -translate-x-1/2 z-30"
+          style={{
+            bottom: 'clamp(20px, 4vh, 40px)',
+          }}
+        >
+          <button
+            onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
+            className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
+            style={{
+              width: 'clamp(250px, 60vw, 400px)',
+              maxWidth: '100%',
+            }}
+          >
+            <img
+              src="https://i.postimg.cc/3rvPNrqD/gpptbutton.png"
+              alt="Start Training"
+              className="w-full h-auto"
               style={{
-                width: 'clamp(250px, 60vw, 400px)',
-                maxWidth: '100%',
+                filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
               }}
-            >
-              <img
-                src="https://i.postimg.cc/3rvPNrqD/gpptbutton.png"
-                alt="Start Training"
-                className="w-full h-auto"
-                style={{
-                  filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
-                }}
-              />
-            </button>
-          </div>
+            />
+          </button>
         </div>
       </section>
 
