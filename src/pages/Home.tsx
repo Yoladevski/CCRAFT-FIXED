@@ -40,11 +40,12 @@ export default function Home({ onNavigate }: HomeProps) {
               fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
               lineHeight: '1.5',
               textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
-              fontFamily: 'Redhawk',
+              fontFamily: 'Redhawk, sans-serif',
+              fontWeight: 700,
             }}
           >
-            <span className="block">Structured Training</span>
-            <span className="block">Powered by AI</span>
+            <span className="block" style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Structured Training</span>
+            <span className="block" style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Powered by AI</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-8 lg:mb-16 mt-2.5 lg:mt-0">
@@ -57,7 +58,8 @@ export default function Home({ onNavigate }: HomeProps) {
                 display: 'inline-block',
                 textAlign: 'center',
                 textShadow: '0 0 10px rgba(0, 0, 0, 0.8), 1px 1px 3px rgba(0, 0, 0, 0.9)',
-                fontFamily: 'Redhawk',
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
               }}
             >
               START TRAINING
@@ -70,11 +72,12 @@ export default function Home({ onNavigate }: HomeProps) {
               style={{
                 fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
                 textShadow: '0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
-                fontFamily: 'Redhawk',
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
               }}
             >
-              <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap' }}>Train with purpose, improve with structure.</span>
-              <span className="lg:hidden block" style={{ whiteSpace: 'pre-line' }}>{'Train with purpose\nImprove with structure.'}</span>
+              <span className="hidden lg:inline" style={{ whiteSpace: 'nowrap', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>Train with purpose, improve with structure.</span>
+              <span className="lg:hidden block" style={{ whiteSpace: 'pre-line', fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>{'Train with purpose\nImprove with structure.'}</span>
             </p>
           </div>
         </div>
