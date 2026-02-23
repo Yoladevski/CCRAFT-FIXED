@@ -30,6 +30,7 @@ const CreateProfile = lazy(() => import('./pages/CreateProfile'));
 const StructuredProgression = lazy(() => import('./pages/StructuredProgression'));
 const AIInstruction = lazy(() => import('./pages/AIInstruction'));
 const MultiDiscipline = lazy(() => import('./pages/MultiDiscipline'));
+const EmailAssets = lazy(() => import('./pages/EmailAssets'));
 
 type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline';
 
@@ -125,6 +126,7 @@ function AppContent() {
       </div>
     }>
       <Routes>
+        <Route path="/email-assets" element={<EmailAssets />} />
         <Route path="/post-verify" element={<PostVerify />} />
         <Route path="/create-profile" element={<CreateProfile />} />
         <Route path="*" element={
