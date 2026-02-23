@@ -92,6 +92,13 @@ h1, h2, h3, h4, h5, h6,
   letter-spacing: 0.08em;
   line-height: 1.2;
   color: #FFFFFF;
+  -webkit-text-stroke: 3px #000;
+  text-stroke: 3px #000;
+  paint-order: stroke fill;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  filter: drop-shadow(0 0 0 #B11226) drop-shadow(1px 0 0 #B11226) drop-shadow(-1px 0 0 #B11226) drop-shadow(0 1px 0 #B11226) drop-shadow(0 -1px 0 #B11226) drop-shadow(1px 1px 0 #B11226) drop-shadow(-1px -1px 0 #B11226) drop-shadow(1px -1px 0 #B11226) drop-shadow(-1px 1px 0 #B11226);
 }
 
 h1 {
@@ -148,14 +155,29 @@ nav a {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #FFFFFF;
+  -webkit-text-stroke: 3px #000;
+  text-stroke: 3px #000;
+  paint-order: stroke fill;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  filter: drop-shadow(0 0 0 #B11226) drop-shadow(1px 0 0 #B11226) drop-shadow(-1px 0 0 #B11226) drop-shadow(0 1px 0 #B11226) drop-shadow(0 -1px 0 #B11226) drop-shadow(1px 1px 0 #B11226) drop-shadow(-1px -1px 0 #B11226) drop-shadow(1px -1px 0 #B11226) drop-shadow(-1px 1px 0 #B11226);
 }
 
-.outlined-text {
-  display: block;
+.cc-outline-text {
   font-family: 'Redhawk', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  line-height: 1.2;
+  color: #FFFFFF;
+  -webkit-text-stroke: 3px #000;
+  text-stroke: 3px #000;
+  paint-order: stroke fill;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  filter: drop-shadow(0 0 0 #B11226) drop-shadow(1px 0 0 #B11226) drop-shadow(-1px 0 0 #B11226) drop-shadow(0 1px 0 #B11226) drop-shadow(0 -1px 0 #B11226) drop-shadow(1px 1px 0 #B11226) drop-shadow(-1px -1px 0 #B11226) drop-shadow(1px -1px 0 #B11226) drop-shadow(-1px 1px 0 #B11226);
 }
 
 .text-body {
@@ -341,6 +363,13 @@ nav a {
 .hero-top-text,
 .hero-bottom-text {
   color: #FFFFFF;
+  -webkit-text-stroke: 3px #000;
+  text-stroke: 3px #000;
+  paint-order: stroke fill;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  filter: drop-shadow(0 0 0 #B11226) drop-shadow(1px 0 0 #B11226) drop-shadow(-1px 0 0 #B11226) drop-shadow(0 1px 0 #B11226) drop-shadow(0 -1px 0 #B11226) drop-shadow(1px 1px 0 #B11226) drop-shadow(-1px -1px 0 #B11226) drop-shadow(1px -1px 0 #B11226) drop-shadow(-1px 1px 0 #B11226);
 }
 
 .hero-top-text span,
