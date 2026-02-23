@@ -39,21 +39,17 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 }`}
                 style={{
                   fontSize: '0.9rem',
-                  fontFamily: 'LatoBlack, sans-serif',
-                  WebkitTextStroke: currentPage === 'Home' ? '0px' : '0px',
-                  textStroke: currentPage === 'Home' ? '0px' : '0px'
+                  fontFamily: 'Redhawk, sans-serif',
+                  WebkitTextStroke: currentPage === 'Home' ? '1px #B11226' : '1px #B11226',
+                  textStroke: currentPage === 'Home' ? '1px #B11226' : '1px #B11226'
                 }}
                 onMouseEnter={(e) => {
                   if (currentPage !== 'Home') {
-                    e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                    e.currentTarget.style.textStroke = '1.5px #B11226';
                     e.currentTarget.style.color = 'white';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (currentPage !== 'Home') {
-                    e.currentTarget.style.WebkitTextStroke = '0px';
-                    e.currentTarget.style.textStroke = '0px';
                     e.currentTarget.style.color = '#A0A0A0';
                   }
                 }}
@@ -72,21 +68,17 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   }`}
                   style={{
                     fontSize: '0.9rem',
-                    fontFamily: 'LatoBlack, sans-serif',
-                    WebkitTextStroke: '0px',
-                    textStroke: '0px'
+                    fontFamily: 'Redhawk, sans-serif',
+                    WebkitTextStroke: '1px #B11226',
+                    textStroke: '1px #B11226'
                   }}
                   onMouseEnter={(e) => {
                     if (currentPage !== 'Dashboard') {
-                      e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                      e.currentTarget.style.textStroke = '1.5px #B11226';
                       e.currentTarget.style.color = 'white';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (currentPage !== 'Dashboard') {
-                      e.currentTarget.style.WebkitTextStroke = '0px';
-                      e.currentTarget.style.textStroke = '0px';
                       e.currentTarget.style.color = '#A0A0A0';
                     }
                   }}
@@ -107,23 +99,19 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 }`}
                 style={{
                   fontSize: '0.9rem',
-                  fontFamily: 'LatoBlack, sans-serif',
-                  WebkitTextStroke: '0px',
-                  textStroke: '0px'
+                  fontFamily: 'Redhawk, sans-serif',
+                  WebkitTextStroke: '1px #B11226',
+                  textStroke: '1px #B11226'
                 }}
                 onMouseEnter={(e) => {
                   const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
                   if (!isActive) {
-                    e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                    e.currentTarget.style.textStroke = '1.5px #B11226';
                     e.currentTarget.style.color = 'white';
                   }
                 }}
                 onMouseLeave={(e) => {
                   const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
                   if (!isActive) {
-                    e.currentTarget.style.WebkitTextStroke = '0px';
-                    e.currentTarget.style.textStroke = '0px';
                     e.currentTarget.style.color = '#A0A0A0';
                   }
                 }}
@@ -141,21 +129,17 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 }`}
                 style={{
                   fontSize: '0.9rem',
-                  fontFamily: 'LatoBlack, sans-serif',
-                  WebkitTextStroke: '0px',
-                  textStroke: '0px'
+                  fontFamily: 'Redhawk, sans-serif',
+                  WebkitTextStroke: '1px #B11226',
+                  textStroke: '1px #B11226'
                 }}
                 onMouseEnter={(e) => {
                   if (currentPage !== 'News') {
-                    e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                    e.currentTarget.style.textStroke = '1.5px #B11226';
                     e.currentTarget.style.color = 'white';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (currentPage !== 'News') {
-                    e.currentTarget.style.WebkitTextStroke = '0px';
-                    e.currentTarget.style.textStroke = '0px';
                     e.currentTarget.style.color = '#A0A0A0';
                   }
                 }}
@@ -173,21 +157,17 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 }`}
                 style={{
                   fontSize: '0.9rem',
-                  fontFamily: 'LatoBlack, sans-serif',
-                  WebkitTextStroke: '0px',
-                  textStroke: '0px'
+                  fontFamily: 'Redhawk, sans-serif',
+                  WebkitTextStroke: '1px #B11226',
+                  textStroke: '1px #B11226'
                 }}
                 onMouseEnter={(e) => {
                   if (currentPage !== 'Merchandise') {
-                    e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                    e.currentTarget.style.textStroke = '1.5px #B11226';
                     e.currentTarget.style.color = 'white';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (currentPage !== 'Merchandise') {
-                    e.currentTarget.style.WebkitTextStroke = '0px';
-                    e.currentTarget.style.textStroke = '0px';
                     e.currentTarget.style.color = '#A0A0A0';
                   }
                 }}
@@ -206,21 +186,17 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   }`}
                   style={{
                     fontSize: '0.9rem',
-                    fontFamily: 'LatoBlack, sans-serif',
-                    WebkitTextStroke: '0px',
-                    textStroke: '0px'
+                    fontFamily: 'Redhawk, sans-serif',
+                    WebkitTextStroke: '1px #B11226',
+                    textStroke: '1px #B11226'
                   }}
                   onMouseEnter={(e) => {
                     if (currentPage !== 'Account') {
-                      e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                      e.currentTarget.style.textStroke = '1.5px #B11226';
                       e.currentTarget.style.color = 'white';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (currentPage !== 'Account') {
-                      e.currentTarget.style.WebkitTextStroke = '0px';
-                      e.currentTarget.style.textStroke = '0px';
                       e.currentTarget.style.color = '#A0A0A0';
                     }
                   }}
@@ -234,7 +210,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 <button
                   onClick={() => handleNavigate('Auth')}
                   className="button-text px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
-                  style={{ fontSize: '0.9rem', WebkitTextStroke: '0px', textStroke: '0px' }}
+                  style={{ fontSize: '0.9rem' }}
                 >
                   SIGN IN
                 </button>
@@ -303,26 +279,26 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
         <div className="flex flex-col p-6 space-y-2">
           <button
             onClick={() => handleNavigate('Home')}
-            className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
+            className={`text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'Home'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
             style={{
-              WebkitTextStroke: '0px',
-              textStroke: '0px'
+              fontFamily: 'Redhawk, sans-serif',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              WebkitTextStroke: '1px #B11226',
+              textStroke: '1px #B11226'
             }}
             onMouseEnter={(e) => {
               if (currentPage !== 'Home') {
-                e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                e.currentTarget.style.textStroke = '1.5px #B11226';
                 e.currentTarget.style.color = 'white';
               }
             }}
             onMouseLeave={(e) => {
               if (currentPage !== 'Home') {
-                e.currentTarget.style.WebkitTextStroke = '0px';
-                e.currentTarget.style.textStroke = '0px';
                 e.currentTarget.style.color = '#A0A0A0';
               }
             }}
@@ -333,26 +309,26 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           {user && (
             <button
               onClick={() => handleNavigate('Dashboard')}
-              className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
+              className={`text-left text-xl py-4 px-4 rounded transition-all ${
                 currentPage === 'Dashboard'
                   ? 'bg-[#B11226] text-white'
                   : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
               style={{
-                WebkitTextStroke: '0px',
-                textStroke: '0px'
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                WebkitTextStroke: '1px #B11226',
+                textStroke: '1px #B11226'
               }}
               onMouseEnter={(e) => {
                 if (currentPage !== 'Dashboard') {
-                  e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                  e.currentTarget.style.textStroke = '1.5px #B11226';
                   e.currentTarget.style.color = 'white';
                 }
               }}
               onMouseLeave={(e) => {
                 if (currentPage !== 'Dashboard') {
-                  e.currentTarget.style.WebkitTextStroke = '0px';
-                  e.currentTarget.style.textStroke = '0px';
                   e.currentTarget.style.color = '#A0A0A0';
                 }
               }}
@@ -363,28 +339,28 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <button
             onClick={() => handleNavigate('Disciplines')}
-            className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
+            className={`text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
             style={{
-              WebkitTextStroke: '0px',
-              textStroke: '0px'
+              fontFamily: 'Redhawk, sans-serif',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              WebkitTextStroke: '1px #B11226',
+              textStroke: '1px #B11226'
             }}
             onMouseEnter={(e) => {
               const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
               if (!isActive) {
-                e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                e.currentTarget.style.textStroke = '1.5px #B11226';
                 e.currentTarget.style.color = 'white';
               }
             }}
             onMouseLeave={(e) => {
               const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
               if (!isActive) {
-                e.currentTarget.style.WebkitTextStroke = '0px';
-                e.currentTarget.style.textStroke = '0px';
                 e.currentTarget.style.color = '#A0A0A0';
               }
             }}
@@ -394,26 +370,26 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <button
             onClick={() => handleNavigate('News')}
-            className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
+            className={`text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'News'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
             style={{
-              WebkitTextStroke: '0px',
-              textStroke: '0px'
+              fontFamily: 'Redhawk, sans-serif',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              WebkitTextStroke: '1px #B11226',
+              textStroke: '1px #B11226'
             }}
             onMouseEnter={(e) => {
               if (currentPage !== 'News') {
-                e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                e.currentTarget.style.textStroke = '1.5px #B11226';
                 e.currentTarget.style.color = 'white';
               }
             }}
             onMouseLeave={(e) => {
               if (currentPage !== 'News') {
-                e.currentTarget.style.WebkitTextStroke = '0px';
-                e.currentTarget.style.textStroke = '0px';
                 e.currentTarget.style.color = '#A0A0A0';
               }
             }}
@@ -423,26 +399,26 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <button
             onClick={() => handleNavigate('Merchandise')}
-            className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
+            className={`text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'Merchandise'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
             style={{
-              WebkitTextStroke: '0px',
-              textStroke: '0px'
+              fontFamily: 'Redhawk, sans-serif',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              WebkitTextStroke: '1px #B11226',
+              textStroke: '1px #B11226'
             }}
             onMouseEnter={(e) => {
               if (currentPage !== 'Merchandise') {
-                e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
-                e.currentTarget.style.textStroke = '1.5px #B11226';
                 e.currentTarget.style.color = 'white';
               }
             }}
             onMouseLeave={(e) => {
               if (currentPage !== 'Merchandise') {
-                e.currentTarget.style.WebkitTextStroke = '0px';
-                e.currentTarget.style.textStroke = '0px';
                 e.currentTarget.style.color = '#A0A0A0';
               }
             }}
@@ -453,26 +429,26 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           {user ? (
             <button
               onClick={() => handleNavigate('Account')}
-              className={`text-left text-xl py-4 px-4 rounded transition-all font-bold ${
+              className={`text-left text-xl py-4 px-4 rounded transition-all ${
                 currentPage === 'Account'
                   ? 'bg-[#B11226] text-white'
                   : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
               style={{
-                WebkitTextStroke: '0px',
-                textStroke: '0px'
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                WebkitTextStroke: '1px #B11226',
+                textStroke: '1px #B11226'
               }}
               onMouseEnter={(e) => {
                 if (currentPage !== 'Account') {
-                  e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                  e.currentTarget.style.textStroke = '1.5px black';
-                  e.currentTarget.style.color = '#B11226';
+                  e.currentTarget.style.color = 'white';
                 }
               }}
               onMouseLeave={(e) => {
                 if (currentPage !== 'Account') {
-                  e.currentTarget.style.WebkitTextStroke = '0px';
-                  e.currentTarget.style.textStroke = '0px';
                   e.currentTarget.style.color = '#A0A0A0';
                 }
               }}
@@ -482,7 +458,13 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           ) : (
             <button
               onClick={() => handleNavigate('Auth')}
-              className="button-text w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
+              className="w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
+              style={{
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em'
+              }}
             >
               SIGN IN
             </button>
