@@ -187,7 +187,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
         <div className="flex flex-col p-6 space-y-2">
           <button
             onClick={() => handleNavigate('Home')}
-            className={`mobile-nav-item text-left text-xl py-4 px-4 rounded transition-all ${
+            className={`text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'Home'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:text-white hover:bg-[#2E2E2E]'
@@ -199,7 +199,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           {user && (
             <button
               onClick={() => handleNavigate('Dashboard')}
-              className={`mobile-nav-item text-left text-xl py-4 px-4 rounded transition-all ${
+              className={`text-left text-xl py-4 px-4 rounded transition-all ${
                 currentPage === 'Dashboard'
                   ? 'bg-[#B11226] text-white'
                   : 'text-[#A0A0A0] hover:text-white hover:bg-[#2E2E2E]'
@@ -211,7 +211,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <button
             onClick={() => handleNavigate('Disciplines')}
-            className={`mobile-nav-item text-left text-xl py-4 px-4 rounded transition-all ${
+            className={`text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:text-white hover:bg-[#2E2E2E]'
@@ -222,7 +222,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <button
             onClick={() => handleNavigate('News')}
-            className={`mobile-nav-item text-left text-xl py-4 px-4 rounded transition-all ${
+            className={`text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'News'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:text-white hover:bg-[#2E2E2E]'
@@ -233,7 +233,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <button
             onClick={() => handleNavigate('Merchandise')}
-            className={`mobile-nav-item text-left text-xl py-4 px-4 rounded transition-all ${
+            className={`text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'Merchandise'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:text-white hover:bg-[#2E2E2E]'
@@ -245,7 +245,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           {user ? (
             <button
               onClick={() => handleNavigate('Account')}
-              className={`mobile-nav-item text-left text-xl py-4 px-4 rounded transition-all ${
+              className={`text-left text-xl py-4 px-4 rounded transition-all ${
                 currentPage === 'Account'
                   ? 'bg-[#B11226] text-white'
                   : 'text-[#A0A0A0] hover:text-white hover:bg-[#2E2E2E]'
