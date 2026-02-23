@@ -91,26 +91,40 @@ h1, h2, h3, h4, h5, h6,
   text-transform: uppercase;
   letter-spacing: 0.08em;
   line-height: 1.2;
-  -webkit-text-stroke: 2px var(--stroke-color);
-  text-stroke: 2px var(--stroke-color);
+  color: #FFFFFF;
+  -webkit-text-stroke: 0px transparent;
+  text-stroke: 0px transparent;
+  text-shadow:
+    -2px -2px 0 #B11226,
+    2px -2px 0 #B11226,
+    -2px 2px 0 #B11226,
+    2px 2px 0 #B11226,
+    -2px 0 0 #B11226,
+    2px 0 0 #B11226,
+    0 -2px 0 #B11226,
+    0 2px 0 #B11226,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000,
+    -3px 0 0 #000,
+    3px 0 0 #000,
+    0 -3px 0 #000,
+    0 3px 0 #000;
   paint-order: stroke fill;
 }
 
 h1 {
   letter-spacing: 0.1em;
   line-height: 1.1;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
   line-height: 1.1;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
 h3, h4, h5, h6 {
   letter-spacing: 0.05em;
-  -webkit-text-stroke: 1.5px var(--stroke-color);
-  text-stroke: 1.5px var(--stroke-color);
 }
 
 button {
@@ -153,8 +167,26 @@ nav a {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  -webkit-text-stroke: 3px var(--stroke-color);
-  text-stroke: 3px var(--stroke-color);
+  color: #FFFFFF;
+  -webkit-text-stroke: 0px transparent;
+  text-stroke: 0px transparent;
+  text-shadow:
+    -2px -2px 0 #B11226,
+    2px -2px 0 #B11226,
+    -2px 2px 0 #B11226,
+    2px 2px 0 #B11226,
+    -2px 0 0 #B11226,
+    2px 0 0 #B11226,
+    0 -2px 0 #B11226,
+    0 2px 0 #B11226,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000,
+    -3px 0 0 #000,
+    3px 0 0 #000,
+    0 -3px 0 #000,
+    0 3px 0 #000;
   paint-order: stroke fill;
 }
 
@@ -168,14 +200,6 @@ nav a {
   -webkit-text-stroke: 0px transparent !important;
   text-stroke: 0px transparent !important;
   text-shadow:
-    -3px -3px 0 #000,
-    3px -3px 0 #000,
-    -3px 3px 0 #000,
-    3px 3px 0 #000,
-    -3px 0 0 #000,
-    3px 0 0 #000,
-    0 -3px 0 #000,
-    0 3px 0 #000,
     -2px -2px 0 #B11226,
     2px -2px 0 #B11226,
     -2px 2px 0 #B11226,
@@ -183,7 +207,15 @@ nav a {
     -2px 0 0 #B11226,
     2px 0 0 #B11226,
     0 -2px 0 #B11226,
-    0 2px 0 #B11226 !important;
+    0 2px 0 #B11226,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000,
+    -3px 0 0 #000,
+    3px 0 0 #000,
+    0 -3px 0 #000,
+    0 3px 0 #000 !important;
   paint-order: stroke fill;
 }
 
@@ -367,6 +399,30 @@ nav a {
   z-index: 30;
 }
 
+.hero-top-text,
+.hero-bottom-text {
+  color: #FFFFFF;
+  -webkit-text-stroke: 0px transparent;
+  text-stroke: 0px transparent;
+  text-shadow:
+    -2px -2px 0 #B11226,
+    2px -2px 0 #B11226,
+    -2px 2px 0 #B11226,
+    2px 2px 0 #B11226,
+    -2px 0 0 #B11226,
+    2px 0 0 #B11226,
+    0 -2px 0 #B11226,
+    0 2px 0 #B11226,
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000,
+    -3px 0 0 #000,
+    3px 0 0 #000,
+    0 -3px 0 #000,
+    0 3px 0 #000;
+}
+
 .hero-top-text span,
 .hero-bottom-text span {
   display: block;
@@ -388,6 +444,12 @@ nav a {
   }
 
   .hero-middle-button {
-    transform: translateY(12px);
+    transform: translateY(108px);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-middle-button {
+    transform: translateY(96px);
   }
 }
