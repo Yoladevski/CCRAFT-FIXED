@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { User, Shield, Award, Star, Crown, Trophy, Lock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
@@ -137,6 +138,7 @@ const getRandomMotivation = () => {
 
 export default function Dashboard({ onNavigate }: DashboardProps) {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [totalTechniques, setTotalTechniques] = useState(0);
   const [completedTechniques, setCompletedTechniques] = useState(0);
@@ -155,6 +157,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         .select('*')
         .eq('user_id', user.id)
         .single();
+
+      // Check if onboarding is complete
+      if (profileData && (!profileData.onboarding_complete || !profileData.full_name)) {
+        navigate('/create-profile', { replace: true });
+        return;
+      }
 
       const { data: techniquesData } = await supabase
         .from('techniques')

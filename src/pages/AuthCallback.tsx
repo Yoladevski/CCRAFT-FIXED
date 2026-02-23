@@ -18,16 +18,45 @@ export default function AuthCallback() {
       }
 
       if (data.session) {
-        // Check if profile exists and has required info
+        const userId = data.session.user.id;
+        const userEmail = data.session.user.email;
+
+        // Check if profile exists
         const { data: profile } = await supabase
           .from('profiles')
-          .select('full_name')
-          .eq('user_id', data.session.user.id)
+          .select('id, onboarding_complete, full_name')
+          .eq('user_id', userId)
           .maybeSingle();
 
-        if (!profile?.full_name) {
-          setMessage('Welcome! Let\'s set up your profile...');
-          setTimeout(() => navigate('/account', { replace: true }), 1500);
+        // If no profile exists, create one immediately
+        if (!profile) {
+          setMessage('Setting up your account...');
+          const { error: insertError } = await supabase
+            .from('profiles')
+            .insert({
+              user_id: userId,
+              power_level: 0,
+              rank: 'Amateur',
+              onboarding_complete: false,
+            });
+
+          if (insertError) {
+            console.error('Error creating profile:', insertError);
+            setMessage('Error setting up profile. Redirecting...');
+            setTimeout(() => navigate('/', { replace: true }), 2000);
+            return;
+          }
+
+          // Route to complete profile
+          setMessage('Welcome! Let\'s complete your profile...');
+          setTimeout(() => navigate('/create-profile', { replace: true }), 1500);
+          return;
+        }
+
+        // Profile exists - check if onboarding is complete
+        if (!profile.onboarding_complete || !profile.full_name) {
+          setMessage('Welcome! Let\'s complete your profile...');
+          setTimeout(() => navigate('/create-profile', { replace: true }), 1500);
         } else {
           setMessage('Welcome back! Redirecting to dashboard...');
           setTimeout(() => navigate('/dashboard', { replace: true }), 1500);

@@ -44,6 +44,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
               user_id: session.user.id,
               power_level: 0,
               rank: 'Amateur',
+              onboarding_complete: false,
             });
           }
 
