@@ -6,11 +6,7 @@ interface AuthContextType {
   user: User | null;
   session: Session | null;
   loading: boolean;
-  signUp: (
-    email: string,
-    password: string,
-    captchaToken?: string
-  ) => Promise<{ data: { user: User | null } | null; error: any }>;
+  signUp: (email: string, password: string) => Promise<{ data: { user: User | null } | null; error: any }>;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
   signInWithGoogle: () => Promise<{ error: any }>;
   signOut: () => Promise<void>;
@@ -78,19 +74,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
-  // ✅ UPDATED SIGNUP WITH CAPTCHA
-  const signUp = async (
-    email: string,
-    password: string,
-    captchaToken?: string
-  ) => {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        captchaToken
-      }
-    });
+  const signUp = async (email: string, password: string) => {
+    const { data, error } = await supabase.auth.signUp({ email, password });
     return { data, error };
   };
 
