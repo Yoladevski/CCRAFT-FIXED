@@ -13,7 +13,7 @@ export default function Disclaimer({ onBack }: DisclaimerProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-12 heading-font">
+        <h1 className="heading-text text-4xl md:text-5xl font-bold text-white mb-12">
           DISCLAIMER
         </h1>
 

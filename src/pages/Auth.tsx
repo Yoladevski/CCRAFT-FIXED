@@ -138,7 +138,7 @@ export default function Auth({ onNavigate }: AuthProps) {
           />
 
           <div className="relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
+            <h2 className="heading-text text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
               {isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
             </h2>
 
@@ -181,7 +181,7 @@ export default function Auth({ onNavigate }: AuthProps) {
             {isSignUp && (
               <div className="space-y-4 border-t border-[#2E2E2E] pt-6 mt-6">
                 <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded p-4 sm:p-6 space-y-4">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#B11226] mb-4">
+                  <h3 className="heading-text text-lg sm:text-xl font-bold text-[#B11226] mb-4">
                     REQUIRED AGREEMENTS
                   </h3>
 
@@ -271,7 +271,7 @@ export default function Auth({ onNavigate }: AuthProps) {
             <button
               type="submit"
               disabled={loading || (isSignUp && (!ageConfirmed || !termsAccepted || !waiverAccepted || !liabilityAccepted))}
-              className="w-full py-3 sm:py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
               {loading ? 'LOADING...' : isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
             </button>
@@ -289,7 +289,7 @@ export default function Auth({ onNavigate }: AuthProps) {
           <button
             onClick={handleGoogleSignIn}
             disabled={loading || (isSignUp && (!ageConfirmed || !termsAccepted || !waiverAccepted || !liabilityAccepted))}
-            className="w-full py-3 sm:py-4 bg-white text-gray-900 font-bold rounded hover:bg-gray-100 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-3"
+            className="button-text w-full py-3 sm:py-4 bg-white text-gray-900 font-bold rounded hover:bg-gray-100 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-3"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path

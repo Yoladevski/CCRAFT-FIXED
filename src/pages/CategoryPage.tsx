@@ -155,7 +155,7 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
           </button>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8">
+        <h1 className="heading-text text-4xl sm:text-5xl font-bold text-center mb-8">
           {category?.name}
         </h1>
 
@@ -198,7 +198,7 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
                       {technique.order_index}
                     </div>
                     <div className="text-left">
-                      <h3 className="text-2xl font-bold">{technique.name}</h3>
+                      <h3 className="heading-text text-2xl font-bold">{technique.name}</h3>
                       <p className="text-sm text-[#A0A0A0] text-body">
                         {technique.xp_reward} XP
                       </p>

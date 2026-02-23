@@ -14,7 +14,7 @@ export default function Contact({ onBack }: ContactProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-12 heading-font">
+        <h1 className="heading-text text-4xl md:text-5xl font-bold text-white mb-12">
           CONTACT
         </h1>
 
@@ -56,7 +56,7 @@ export default function Contact({ onBack }: ContactProps) {
           </p>
 
           <div className="border-t border-[#2E2E2E] pt-12 mt-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 heading-font">
+            <h2 className="heading-text text-3xl md:text-4xl font-bold text-white mb-8">
               AFFILIATES
             </h2>
 

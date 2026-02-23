@@ -22,7 +22,7 @@ export default function AboutUs({ onNavigate, onBack }: AboutUsProps) {
           <BackButton onBack={onBack} />
         </div>
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 heading-font">
+          <h1 className="heading-text text-4xl md:text-5xl font-bold text-white mb-8">
             ABOUT US
           </h1>
 
@@ -44,7 +44,7 @@ export default function AboutUs({ onNavigate, onBack }: AboutUsProps) {
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold text-white mb-6 heading-font">
+          <h2 className="heading-text text-2xl font-bold text-white mb-6">
             LEARN MORE
           </h2>
           <div className="grid gap-6">
@@ -54,7 +54,7 @@ export default function AboutUs({ onNavigate, onBack }: AboutUsProps) {
                 onClick={() => onNavigate(page.id)}
                 className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 rounded-lg text-left hover:border-[#B11226] transition-all group"
               >
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-[#B11226] transition-colors">
+                <h3 className="heading-text text-2xl font-bold text-white mb-2 group-hover:text-[#B11226] transition-colors">
                   {page.name}
                 </h3>
                 <p className="text-[#A0A0A0]">

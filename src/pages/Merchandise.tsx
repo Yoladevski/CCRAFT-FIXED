@@ -32,8 +32,7 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
 
         <div className="text-center mb-8 sm:mb-12 mt-8">
           <h1
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-wide"
-            style={{ fontFamily: 'Redhawk' }}
+            className="heading-text text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-wide"
           >
             MERCHANDISE
           </h1>
@@ -58,7 +57,7 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
               </div>
 
               <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold mb-2">{product.name}</h3>
+                <h3 className="heading-text text-lg sm:text-xl font-bold mb-2">{product.name}</h3>
                 <p className="text-[#A0A0A0] text-sm sm:text-base mb-4 leading-relaxed">
                   {product.description}
                 </p>
@@ -67,8 +66,7 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
                     ${product.price.toFixed(2)}
                   </span>
                   <button
-                    className="bg-[#B11226] text-white font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-[#8B0E1C] transition-all text-sm sm:text-base"
-                    style={{ fontFamily: 'Redhawk' }}
+                    className="button-text bg-[#B11226] text-white font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-[#8B0E1C] transition-all text-sm sm:text-base"
                   >
                     COMING SOON
                   </button>
@@ -95,8 +93,7 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
             </svg>
           </div>
           <h2
-            className="text-xl sm:text-2xl font-bold mb-3"
-            style={{ fontFamily: 'Redhawk' }}
+            className="heading-text text-xl sm:text-2xl font-bold mb-3"
           >
             STORE OPENING SOON
           </h2>

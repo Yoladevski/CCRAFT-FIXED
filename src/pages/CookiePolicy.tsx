@@ -13,7 +13,7 @@ export default function CookiePolicy({ onBack }: CookiePolicyProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-12 heading-font">
+        <h1 className="heading-text text-4xl md:text-5xl font-bold text-white mb-12">
           COOKIE POLICY
         </h1>
 
@@ -23,7 +23,7 @@ export default function CookiePolicy({ onBack }: CookiePolicyProps) {
           </p>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 heading-font">Cookies may be used to:</h2>
+            <h2 className="heading-text text-2xl font-bold text-white mb-4">Cookies may be used to:</h2>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Maintain login sessions</li>
               <li>Store user preferences</li>

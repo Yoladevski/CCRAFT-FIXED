@@ -299,9 +299,8 @@ export default function Account({ onBack }: AccountProps) {
           <BackButton onBack={onBack} />
         </div>
         <h1
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-12"
+          className="heading-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-12"
           style={{
-            fontFamily: 'Redhawk',
             textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000'
           }}
         >
@@ -322,34 +321,31 @@ export default function Account({ onBack }: AccountProps) {
           <div className="flex border-b border-[#2E2E2E]">
             <button
               onClick={() => setActiveTab('profile')}
-              className={`flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors ${
+              className={`button-text flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors ${
                 activeTab === 'profile'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
-              style={{ fontFamily: 'Redhawk' }}
             >
               PROFILE
             </button>
             <button
               onClick={() => setActiveTab('security')}
-              className={`flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors ${
+              className={`button-text flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors ${
                 activeTab === 'security'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
-              style={{ fontFamily: 'Redhawk' }}
             >
               SECURITY
             </button>
             <button
               onClick={() => setActiveTab('settings')}
-              className={`flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors ${
+              className={`button-text flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors ${
                 activeTab === 'settings'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
-              style={{ fontFamily: 'Redhawk' }}
             >
               SETTINGS
             </button>
@@ -479,8 +475,7 @@ export default function Account({ onBack }: AccountProps) {
                   <button
                     type="submit"
                     disabled={saving}
-                    className="w-full py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ fontFamily: 'Redhawk' }}
+                    className="button-text w-full py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {saving ? 'SAVING...' : 'SAVE PROFILE'}
                   </button>
@@ -491,7 +486,7 @@ export default function Account({ onBack }: AccountProps) {
             {activeTab === 'security' && (
               <div className="space-y-6 sm:space-y-8">
                 <div className="pb-6 sm:pb-8 border-b border-[#2E2E2E]">
-                  <h2 className="text-xl sm:text-2xl font-bold mb-4" style={{ fontFamily: 'Redhawk' }}>
+                  <h2 className="heading-text text-xl sm:text-2xl font-bold mb-4">
                     ACCOUNT INFO
                   </h2>
                   <div className="mt-4">
@@ -513,7 +508,7 @@ export default function Account({ onBack }: AccountProps) {
                 </div>
 
                 <form onSubmit={handleEmailChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
-                  <h2 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'Redhawk' }}>
+                  <h2 className="heading-text text-lg sm:text-xl font-bold">
                     CHANGE EMAIL
                   </h2>
                   <div>
@@ -532,15 +527,14 @@ export default function Account({ onBack }: AccountProps) {
                   <button
                     type="submit"
                     disabled={saving || !newEmail}
-                    className="w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ fontFamily: 'Redhawk' }}
+                    className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {saving ? 'UPDATING...' : 'UPDATE EMAIL'}
                   </button>
                 </form>
 
                 <form onSubmit={handlePhoneChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
-                  <h2 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'Redhawk' }}>
+                  <h2 className="heading-text text-lg sm:text-xl font-bold">
                     PHONE NUMBER
                   </h2>
                   <div>
@@ -559,15 +553,14 @@ export default function Account({ onBack }: AccountProps) {
                   <button
                     type="submit"
                     disabled={saving || !phoneNumber}
-                    className="w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ fontFamily: 'Redhawk' }}
+                    className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {saving ? 'UPDATING...' : 'UPDATE PHONE'}
                   </button>
                 </form>
 
                 <form onSubmit={handlePasswordChange} className="space-y-4 sm:space-y-6">
-                  <h2 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'Redhawk' }}>
+                  <h2 className="heading-text text-lg sm:text-xl font-bold">
                     CHANGE PASSWORD
                   </h2>
 
@@ -643,8 +636,7 @@ export default function Account({ onBack }: AccountProps) {
                   <button
                     type="submit"
                     disabled={saving || !newPassword || !confirmPassword}
-                    className="w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ fontFamily: 'Redhawk' }}
+                    className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {saving ? 'UPDATING...' : 'UPDATE PASSWORD'}
                   </button>
@@ -655,7 +647,7 @@ export default function Account({ onBack }: AccountProps) {
             {activeTab === 'settings' && (
               <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{ fontFamily: 'Redhawk' }}>
+                  <h2 className="heading-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
                     REFERRAL PROGRAM
                   </h2>
                   <p className="text-sm sm:text-base text-[#A0A0A0] mb-4 sm:mb-6" style={{ fontFamily: 'Redhawk' }}>
@@ -675,8 +667,7 @@ export default function Account({ onBack }: AccountProps) {
                         </div>
                         <button
                           onClick={handleCopyReferralLink}
-                          className="px-4 sm:px-6 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all flex items-center justify-center gap-2"
-                          style={{ fontFamily: 'Redhawk' }}>
+                          className="button-text px-4 sm:px-6 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all flex items-center justify-center gap-2">
                           {copiedReferral ? (
                             <>
                               <Check size={18} />
@@ -698,14 +689,13 @@ export default function Account({ onBack }: AccountProps) {
                 </div>
 
                 <div className="pt-6 sm:pt-8 border-t border-[#2E2E2E]">
-                  <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B11226]" style={{ fontFamily: 'Redhawk' }}>
+                  <h2 className="heading-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B11226]">
                     DANGER ZONE
                   </h2>
                   <div className="space-y-3">
                     <button
                       onClick={handleSignOut}
-                      className="w-full py-3 sm:py-4 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all flex items-center justify-center gap-2"
-                      style={{ fontFamily: 'Redhawk' }}
+                      className="button-text w-full py-3 sm:py-4 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all flex items-center justify-center gap-2"
                     >
                       <LogOut size={18} />
                       SIGN OUT
@@ -714,8 +704,7 @@ export default function Account({ onBack }: AccountProps) {
                     {!showDeleteConfirm ? (
                       <button
                         onClick={() => setShowDeleteConfirm(true)}
-                        className="w-full py-3 sm:py-4 bg-[#B11226]/20 border-2 border-[#B11226] text-[#B11226] text-sm sm:text-base font-bold rounded hover:bg-[#B11226] hover:text-white transition-all flex items-center justify-center gap-2"
-                        style={{ fontFamily: 'Redhawk' }}
+                        className="button-text w-full py-3 sm:py-4 bg-[#B11226]/20 border-2 border-[#B11226] text-[#B11226] text-sm sm:text-base font-bold rounded hover:bg-[#B11226] hover:text-white transition-all flex items-center justify-center gap-2"
                       >
                         <Trash2 size={18} />
                         DELETE ACCOUNT
@@ -729,16 +718,14 @@ export default function Account({ onBack }: AccountProps) {
                           <button
                             onClick={handleDeleteAccount}
                             disabled={saving}
-                            className="flex-1 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50"
-                            style={{ fontFamily: 'Redhawk' }}
+                            className="button-text flex-1 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50"
                           >
                             {saving ? 'DELETING...' : 'CONFIRM DELETE'}
                           </button>
                           <button
                             onClick={() => setShowDeleteConfirm(false)}
                             disabled={saving}
-                            className="flex-1 py-2 sm:py-3 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all disabled:opacity-50"
-                            style={{ fontFamily: 'Redhawk' }}
+                            className="button-text flex-1 py-2 sm:py-3 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all disabled:opacity-50"
                           >
                             CANCEL
                           </button>

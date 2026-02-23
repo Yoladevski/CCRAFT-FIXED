@@ -220,7 +220,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
         </div>
 
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-4xl sm:text-5xl font-bold">{technique.name}</h1>
+          <h1 className="heading-text text-4xl sm:text-5xl font-bold">{technique.name}</h1>
           {isCompleted && (
             <CheckCircle size={48} className="text-[#B11226]" />
           )}
@@ -242,7 +242,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
         {!isCompleted && (
           <button
             onClick={handleComplete}
-            className="w-full py-4 bg-[#B11226] text-white text-xl font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 mb-12"
+            className="button-text w-full py-4 bg-[#B11226] text-white text-xl font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 mb-12"
           >
             MARK AS COMPLETE
           </button>
@@ -256,7 +256,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="text-2xl font-bold text-[#B11226]">WHY</h3>
+                  <h3 className="heading-text text-2xl font-bold text-[#B11226]">WHY</h3>
                   {sectionsRead.why && (
                     <Check size={24} className="text-[#B11226]" />
                   )}
@@ -281,7 +281,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="text-2xl font-bold text-[#B11226]">HOW</h3>
+                  <h3 className="heading-text text-2xl font-bold text-[#B11226]">HOW</h3>
                   {sectionsRead.how && (
                     <Check size={24} className="text-[#B11226]" />
                   )}
@@ -306,7 +306,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="text-2xl font-bold text-[#B11226]">COMMON MISTAKES</h3>
+                  <h3 className="heading-text text-2xl font-bold text-[#B11226]">COMMON MISTAKES</h3>
                   {sectionsRead.mistakes && (
                     <Check size={24} className="text-[#B11226]" />
                   )}
@@ -331,7 +331,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="text-2xl font-bold text-[#B11226]">SIMPLE DRILLS</h3>
+                  <h3 className="heading-text text-2xl font-bold text-[#B11226]">SIMPLE DRILLS</h3>
                   {sectionsRead.drills && (
                     <Check size={24} className="text-[#B11226]" />
                   )}
@@ -355,7 +355,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
             <button
               onClick={handleNextTechnique}
               disabled={!allSectionsRead()}
-              className={`w-full py-4 flex items-center justify-center gap-3 text-xl font-bold rounded transition-all transform ${
+              className={`button-text w-full py-4 flex items-center justify-center gap-3 text-xl font-bold rounded transition-all transform ${
                 allSectionsRead()
                   ? 'bg-[#B11226] text-white hover:bg-[#8B0E1C] hover:scale-105'
                   : 'bg-[#2E2E2E] text-[#666666] cursor-not-allowed'
@@ -388,7 +388,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
             <div className="text-7xl font-bold text-[#B11226] mb-8">{newRank}</div>
             <button
               onClick={() => setNewRank(null)}
-              className="px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+              className="button-text px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
             >
               CONTINUE
             </button>

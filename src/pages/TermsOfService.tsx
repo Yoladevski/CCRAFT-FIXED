@@ -13,7 +13,7 @@ export default function TermsOfService({ onBack }: TermsOfServiceProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 heading-font">
+        <h1 className="heading-text text-4xl md:text-5xl font-bold text-white mb-4">
           TERMS OF SERVICE
         </h1>
         <p className="text-[#A0A0A0] mb-12 text-lg">Effective Date: January 1, 2025</p>
@@ -24,7 +24,7 @@ export default function TermsOfService({ onBack }: TermsOfServiceProps) {
           </p>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 heading-font">1. Use of Platform</h2>
+            <h2 className="heading-text text-2xl font-bold text-white mb-4">1. Use of Platform</h2>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>COMBATCRAFT provides structured training content for educational and informational purposes only.</li>
               <li>Users must be 16 years or older to create an account.</li>
@@ -32,7 +32,7 @@ export default function TermsOfService({ onBack }: TermsOfServiceProps) {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 heading-font">2. Health Disclaimer</h2>
+            <h2 className="heading-text text-2xl font-bold text-white mb-4">2. Health Disclaimer</h2>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Combat sports carry risk. Users assume full responsibility for their participation in any physical activity.</li>
               <li>COMBATCRAFT is not liable for injuries resulting from training activities.</li>
@@ -40,28 +40,28 @@ export default function TermsOfService({ onBack }: TermsOfServiceProps) {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 heading-font">3. Accounts</h2>
+            <h2 className="heading-text text-2xl font-bold text-white mb-4">3. Accounts</h2>
             <p className="leading-relaxed">
               Users are responsible for maintaining the confidentiality of their login credentials.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 heading-font">4. Intellectual Property</h2>
+            <h2 className="heading-text text-2xl font-bold text-white mb-4">4. Intellectual Property</h2>
             <p className="leading-relaxed">
               All platform content, branding, and materials are the property of COMBATCRAFT and may not be reproduced without permission.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 heading-font">5. Termination</h2>
+            <h2 className="heading-text text-2xl font-bold text-white mb-4">5. Termination</h2>
             <p className="leading-relaxed">
               We reserve the right to suspend or terminate accounts that violate these terms.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4 heading-font">6. Limitation of Liability</h2>
+            <h2 className="heading-text text-2xl font-bold text-white mb-4">6. Limitation of Liability</h2>
             <p className="leading-relaxed">
               COMBATCRAFT is not liable for indirect, incidental, or consequential damages arising from use of the platform.
             </p>

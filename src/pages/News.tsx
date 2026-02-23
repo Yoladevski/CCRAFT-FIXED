@@ -50,14 +50,14 @@ export default function News({ onBack }: NewsProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-12" style={{ textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000' }}>NEWS</h1>
+        <h1 className="heading-text text-4xl sm:text-5xl font-bold text-center mb-12" style={{ textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000' }}>NEWS</h1>
 
         <div className="flex flex-wrap gap-3 justify-center mb-12">
           {disciplines.map((discipline) => (
             <button
               key={discipline}
               onClick={() => setSelectedDiscipline(discipline)}
-              className={`px-6 py-3 rounded font-bold transition-all ${
+              className={`button-text px-6 py-3 rounded font-bold transition-all ${
                 selectedDiscipline === discipline
                   ? 'bg-[#B11226] text-white'
                   : 'bg-[#2E2E2E] text-[#A0A0A0] hover:bg-[#3E3E3E]'
@@ -81,7 +81,7 @@ export default function News({ onBack }: NewsProps) {
                 <div className="text-xs text-[#B11226] font-bold mb-2">
                   {article.discipline}
                 </div>
-                <h3 className="text-xl font-bold mb-3">{article.title}</h3>
+                <h3 className="heading-text text-xl font-bold mb-3">{article.title}</h3>
                 <p className="text-[#A0A0A0] text-body mb-4 leading-relaxed">
                   {article.summary}
                 </p>

@@ -14,7 +14,7 @@ export default function Affiliates({ onBack }: AffiliatesProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-12 heading-font">
+        <h1 className="heading-text text-4xl md:text-5xl font-bold text-white mb-12">
           AFFILIATES
         </h1>
 
@@ -28,7 +28,7 @@ export default function Affiliates({ onBack }: AffiliatesProps) {
           </p>
 
           <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-8 rounded-lg mt-8">
-            <h2 className="text-white font-bold text-xl mb-4 heading-font">Apply for Affiliate Opportunities</h2>
+            <h2 className="heading-text text-white font-bold text-xl mb-4">Apply for Affiliate Opportunities</h2>
             <div className="flex items-center gap-4">
               <Mail className="text-[#B11226] flex-shrink-0" size={32} />
               <a

@@ -82,7 +82,7 @@ export default function PostVerify() {
     <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center p-3 sm:p-4 overflow-hidden">
       <div className="w-full max-w-4xl bg-neutral-900 rounded-lg shadow-2xl border border-red-600/30 max-h-[95vh] sm:max-h-[90vh] flex flex-col">
         <div className="p-3 sm:p-4 md:p-6 border-b border-red-600/30">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-500 text-center">
+          <h1 className="heading-text text-xl sm:text-2xl md:text-3xl font-bold text-red-500 text-center">
             WAIVER & LEGAL AGREEMENT
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-neutral-400 text-center mt-1 sm:mt-2">
@@ -93,7 +93,7 @@ export default function PostVerify() {
         <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4 md:space-y-6">
           <div className="prose prose-invert max-w-none">
             <section className="space-y-2 sm:space-y-3">
-              <h2 className="text-base sm:text-lg md:text-xl font-bold text-red-400">ASSUMPTION OF RISK</h2>
+              <h2 className="heading-text text-base sm:text-lg md:text-xl font-bold text-red-400">ASSUMPTION OF RISK</h2>
               <p className="text-xs sm:text-sm md:text-base text-neutral-300 leading-relaxed">
                 I acknowledge that martial arts training, including but not limited to boxing, Muay Thai, karate, judo,
                 and other combat sports, involves inherent risks of injury. These risks include, but are not limited to:
@@ -103,7 +103,7 @@ export default function PostVerify() {
             </section>
 
             <section className="space-y-2 sm:space-y-3">
-              <h2 className="text-base sm:text-lg md:text-xl font-bold text-red-400">MEDICAL CLEARANCE</h2>
+              <h2 className="heading-text text-base sm:text-lg md:text-xl font-bold text-red-400">MEDICAL CLEARANCE</h2>
               <p className="text-xs sm:text-sm md:text-base text-neutral-300 leading-relaxed">
                 I confirm that I am in good physical condition and have no medical conditions that would prevent me
                 from participating in martial arts training. I agree to consult with a physician before beginning any
@@ -112,7 +112,7 @@ export default function PostVerify() {
             </section>
 
             <section className="space-y-2 sm:space-y-3">
-              <h2 className="text-base sm:text-lg md:text-xl font-bold text-red-400">RELEASE OF LIABILITY</h2>
+              <h2 className="heading-text text-base sm:text-lg md:text-xl font-bold text-red-400">RELEASE OF LIABILITY</h2>
               <p className="text-xs sm:text-sm md:text-base text-neutral-300 leading-relaxed">
                 I hereby release, waive, discharge, and covenant not to sue FightCraft, its owners, instructors,
                 employees, agents, and affiliates from any and all liability, claims, demands, actions, and causes
@@ -122,7 +122,7 @@ export default function PostVerify() {
             </section>
 
             <section className="space-y-2 sm:space-y-3">
-              <h2 className="text-base sm:text-lg md:text-xl font-bold text-red-400">INDEMNIFICATION</h2>
+              <h2 className="heading-text text-base sm:text-lg md:text-xl font-bold text-red-400">INDEMNIFICATION</h2>
               <p className="text-xs sm:text-sm md:text-base text-neutral-300 leading-relaxed">
                 I agree to indemnify and hold harmless FightCraft from any loss, liability, damage, or costs that
                 may occur due to my participation in martial arts training, whether caused by the negligence of
@@ -131,7 +131,7 @@ export default function PostVerify() {
             </section>
 
             <section className="space-y-2 sm:space-y-3">
-              <h2 className="text-base sm:text-lg md:text-xl font-bold text-red-400">CONSENT TO TREATMENT</h2>
+              <h2 className="heading-text text-base sm:text-lg md:text-xl font-bold text-red-400">CONSENT TO TREATMENT</h2>
               <p className="text-xs sm:text-sm md:text-base text-neutral-300 leading-relaxed">
                 In the event of an injury, I consent to receive medical treatment deemed necessary by medical
                 professionals. I understand that I am responsible for all costs associated with such treatment.
@@ -139,7 +139,7 @@ export default function PostVerify() {
             </section>
 
             <section className="space-y-2 sm:space-y-3">
-              <h2 className="text-base sm:text-lg md:text-xl font-bold text-red-400">ACKNOWLEDGMENT OF UNDERSTANDING</h2>
+              <h2 className="heading-text text-base sm:text-lg md:text-xl font-bold text-red-400">ACKNOWLEDGMENT OF UNDERSTANDING</h2>
               <p className="text-xs sm:text-sm md:text-base text-neutral-300 leading-relaxed">
                 I have read this waiver and release of liability, fully understand its terms, and understand that
                 I am giving up substantial rights, including my right to sue. I acknowledge that I am accepting
@@ -167,7 +167,7 @@ export default function PostVerify() {
           <button
             onClick={handleAcceptWaiver}
             disabled={!accepted || accepting}
-            className="w-full py-3 sm:py-3.5 md:py-4 px-4 sm:px-6 bg-red-600 hover:bg-red-700 disabled:bg-neutral-700 disabled:cursor-not-allowed text-white font-bold text-sm sm:text-base md:text-lg rounded-lg transition-colors shadow-lg disabled:shadow-none"
+            className="button-text w-full py-3 sm:py-3.5 md:py-4 px-4 sm:px-6 bg-red-600 hover:bg-red-700 disabled:bg-neutral-700 disabled:cursor-not-allowed text-white font-bold text-sm sm:text-base md:text-lg rounded-lg transition-colors shadow-lg disabled:shadow-none"
           >
             {accepting ? 'Processing...' : 'Accept & Continue'}
           </button>

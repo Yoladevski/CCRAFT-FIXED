@@ -21,7 +21,7 @@ export default function MultiDiscipline({ onBack }: MultiDisciplineProps) {
             />
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
+          <h1 className="heading-text text-3xl sm:text-4xl font-bold mb-6 text-center">
             MULTI DISCIPLINE SYSTEM
           </h1>
 
@@ -31,36 +31,36 @@ export default function MultiDiscipline({ onBack }: MultiDisciplineProps) {
             </p>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="text-2xl font-bold mb-4 text-white">What is the Multi Discipline System?</h2>
+              <h2 className="heading-text text-2xl font-bold mb-4 text-white">What is the Multi Discipline System?</h2>
               <p>
                 Modern combat sports demand versatility. COMBATCRAFT's Multi Discipline System gives you access to comprehensive training across multiple martial arts and combat sports disciplines, all within a single unified platform. Train like a complete mixed martial artist, not just a specialist.
               </p>
             </div>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="text-2xl font-bold mb-4 text-white">Available Disciplines</h2>
+              <h2 className="heading-text text-2xl font-bold mb-4 text-white">Available Disciplines</h2>
               <div className="space-y-4">
                 <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded-lg p-4">
-                  <h3 className="text-xl font-bold mb-2 text-white">Boxing</h3>
+                  <h3 className="heading-text text-xl font-bold mb-2 text-white">Boxing</h3>
                   <p>Master the sweet science with comprehensive striking techniques, footwork, defense, and combination work that builds elite hand skills.</p>
                 </div>
                 <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded-lg p-4">
-                  <h3 className="text-xl font-bold mb-2 text-white">Muay Thai</h3>
+                  <h3 className="heading-text text-xl font-bold mb-2 text-white">Muay Thai</h3>
                   <p>Learn the art of eight limbs with detailed instruction on punches, kicks, elbows, knees, clinch work, and the devastating techniques that make Muay Thai so effective.</p>
                 </div>
                 <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded-lg p-4">
-                  <h3 className="text-xl font-bold mb-2 text-white">Brazilian Jiu-Jitsu (Coming Soon)</h3>
+                  <h3 className="heading-text text-xl font-bold mb-2 text-white">Brazilian Jiu-Jitsu (Coming Soon)</h3>
                   <p>Develop world-class grappling with positions, submissions, escapes, and the strategic ground game that defines modern MMA.</p>
                 </div>
                 <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded-lg p-4">
-                  <h3 className="text-xl font-bold mb-2 text-white">More Disciplines Coming</h3>
+                  <h3 className="heading-text text-xl font-bold mb-2 text-white">More Disciplines Coming</h3>
                   <p>We're constantly expanding our system with new disciplines including Wrestling, Kickboxing, Judo, and more.</p>
                 </div>
               </div>
             </div>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="text-2xl font-bold mb-4 text-white">Why Train Multiple Disciplines?</h2>
+              <h2 className="heading-text text-2xl font-bold mb-4 text-white">Why Train Multiple Disciplines?</h2>
               <ul className="space-y-3 list-disc list-inside ml-4">
                 <li>Develop a complete skill set for any combat situation</li>
                 <li>Understand how different styles complement each other</li>
@@ -72,7 +72,7 @@ export default function MultiDiscipline({ onBack }: MultiDisciplineProps) {
             </div>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="text-2xl font-bold mb-4 text-white">Integrated Training Approach</h2>
+              <h2 className="heading-text text-2xl font-bold mb-4 text-white">Integrated Training Approach</h2>
               <p className="mb-4">
                 Our Multi Discipline System isn't just a collection of separate martial arts. We've designed it to help you:
               </p>
@@ -99,7 +99,7 @@ export default function MultiDiscipline({ onBack }: MultiDisciplineProps) {
             </div>
 
             <div className="bg-[#B11226]/10 border border-[#B11226] rounded-lg p-6 mt-8">
-              <h3 className="text-xl font-bold mb-3 text-white">Become a Complete Fighter</h3>
+              <h3 className="heading-text text-xl font-bold mb-3 text-white">Become a Complete Fighter</h3>
               <p>
                 Whether you're training for MMA, looking to improve your overall martial arts skills, or simply want to experience different combat sports, our Multi Discipline System gives you everything you need in one place. Train at your own pace, track progress across all disciplines, and become the well-rounded fighter you've always wanted to be.
               </p>
