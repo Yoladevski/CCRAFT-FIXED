@@ -197,7 +197,32 @@ export default function Auth({ onNavigate }: AuthProps) {
             {isSignUp && (
               <div className="space-y-4 border-t border-[#2E2E2E] pt-6 mt-6">
                 <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded p-4 sm:p-6 space-y-4">
-                  <h3 className="cc-outline-text text-lg sm:text-xl font-bold text-[#B11226] mb-4">
+                  <h3
+                    className="text-lg sm:text-xl font-bold mb-4"
+                    style={{
+                      fontFamily: 'Redhawk, sans-serif',
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      color: '#FFFFFF',
+                      textShadow: `-1.5px -1.5px 0 #B11226,
+                        1.5px -1.5px 0 #B11226,
+                        -1.5px 1.5px 0 #B11226,
+                        1.5px 1.5px 0 #B11226,
+                        -2px -2px 0 #B11226,
+                        2px -2px 0 #B11226,
+                        -2px 2px 0 #B11226,
+                        2px 2px 0 #B11226,
+                        -1px -1px 0 #000000,
+                        1px -1px 0 #000000,
+                        -1px 1px 0 #000000,
+                        1px 1px 0 #000000,
+                        -1.5px 0 0 #000000,
+                        1.5px 0 0 #000000,
+                        0 -1.5px 0 #000000,
+                        0 1.5px 0 #000000`
+                    }}
+                  >
                     REQUIRED AGREEMENTS
                   </h3>
 
