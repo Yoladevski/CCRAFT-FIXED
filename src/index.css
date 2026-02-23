@@ -158,6 +158,18 @@ nav a {
   paint-order: stroke fill;
 }
 
+.cc-outline-text {
+  font-family: 'Redhawk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  color: #FFFFFF;
+  -webkit-text-stroke: 2px #000000;
+  text-stroke: 2px #000000;
+  paint-order: stroke fill;
+}
+
 .text-body {
   font-family: 'Inter', sans-serif;
   line-height: 1.5;

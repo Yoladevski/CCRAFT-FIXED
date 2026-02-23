@@ -21,7 +21,7 @@ export default function AIInstruction({ onBack }: AIInstructionProps) {
             />
           </div>
 
-          <h1 className="heading-text text-3xl sm:text-4xl font-bold mb-6 text-center">
+          <h1 className="cc-outline-text text-3xl sm:text-4xl font-bold mb-6 text-center">
             AI ENHANCED INSTRUCTION
           </h1>
 
@@ -31,14 +31,14 @@ export default function AIInstruction({ onBack }: AIInstructionProps) {
             </p>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="heading-text text-2xl font-bold mb-4 text-white">What is AI Enhanced Instruction?</h2>
+              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">What is AI Enhanced Instruction?</h2>
               <p>
                 COMBATCRAFT leverages cutting-edge artificial intelligence to provide you with the most comprehensive technique instruction available. Every technique in our system includes detailed breakdowns, common mistakes to avoid, and tactical applications—all powered by AI analysis of professional fighters and coaches.
               </p>
             </div>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="heading-text text-2xl font-bold mb-4 text-white">What You Get</h2>
+              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">What You Get</h2>
               <ul className="space-y-4 list-none">
                 <li className="flex items-start">
                   <span className="text-[#B11226] font-bold mr-3">•</span>
@@ -68,7 +68,7 @@ export default function AIInstruction({ onBack }: AIInstructionProps) {
             </div>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="heading-text text-2xl font-bold mb-4 text-white">How AI Enhances Your Training</h2>
+              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">How AI Enhances Your Training</h2>
               <p className="mb-4">
                 Our AI system analyzes thousands of techniques from professional fighters, coaches, and combat sports experts to provide:
               </p>
@@ -82,14 +82,14 @@ export default function AIInstruction({ onBack }: AIInstructionProps) {
             </div>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="heading-text text-2xl font-bold mb-4 text-white">Beyond Traditional Training</h2>
+              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">Beyond Traditional Training</h2>
               <p>
                 Traditional training relies on what a single coach knows and can communicate in the moment. AI Enhanced Instruction gives you access to the collective knowledge of elite fighters and coaches worldwide, available 24/7, with details no human could consistently recall for every technique.
               </p>
             </div>
 
             <div className="bg-[#B11226]/10 border border-[#B11226] rounded-lg p-6 mt-8">
-              <h3 className="heading-text text-xl font-bold mb-3 text-white">Your Virtual Coach</h3>
+              <h3 className="cc-outline-text text-xl font-bold mb-3 text-white">Your Virtual Coach</h3>
               <p>
                 Think of AI Enhanced Instruction as having a world-class coach who never gets tired, never forgets details, and can explain techniques in as much depth as you need. It's not replacing human coaching—it's giving you the best possible preparation for your training sessions.
               </p>

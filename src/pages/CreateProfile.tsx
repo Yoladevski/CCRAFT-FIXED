@@ -17,7 +17,7 @@ export default function CreateProfile() {
   return (
     <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center p-3 sm:p-4">
       <div className="max-w-2xl w-full bg-neutral-900 rounded-lg p-4 sm:p-6 md:p-8 border border-red-600/30">
-        <h1 className="heading-text text-2xl sm:text-3xl md:text-4xl font-bold text-red-500 text-center mb-4 sm:mb-6">
+        <h1 className="cc-outline-text text-2xl sm:text-3xl md:text-4xl font-bold text-red-500 text-center mb-4 sm:mb-6">
           Create Your Profile
         </h1>
         <p className="text-sm sm:text-base text-neutral-400 text-center mb-6 sm:mb-8">

@@ -259,7 +259,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <div className="mb-6">
               <Lock size={64} className="mx-auto text-[#B11226]" />
             </div>
-            <h2 className="heading-text text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="cc-outline-text text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
               AUTHENTICATION REQUIRED
             </h2>
             <p className="text-[#A0A0A0] text-base sm:text-lg mb-8 leading-relaxed">
@@ -337,7 +337,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* WELCOME MESSAGE */}
         <div className="bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A] to-transparent border-l-4 border-[#B11226] p-4 md:p-6 text-center">
-          <h2 className="heading-text text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+          <h2 className="cc-outline-text text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
             WELCOME BACK {(profile.full_name || 'FIGHTER').toUpperCase()}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-[#B11226] font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
@@ -357,7 +357,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* CURRENT TRAINING PANEL */}
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-6 md:p-8 text-center flex flex-col justify-center min-h-[280px]">
-            <h2 className="heading-text text-2xl md:text-3xl font-bold mb-4 md:mb-6">
+            <h2 className="cc-outline-text text-2xl md:text-3xl font-bold mb-4 md:mb-6">
               CURRENT TRAINING
             </h2>
 
@@ -406,7 +406,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 CURRENT RANK
               </p>
               <h1
-                className="heading-text text-5xl md:text-6xl font-bold mb-5"
+                className="cc-outline-text text-5xl md:text-6xl font-bold mb-5"
                 style={{
                   color: getRankColor(profile.rank),
                   WebkitTextStroke: '2px black',
@@ -514,7 +514,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* RECENT VICTORIES */}
         {recentProgress.length > 0 && (
           <div>
-            <h2 className="heading-text text-3xl md:text-4xl font-bold mb-5 text-center">
+            <h2 className="cc-outline-text text-3xl md:text-4xl font-bold mb-5 text-center">
               RECENT VICTORIES
             </h2>
             <div className="space-y-3">
@@ -524,7 +524,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   className="bg-[#1A1A1A] border border-[#2E2E2E] p-5 md:p-6 flex items-center justify-between hover:border-[#B11226] transition-colors"
                 >
                   <div className="flex-1 min-w-0 text-center">
-                    <h3 className="heading-text text-lg md:text-2xl font-bold mb-2 truncate">
+                    <h3 className="cc-outline-text text-lg md:text-2xl font-bold mb-2 truncate">
                       {progress.technique?.name}
                     </h3>
                     <p className="text-sm md:text-base text-[#A0A0A0]" style={{ fontFamily: 'Inter' }}>

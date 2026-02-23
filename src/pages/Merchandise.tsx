@@ -32,7 +32,7 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
 
         <div className="text-center mb-8 sm:mb-12 mt-8">
           <h1
-            className="heading-text text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-wide"
+            className="cc-outline-text text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-wide"
           >
             MERCHANDISE
           </h1>
@@ -57,7 +57,7 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
               </div>
 
               <div className="p-4 sm:p-6">
-                <h3 className="heading-text text-lg sm:text-xl font-bold mb-2">{product.name}</h3>
+                <h3 className="cc-outline-text text-lg sm:text-xl font-bold mb-2">{product.name}</h3>
                 <p className="text-[#A0A0A0] text-sm sm:text-base mb-4 leading-relaxed">
                   {product.description}
                 </p>
@@ -93,7 +93,7 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
             </svg>
           </div>
           <h2
-            className="heading-text text-xl sm:text-2xl font-bold mb-3"
+            className="cc-outline-text text-xl sm:text-2xl font-bold mb-3"
           >
             STORE OPENING SOON
           </h2>

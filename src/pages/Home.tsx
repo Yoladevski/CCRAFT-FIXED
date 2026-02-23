@@ -117,7 +117,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="heading-text text-2xl mb-4 text-center">STRUCTURED PROGRESSION</h3>
+              <h3 className="cc-outline-text text-2xl mb-4 text-center">STRUCTURED PROGRESSION</h3>
               <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
                 Sequential unlock system ensures mastery before advancement. Build foundations properly.
               </p>
@@ -136,7 +136,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="heading-text text-2xl mb-4 text-center">AI ENHANCED INSTRUCTION</h3>
+              <h3 className="cc-outline-text text-2xl mb-4 text-center">AI ENHANCED INSTRUCTION</h3>
               <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
                 Detailed technique breakdowns with common mistakes and tactical applications.
               </p>
@@ -155,7 +155,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="heading-text text-2xl mb-4 text-center">MULTI DISCIPLINE SYSTEM</h3>
+              <h3 className="cc-outline-text text-2xl mb-4 text-center">MULTI DISCIPLINE SYSTEM</h3>
               <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
                 Train across Boxing, Muay Thai, BJJ, and more. Become a complete fighter.
               </p>

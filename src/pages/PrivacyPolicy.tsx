@@ -13,7 +13,7 @@ export default function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1 className="heading-text text-4xl md:text-5xl font-bold text-white mb-4">
+        <h1 className="cc-outline-text text-4xl md:text-5xl font-bold text-white mb-4">
           PRIVACY POLICY
         </h1>
         <p className="text-[#A0A0A0] mb-12 text-lg">Effective Date: January 1, 2025</p>
@@ -24,7 +24,7 @@ export default function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
           </p>
 
           <section>
-            <h2 className="heading-text text-2xl font-bold text-white mb-4">1. Information We Collect</h2>
+            <h2 className="cc-outline-text text-2xl font-bold text-white mb-4">1. Information We Collect</h2>
             <p className="mb-4 leading-relaxed">We may collect:</p>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Account information such as email address</li>
@@ -36,7 +36,7 @@ export default function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
           </section>
 
           <section>
-            <h2 className="heading-text text-2xl font-bold text-white mb-4">2. How We Use Information</h2>
+            <h2 className="cc-outline-text text-2xl font-bold text-white mb-4">2. How We Use Information</h2>
             <p className="mb-4 leading-relaxed">We use collected data to:</p>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Provide and improve the platform</li>
@@ -47,28 +47,28 @@ export default function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
           </section>
 
           <section>
-            <h2 className="heading-text text-2xl font-bold text-white mb-4">3. Data Security</h2>
+            <h2 className="cc-outline-text text-2xl font-bold text-white mb-4">3. Data Security</h2>
             <p className="leading-relaxed">
               We implement industry standard security measures to protect your data. However, no digital platform can guarantee absolute security.
             </p>
           </section>
 
           <section>
-            <h2 className="heading-text text-2xl font-bold text-white mb-4">4. Data Retention</h2>
+            <h2 className="cc-outline-text text-2xl font-bold text-white mb-4">4. Data Retention</h2>
             <p className="leading-relaxed">
               User data is retained for as long as an account remains active.
             </p>
           </section>
 
           <section>
-            <h2 className="heading-text text-2xl font-bold text-white mb-4">5. Your Rights</h2>
+            <h2 className="cc-outline-text text-2xl font-bold text-white mb-4">5. Your Rights</h2>
             <p className="leading-relaxed">
               Users may request access, correction, or deletion of their data by contacting us.
             </p>
           </section>
 
           <section>
-            <h2 className="heading-text text-2xl font-bold text-white mb-4">6. Updates</h2>
+            <h2 className="cc-outline-text text-2xl font-bold text-white mb-4">6. Updates</h2>
             <p className="leading-relaxed">
               We may update this policy from time to time. Continued use of the platform constitutes acceptance of any changes.
             </p>

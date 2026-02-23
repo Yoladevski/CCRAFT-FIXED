@@ -13,7 +13,7 @@ export default function Vision({ onBack }: VisionProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1 className="heading-text text-4xl md:text-5xl font-bold text-white mb-12">
+        <h1 className="cc-outline-text text-4xl md:text-5xl font-bold text-white mb-12">
           VISION
         </h1>
 
@@ -23,7 +23,7 @@ export default function Vision({ onBack }: VisionProps) {
           </p>
 
           <section>
-            <h2 className="heading-text text-2xl font-bold text-white mb-4">We aim to:</h2>
+            <h2 className="cc-outline-text text-2xl font-bold text-white mb-4">We aim to:</h2>
             <ul className="list-disc list-inside space-y-3 ml-4">
               <li>Standardize digital fight education</li>
               <li>Create scalable AI enhanced instruction</li>

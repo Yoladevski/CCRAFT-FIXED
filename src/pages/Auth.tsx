@@ -148,7 +148,7 @@ export default function Auth({ onNavigate }: AuthProps) {
           />
 
           <div className="relative z-10">
-            <h2 className="heading-text text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
+            <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
               {isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
             </h2>
 
@@ -197,7 +197,7 @@ export default function Auth({ onNavigate }: AuthProps) {
             {isSignUp && (
               <div className="space-y-4 border-t border-[#2E2E2E] pt-6 mt-6">
                 <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded p-4 sm:p-6 space-y-4">
-                  <h3 className="heading-text text-lg sm:text-xl font-bold text-[#B11226] mb-4">
+                  <h3 className="cc-outline-text text-lg sm:text-xl font-bold text-[#B11226] mb-4">
                     REQUIRED AGREEMENTS
                   </h3>
 

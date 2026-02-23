@@ -320,7 +320,7 @@ export default function Account({ onBack }: AccountProps) {
           <BackButton onBack={onBack} />
         </div>
         <h1
-          className="heading-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-12"
+          className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-12"
           style={{
             textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000'
           }}
@@ -330,7 +330,7 @@ export default function Account({ onBack }: AccountProps) {
 
         {isFirstTimeSetup && (
           <div className="mb-6 p-4 sm:p-6 bg-[#B11226]/10 border-2 border-[#B11226] rounded-lg text-center">
-            <h2 className="heading-text text-xl sm:text-2xl font-bold text-[#B11226] mb-2">
+            <h2 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226] mb-2">
               WELCOME TO COMBATCRAFT!
             </h2>
             <p className="text-[#E0E0E0] text-sm sm:text-base" style={{ fontFamily: 'Redhawk' }}>
@@ -528,7 +528,7 @@ export default function Account({ onBack }: AccountProps) {
             {activeTab === 'security' && (
               <div className="space-y-6 sm:space-y-8">
                 <div className="pb-6 sm:pb-8 border-b border-[#2E2E2E]">
-                  <h2 className="heading-text text-xl sm:text-2xl font-bold mb-4">
+                  <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-4">
                     ACCOUNT INFO
                   </h2>
                   <div className="mt-4">
@@ -550,7 +550,7 @@ export default function Account({ onBack }: AccountProps) {
                 </div>
 
                 <form onSubmit={handleEmailChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
-                  <h2 className="heading-text text-lg sm:text-xl font-bold">
+                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
                     CHANGE EMAIL
                   </h2>
                   <div>
@@ -576,7 +576,7 @@ export default function Account({ onBack }: AccountProps) {
                 </form>
 
                 <form onSubmit={handlePhoneChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
-                  <h2 className="heading-text text-lg sm:text-xl font-bold">
+                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
                     PHONE NUMBER
                   </h2>
                   <div>
@@ -602,7 +602,7 @@ export default function Account({ onBack }: AccountProps) {
                 </form>
 
                 <form onSubmit={handlePasswordChange} className="space-y-4 sm:space-y-6">
-                  <h2 className="heading-text text-lg sm:text-xl font-bold">
+                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
                     CHANGE PASSWORD
                   </h2>
 
@@ -689,7 +689,7 @@ export default function Account({ onBack }: AccountProps) {
             {activeTab === 'settings' && (
               <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h2 className="heading-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+                  <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
                     REFERRAL PROGRAM
                   </h2>
                   <p className="text-sm sm:text-base text-[#A0A0A0] mb-4 sm:mb-6" style={{ fontFamily: 'Redhawk' }}>
@@ -731,7 +731,7 @@ export default function Account({ onBack }: AccountProps) {
                 </div>
 
                 <div className="pt-6 sm:pt-8 border-t border-[#2E2E2E]">
-                  <h2 className="heading-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B11226]">
+                  <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B11226]">
                     DANGER ZONE
                   </h2>
                   <div className="space-y-3">

@@ -21,7 +21,7 @@ export default function StructuredProgression({ onBack }: StructuredProgressionP
             />
           </div>
 
-          <h1 className="heading-text text-3xl sm:text-4xl font-bold mb-6 text-center">
+          <h1 className="cc-outline-text text-3xl sm:text-4xl font-bold mb-6 text-center">
             STRUCTURED PROGRESSION
           </h1>
 
@@ -31,14 +31,14 @@ export default function StructuredProgression({ onBack }: StructuredProgressionP
             </p>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="heading-text text-2xl font-bold mb-4 text-white">What is Structured Progression?</h2>
+              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">What is Structured Progression?</h2>
               <p>
                 Our structured progression system is built on the principle that mastery comes from solid foundations. Unlike traditional training where you can jump between techniques randomly, COMBATCRAFT uses a sequential unlock system that ensures you've truly mastered the fundamentals before moving forward.
               </p>
             </div>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="heading-text text-2xl font-bold mb-4 text-white">How It Works</h2>
+              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">How It Works</h2>
               <ul className="space-y-4 list-none">
                 <li className="flex items-start">
                   <span className="text-[#B11226] font-bold mr-3">1.</span>
@@ -68,7 +68,7 @@ export default function StructuredProgression({ onBack }: StructuredProgressionP
             </div>
 
             <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="heading-text text-2xl font-bold mb-4 text-white">Why This Matters</h2>
+              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">Why This Matters</h2>
               <p className="mb-4">
                 Many fighters plateau because they skip fundamentals or train techniques beyond their current skill level. Our structured approach prevents this by:
               </p>
@@ -82,7 +82,7 @@ export default function StructuredProgression({ onBack }: StructuredProgressionP
             </div>
 
             <div className="bg-[#B11226]/10 border border-[#B11226] rounded-lg p-6 mt-8">
-              <h3 className="heading-text text-xl font-bold mb-3 text-white">The COMBATCRAFT Difference</h3>
+              <h3 className="cc-outline-text text-xl font-bold mb-3 text-white">The COMBATCRAFT Difference</h3>
               <p>
                 We don't just show you techniques—we guide you through a proven progression system used by professional fighters and coaches worldwide. Every step is purposeful, every technique is earned, and your foundation becomes unshakeable.
               </p>

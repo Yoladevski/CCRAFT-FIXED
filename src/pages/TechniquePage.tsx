@@ -220,7 +220,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
         </div>
 
         <div className="flex items-center justify-between mb-8">
-          <h1 className="heading-text text-4xl sm:text-5xl font-bold">{technique.name}</h1>
+          <h1 className="cc-outline-text text-4xl sm:text-5xl font-bold">{technique.name}</h1>
           {isCompleted && (
             <CheckCircle size={48} className="text-[#B11226]" />
           )}
@@ -256,7 +256,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="heading-text text-2xl font-bold text-[#B11226]">WHY</h3>
+                  <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">WHY</h3>
                   {sectionsRead.why && (
                     <Check size={24} className="text-[#B11226]" />
                   )}
@@ -281,7 +281,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="heading-text text-2xl font-bold text-[#B11226]">HOW</h3>
+                  <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">HOW</h3>
                   {sectionsRead.how && (
                     <Check size={24} className="text-[#B11226]" />
                   )}
@@ -306,7 +306,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="heading-text text-2xl font-bold text-[#B11226]">COMMON MISTAKES</h3>
+                  <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">COMMON MISTAKES</h3>
                   {sectionsRead.mistakes && (
                     <Check size={24} className="text-[#B11226]" />
                   )}
@@ -331,7 +331,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="heading-text text-2xl font-bold text-[#B11226]">SIMPLE DRILLS</h3>
+                  <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">SIMPLE DRILLS</h3>
                   {sectionsRead.drills && (
                     <Check size={24} className="text-[#B11226]" />
                   )}

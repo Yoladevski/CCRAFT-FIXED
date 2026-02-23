@@ -64,7 +64,7 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
           </button>
         </div>
 
-        <h1 className="heading-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
+        <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
           {discipline?.name}
         </h1>
 
@@ -94,7 +94,7 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
               )}
 
               <div className="relative z-10 h-full flex items-center justify-center p-6">
-                <h3 className="heading-text text-3xl font-bold text-center">{category.name}</h3>
+                <h3 className="cc-outline-text text-3xl font-bold text-center">{category.name}</h3>
               </div>
 
               {category.is_active && (
