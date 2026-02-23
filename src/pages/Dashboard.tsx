@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import { BGPattern } from '../components/ui/bg-pattern';
+import OutlinedText from '../components/OutlinedText';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 type Technique = Database['public']['Tables']['techniques']['Row'];
@@ -267,8 +268,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <div className="mb-6">
               <Lock size={64} className="mx-auto text-[#B11226]" />
             </div>
-            <h2 className="cc-outline-text text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              AUTHENTICATION REQUIRED
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+              <OutlinedText>AUTHENTICATION REQUIRED</OutlinedText>
             </h2>
             <p className="text-[#A0A0A0] text-base sm:text-lg mb-8 leading-relaxed">
               The dashboard is only accessible to registered members. Sign up or log in to track your progress, view your stats, and continue your training journey.
@@ -276,15 +277,15 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => onNavigate('Auth')}
-                className="button-text px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105"
+                className="px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105"
               >
-                SIGN UP / LOG IN
+                <OutlinedText>SIGN UP / LOG IN</OutlinedText>
               </button>
               <button
                 onClick={() => onNavigate('Home')}
-                className="button-text px-8 py-4 bg-[#2E2E2E] text-white font-bold rounded hover:bg-[#3E3E3E] transition-all"
+                className="px-8 py-4 bg-[#2E2E2E] text-white font-bold rounded hover:bg-[#3E3E3E] transition-all"
               >
-                BACK TO HOME
+                <OutlinedText>BACK TO HOME</OutlinedText>
               </button>
             </div>
           </div>
@@ -303,9 +304,9 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </p>
           <button
             onClick={() => onNavigate('Account')}
-            className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+            className="px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
           >
-            COMPLETE PROFILE
+            <OutlinedText>COMPLETE PROFILE</OutlinedText>
           </button>
         </div>
       </div>
@@ -322,9 +323,9 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </p>
           <button
             onClick={() => onNavigate('Account')}
-            className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+            className="px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
           >
-            SET UP PROFILE
+            <OutlinedText>SET UP PROFILE</OutlinedText>
           </button>
         </div>
       </div>
@@ -345,8 +346,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* WELCOME MESSAGE */}
         <div className="bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A] to-transparent border-l-4 border-[#B11226] p-4 md:p-6 text-center">
-          <h2 className="cc-outline-text text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-            WELCOME BACK {(profile.full_name || 'FIGHTER').toUpperCase()}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+            <OutlinedText>WELCOME BACK {(profile.full_name || 'FIGHTER').toUpperCase()}</OutlinedText>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-[#B11226] font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
             {dailyMotivation}
@@ -356,17 +357,17 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* CONTINUE BUTTON */}
         <button
           onClick={() => onNavigate('Disciplines')}
-          className="button-text w-full py-4 md:py-5 bg-[#B11226] text-white text-lg md:text-2xl font-bold hover:bg-[#8B0E1C] transition-colors"
+          className="w-full py-4 md:py-5 bg-[#B11226] text-white text-lg md:text-2xl font-bold hover:bg-[#8B0E1C] transition-colors"
         >
-          {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
+          <OutlinedText>{nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}</OutlinedText>
         </button>
 
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* CURRENT TRAINING PANEL */}
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] p-6 md:p-8 text-center flex flex-col justify-center min-h-[280px]">
-            <h2 className="cc-outline-text text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-              CURRENT TRAINING
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
+              <OutlinedText>CURRENT TRAINING</OutlinedText>
             </h2>
 
             {nextTechnique ? (
@@ -413,16 +414,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               <p className="text-base md:text-lg text-[#A0A0A0] mb-3 tracking-wider" style={{ fontFamily: 'Redhawk, sans-serif' }}>
                 CURRENT RANK
               </p>
-              <h1
-                className="cc-outline-text text-5xl md:text-6xl font-bold mb-5"
-                style={{
-                  color: getRankColor(profile.rank),
-                  WebkitTextStroke: '2px black',
-                  textStroke: '2px black',
-                  paintOrder: 'stroke fill'
-                }}
-              >
-                {profile.rank.toUpperCase()}
+              <h1 className="text-5xl md:text-6xl font-bold mb-5">
+                <OutlinedText style={{ color: getRankColor(profile.rank) }}>
+                  {profile.rank.toUpperCase()}
+                </OutlinedText>
               </h1>
               <div className="text-center mb-5">
                 <p className="text-base md:text-lg text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk, sans-serif' }}>
@@ -522,8 +517,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* RECENT VICTORIES */}
         {recentProgress.length > 0 && (
           <div>
-            <h2 className="cc-outline-text text-3xl md:text-4xl font-bold mb-5 text-center">
-              RECENT VICTORIES
+            <h2 className="text-3xl md:text-4xl font-bold mb-5 text-center">
+              <OutlinedText>RECENT VICTORIES</OutlinedText>
             </h2>
             <div className="space-y-3">
               {recentProgress.map((progress) => (
@@ -532,8 +527,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   className="bg-[#1A1A1A] border border-[#2E2E2E] p-5 md:p-6 flex items-center justify-between hover:border-[#B11226] transition-colors"
                 >
                   <div className="flex-1 min-w-0 text-center">
-                    <h3 className="cc-outline-text text-lg md:text-2xl font-bold mb-2 truncate">
-                      {progress.technique?.name}
+                    <h3 className="text-lg md:text-2xl font-bold mb-2 truncate">
+                      <OutlinedText>{progress.technique?.name}</OutlinedText>
                     </h3>
                     <p className="text-sm md:text-base text-[#A0A0A0]" style={{ fontFamily: 'Inter' }}>
                       {new Date(progress.completed_at).toLocaleDateString()}

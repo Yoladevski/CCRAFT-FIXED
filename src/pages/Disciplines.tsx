@@ -4,6 +4,7 @@ import { Database } from '../lib/supabase';
 import { BGPattern } from '../components/ui/bg-pattern';
 import { useAuth } from '../contexts/AuthContext';
 import Auth from './Auth';
+import OutlinedText from '../components/OutlinedText';
 
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
 
@@ -49,8 +50,8 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
     <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-7xl mx-auto relative z-10">
-        <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
-          CHOOSE YOUR DISCIPLINE
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
+          <OutlinedText>CHOOSE YOUR DISCIPLINE</OutlinedText>
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -101,8 +102,8 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
               </div>
 
               <div className="mt-4 px-2">
-                <h1 className="cc-outline-text text-2xl sm:text-3xl font-bold mb-2 text-center">
-                  {discipline.name}
+                <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-center">
+                  <OutlinedText>{discipline.name}</OutlinedText>
                 </h1>
                 {discipline.description && (
                   <p className="text-sm text-[#A0A0A0] text-center mb-4 min-h-[2.5rem]">
@@ -113,9 +114,9 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 {discipline.is_active && (
                   <button
                     onClick={() => onNavigate('Discipline', discipline.id)}
-                    className="button-text w-full py-3 bg-[#B11226] hover:bg-[#8B0E1E] transition-colors rounded-lg font-bold text-xl tracking-wider"
+                    className="w-full py-3 bg-[#B11226] hover:bg-[#8B0E1E] transition-colors rounded-lg font-bold text-xl tracking-wider"
                   >
-                    ENTER
+                    <OutlinedText>ENTER</OutlinedText>
                   </button>
                 )}
               </div>
