@@ -1,9 +1,8 @@
-import { useState, lazy, Suspense } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { BGPattern } from '../components/ui/bg-pattern';
 import { supabase } from '../lib/supabase';
-
-const Turnstile = lazy(() => import('@marsidev/react-turnstile'));
+import { Turnstile } from '@marsidev/react-turnstile';
 
 interface AuthProps {
   onNavigate: (page: string) => void;
@@ -25,7 +24,7 @@ export default function Auth({ onNavigate }: AuthProps) {
   const [waiverAccepted, setWaiverAccepted] = useState(false);
   const [liabilityAccepted, setLiabilityAccepted] = useState(false);
 
-  const { signIn, signUp, signInWithGoogle } = useAuth();
+  const { signIn, signInWithGoogle } = useAuth();
 
   const handleGoogleSignIn = async () => {
     setError('');
@@ -118,81 +117,76 @@ export default function Auth({ onNavigate }: AuthProps) {
   };
 
   return (
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 relative -mt-20 pt-20">
+      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
 
-<div className="min-h-screen flex items-center justify-center px-4 py-8 relative -mt-20 pt-20">
-<BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
+      <div className="w-full max-w-2xl relative z-10">
+        <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
 
-<div className="w-full max-w-2xl relative z-10">
-<div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
+            {isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
+          </h2>
 
-<h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
-{isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
-</h2>
+          {error && (
+            <div className="mb-4 p-4 bg-[#B11226]/20 border border-[#B11226] rounded text-center">
+              {error}
+            </div>
+          )}
 
-{error && (
-<div className="mb-4 p-4 bg-[#B11226]/20 border border-[#B11226] rounded text-center">
-{error}
-</div>
-)}
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
 
-<form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <input
+              type="email"
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
+              required
+              placeholder="your@email.com"
+              className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded"
+            />
 
-<input
-type="email"
-value={email}
-onChange={(e)=>setEmail(e.target.value)}
-required
-placeholder="your@email.com"
-className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded"
-/>
+            <input
+              type="password"
+              value={password}
+              onChange={(e)=>setPassword(e.target.value)}
+              required
+              minLength={6}
+              placeholder="••••••••"
+              className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded"
+            />
 
-<input
-type="password"
-value={password}
-onChange={(e)=>setPassword(e.target.value)}
-required
-minLength={6}
-placeholder="••••••••"
-className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded"
-/>
+            {isSignUp && (
+              <Turnstile
+                siteKey="0x4AAAAAACgutK8_-6I19L6o_P1Wt7Wje3k"
+                onSuccess={(token)=>setCaptchaToken(token)}
+              />
+            )}
 
-{isSignUp && (
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-3 sm:py-4 bg-[#B11226] text-white font-bold rounded"
+            >
+              {loading ? 'LOADING...' : isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
+            </button>
 
-<Suspense fallback={null}>
-<Turnstile
-siteKey="0x4AAAAAACgutK8_-6I19L6o_P1Wt7Wje3k"
-onSuccess={(token)=>setCaptchaToken(token)}
-/>
-</Suspense>
+          </form>
 
-)}
+          <button
+            onClick={handleGoogleSignIn}
+            className="w-full py-3 mt-4 bg-white text-black rounded"
+          >
+            {isSignUp ? 'SIGN UP WITH GOOGLE' : 'SIGN IN WITH GOOGLE'}
+          </button>
 
-<button
-type="submit"
-disabled={loading}
-className="w-full py-3 sm:py-4 bg-[#B11226] text-white font-bold rounded"
->
-{loading ? 'LOADING...' : isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
-</button>
+          <button
+            onClick={toggleMode}
+            className="mt-6 underline text-sm"
+          >
+            {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
+          </button>
 
-</form>
-
-<button
-onClick={handleGoogleSignIn}
-className="w-full py-3 mt-4 bg-white text-black rounded"
->
-{isSignUp ? 'SIGN UP WITH GOOGLE' : 'SIGN IN WITH GOOGLE'}
-</button>
-
-<button
-onClick={toggleMode}
-className="mt-6 underline text-sm"
->
-{isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
-</button>
-
-</div>
-</div>
-</div>
-);
+        </div>
+      </div>
+    </div>
+  );
 }
