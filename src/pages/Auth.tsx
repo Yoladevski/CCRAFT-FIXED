@@ -117,76 +117,101 @@ export default function Auth({ onNavigate }: AuthProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8 relative -mt-20 pt-20">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
 
-      <div className="w-full max-w-2xl relative z-10">
-        <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
+<div className="min-h-screen flex items-center justify-center px-4 py-8 relative -mt-20 pt-20">
+<BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
 
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
-            {isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
-          </h2>
+<div className="w-full max-w-2xl relative z-10">
+<div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
 
-          {error && (
-            <div className="mb-4 p-4 bg-[#B11226]/20 border border-[#B11226] rounded text-center">
-              {error}
-            </div>
-          )}
+<h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
+{isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
+</h2>
 
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+{error && (
+<div className="mb-4 p-4 bg-[#B11226]/20 border border-[#B11226] rounded text-center">
+{error}
+</div>
+)}
 
-            <input
-              type="email"
-              value={email}
-              onChange={(e)=>setEmail(e.target.value)}
-              required
-              placeholder="your@email.com"
-              className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded"
-            />
+<form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
 
-            <input
-              type="password"
-              value={password}
-              onChange={(e)=>setPassword(e.target.value)}
-              required
-              minLength={6}
-              placeholder="••••••••"
-              className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded"
-            />
+<input
+type="email"
+value={email}
+onChange={(e)=>setEmail(e.target.value)}
+required
+placeholder="your@email.com"
+className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded"
+/>
 
-            {isSignUp && (
-              <Turnstile
-                siteKey="0x4AAAAAACgutK8_-6I19L6o_P1Wt7Wje3k"
-                onSuccess={(token)=>setCaptchaToken(token)}
-              />
-            )}
+<input
+type="password"
+value={password}
+onChange={(e)=>setPassword(e.target.value)}
+required
+minLength={6}
+placeholder="••••••••"
+className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded"
+/>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-3 sm:py-4 bg-[#B11226] text-white font-bold rounded"
-            >
-              {loading ? 'LOADING...' : isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
-            </button>
+{isSignUp && (
+<div className="space-y-4 border-t border-[#2E2E2E] pt-6 mt-6">
 
-          </form>
+<label className="flex items-start space-x-3">
+<input type="checkbox" checked={ageConfirmed} onChange={(e)=>setAgeConfirmed(e.target.checked)} />
+<span>I confirm I am 16+</span>
+</label>
 
-          <button
-            onClick={handleGoogleSignIn}
-            className="w-full py-3 mt-4 bg-white text-black rounded"
-          >
-            {isSignUp ? 'SIGN UP WITH GOOGLE' : 'SIGN IN WITH GOOGLE'}
-          </button>
+<label className="flex items-start space-x-3">
+<input type="checkbox" checked={termsAccepted} onChange={(e)=>setTermsAccepted(e.target.checked)} />
+<span>I agree to Terms</span>
+</label>
 
-          <button
-            onClick={toggleMode}
-            className="mt-6 underline text-sm"
-          >
-            {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
-          </button>
+<label className="flex items-start space-x-3">
+<input type="checkbox" checked={waiverAccepted} onChange={(e)=>setWaiverAccepted(e.target.checked)} />
+<span>Training Waiver Accepted</span>
+</label>
 
-        </div>
-      </div>
-    </div>
-  );
+<label className="flex items-start space-x-3">
+<input type="checkbox" checked={liabilityAccepted} onChange={(e)=>setLiabilityAccepted(e.target.checked)} />
+<span>Liability Release Accepted</span>
+</label>
+
+<Turnstile
+siteKey="0x4AAAAAACgutK8_-6I19L6o_P1Wt7Wje3k"
+onSuccess={(token)=>setCaptchaToken(token)}
+/>
+
+</div>
+)}
+
+<button
+type="submit"
+disabled={loading}
+className="w-full py-3 sm:py-4 bg-[#B11226] text-white font-bold rounded"
+>
+{loading ? 'LOADING...' : isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
+</button>
+
+</form>
+
+<button
+onClick={handleGoogleSignIn}
+className="w-full py-3 mt-4 bg-white text-black rounded"
+>
+{isSignUp ? 'SIGN UP WITH GOOGLE' : 'SIGN IN WITH GOOGLE'}
+</button>
+
+<button
+onClick={toggleMode}
+className="mt-6 underline text-sm"
+>
+{isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
+</button>
+
+</div>
+</div>
+</div>
+);
 }
