@@ -31,6 +31,7 @@ const StructuredProgression = lazy(() => import('./pages/StructuredProgression')
 const AIInstruction = lazy(() => import('./pages/AIInstruction'));
 const MultiDiscipline = lazy(() => import('./pages/MultiDiscipline'));
 const EmailAssets = lazy(() => import('./pages/EmailAssets'));
+const AuthCallback = lazy(() => import('./pages/AuthCallback'));
 
 type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline';
 
@@ -129,6 +130,7 @@ function AppContent() {
         <Route path="/email-assets" element={<EmailAssets />} />
         <Route path="/post-verify" element={<PostVerify />} />
         <Route path="/create-profile" element={<CreateProfile />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
         <Route path="*" element={
           <div className="flex flex-col min-h-screen relative bg-[#0E0E0E]">
             <Navigation currentPage={navState.page} onNavigate={(page, id) => handleNavigate(page as Page, id)} />

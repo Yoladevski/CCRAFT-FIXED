@@ -8,6 +8,7 @@ interface AuthContextType {
   loading: boolean;
   signUp: (email: string, password: string) => Promise<{ data: { user: User | null } | null; error: any }>;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
+  signInWithGoogle: () => Promise<{ error: any }>;
   signOut: () => Promise<void>;
 }
 
@@ -45,6 +46,27 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
               rank: 'Amateur',
             });
           }
+
+          const pendingGoogleSignUp = sessionStorage.getItem('pendingGoogleSignUp');
+          const waiverVersion = sessionStorage.getItem('waiverVersion');
+
+          if (pendingGoogleSignUp === 'true' && waiverVersion) {
+            const { data: existingAcceptance } = await supabase
+              .from('user_legal_acceptance')
+              .select('id')
+              .eq('user_id', session.user.id)
+              .maybeSingle();
+
+            if (!existingAcceptance) {
+              await supabase.from('user_legal_acceptance').insert({
+                user_id: session.user.id,
+                waiver_version: waiverVersion,
+              });
+            }
+
+            sessionStorage.removeItem('pendingGoogleSignUp');
+            sessionStorage.removeItem('waiverVersion');
+          }
         }
       })();
     });
@@ -62,12 +84,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return { error };
   };
 
+  const signInWithGoogle = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+    return { error };
+  };
+
   const signOut = async () => {
     await supabase.auth.signOut();
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, loading, signUp, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, session, loading, signUp, signIn, signInWithGoogle, signOut }}>
       {children}
     </AuthContext.Provider>
   );
