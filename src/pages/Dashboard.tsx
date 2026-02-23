@@ -268,9 +268,29 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => onNavigate('Auth')}
-                className="button-text px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105"
+                className="transition-all transform hover:scale-105 bg-transparent border-0 p-0 relative"
+                style={{ width: '200px' }}
               >
-                SIGN UP / LOG IN
+                <img
+                  src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
+                  alt="SIGN UP / LOG IN"
+                  className="w-full h-auto"
+                  style={{
+                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
+                  }}
+                />
+                <span
+                  className="absolute inset-0 flex items-center justify-center text-white pointer-events-none text-sm"
+                  style={{
+                    fontFamily: 'Redhawk, sans-serif',
+                    fontWeight: 700,
+                    textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase'
+                  }}
+                >
+                  SIGN UP / LOG IN
+                </span>
               </button>
               <button
                 onClick={() => onNavigate('Home')}
@@ -295,9 +315,29 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </p>
           <button
             onClick={() => onNavigate('Account')}
-            className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+            className="transition-all transform hover:scale-105 bg-transparent border-0 p-0 relative mx-auto"
+            style={{ width: '200px' }}
           >
-            COMPLETE PROFILE
+            <img
+              src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
+              alt="COMPLETE PROFILE"
+              className="w-full h-auto"
+              style={{
+                filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
+              }}
+            />
+            <span
+              className="absolute inset-0 flex items-center justify-center text-white pointer-events-none text-sm"
+              style={{
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
+                textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase'
+              }}
+            >
+              COMPLETE PROFILE
+            </span>
           </button>
         </div>
       </div>
@@ -314,9 +354,29 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </p>
           <button
             onClick={() => onNavigate('Account')}
-            className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+            className="transition-all transform hover:scale-105 bg-transparent border-0 p-0 relative mx-auto"
+            style={{ width: '180px' }}
           >
-            SET UP PROFILE
+            <img
+              src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
+              alt="SET UP PROFILE"
+              className="w-full h-auto"
+              style={{
+                filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
+              }}
+            />
+            <span
+              className="absolute inset-0 flex items-center justify-center text-white pointer-events-none text-sm"
+              style={{
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
+                textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase'
+              }}
+            >
+              SET UP PROFILE
+            </span>
           </button>
         </div>
       </div>
@@ -348,9 +408,28 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* CONTINUE BUTTON */}
         <button
           onClick={() => onNavigate('Disciplines')}
-          className="button-text w-full py-4 md:py-5 bg-[#B11226] text-white text-lg md:text-2xl font-bold hover:bg-[#8B0E1C] transition-colors"
+          className="w-full transition-all transform hover:scale-105 bg-transparent border-0 p-0 relative"
         >
-          {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
+          <img
+            src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
+            alt={nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
+            className="w-full h-auto"
+            style={{
+              filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4))',
+            }}
+          />
+          <span
+            className="absolute inset-0 flex items-center justify-center text-white pointer-events-none px-4 text-base sm:text-lg md:text-xl"
+            style={{
+              fontFamily: 'Redhawk, sans-serif',
+              fontWeight: 700,
+              textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase'
+            }}
+          >
+            {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
+          </span>
         </button>
 
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}

@@ -75,7 +75,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}
             >
               <img
-                src="https://i.postimg.cc/3rvPNrqD/gpptbutton.png"
+                src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/BUTTON.png"
                 alt="Start Training"
                 className="w-full h-auto"
                 style={{
