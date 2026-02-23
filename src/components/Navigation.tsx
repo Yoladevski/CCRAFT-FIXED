@@ -34,14 +34,30 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             <div className="hidden lg:flex items-center justify-center space-x-8">
               <button
                 onClick={() => handleNavigate('Home')}
-                className={`button-text relative transition-colors pb-1 ${
-                  currentPage === 'Home' ? 'text-white' : 'text-[#A0A0A0]'
-                }`}
+                className={`button-text relative transition-colors pb-1`}
                 style={{
                   fontSize: '0.9rem',
                   fontFamily: 'Redhawk, sans-serif',
-                  WebkitTextStroke: currentPage === 'Home' ? '1px #B11226' : '1px #B11226',
-                  textStroke: currentPage === 'Home' ? '1px #B11226' : '1px #B11226'
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  color: currentPage === 'Home' ? '#FFFFFF' : '#A0A0A0',
+                  textShadow: `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    -0.5px -0.5px 0 #000000,
+                    0.5px -0.5px 0 #000000,
+                    -0.5px 0.5px 0 #000000,
+                    0.5px 0.5px 0 #000000,
+                    -1px 0 0 #000000,
+                    1px 0 0 #000000,
+                    0 -1px 0 #000000,
+                    0 1px 0 #000000`
                 }}
                 onMouseEnter={(e) => {
                   if (currentPage !== 'Home') {
@@ -63,14 +79,30 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user && (
                 <button
                   onClick={() => handleNavigate('Dashboard')}
-                  className={`button-text relative transition-colors pb-1 ${
-                    currentPage === 'Dashboard' ? 'text-white' : 'text-[#A0A0A0]'
-                  }`}
+                  className={`button-text relative transition-colors pb-1`}
                   style={{
                     fontSize: '0.9rem',
                     fontFamily: 'Redhawk, sans-serif',
-                    WebkitTextStroke: '1px #B11226',
-                    textStroke: '1px #B11226'
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: currentPage === 'Dashboard' ? '#FFFFFF' : '#A0A0A0',
+                    textShadow: `-1px -1px 0 #B11226,
+                      1px -1px 0 #B11226,
+                      -1px 1px 0 #B11226,
+                      1px 1px 0 #B11226,
+                      -1.5px -1.5px 0 #B11226,
+                      1.5px -1.5px 0 #B11226,
+                      -1.5px 1.5px 0 #B11226,
+                      1.5px 1.5px 0 #B11226,
+                      -0.5px -0.5px 0 #000000,
+                      0.5px -0.5px 0 #000000,
+                      -0.5px 0.5px 0 #000000,
+                      0.5px 0.5px 0 #000000,
+                      -1px 0 0 #000000,
+                      1px 0 0 #000000,
+                      0 -1px 0 #000000,
+                      0 1px 0 #000000`
                   }}
                   onMouseEnter={(e) => {
                     if (currentPage !== 'Dashboard') {
@@ -92,16 +124,30 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('Disciplines')}
-                className={`button-text relative transition-colors pb-1 ${
-                  currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
-                    ? 'text-white'
-                    : 'text-[#A0A0A0]'
-                }`}
+                className={`button-text relative transition-colors pb-1`}
                 style={{
                   fontSize: '0.9rem',
                   fontFamily: 'Redhawk, sans-serif',
-                  WebkitTextStroke: '1px #B11226',
-                  textStroke: '1px #B11226'
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  color: (currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique') ? '#FFFFFF' : '#A0A0A0',
+                  textShadow: `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    -0.5px -0.5px 0 #000000,
+                    0.5px -0.5px 0 #000000,
+                    -0.5px 0.5px 0 #000000,
+                    0.5px 0.5px 0 #000000,
+                    -1px 0 0 #000000,
+                    1px 0 0 #000000,
+                    0 -1px 0 #000000,
+                    0 1px 0 #000000`
                 }}
                 onMouseEnter={(e) => {
                   const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
@@ -124,14 +170,30 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('News')}
-                className={`button-text relative transition-colors pb-1 ${
-                  currentPage === 'News' ? 'text-white' : 'text-[#A0A0A0]'
-                }`}
+                className={`button-text relative transition-colors pb-1`}
                 style={{
                   fontSize: '0.9rem',
                   fontFamily: 'Redhawk, sans-serif',
-                  WebkitTextStroke: '1px #B11226',
-                  textStroke: '1px #B11226'
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  color: currentPage === 'News' ? '#FFFFFF' : '#A0A0A0',
+                  textShadow: `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    -0.5px -0.5px 0 #000000,
+                    0.5px -0.5px 0 #000000,
+                    -0.5px 0.5px 0 #000000,
+                    0.5px 0.5px 0 #000000,
+                    -1px 0 0 #000000,
+                    1px 0 0 #000000,
+                    0 -1px 0 #000000,
+                    0 1px 0 #000000`
                 }}
                 onMouseEnter={(e) => {
                   if (currentPage !== 'News') {
@@ -152,14 +214,30 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('Merchandise')}
-                className={`button-text relative transition-colors pb-1 ${
-                  currentPage === 'Merchandise' ? 'text-white' : 'text-[#A0A0A0]'
-                }`}
+                className={`button-text relative transition-colors pb-1`}
                 style={{
                   fontSize: '0.9rem',
                   fontFamily: 'Redhawk, sans-serif',
-                  WebkitTextStroke: '1px #B11226',
-                  textStroke: '1px #B11226'
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  color: currentPage === 'Merchandise' ? '#FFFFFF' : '#A0A0A0',
+                  textShadow: `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    -0.5px -0.5px 0 #000000,
+                    0.5px -0.5px 0 #000000,
+                    -0.5px 0.5px 0 #000000,
+                    0.5px 0.5px 0 #000000,
+                    -1px 0 0 #000000,
+                    1px 0 0 #000000,
+                    0 -1px 0 #000000,
+                    0 1px 0 #000000`
                 }}
                 onMouseEnter={(e) => {
                   if (currentPage !== 'Merchandise') {
@@ -181,14 +259,30 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user ? (
                 <button
                   onClick={() => handleNavigate('Account')}
-                  className={`button-text relative transition-colors pb-1 whitespace-nowrap ${
-                    currentPage === 'Account' ? 'text-white' : 'text-[#A0A0A0]'
-                  }`}
+                  className={`button-text relative transition-colors pb-1 whitespace-nowrap`}
                   style={{
                     fontSize: '0.9rem',
                     fontFamily: 'Redhawk, sans-serif',
-                    WebkitTextStroke: '1px #B11226',
-                    textStroke: '1px #B11226'
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: currentPage === 'Account' ? '#FFFFFF' : '#A0A0A0',
+                    textShadow: `-1px -1px 0 #B11226,
+                      1px -1px 0 #B11226,
+                      -1px 1px 0 #B11226,
+                      1px 1px 0 #B11226,
+                      -1.5px -1.5px 0 #B11226,
+                      1.5px -1.5px 0 #B11226,
+                      -1.5px 1.5px 0 #B11226,
+                      1.5px 1.5px 0 #B11226,
+                      -0.5px -0.5px 0 #000000,
+                      0.5px -0.5px 0 #000000,
+                      -0.5px 0.5px 0 #000000,
+                      0.5px 0.5px 0 #000000,
+                      -1px 0 0 #000000,
+                      1px 0 0 #000000,
+                      0 -1px 0 #000000,
+                      0 1px 0 #000000`
                   }}
                   onMouseEnter={(e) => {
                     if (currentPage !== 'Account') {
@@ -210,7 +304,11 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 <button
                   onClick={() => handleNavigate('Auth')}
                   className="button-text px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
-                  style={{ fontSize: '0.9rem' }}
+                  style={{
+                    fontSize: '0.9rem',
+                    fontFamily: 'Redhawk, sans-serif',
+                    fontWeight: 700
+                  }}
                 >
                   SIGN IN
                 </button>
