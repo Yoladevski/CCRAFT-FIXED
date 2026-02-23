@@ -389,16 +389,6 @@ nav a {
 
 @media (min-width: 768px) {
   .hero-content-grid {
-    transform: translateY(100px);
-  }
-
-  .hero-middle-button {
-    transform: translateY(108px);
-  }
-}
-
-@media (max-width: 767px) {
-  .hero-middle-button {
-    transform: translateY(96px);
+    transform: translateY(80px);
   }
 }
