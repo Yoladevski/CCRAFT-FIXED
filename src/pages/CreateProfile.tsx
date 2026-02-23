@@ -30,20 +30,37 @@ export default function CreateProfile() {
     setError('');
 
     try {
-      const { error: updateError } = await supabase
+      const { data: updateData, error: updateError } = await supabase
         .from('profiles')
         .update({
           full_name: fullName.trim(),
           onboarding_complete: true,
           updated_at: new Date().toISOString(),
         })
-        .eq('user_id', user.id);
+        .eq('user_id', user.id)
+        .select();
 
       if (updateError) {
         throw updateError;
       }
 
-      // Navigate to dashboard after successful profile completion
+      // Verify the update was successful before redirecting
+      if (!updateData || updateData.length === 0) {
+        throw new Error('Profile update failed - no rows returned');
+      }
+
+      // Confirm the profile was actually updated
+      const { data: verifyData, error: verifyError } = await supabase
+        .from('profiles')
+        .select('onboarding_complete, full_name')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      if (verifyError || !verifyData?.onboarding_complete) {
+        throw new Error('Profile update verification failed');
+      }
+
+      // Only navigate after confirming successful update
       navigate('/dashboard', { replace: true });
     } catch (err: any) {
       console.error('Error updating profile:', err);

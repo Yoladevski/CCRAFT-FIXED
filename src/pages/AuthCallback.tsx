@@ -8,61 +8,73 @@ export default function AuthCallback() {
 
   useEffect(() => {
     const handleCallback = async () => {
+      // Detect session after email verification
       const { data, error } = await supabase.auth.getSession();
 
       if (error) {
         console.error('Error during callback:', error);
-        setMessage('Error signing in. Redirecting...');
-        setTimeout(() => navigate('/', { replace: true }), 2000);
+        setMessage('Error signing in. Please try again.');
+        setTimeout(() => navigate('/auth', { replace: true }), 2000);
         return;
       }
 
-      if (data.session) {
-        const userId = data.session.user.id;
-        const userEmail = data.session.user.email;
+      // No session means verification failed - redirect to auth
+      if (!data.session) {
+        setMessage('No session found. Redirecting...');
+        setTimeout(() => navigate('/auth', { replace: true }), 1500);
+        return;
+      }
 
-        // Check if profile exists
-        const { data: profile } = await supabase
+      const userId = data.session.user.id;
+
+      // Check if profile exists and get onboarding status
+      const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('id, onboarding_complete, full_name')
+        .eq('user_id', userId)
+        .maybeSingle();
+
+      if (profileError) {
+        console.error('Error fetching profile:', profileError);
+        setMessage('Error loading profile. Redirecting...');
+        setTimeout(() => navigate('/auth', { replace: true }), 2000);
+        return;
+      }
+
+      // If no profile exists, create one immediately
+      if (!profile) {
+        setMessage('Setting up your account...');
+        const { error: insertError } = await supabase
           .from('profiles')
-          .select('id, onboarding_complete, full_name')
-          .eq('user_id', userId)
-          .maybeSingle();
+          .insert({
+            user_id: userId,
+            power_level: 0,
+            rank: 'Amateur',
+            onboarding_complete: false,
+          });
 
-        // If no profile exists, create one immediately
-        if (!profile) {
-          setMessage('Setting up your account...');
-          const { error: insertError } = await supabase
-            .from('profiles')
-            .insert({
-              user_id: userId,
-              power_level: 0,
-              rank: 'Amateur',
-              onboarding_complete: false,
-            });
-
-          if (insertError) {
-            console.error('Error creating profile:', insertError);
-            setMessage('Error setting up profile. Redirecting...');
-            setTimeout(() => navigate('/', { replace: true }), 2000);
-            return;
-          }
-
-          // Route to complete profile
-          setMessage('Welcome! Let\'s complete your profile...');
-          setTimeout(() => navigate('/create-profile', { replace: true }), 1500);
+        if (insertError) {
+          console.error('Error creating profile:', insertError);
+          setMessage('Error setting up profile. Please try again.');
+          setTimeout(() => navigate('/auth', { replace: true }), 2000);
           return;
         }
 
-        // Profile exists - check if onboarding is complete
-        if (!profile.onboarding_complete || !profile.full_name) {
-          setMessage('Welcome! Let\'s complete your profile...');
-          setTimeout(() => navigate('/create-profile', { replace: true }), 1500);
-        } else {
-          setMessage('Welcome back! Redirecting to dashboard...');
-          setTimeout(() => navigate('/dashboard', { replace: true }), 1500);
-        }
+        // Redirect to complete profile (never to homepage)
+        setMessage('Welcome! Let\'s complete your profile...');
+        setTimeout(() => navigate('/create-profile', { replace: true }), 1000);
+        return;
+      }
+
+      // Profile exists - check onboarding_complete status
+      if (profile.onboarding_complete === true && profile.full_name) {
+        // Onboarding complete - redirect to dashboard
+        setMessage('Welcome back! Redirecting to dashboard...');
+        setTimeout(() => navigate('/dashboard', { replace: true }), 1000);
       } else {
-        navigate('/', { replace: true });
+        // Onboarding incomplete - redirect to complete profile
+        setMessage('Welcome! Let\'s complete your profile...');
+        setTimeout(() => navigate('/create-profile', { replace: true }), 1000);
       }
     };
 
