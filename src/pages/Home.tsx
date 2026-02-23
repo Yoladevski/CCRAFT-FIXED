@@ -1,5 +1,6 @@
 import { useAuth } from '../contexts/AuthContext';
 import { BGPattern } from '../components/ui/bg-pattern';
+import { OutlinedText } from '../components/OutlinedText';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -52,16 +53,34 @@ export default function Home({ onNavigate }: HomeProps) {
 
         <div className="hero-content-grid px-6">
           <div
-            className="hero-top-text text-white tracking-[0.08em] animate-fade-in"
+            className="hero-top-text animate-fade-in"
             style={{
-              fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
-              lineHeight: '1.5',
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.5rem',
+              width: '100%',
             }}
           >
-            <span style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>STRUCTURED TRAINING</span>
-            <span style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>POWERED BY AI</span>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
+                height: 'clamp(2rem, 6vw, 3.5rem)',
+              }}
+            >
+              STRUCTURED TRAINING
+            </OutlinedText>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
+                height: 'clamp(2rem, 6vw, 3.5rem)',
+              }}
+            >
+              POWERED BY AI
+            </OutlinedText>
           </div>
 
           <div className="hero-middle-button">
@@ -85,15 +104,34 @@ export default function Home({ onNavigate }: HomeProps) {
           </div>
 
           <div
-            className="hero-bottom-text font-bold tracking-[0.08em] leading-snug"
+            className="hero-bottom-text"
             style={{
-              fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.5rem',
+              width: '100%',
             }}
           >
-            <span style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>TRAIN WITH PURPOSE</span>
-            <span style={{ fontFamily: 'Redhawk, sans-serif', fontWeight: 700 }}>IMPROVE WITH STRUCTURE</span>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
+                height: 'clamp(1.8rem, 4.5vw, 2.5rem)',
+              }}
+            >
+              TRAIN WITH PURPOSE
+            </OutlinedText>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
+                fontFamily: 'Redhawk, sans-serif',
+                fontWeight: 700,
+                height: 'clamp(1.8rem, 4.5vw, 2.5rem)',
+              }}
+            >
+              IMPROVE WITH STRUCTURE
+            </OutlinedText>
           </div>
         </div>
       </section>
@@ -115,7 +153,17 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="cc-outline-text text-2xl mb-4 text-center">STRUCTURED PROGRESSION</h3>
+              <OutlinedText
+                style={{
+                  fontSize: '1.5rem',
+                  fontFamily: 'Redhawk, sans-serif',
+                  fontWeight: 700,
+                  height: '2.5rem',
+                  marginBottom: '1rem',
+                }}
+              >
+                STRUCTURED PROGRESSION
+              </OutlinedText>
               <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
                 Sequential unlock system ensures mastery before advancement. Build foundations properly.
               </p>
@@ -134,7 +182,17 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="cc-outline-text text-2xl mb-4 text-center">AI ENHANCED INSTRUCTION</h3>
+              <OutlinedText
+                style={{
+                  fontSize: '1.5rem',
+                  fontFamily: 'Redhawk, sans-serif',
+                  fontWeight: 700,
+                  height: '2.5rem',
+                  marginBottom: '1rem',
+                }}
+              >
+                AI ENHANCED INSTRUCTION
+              </OutlinedText>
               <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
                 Detailed technique breakdowns with common mistakes and tactical applications.
               </p>
@@ -153,7 +211,17 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="cc-outline-text text-2xl mb-4 text-center">MULTI DISCIPLINE SYSTEM</h3>
+              <OutlinedText
+                style={{
+                  fontSize: '1.5rem',
+                  fontFamily: 'Redhawk, sans-serif',
+                  fontWeight: 700,
+                  height: '2.5rem',
+                  marginBottom: '1rem',
+                }}
+              >
+                MULTI DISCIPLINE SYSTEM
+              </OutlinedText>
               <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
                 Train across Boxing, Muay Thai, BJJ, and more. Become a complete fighter.
               </p>
