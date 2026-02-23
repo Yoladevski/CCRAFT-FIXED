@@ -321,9 +321,6 @@ export default function Account({ onBack }: AccountProps) {
         </div>
         <h1
           className="heading-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-12"
-          style={{
-            textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000'
-          }}
         >
           {isFirstTimeSetup ? 'COMPLETE YOUR PROFILE' : 'ACCOUNT'}
         </h1>

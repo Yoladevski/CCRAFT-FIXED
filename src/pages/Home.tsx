@@ -56,7 +56,6 @@ export default function Home({ onNavigate }: HomeProps) {
             style={{
               fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
               lineHeight: '1.5',
-              textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
               fontFamily: 'Redhawk, sans-serif',
               fontWeight: 700,
             }}
@@ -78,9 +77,6 @@ export default function Home({ onNavigate }: HomeProps) {
                 src="https://i.postimg.cc/3rvPNrqD/gpptbutton.png"
                 alt="Start Training"
                 className="w-full h-auto"
-                style={{
-                  filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
-                }}
               />
             </button>
           </div>
@@ -89,7 +85,6 @@ export default function Home({ onNavigate }: HomeProps) {
             className="hero-bottom-text font-bold tracking-[0.08em] leading-snug"
             style={{
               fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
-              textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 15px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.9)',
               fontFamily: 'Redhawk, sans-serif',
               fontWeight: 700,
             }}

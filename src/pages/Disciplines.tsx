@@ -68,9 +68,6 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                       src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
                       alt="Coming Soon"
                       className="w-[300%] h-[300%] object-contain"
-                      style={{
-                        filter: 'drop-shadow(0 0 3px black) drop-shadow(0 0 3px black) drop-shadow(0 0 3px black)'
-                      }}
                     />
                   </div>
                 )}
