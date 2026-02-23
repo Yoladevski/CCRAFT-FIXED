@@ -512,28 +512,9 @@ export default function Account({ onBack }: AccountProps) {
                   <button
                     type="submit"
                     disabled={saving}
-                    className="w-full transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed bg-transparent border-0 p-0 relative"
+                    className="button-text w-full py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <img
-                      src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
-                      alt={saving ? 'SAVING...' : 'SAVE PROFILE'}
-                      className="w-full h-auto"
-                      style={{
-                        filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
-                      }}
-                    />
-                    <span
-                      className="absolute inset-0 flex items-center justify-center text-white pointer-events-none"
-                      style={{
-                        fontFamily: 'Redhawk, sans-serif',
-                        fontWeight: 700,
-                        textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
-                        letterSpacing: '0.05em',
-                        textTransform: 'uppercase'
-                      }}
-                    >
-                      {saving ? 'SAVING...' : 'SAVE PROFILE'}
-                    </span>
+                    {saving ? 'SAVING...' : 'SAVE PROFILE'}
                   </button>
                 </form>
               </div>
@@ -583,28 +564,9 @@ export default function Account({ onBack }: AccountProps) {
                   <button
                     type="submit"
                     disabled={saving || !newEmail}
-                    className="w-full transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed bg-transparent border-0 p-0 relative"
+                    className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <img
-                      src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
-                      alt={saving ? 'UPDATING...' : 'UPDATE EMAIL'}
-                      className="w-full h-auto"
-                      style={{
-                        filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
-                      }}
-                    />
-                    <span
-                      className="absolute inset-0 flex items-center justify-center text-white pointer-events-none text-sm sm:text-base"
-                      style={{
-                        fontFamily: 'Redhawk, sans-serif',
-                        fontWeight: 700,
-                        textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
-                        letterSpacing: '0.05em',
-                        textTransform: 'uppercase'
-                      }}
-                    >
-                      {saving ? 'UPDATING...' : 'UPDATE EMAIL'}
-                    </span>
+                    {saving ? 'UPDATING...' : 'UPDATE EMAIL'}
                   </button>
                 </form>
 
@@ -628,28 +590,9 @@ export default function Account({ onBack }: AccountProps) {
                   <button
                     type="submit"
                     disabled={saving || !phoneNumber}
-                    className="w-full transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed bg-transparent border-0 p-0 relative"
+                    className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <img
-                      src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
-                      alt={saving ? 'UPDATING...' : 'UPDATE PHONE'}
-                      className="w-full h-auto"
-                      style={{
-                        filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
-                      }}
-                    />
-                    <span
-                      className="absolute inset-0 flex items-center justify-center text-white pointer-events-none text-sm sm:text-base"
-                      style={{
-                        fontFamily: 'Redhawk, sans-serif',
-                        fontWeight: 700,
-                        textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
-                        letterSpacing: '0.05em',
-                        textTransform: 'uppercase'
-                      }}
-                    >
-                      {saving ? 'UPDATING...' : 'UPDATE PHONE'}
-                    </span>
+                    {saving ? 'UPDATING...' : 'UPDATE PHONE'}
                   </button>
                 </form>
 
@@ -730,28 +673,9 @@ export default function Account({ onBack }: AccountProps) {
                   <button
                     type="submit"
                     disabled={saving || !newPassword || !confirmPassword}
-                    className="w-full transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed bg-transparent border-0 p-0 relative"
+                    className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <img
-                      src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
-                      alt={saving ? 'UPDATING...' : 'UPDATE PASSWORD'}
-                      className="w-full h-auto"
-                      style={{
-                        filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
-                      }}
-                    />
-                    <span
-                      className="absolute inset-0 flex items-center justify-center text-white pointer-events-none text-sm sm:text-base"
-                      style={{
-                        fontFamily: 'Redhawk, sans-serif',
-                        fontWeight: 700,
-                        textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
-                        letterSpacing: '0.05em',
-                        textTransform: 'uppercase'
-                      }}
-                    >
-                      {saving ? 'UPDATING...' : 'UPDATE PASSWORD'}
-                    </span>
+                    {saving ? 'UPDATING...' : 'UPDATE PASSWORD'}
                   </button>
                 </form>
               </div>
@@ -780,39 +704,18 @@ export default function Account({ onBack }: AccountProps) {
                         </div>
                         <button
                           onClick={handleCopyReferralLink}
-                          className="transition-all transform hover:scale-105 bg-transparent border-0 p-0 relative flex-shrink-0"
-                          style={{ width: '140px', height: 'auto' }}
-                        >
-                          <img
-                            src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
-                            alt={copiedReferral ? 'COPIED' : 'COPY LINK'}
-                            className="w-full h-auto"
-                            style={{
-                              filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
-                            }}
-                          />
-                          <span
-                            className="absolute inset-0 flex items-center justify-center text-white pointer-events-none gap-1 text-xs sm:text-sm"
-                            style={{
-                              fontFamily: 'Redhawk, sans-serif',
-                              fontWeight: 700,
-                              textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
-                              letterSpacing: '0.05em',
-                              textTransform: 'uppercase'
-                            }}
-                          >
-                            {copiedReferral ? (
-                              <>
-                                <Check size={14} />
-                                COPIED
-                              </>
-                            ) : (
-                              <>
-                                <Copy size={14} />
-                                COPY LINK
-                              </>
-                            )}
-                          </span>
+                          className="button-text px-4 sm:px-6 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all flex items-center justify-center gap-2">
+                          {copiedReferral ? (
+                            <>
+                              <Check size={18} />
+                              COPIED
+                            </>
+                          ) : (
+                            <>
+                              <Copy size={18} />
+                              COPY LINK
+                            </>
+                          )}
                         </button>
                       </div>
                       <div className="mt-2 sm:mt-3 text-[10px] sm:text-xs text-[#A0A0A0] break-all" style={{ fontFamily: 'Redhawk' }}>
@@ -852,28 +755,9 @@ export default function Account({ onBack }: AccountProps) {
                           <button
                             onClick={handleDeleteAccount}
                             disabled={saving}
-                            className="flex-1 transition-all transform hover:scale-105 disabled:opacity-50 bg-transparent border-0 p-0 relative"
+                            className="button-text flex-1 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50"
                           >
-                            <img
-                              src="https://tjuqljqrsggubbpxcbts.supabase.co/storage/v1/object/public/assets/button-pill.png"
-                              alt={saving ? 'DELETING...' : 'CONFIRM DELETE'}
-                              className="w-full h-auto"
-                              style={{
-                                filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
-                              }}
-                            />
-                            <span
-                              className="absolute inset-0 flex items-center justify-center text-white pointer-events-none text-xs sm:text-sm"
-                              style={{
-                                fontFamily: 'Redhawk, sans-serif',
-                                fontWeight: 700,
-                                textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8)',
-                                letterSpacing: '0.05em',
-                                textTransform: 'uppercase'
-                              }}
-                            >
-                              {saving ? 'DELETING...' : 'CONFIRM DELETE'}
-                            </span>
+                            {saving ? 'DELETING...' : 'CONFIRM DELETE'}
                           </button>
                           <button
                             onClick={() => setShowDeleteConfirm(false)}
