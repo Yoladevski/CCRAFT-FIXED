@@ -15,6 +15,7 @@ export default function Auth({ onNavigate }: AuthProps) {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   // Sign-up specific state
   const [ageConfirmed, setAgeConfirmed] = useState(false);
@@ -58,6 +59,7 @@ export default function Auth({ onNavigate }: AuthProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setSuccessMessage('');
 
     // Validate sign-up requirements
     if (isSignUp) {
@@ -94,8 +96,15 @@ export default function Auth({ onNavigate }: AuthProps) {
             waiver_version: WAIVER_VERSION,
           });
 
+          // Show success message
+          setSuccessMessage('Account created successfully! Please check your email to verify your account.');
+          setEmail('');
+          setPassword('');
+          setAgeConfirmed(false);
+          setTermsAccepted(false);
+          setWaiverAccepted(false);
+          setLiabilityAccepted(false);
           window.scrollTo(0, 0);
-          onNavigate('Account');
         }
       } else {
         const { error: signInError } = await signIn(email, password);
@@ -117,6 +126,7 @@ export default function Auth({ onNavigate }: AuthProps) {
   const toggleMode = () => {
     setIsSignUp(!isSignUp);
     setError('');
+    setSuccessMessage('');
     setAgeConfirmed(false);
     setTermsAccepted(false);
     setWaiverAccepted(false);
@@ -145,6 +155,12 @@ export default function Auth({ onNavigate }: AuthProps) {
           {error && (
             <div className="mb-4 p-4 bg-[#B11226]/20 border border-[#B11226] rounded text-center text-sm sm:text-base">
               {error}
+            </div>
+          )}
+
+          {successMessage && (
+            <div className="mb-4 p-4 bg-green-500/20 border border-green-500 rounded text-center text-sm sm:text-base text-green-400">
+              {successMessage}
             </div>
           )}
 
