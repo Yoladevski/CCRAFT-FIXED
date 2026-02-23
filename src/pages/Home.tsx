@@ -75,7 +75,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}
             >
               <img
-                src="https://i.postimg.cc/3rvPNrqD/gpptbutton.png"
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/BUTTON.png"
                 alt="Start Training"
                 className="w-full h-auto"
                 style={{
