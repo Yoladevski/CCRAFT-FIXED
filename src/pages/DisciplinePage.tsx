@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Lock, ArrowLeft } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
@@ -14,6 +14,7 @@ interface DisciplinePageProps {
 }
 
 export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const disciplineId = id || '';
   const [discipline, setDiscipline] = useState<Discipline | null>(null);
@@ -56,11 +57,11 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           <button
-            onClick={() => onNavigate('Disciplines')}
+            onClick={() => navigate(-1)}
             className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
           >
             <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
-            <span className="text-body font-medium">BACK TO DISCIPLINES</span>
+            <span className="text-body font-medium">BACK</span>
           </button>
         </div>
 

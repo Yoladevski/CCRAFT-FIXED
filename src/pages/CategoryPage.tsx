@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Lock, ArrowLeft, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
@@ -16,6 +16,7 @@ interface CategoryPageProps {
 }
 
 export default function CategoryPage({ onNavigate }: CategoryPageProps) {
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const categoryId = id || '';
   const { user } = useAuth();
@@ -147,7 +148,7 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           <button
-            onClick={() => onNavigate('Disciplines')}
+            onClick={() => navigate(-1)}
             className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
           >
             <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
