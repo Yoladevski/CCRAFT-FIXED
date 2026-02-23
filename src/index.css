@@ -91,8 +91,8 @@ h1, h2, h3, h4, h5, h6,
   text-transform: uppercase;
   letter-spacing: 0.08em;
   line-height: 1.2;
-  -webkit-text-stroke: 1.5px #B11226;
-  text-stroke: 1.5px #B11226;
+  -webkit-text-stroke: 2.25px #B11226;
+  text-stroke: 2.25px #B11226;
   paint-order: stroke fill;
   text-shadow:
     -1.5px -1.5px 0 var(--stroke-color),
@@ -122,8 +122,8 @@ h2 {
 
 h3, h4, h5, h6 {
   letter-spacing: 0.05em;
-  -webkit-text-stroke: 1.125px #B11226;
-  text-stroke: 1.125px #B11226;
+  -webkit-text-stroke: 1.6875px #B11226;
+  text-stroke: 1.6875px #B11226;
   text-shadow:
     -1.125px -1.125px 0 var(--stroke-color),
     1.125px -1.125px 0 var(--stroke-color),
@@ -179,8 +179,8 @@ nav a {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  -webkit-text-stroke: 2.25px #B11226;
-  text-stroke: 2.25px #B11226;
+  -webkit-text-stroke: 3.375px #B11226;
+  text-stroke: 3.375px #B11226;
   paint-order: stroke fill;
   text-shadow:
     -2.25px -2.25px 0 var(--stroke-color),
