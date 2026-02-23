@@ -151,11 +151,8 @@ nav a {
 }
 
 .outlined-text {
-  display: block;
-  font-family: 'Redhawk', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  display: inline-block;
+  position: relative;
 }
 
 .text-body {
