@@ -34,14 +34,14 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             <div className="hidden lg:flex items-center justify-center space-x-8">
               <button
                 onClick={() => handleNavigate('Home')}
-                className={`button-text relative transition-colors pb-1`}
+                className={`button-text relative transition-all duration-300 pb-1`}
                 style={{
                   fontSize: '0.9rem',
                   fontFamily: 'Redhawk, sans-serif',
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
-                  color: currentPage === 'Home' ? '#FFFFFF' : '#A0A0A0',
+                  color: '#FFFFFF',
                   textShadow: `-1px -1px 0 #B11226,
                     1px -1px 0 #B11226,
                     -1px 1px 0 #B11226,
@@ -60,14 +60,35 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                     0 1px 0 #000000`
                 }}
                 onMouseEnter={(e) => {
-                  if (currentPage !== 'Home') {
-                    e.currentTarget.style.color = 'white';
-                  }
+                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    0 0 10px #B11226,
+                    0 0 20px #B11226,
+                    0 0 30px #B11226`;
                 }}
                 onMouseLeave={(e) => {
-                  if (currentPage !== 'Home') {
-                    e.currentTarget.style.color = '#A0A0A0';
-                  }
+                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    -0.5px -0.5px 0 #000000,
+                    0.5px -0.5px 0 #000000,
+                    -0.5px 0.5px 0 #000000,
+                    0.5px 0.5px 0 #000000,
+                    -1px 0 0 #000000,
+                    1px 0 0 #000000,
+                    0 -1px 0 #000000,
+                    0 1px 0 #000000`;
                 }}
               >
                 HOME
@@ -79,14 +100,14 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user && (
                 <button
                   onClick={() => handleNavigate('Dashboard')}
-                  className={`button-text relative transition-colors pb-1`}
+                  className={`button-text relative transition-all duration-300 pb-1`}
                   style={{
                     fontSize: '0.9rem',
                     fontFamily: 'Redhawk, sans-serif',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.08em',
-                    color: currentPage === 'Dashboard' ? '#FFFFFF' : '#A0A0A0',
+                    color: '#FFFFFF',
                     textShadow: `-1px -1px 0 #B11226,
                       1px -1px 0 #B11226,
                       -1px 1px 0 #B11226,
@@ -105,14 +126,35 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                       0 1px 0 #000000`
                   }}
                   onMouseEnter={(e) => {
-                    if (currentPage !== 'Dashboard') {
-                      e.currentTarget.style.color = 'white';
-                    }
+                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                      1px -1px 0 #B11226,
+                      -1px 1px 0 #B11226,
+                      1px 1px 0 #B11226,
+                      -1.5px -1.5px 0 #B11226,
+                      1.5px -1.5px 0 #B11226,
+                      -1.5px 1.5px 0 #B11226,
+                      1.5px 1.5px 0 #B11226,
+                      0 0 10px #B11226,
+                      0 0 20px #B11226,
+                      0 0 30px #B11226`;
                   }}
                   onMouseLeave={(e) => {
-                    if (currentPage !== 'Dashboard') {
-                      e.currentTarget.style.color = '#A0A0A0';
-                    }
+                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                      1px -1px 0 #B11226,
+                      -1px 1px 0 #B11226,
+                      1px 1px 0 #B11226,
+                      -1.5px -1.5px 0 #B11226,
+                      1.5px -1.5px 0 #B11226,
+                      -1.5px 1.5px 0 #B11226,
+                      1.5px 1.5px 0 #B11226,
+                      -0.5px -0.5px 0 #000000,
+                      0.5px -0.5px 0 #000000,
+                      -0.5px 0.5px 0 #000000,
+                      0.5px 0.5px 0 #000000,
+                      -1px 0 0 #000000,
+                      1px 0 0 #000000,
+                      0 -1px 0 #000000,
+                      0 1px 0 #000000`;
                   }}
                 >
                   DASHBOARD
@@ -124,14 +166,14 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('Disciplines')}
-                className={`button-text relative transition-colors pb-1`}
+                className={`button-text relative transition-all duration-300 pb-1`}
                 style={{
                   fontSize: '0.9rem',
                   fontFamily: 'Redhawk, sans-serif',
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
-                  color: (currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique') ? '#FFFFFF' : '#A0A0A0',
+                  color: '#FFFFFF',
                   textShadow: `-1px -1px 0 #B11226,
                     1px -1px 0 #B11226,
                     -1px 1px 0 #B11226,
@@ -150,16 +192,35 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                     0 1px 0 #000000`
                 }}
                 onMouseEnter={(e) => {
-                  const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
-                  if (!isActive) {
-                    e.currentTarget.style.color = 'white';
-                  }
+                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    0 0 10px #B11226,
+                    0 0 20px #B11226,
+                    0 0 30px #B11226`;
                 }}
                 onMouseLeave={(e) => {
-                  const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
-                  if (!isActive) {
-                    e.currentTarget.style.color = '#A0A0A0';
-                  }
+                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    -0.5px -0.5px 0 #000000,
+                    0.5px -0.5px 0 #000000,
+                    -0.5px 0.5px 0 #000000,
+                    0.5px 0.5px 0 #000000,
+                    -1px 0 0 #000000,
+                    1px 0 0 #000000,
+                    0 -1px 0 #000000,
+                    0 1px 0 #000000`;
                 }}
               >
                 DISCIPLINES
@@ -170,14 +231,14 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('News')}
-                className={`button-text relative transition-colors pb-1`}
+                className={`button-text relative transition-all duration-300 pb-1`}
                 style={{
                   fontSize: '0.9rem',
                   fontFamily: 'Redhawk, sans-serif',
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
-                  color: currentPage === 'News' ? '#FFFFFF' : '#A0A0A0',
+                  color: '#FFFFFF',
                   textShadow: `-1px -1px 0 #B11226,
                     1px -1px 0 #B11226,
                     -1px 1px 0 #B11226,
@@ -196,14 +257,35 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                     0 1px 0 #000000`
                 }}
                 onMouseEnter={(e) => {
-                  if (currentPage !== 'News') {
-                    e.currentTarget.style.color = 'white';
-                  }
+                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    0 0 10px #B11226,
+                    0 0 20px #B11226,
+                    0 0 30px #B11226`;
                 }}
                 onMouseLeave={(e) => {
-                  if (currentPage !== 'News') {
-                    e.currentTarget.style.color = '#A0A0A0';
-                  }
+                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    -0.5px -0.5px 0 #000000,
+                    0.5px -0.5px 0 #000000,
+                    -0.5px 0.5px 0 #000000,
+                    0.5px 0.5px 0 #000000,
+                    -1px 0 0 #000000,
+                    1px 0 0 #000000,
+                    0 -1px 0 #000000,
+                    0 1px 0 #000000`;
                 }}
               >
                 NEWS
@@ -214,14 +296,14 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('Merchandise')}
-                className={`button-text relative transition-colors pb-1`}
+                className={`button-text relative transition-all duration-300 pb-1`}
                 style={{
                   fontSize: '0.9rem',
                   fontFamily: 'Redhawk, sans-serif',
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
-                  color: currentPage === 'Merchandise' ? '#FFFFFF' : '#A0A0A0',
+                  color: '#FFFFFF',
                   textShadow: `-1px -1px 0 #B11226,
                     1px -1px 0 #B11226,
                     -1px 1px 0 #B11226,
@@ -240,14 +322,35 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                     0 1px 0 #000000`
                 }}
                 onMouseEnter={(e) => {
-                  if (currentPage !== 'Merchandise') {
-                    e.currentTarget.style.color = 'white';
-                  }
+                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    0 0 10px #B11226,
+                    0 0 20px #B11226,
+                    0 0 30px #B11226`;
                 }}
                 onMouseLeave={(e) => {
-                  if (currentPage !== 'Merchandise') {
-                    e.currentTarget.style.color = '#A0A0A0';
-                  }
+                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                    1px -1px 0 #B11226,
+                    -1px 1px 0 #B11226,
+                    1px 1px 0 #B11226,
+                    -1.5px -1.5px 0 #B11226,
+                    1.5px -1.5px 0 #B11226,
+                    -1.5px 1.5px 0 #B11226,
+                    1.5px 1.5px 0 #B11226,
+                    -0.5px -0.5px 0 #000000,
+                    0.5px -0.5px 0 #000000,
+                    -0.5px 0.5px 0 #000000,
+                    0.5px 0.5px 0 #000000,
+                    -1px 0 0 #000000,
+                    1px 0 0 #000000,
+                    0 -1px 0 #000000,
+                    0 1px 0 #000000`;
                 }}
               >
                 MERCHANDISE
@@ -259,14 +362,14 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user ? (
                 <button
                   onClick={() => handleNavigate('Account')}
-                  className={`button-text relative transition-colors pb-1 whitespace-nowrap`}
+                  className={`button-text relative transition-all duration-300 pb-1 whitespace-nowrap`}
                   style={{
                     fontSize: '0.9rem',
                     fontFamily: 'Redhawk, sans-serif',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.08em',
-                    color: currentPage === 'Account' ? '#FFFFFF' : '#A0A0A0',
+                    color: '#FFFFFF',
                     textShadow: `-1px -1px 0 #B11226,
                       1px -1px 0 #B11226,
                       -1px 1px 0 #B11226,
@@ -285,14 +388,35 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                       0 1px 0 #000000`
                   }}
                   onMouseEnter={(e) => {
-                    if (currentPage !== 'Account') {
-                      e.currentTarget.style.color = 'white';
-                    }
+                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                      1px -1px 0 #B11226,
+                      -1px 1px 0 #B11226,
+                      1px 1px 0 #B11226,
+                      -1.5px -1.5px 0 #B11226,
+                      1.5px -1.5px 0 #B11226,
+                      -1.5px 1.5px 0 #B11226,
+                      1.5px 1.5px 0 #B11226,
+                      0 0 10px #B11226,
+                      0 0 20px #B11226,
+                      0 0 30px #B11226`;
                   }}
                   onMouseLeave={(e) => {
-                    if (currentPage !== 'Account') {
-                      e.currentTarget.style.color = '#A0A0A0';
-                    }
+                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
+                      1px -1px 0 #B11226,
+                      -1px 1px 0 #B11226,
+                      1px 1px 0 #B11226,
+                      -1.5px -1.5px 0 #B11226,
+                      1.5px -1.5px 0 #B11226,
+                      -1.5px 1.5px 0 #B11226,
+                      1.5px 1.5px 0 #B11226,
+                      -0.5px -0.5px 0 #000000,
+                      0.5px -0.5px 0 #000000,
+                      -0.5px 0.5px 0 #000000,
+                      0.5px 0.5px 0 #000000,
+                      -1px 0 0 #000000,
+                      1px 0 0 #000000,
+                      0 -1px 0 #000000,
+                      0 1px 0 #000000`;
                   }}
                 >
                   MY ACCOUNT
