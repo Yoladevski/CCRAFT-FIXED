@@ -117,8 +117,8 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               ) : (
                 <button
                   onClick={() => handleNavigate('Auth')}
-                  className="button-text px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
-                  style={{ fontSize: '0.9rem' }}
+                  className="px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap font-bold text-white"
+                  style={{ fontSize: '0.9rem', fontFamily: 'Redhawk', textTransform: 'uppercase' }}
                 >
                   SIGN IN
                 </button>
@@ -256,7 +256,8 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           ) : (
             <button
               onClick={() => handleNavigate('Auth')}
-              className="button-text w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
+              className="w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all font-bold text-white"
+              style={{ fontFamily: 'Redhawk', textTransform: 'uppercase' }}
             >
               SIGN IN
             </button>
