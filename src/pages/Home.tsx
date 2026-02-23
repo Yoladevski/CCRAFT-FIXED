@@ -86,20 +86,17 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="hero-middle-button">
             <button
               onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
-              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
+              className="button-text pill-button transition-all transform hover:scale-105 cursor-pointer"
               style={{
                 width: 'clamp(325px, 78vw, 520px)',
                 maxWidth: '100%',
+                height: 'clamp(60px, 15vw, 100px)',
+                fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
+                WebkitTextStroke: '2px #000',
+                textStroke: '2px #000',
               }}
             >
-              <img
-                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/BUTTON.png"
-                alt="Start Training"
-                className="w-full h-auto"
-                style={{
-                  filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
-                }}
-              />
+              START TRAINING
             </button>
           </div>
 
