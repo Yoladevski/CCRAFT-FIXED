@@ -319,12 +319,7 @@ export default function Account({ onBack }: AccountProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1
-          className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-12"
-          style={{
-            textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000'
-          }}
-        >
+        <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-12">
           {isFirstTimeSetup ? 'COMPLETE YOUR PROFILE' : 'ACCOUNT'}
         </h1>
 

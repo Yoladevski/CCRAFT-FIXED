@@ -165,8 +165,25 @@ nav a {
   letter-spacing: 0.08em;
   line-height: 1.2;
   color: #FFFFFF;
-  -webkit-text-stroke: 2px #000000;
-  text-stroke: 2px #000000;
+  -webkit-text-stroke: 0px transparent !important;
+  text-stroke: 0px transparent !important;
+  text-shadow:
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000,
+    -3px 0 0 #000,
+    3px 0 0 #000,
+    0 -3px 0 #000,
+    0 3px 0 #000,
+    -2px -2px 0 #B11226,
+    2px -2px 0 #B11226,
+    -2px 2px 0 #B11226,
+    2px 2px 0 #B11226,
+    -2px 0 0 #B11226,
+    2px 0 0 #B11226,
+    0 -2px 0 #B11226,
+    0 2px 0 #B11226 !important;
   paint-order: stroke fill;
 }
 
