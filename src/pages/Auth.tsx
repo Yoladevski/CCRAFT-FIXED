@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { BGPattern } from '../components/ui/bg-pattern';
 import { supabase } from '../lib/supabase';
+import { PillButton } from '../components/PillButton';
 
 interface AuthProps {
   onNavigate: (page: string) => void;
@@ -284,13 +285,15 @@ export default function Auth({ onNavigate }: AuthProps) {
               </div>
             )}
 
-            <button
+            <PillButton
               type="submit"
               disabled={loading || (isSignUp && (!ageConfirmed || !termsAccepted || !waiverAccepted || !liabilityAccepted))}
-              className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              variant="primary"
+              size="lg"
+              className="w-full"
             >
               {loading ? 'LOADING...' : isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
-            </button>
+            </PillButton>
           </form>
 
           <div className="relative my-6">
@@ -305,7 +308,7 @@ export default function Auth({ onNavigate }: AuthProps) {
           <button
             onClick={handleGoogleSignIn}
             disabled={loading || (isSignUp && (!ageConfirmed || !termsAccepted || !waiverAccepted || !liabilityAccepted))}
-            className="button-text w-full py-3 sm:py-4 bg-white text-gray-900 font-bold rounded hover:bg-gray-100 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-3"
+            className="button-text w-full py-3 sm:py-4 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-3 shadow-lg shadow-black/20"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path

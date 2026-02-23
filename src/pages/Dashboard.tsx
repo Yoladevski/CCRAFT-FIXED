@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import { BGPattern } from '../components/ui/bg-pattern';
+import { PillButton } from '../components/PillButton';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 type Technique = Database['public']['Tables']['techniques']['Row'];
@@ -266,18 +267,20 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               The dashboard is only accessible to registered members. Sign up or log in to track your progress, view your stats, and continue your training journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
+              <PillButton
                 onClick={() => onNavigate('Auth')}
-                className="button-text px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105"
+                variant="primary"
+                size="lg"
               >
                 SIGN UP / LOG IN
-              </button>
-              <button
+              </PillButton>
+              <PillButton
                 onClick={() => onNavigate('Home')}
-                className="button-text px-8 py-4 bg-[#2E2E2E] text-white font-bold rounded hover:bg-[#3E3E3E] transition-all"
+                variant="secondary"
+                size="lg"
               >
                 BACK TO HOME
-              </button>
+              </PillButton>
             </div>
           </div>
         </div>
@@ -293,12 +296,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'Redhawk' }}>
             Please complete your profile setup to access the dashboard.
           </p>
-          <button
+          <PillButton
             onClick={() => onNavigate('Account')}
-            className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+            variant="primary"
+            size="md"
           >
             COMPLETE PROFILE
-          </button>
+          </PillButton>
         </div>
       </div>
     );
@@ -312,12 +316,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'Redhawk' }}>
             Welcome! Let's set up your profile to get started with your training journey.
           </p>
-          <button
+          <PillButton
             onClick={() => onNavigate('Account')}
-            className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+            variant="primary"
+            size="md"
           >
             SET UP PROFILE
-          </button>
+          </PillButton>
         </div>
       </div>
     );
@@ -346,12 +351,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         </div>
 
         {/* CONTINUE BUTTON */}
-        <button
+        <PillButton
           onClick={() => onNavigate('Disciplines')}
-          className="button-text w-full py-4 md:py-5 bg-[#B11226] text-white text-lg md:text-2xl font-bold hover:bg-[#8B0E1C] transition-colors"
+          variant="primary"
+          size="xl"
+          className="w-full"
         >
           {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
-        </button>
+        </PillButton>
 
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

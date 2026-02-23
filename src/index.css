@@ -43,6 +43,17 @@
   box-sizing: border-box;
 }
 
+[class*="bg-"] {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+[class*="bg-"] * {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
@@ -140,6 +151,11 @@ button {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.button-text {
+  border-radius: 9999px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
 label, input, select, textarea {
