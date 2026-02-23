@@ -63,20 +63,20 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
+                fontSize: 'clamp(1.1rem, 4.95vw, 2.475rem)',
                 fontFamily: 'Redhawk, sans-serif',
                 fontWeight: 700,
-                height: 'clamp(2rem, 6vw, 3.5rem)',
+                height: 'clamp(1.6rem, 6vw, 3.5rem)',
               }}
             >
               STRUCTURED TRAINING
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.452rem, 4.95vw, 2.475rem)',
+                fontSize: 'clamp(1.1rem, 4.95vw, 2.475rem)',
                 fontFamily: 'Redhawk, sans-serif',
                 fontWeight: 700,
-                height: 'clamp(2rem, 6vw, 3.5rem)',
+                height: 'clamp(1.6rem, 6vw, 3.5rem)',
               }}
             >
               POWERED BY AI
@@ -114,20 +114,20 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
+                fontSize: 'clamp(0.95rem, 3.3vw, 1.65rem)',
                 fontFamily: 'Redhawk, sans-serif',
                 fontWeight: 700,
-                height: 'clamp(1.8rem, 4.5vw, 2.5rem)',
+                height: 'clamp(1.4rem, 4.5vw, 2.5rem)',
               }}
             >
               TRAIN WITH PURPOSE
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.2375rem, 3.3vw, 1.65rem)',
+                fontSize: 'clamp(0.95rem, 3.3vw, 1.65rem)',
                 fontFamily: 'Redhawk, sans-serif',
                 fontWeight: 700,
-                height: 'clamp(1.8rem, 4.5vw, 2.5rem)',
+                height: 'clamp(1.4rem, 4.5vw, 2.5rem)',
               }}
             >
               IMPROVE WITH STRUCTURE

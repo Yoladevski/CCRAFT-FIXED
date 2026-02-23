@@ -85,13 +85,31 @@ body::before {
 
 h1, h2, h3, h4, h5, h6,
 .heading-font,
-.section-title {
+.section-title,
+.heading-text {
   font-family: 'Redhawk', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   line-height: 1.2;
   color: #FFFFFF;
+  text-shadow:
+    -1.5px -1.5px 0 #B11226,
+    1.5px -1.5px 0 #B11226,
+    -1.5px 1.5px 0 #B11226,
+    1.5px 1.5px 0 #B11226,
+    -2px -2px 0 #B11226,
+    2px -2px 0 #B11226,
+    -2px 2px 0 #B11226,
+    2px 2px 0 #B11226,
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000,
+    -1.5px 0 0 #000000,
+    1.5px 0 0 #000000,
+    0 -1.5px 0 #000000,
+    0 1.5px 0 #000000;
 }
 
 h1 {
