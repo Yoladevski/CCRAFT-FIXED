@@ -34,24 +34,28 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             <div className="hidden lg:flex items-center justify-center space-x-8">
               <button
                 onClick={() => handleNavigate('Home')}
-                className={`relative font-bold transition-colors pb-1 ${
+                className={`button-text relative transition-colors pb-1 ${
                   currentPage === 'Home' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
                 style={{
                   fontSize: '0.9rem',
-                  fontFamily: 'Redhawk',
-                  WebkitTextStroke: '0px',
-                  textStroke: '0px'
+                  fontFamily: 'LatoBlack, sans-serif',
+                  WebkitTextStroke: currentPage === 'Home' ? '0px' : '0px',
+                  textStroke: currentPage === 'Home' ? '0px' : '0px'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                  e.currentTarget.style.textStroke = '1.5px black';
-                  e.currentTarget.style.color = '#B11226';
+                  if (currentPage !== 'Home') {
+                    e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                    e.currentTarget.style.textStroke = '1.5px #B11226';
+                    e.currentTarget.style.color = 'white';
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.WebkitTextStroke = '0px';
-                  e.currentTarget.style.textStroke = '0px';
-                  e.currentTarget.style.color = currentPage === 'Home' ? 'white' : '#A0A0A0';
+                  if (currentPage !== 'Home') {
+                    e.currentTarget.style.WebkitTextStroke = '0px';
+                    e.currentTarget.style.textStroke = '0px';
+                    e.currentTarget.style.color = '#A0A0A0';
+                  }
                 }}
               >
                 HOME
@@ -63,24 +67,28 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user && (
                 <button
                   onClick={() => handleNavigate('Dashboard')}
-                  className={`relative font-bold transition-colors pb-1 ${
+                  className={`button-text relative transition-colors pb-1 ${
                     currentPage === 'Dashboard' ? 'text-white' : 'text-[#A0A0A0]'
                   }`}
                   style={{
                     fontSize: '0.9rem',
-                    fontFamily: 'Redhawk',
+                    fontFamily: 'LatoBlack, sans-serif',
                     WebkitTextStroke: '0px',
                     textStroke: '0px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                    e.currentTarget.style.textStroke = '1.5px black';
-                    e.currentTarget.style.color = '#B11226';
+                    if (currentPage !== 'Dashboard') {
+                      e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                      e.currentTarget.style.textStroke = '1.5px #B11226';
+                      e.currentTarget.style.color = 'white';
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.WebkitTextStroke = '0px';
-                    e.currentTarget.style.textStroke = '0px';
-                    e.currentTarget.style.color = currentPage === 'Dashboard' ? 'white' : '#A0A0A0';
+                    if (currentPage !== 'Dashboard') {
+                      e.currentTarget.style.WebkitTextStroke = '0px';
+                      e.currentTarget.style.textStroke = '0px';
+                      e.currentTarget.style.color = '#A0A0A0';
+                    }
                   }}
                 >
                   DASHBOARD
@@ -92,27 +100,32 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('Disciplines')}
-                className={`relative font-bold transition-colors pb-1 ${
+                className={`button-text relative transition-colors pb-1 ${
                   currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
                     ? 'text-white'
                     : 'text-[#A0A0A0]'
                 }`}
                 style={{
                   fontSize: '0.9rem',
-                  fontFamily: 'Redhawk',
+                  fontFamily: 'LatoBlack, sans-serif',
                   WebkitTextStroke: '0px',
                   textStroke: '0px'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                  e.currentTarget.style.textStroke = '1.5px black';
-                  e.currentTarget.style.color = '#B11226';
+                  const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
+                  if (!isActive) {
+                    e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                    e.currentTarget.style.textStroke = '1.5px #B11226';
+                    e.currentTarget.style.color = 'white';
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.WebkitTextStroke = '0px';
-                  e.currentTarget.style.textStroke = '0px';
                   const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
-                  e.currentTarget.style.color = isActive ? 'white' : '#A0A0A0';
+                  if (!isActive) {
+                    e.currentTarget.style.WebkitTextStroke = '0px';
+                    e.currentTarget.style.textStroke = '0px';
+                    e.currentTarget.style.color = '#A0A0A0';
+                  }
                 }}
               >
                 DISCIPLINES
@@ -123,24 +136,28 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('News')}
-                className={`relative font-bold transition-colors pb-1 ${
+                className={`button-text relative transition-colors pb-1 ${
                   currentPage === 'News' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
                 style={{
                   fontSize: '0.9rem',
-                  fontFamily: 'Redhawk',
+                  fontFamily: 'LatoBlack, sans-serif',
                   WebkitTextStroke: '0px',
                   textStroke: '0px'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                  e.currentTarget.style.textStroke = '1.5px black';
-                  e.currentTarget.style.color = '#B11226';
+                  if (currentPage !== 'News') {
+                    e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                    e.currentTarget.style.textStroke = '1.5px #B11226';
+                    e.currentTarget.style.color = 'white';
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.WebkitTextStroke = '0px';
-                  e.currentTarget.style.textStroke = '0px';
-                  e.currentTarget.style.color = currentPage === 'News' ? 'white' : '#A0A0A0';
+                  if (currentPage !== 'News') {
+                    e.currentTarget.style.WebkitTextStroke = '0px';
+                    e.currentTarget.style.textStroke = '0px';
+                    e.currentTarget.style.color = '#A0A0A0';
+                  }
                 }}
               >
                 NEWS
@@ -151,24 +168,28 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('Merchandise')}
-                className={`relative font-bold transition-colors pb-1 ${
+                className={`button-text relative transition-colors pb-1 ${
                   currentPage === 'Merchandise' ? 'text-white' : 'text-[#A0A0A0]'
                 }`}
                 style={{
                   fontSize: '0.9rem',
-                  fontFamily: 'Redhawk',
+                  fontFamily: 'LatoBlack, sans-serif',
                   WebkitTextStroke: '0px',
                   textStroke: '0px'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                  e.currentTarget.style.textStroke = '1.5px black';
-                  e.currentTarget.style.color = '#B11226';
+                  if (currentPage !== 'Merchandise') {
+                    e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                    e.currentTarget.style.textStroke = '1.5px #B11226';
+                    e.currentTarget.style.color = 'white';
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.WebkitTextStroke = '0px';
-                  e.currentTarget.style.textStroke = '0px';
-                  e.currentTarget.style.color = currentPage === 'Merchandise' ? 'white' : '#A0A0A0';
+                  if (currentPage !== 'Merchandise') {
+                    e.currentTarget.style.WebkitTextStroke = '0px';
+                    e.currentTarget.style.textStroke = '0px';
+                    e.currentTarget.style.color = '#A0A0A0';
+                  }
                 }}
               >
                 MERCHANDISE
@@ -180,24 +201,28 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user ? (
                 <button
                   onClick={() => handleNavigate('Account')}
-                  className={`relative font-bold transition-colors pb-1 whitespace-nowrap ${
+                  className={`button-text relative transition-colors pb-1 whitespace-nowrap ${
                     currentPage === 'Account' ? 'text-white' : 'text-[#A0A0A0]'
                   }`}
                   style={{
                     fontSize: '0.9rem',
-                    fontFamily: 'Redhawk',
+                    fontFamily: 'LatoBlack, sans-serif',
                     WebkitTextStroke: '0px',
                     textStroke: '0px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                    e.currentTarget.style.textStroke = '1.5px black';
-                    e.currentTarget.style.color = '#B11226';
+                    if (currentPage !== 'Account') {
+                      e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                      e.currentTarget.style.textStroke = '1.5px #B11226';
+                      e.currentTarget.style.color = 'white';
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.WebkitTextStroke = '0px';
-                    e.currentTarget.style.textStroke = '0px';
-                    e.currentTarget.style.color = currentPage === 'Account' ? 'white' : '#A0A0A0';
+                    if (currentPage !== 'Account') {
+                      e.currentTarget.style.WebkitTextStroke = '0px';
+                      e.currentTarget.style.textStroke = '0px';
+                      e.currentTarget.style.color = '#A0A0A0';
+                    }
                   }}
                 >
                   MY ACCOUNT
@@ -209,7 +234,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 <button
                   onClick={() => handleNavigate('Auth')}
                   className="button-text px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
-                  style={{ fontSize: '0.9rem' }}
+                  style={{ fontSize: '0.9rem', WebkitTextStroke: '0px', textStroke: '0px' }}
                 >
                   SIGN IN
                 </button>
@@ -278,7 +303,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
         <div className="flex flex-col p-6 space-y-2">
           <button
             onClick={() => handleNavigate('Home')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all font-bold ${
+            className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'Home'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -289,9 +314,9 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             }}
             onMouseEnter={(e) => {
               if (currentPage !== 'Home') {
-                e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                e.currentTarget.style.textStroke = '1.5px black';
-                e.currentTarget.style.color = '#B11226';
+                e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                e.currentTarget.style.textStroke = '1.5px #B11226';
+                e.currentTarget.style.color = 'white';
               }
             }}
             onMouseLeave={(e) => {
@@ -308,7 +333,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           {user && (
             <button
               onClick={() => handleNavigate('Dashboard')}
-              className={`text-left text-xl py-4 px-4 rounded transition-all font-bold ${
+              className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
                 currentPage === 'Dashboard'
                   ? 'bg-[#B11226] text-white'
                   : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -319,9 +344,9 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               }}
               onMouseEnter={(e) => {
                 if (currentPage !== 'Dashboard') {
-                  e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                  e.currentTarget.style.textStroke = '1.5px black';
-                  e.currentTarget.style.color = '#B11226';
+                  e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                  e.currentTarget.style.textStroke = '1.5px #B11226';
+                  e.currentTarget.style.color = 'white';
                 }
               }}
               onMouseLeave={(e) => {
@@ -338,7 +363,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <button
             onClick={() => handleNavigate('Disciplines')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all font-bold ${
+            className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -350,9 +375,9 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             onMouseEnter={(e) => {
               const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
               if (!isActive) {
-                e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                e.currentTarget.style.textStroke = '1.5px black';
-                e.currentTarget.style.color = '#B11226';
+                e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                e.currentTarget.style.textStroke = '1.5px #B11226';
+                e.currentTarget.style.color = 'white';
               }
             }}
             onMouseLeave={(e) => {
@@ -369,7 +394,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <button
             onClick={() => handleNavigate('News')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all font-bold ${
+            className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'News'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -380,9 +405,9 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             }}
             onMouseEnter={(e) => {
               if (currentPage !== 'News') {
-                e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                e.currentTarget.style.textStroke = '1.5px black';
-                e.currentTarget.style.color = '#B11226';
+                e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                e.currentTarget.style.textStroke = '1.5px #B11226';
+                e.currentTarget.style.color = 'white';
               }
             }}
             onMouseLeave={(e) => {
@@ -398,7 +423,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <button
             onClick={() => handleNavigate('Merchandise')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all font-bold ${
+            className={`button-text text-left text-xl py-4 px-4 rounded transition-all ${
               currentPage === 'Merchandise'
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -409,9 +434,9 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             }}
             onMouseEnter={(e) => {
               if (currentPage !== 'Merchandise') {
-                e.currentTarget.style.WebkitTextStroke = '1.5px black';
-                e.currentTarget.style.textStroke = '1.5px black';
-                e.currentTarget.style.color = '#B11226';
+                e.currentTarget.style.WebkitTextStroke = '1.5px #B11226';
+                e.currentTarget.style.textStroke = '1.5px #B11226';
+                e.currentTarget.style.color = 'white';
               }
             }}
             onMouseLeave={(e) => {

@@ -153,18 +153,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <OutlinedText
-                style={{
-                  fontSize: '1.5rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  height: '2.5rem',
-                  marginBottom: '1rem',
-                }}
-              >
+              <h3 className="heading-text text-center mb-4 text-xl sm:text-2xl leading-tight">
                 STRUCTURED PROGRESSION
-              </OutlinedText>
-              <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
+              </h3>
+              <p className="text-[#A0A0A0] text-center text-sm sm:text-base leading-relaxed">
                 Sequential unlock system ensures mastery before advancement. Build foundations properly.
               </p>
             </button>
@@ -182,18 +174,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <OutlinedText
-                style={{
-                  fontSize: '1.5rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  height: '2.5rem',
-                  marginBottom: '1rem',
-                }}
-              >
+              <h3 className="heading-text text-center mb-4 text-xl sm:text-2xl leading-tight">
                 AI ENHANCED INSTRUCTION
-              </OutlinedText>
-              <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
+              </h3>
+              <p className="text-[#A0A0A0] text-center text-sm sm:text-base leading-relaxed">
                 Detailed technique breakdowns with common mistakes and tactical applications.
               </p>
             </button>
@@ -211,18 +195,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <OutlinedText
-                style={{
-                  fontSize: '1.5rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  height: '2.5rem',
-                  marginBottom: '1rem',
-                }}
-              >
+              <h3 className="heading-text text-center mb-4 text-xl sm:text-2xl leading-tight">
                 MULTI DISCIPLINE SYSTEM
-              </OutlinedText>
-              <p className="text-[#A0A0A0] text-center text-body leading-relaxed">
+              </h3>
+              <p className="text-[#A0A0A0] text-center text-sm sm:text-base leading-relaxed">
                 Train across Boxing, Muay Thai, BJJ, and more. Become a complete fighter.
               </p>
             </button>
