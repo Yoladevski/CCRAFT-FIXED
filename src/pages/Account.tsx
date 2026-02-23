@@ -5,7 +5,6 @@ import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import BackButton from '../components/BackButton';
 import { BGPattern } from '../components/ui/bg-pattern';
-import { PillButton } from '../components/PillButton';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
