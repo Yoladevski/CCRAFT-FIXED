@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
-import OutlinedText from './OutlinedText';
 
 interface NavigationProps {
   currentPage: string;
@@ -209,10 +208,10 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               ) : (
                 <button
                   onClick={() => handleNavigate('Auth')}
-                  className="px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
+                  className="button-text px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
                   style={{ fontSize: '0.9rem' }}
                 >
-                  <OutlinedText>SIGN IN</OutlinedText>
+                  SIGN IN
                 </button>
               )}
             </div>
@@ -458,9 +457,9 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
           ) : (
             <button
               onClick={() => handleNavigate('Auth')}
-              className="w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
+              className="button-text w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
             >
-              <OutlinedText>SIGN IN</OutlinedText>
+              SIGN IN
             </button>
           )}
         </div>
