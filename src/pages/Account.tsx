@@ -39,6 +39,7 @@ export default function Account({ onBack }: AccountProps) {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
   const [copiedReferral, setCopiedReferral] = useState(false);
+  const [isFirstTimeSetup, setIsFirstTimeSetup] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -60,6 +61,11 @@ export default function Account({ onBack }: AccountProps) {
         setExperienceLevel(data.experience_level || 'Beginner');
         setPreferredDiscipline(data.preferred_discipline || '');
         setProfilePicture(data.profile_picture_url);
+
+        // Check if this is first time setup
+        if (!data.full_name) {
+          setIsFirstTimeSetup(true);
+        }
       }
 
       setLoading(false);
@@ -136,6 +142,12 @@ export default function Account({ onBack }: AccountProps) {
     e.preventDefault();
     if (!user) return;
 
+    if (isFirstTimeSetup && !fullName.trim()) {
+      setMessage('Please enter your full name to continue');
+      setTimeout(() => setMessage(''), 3000);
+      return;
+    }
+
     setSaving(true);
     setMessage('');
 
@@ -153,8 +165,17 @@ export default function Account({ onBack }: AccountProps) {
 
       if (error) throw error;
 
-      setMessage('Profile updated successfully');
-      setTimeout(() => setMessage(''), 3000);
+      if (isFirstTimeSetup) {
+        setMessage('Profile created successfully! Welcome to COMBATCRAFT');
+        setIsFirstTimeSetup(false);
+        setTimeout(() => {
+          setMessage('');
+          onBack();
+        }, 2000);
+      } else {
+        setMessage('Profile updated successfully');
+        setTimeout(() => setMessage(''), 3000);
+      }
     } catch (error: any) {
       setMessage('Error updating profile');
       setTimeout(() => setMessage(''), 3000);
@@ -304,8 +325,19 @@ export default function Account({ onBack }: AccountProps) {
             textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000'
           }}
         >
-          ACCOUNT
+          {isFirstTimeSetup ? 'COMPLETE YOUR PROFILE' : 'ACCOUNT'}
         </h1>
+
+        {isFirstTimeSetup && (
+          <div className="mb-6 p-4 sm:p-6 bg-[#B11226]/10 border-2 border-[#B11226] rounded-lg text-center">
+            <h2 className="heading-text text-xl sm:text-2xl font-bold text-[#B11226] mb-2">
+              WELCOME TO COMBATCRAFT!
+            </h2>
+            <p className="text-[#E0E0E0] text-sm sm:text-base" style={{ fontFamily: 'Redhawk' }}>
+              Please fill in your name to complete your profile setup and start your training journey.
+            </p>
+          </div>
+        )}
 
         {message && (
           <div className={`mb-6 p-4 rounded text-center ${
@@ -392,16 +424,26 @@ export default function Account({ onBack }: AccountProps) {
                 <form onSubmit={handleProfileSave} className="space-y-6">
                   <div>
                     <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
-                      FULL NAME
+                      FULL NAME {isFirstTimeSetup && <span className="text-[#B11226]">*</span>}
                     </label>
                     <input
                       type="text"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
+                      className={`w-full px-4 py-3 bg-[#0E0E0E] border rounded text-white focus:outline-none transition-colors ${
+                        isFirstTimeSetup
+                          ? 'border-[#B11226] focus:border-[#B11226]'
+                          : 'border-[#2E2E2E] focus:border-[#B11226]'
+                      }`}
                       style={{ fontFamily: 'Redhawk' }}
                       placeholder="John Doe"
+                      required={isFirstTimeSetup}
                     />
+                    {isFirstTimeSetup && (
+                      <p className="text-xs text-[#B11226] mt-1" style={{ fontFamily: 'Redhawk' }}>
+                        Required to continue
+                      </p>
+                    )}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

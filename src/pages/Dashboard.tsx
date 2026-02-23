@@ -287,8 +287,38 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
   if (!profile) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'Redhawk' }}>PROFILE NOT FOUND</div>
+      <div className="min-h-screen flex items-center justify-center bg-[#0E0E0E]">
+        <div className="text-center max-w-md px-4">
+          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'Redhawk' }}>PROFILE NOT FOUND</div>
+          <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'Redhawk' }}>
+            Please complete your profile setup to access the dashboard.
+          </p>
+          <button
+            onClick={() => onNavigate('Account')}
+            className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+          >
+            COMPLETE PROFILE
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!profile.full_name) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#0E0E0E]">
+        <div className="text-center max-w-md px-4">
+          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'Redhawk' }}>COMPLETE YOUR PROFILE</div>
+          <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'Redhawk' }}>
+            Welcome! Let's set up your profile to get started with your training journey.
+          </p>
+          <button
+            onClick={() => onNavigate('Account')}
+            className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+          >
+            SET UP PROFILE
+          </button>
+        </div>
       </div>
     );
   }
