@@ -92,9 +92,6 @@ h1, h2, h3, h4, h5, h6,
   letter-spacing: 0.08em;
   line-height: 1.2;
   color: #FFFFFF;
-  -webkit-text-stroke: 3px #000;
-  text-stroke: 3px #000;
-  paint-order: stroke fill;
 }
 
 h1 {
@@ -115,19 +112,6 @@ button {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
-
-.pill-button {
-  background-image: url('https://api.combatcraft.co.uk/storage/v1/object/public/images/button-pill.png');
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: none;
-  padding: 0.75rem 2rem;
-  color: #FFFFFF;
-  -webkit-text-stroke: 1.5px #000;
-  text-stroke: 1.5px #000;
-  paint-order: stroke fill;
 }
 
 label, input, select, textarea {
