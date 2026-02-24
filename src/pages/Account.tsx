@@ -152,18 +152,42 @@ export default function Account({ onBack }: AccountProps) {
     setMessage('');
 
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({
-          full_name: fullName || null,
-          weight: weight ? parseInt(weight) : null,
-          height: height ? parseInt(height) : null,
-          experience_level: experienceLevel,
-          preferred_discipline: preferredDiscipline || null,
-        })
-        .eq('user_id', user.id);
+      // DIAGNOSTIC LOGGING
+      console.log('[DIAGNOSTIC] user.id:', user?.id);
 
-      if (error) throw error;
+      const payload = {
+        full_name: fullName || null,
+        weight: weight ? parseInt(weight) : null,
+        height: height ? parseInt(height) : null,
+        experience_level: experienceLevel,
+        preferred_discipline: preferredDiscipline || null,
+      };
+
+      console.log('[DIAGNOSTIC] Payload being sent:', JSON.stringify(payload, null, 2));
+      console.log('[DIAGNOSTIC] Height value:', height);
+      console.log('[DIAGNOSTIC] Height after parseInt:', height ? parseInt(height) : null);
+      console.log('[DIAGNOSTIC] Weight value:', weight);
+      console.log('[DIAGNOSTIC] Weight after parseInt:', weight ? parseInt(weight) : null);
+
+      const { data, error } = await supabase
+        .from('profiles')
+        .update(payload)
+        .eq('user_id', user.id)
+        .select(); // DIAGNOSTIC: Temporarily added to confirm rows updated
+
+      console.log('[DIAGNOSTIC] Update response data:', data);
+      console.log('[DIAGNOSTIC] Rows returned:', data?.length || 0);
+
+      if (error) {
+        console.error('[DIAGNOSTIC] Full Supabase error object:', {
+          code: error.code,
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+          fullError: error
+        });
+        throw error;
+      }
 
       if (isFirstTimeSetup) {
         setMessage('Profile created successfully! Welcome to COMBATCRAFT');
@@ -177,6 +201,7 @@ export default function Account({ onBack }: AccountProps) {
         setTimeout(() => setMessage(''), 3000);
       }
     } catch (error: any) {
+      console.error('[DIAGNOSTIC] Caught error:', error);
       setMessage('Error updating profile');
       setTimeout(() => setMessage(''), 3000);
     } finally {
