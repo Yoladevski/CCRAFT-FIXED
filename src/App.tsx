@@ -5,7 +5,6 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
-import ProtectedRoute from './components/ProtectedRoute';
 
 const Home = lazy(() => import('./pages/Home'));
 const Auth = lazy(() => import('./pages/Auth'));
@@ -139,38 +138,14 @@ function AppContent() {
               <Routes>
                 <Route path="/" element={<Home onNavigate={(page) => handleNavigate(page as Page)} />} />
                 <Route path="/auth" element={<Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
-                <Route path="/disciplines" element={
-                  <ProtectedRoute requireProfile={true}>
-                    <Disciplines onNavigate={(page, id) => handleNavigate(page as Page, id)} />
-                  </ProtectedRoute>
-                } />
-                <Route path="/discipline/:id" element={
-                  <ProtectedRoute requireProfile={true}>
-                    <DisciplinePage onNavigate={(page, id) => handleNavigate(page as Page, id)} />
-                  </ProtectedRoute>
-                } />
-                <Route path="/category/:id" element={
-                  <ProtectedRoute requireProfile={true}>
-                    <CategoryPage onNavigate={(page, id) => handleNavigate(page as Page, id)} />
-                  </ProtectedRoute>
-                } />
-                <Route path="/technique/:id" element={
-                  <ProtectedRoute requireProfile={true}>
-                    <TechniquePage onNavigate={(page, id) => handleNavigate(page as Page, id)} onBack={goBack} />
-                  </ProtectedRoute>
-                } />
-                <Route path="/dashboard" element={
-                  <ProtectedRoute requireProfile={true}>
-                    <Dashboard onNavigate={(page) => handleNavigate(page as Page)} />
-                  </ProtectedRoute>
-                } />
+                <Route path="/disciplines" element={<Disciplines onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
+                <Route path="/discipline/:id" element={<DisciplinePage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
+                <Route path="/category/:id" element={<CategoryPage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
+                <Route path="/technique/:id" element={<TechniquePage onNavigate={(page, id) => handleNavigate(page as Page, id)} onBack={goBack} />} />
+                <Route path="/dashboard" element={user ? <Dashboard onNavigate={(page) => handleNavigate(page as Page)} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
                 <Route path="/news" element={<News onBack={goBack} />} />
                 <Route path="/merchandise" element={<Merchandise onBack={goBack} />} />
-                <Route path="/account" element={
-                  <ProtectedRoute>
-                    <Account onBack={goBack} />
-                  </ProtectedRoute>
-                } />
+                <Route path="/account" element={user ? <Account onBack={goBack} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy onBack={goBack} />} />
                 <Route path="/terms-of-service" element={<TermsOfService onBack={goBack} />} />
                 <Route path="/cookie-policy" element={<CookiePolicy onBack={goBack} />} />
@@ -194,18 +169,19 @@ function AppContent() {
 }
 
 function App() {
-  const [showLoading, setShowLoading] = useState(() => {
+  const [showLoading, setShowLoading] = useState(true);
+  const [loadingComplete, setLoadingComplete] = useState(false);
+
+  useEffect(() => {
     const hasShownLoading = sessionStorage.getItem('cc_loading_shown');
-    return !hasShownLoading;
-  });
-  const [loadingComplete, setLoadingComplete] = useState(() => {
-    const hasShownLoading = sessionStorage.getItem('cc_loading_shown');
-    return !!hasShownLoading;
-  });
+    if (hasShownLoading) {
+      setShowLoading(false);
+      setLoadingComplete(true);
+    }
+  }, []);
 
   const handleLoadingComplete = () => {
     sessionStorage.setItem('cc_loading_shown', 'true');
-    setShowLoading(false);
     setLoadingComplete(true);
   };
 
