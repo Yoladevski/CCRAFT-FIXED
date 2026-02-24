@@ -152,18 +152,41 @@ export default function Account({ onBack }: AccountProps) {
     setMessage('');
 
     try {
-      const { error } = await supabase
+      const { data: existingProfile } = await supabase
         .from('profiles')
-        .update({
+        .select('id')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      if (!existingProfile) {
+        await supabase.from('profiles').insert({
+          user_id: user.id,
           full_name: fullName || null,
           weight: weight ? parseInt(weight) : null,
           height: height ? parseInt(height) : null,
           experience_level: experienceLevel,
           preferred_discipline: preferredDiscipline || null,
-        })
-        .eq('user_id', user.id);
+          power_level: 0,
+          rank: 'Amateur',
+          onboarding_complete: false,
+        });
+      } else {
+        const { error } = await supabase
+          .from('profiles')
+          .update({
+            full_name: fullName || null,
+            weight: weight ? parseInt(weight) : null,
+            height: height ? parseInt(height) : null,
+            experience_level: experienceLevel,
+            preferred_discipline: preferredDiscipline || null,
+          })
+          .eq('user_id', user.id);
 
-      if (error) throw error;
+        if (error) {
+          console.error('Profile update error:', error);
+          throw error;
+        }
+      }
 
       if (isFirstTimeSetup) {
         setMessage('Profile created successfully! Welcome to COMBATCRAFT');
@@ -177,8 +200,9 @@ export default function Account({ onBack }: AccountProps) {
         setTimeout(() => setMessage(''), 3000);
       }
     } catch (error: any) {
-      setMessage('Error updating profile');
-      setTimeout(() => setMessage(''), 3000);
+      console.error('Profile save error details:', error);
+      setMessage(`Error updating profile: ${error.message || 'Unknown error'}`);
+      setTimeout(() => setMessage(''), 5000);
     } finally {
       setSaving(false);
     }

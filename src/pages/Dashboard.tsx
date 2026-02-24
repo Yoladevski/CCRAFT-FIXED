@@ -152,11 +152,15 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     async function loadDashboardData() {
       if (!user) return;
 
-      const { data: profileData } = await supabase
+      const { data: profileData, error: profileError } = await supabase
         .from('profiles')
         .select('*')
         .eq('user_id', user.id)
-        .single();
+        .maybeSingle();
+
+      if (profileError) {
+        console.error('Error loading profile:', profileError);
+      }
 
       // Check if onboarding is complete
       if (profileData && (!profileData.onboarding_complete || !profileData.full_name)) {
