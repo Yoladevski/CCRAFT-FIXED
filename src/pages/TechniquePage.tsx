@@ -14,6 +14,17 @@ interface TechniquePageProps {
   onBack: () => void;
 }
 
+function formatText(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      const content = part.slice(2, -2);
+      return <span key={index} className="text-2xl font-bold text-white">{content}</span>;
+    }
+    return <span key={index}>{part}</span>;
+  });
+}
+
 export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps) {
   const { id } = useParams<{ id: string }>();
   const techniqueId = id || '';
@@ -343,7 +354,9 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
               </button>
               {openSections.drills && (
                 <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.simple_drills}</p>
+                  <div className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">
+                    {formatText(technique.simple_drills)}
+                  </div>
                 </div>
               )}
             </div>
