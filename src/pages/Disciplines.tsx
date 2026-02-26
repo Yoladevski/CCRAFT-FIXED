@@ -58,11 +58,11 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
             <div
               key={discipline.id}
               className={`flex flex-col ${
-                !discipline.is_active ? 'opacity-60' : ''
+                !discipline.is_active && !isAdmin ? 'opacity-60' : ''
               }`}
             >
               <div className="relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#2E2E2E] group">
-                {!discipline.is_active && (
+                {!discipline.is_active && !isAdmin && (
                   <div className="absolute inset-0 z-20 flex items-center justify-center p-2 sm:p-4">
                     <img
                       src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
