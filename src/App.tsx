@@ -32,8 +32,9 @@ const AIInstruction = lazy(() => import('./pages/AIInstruction'));
 const MultiDiscipline = lazy(() => import('./pages/MultiDiscipline'));
 const EmailAssets = lazy(() => import('./pages/EmailAssets'));
 const AuthCallback = lazy(() => import('./pages/AuthCallback'));
+const ExampleEditablePage = lazy(() => import('./pages/ExampleEditablePage'));
 
-type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline';
+type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline' | 'ExampleEditable';
 
 interface NavigationState {
   page: Page;
@@ -74,6 +75,7 @@ function AppContent() {
       'StructuredProgression': '/structured-progression',
       'AIInstruction': '/ai-instruction',
       'MultiDiscipline': '/multi-discipline',
+      'ExampleEditable': '/example-editable',
     };
 
     if (page === 'Discipline' && id) {
@@ -158,6 +160,7 @@ function AppContent() {
                 <Route path="/structured-progression" element={<StructuredProgression onBack={goBack} />} />
                 <Route path="/ai-instruction" element={<AIInstruction onBack={goBack} />} />
                 <Route path="/multi-discipline" element={<MultiDiscipline onBack={goBack} />} />
+                <Route path="/example-editable" element={<ExampleEditablePage />} />
               </Routes>
             </main>
             <Footer onNavigate={(page) => handleNavigate(page as Page)} />
