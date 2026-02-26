@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
-import logoImage from '../assets/xxlogo-removebg-preview.png';
 
 interface NavigationProps {
   currentPage: string;
@@ -28,7 +27,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 onClick={() => handleNavigate('Home')}
                 className="hover:opacity-80 transition-opacity"
               >
-                <img src={logoImage} alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px]" />
+                <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px]" />
               </button>
             </div>
 
@@ -359,9 +358,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                 )}
               </button>
-            </div>
 
-            <div className="hidden lg:flex items-center justify-end gap-4">
               {user ? (
                 <button
                   onClick={() => handleNavigate('Account')}
@@ -430,18 +427,19 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               ) : (
                 <button
                   onClick={() => handleNavigate('Auth')}
-                  className="button-text px-6 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap relative z-10"
+                  className="button-text px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
                   style={{
                     fontSize: '0.9rem',
                     fontFamily: 'Redhawk, sans-serif',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em'
+                    fontWeight: 700
                   }}
                 >
                   SIGN IN
                 </button>
               )}
+            </div>
+
+            <div className="hidden lg:flex items-center justify-end">
               <LanguageSelector />
             </div>
 
@@ -461,7 +459,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   onClick={() => handleNavigate('Home')}
                   className="hover:opacity-80 transition-opacity"
                 >
-                  <img src={logoImage} alt="COMBATCRAFT" className="h-11 w-auto max-w-[143px]" />
+                  <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-11 w-auto max-w-[143px]" />
                 </button>
               </div>
 
@@ -490,7 +488,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             onClick={() => handleNavigate('Home')}
             className="hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <img src={logoImage} alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px] object-contain" />
+            <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px] object-contain" />
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
