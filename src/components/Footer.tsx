@@ -10,11 +10,17 @@ export default function Footer({ onNavigate }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center space-y-8">
           <div className="flex justify-center">
-            <img
-              src="https://i.postimg.cc/KcNxkd4T/new-2.png"
-              alt="CombatCraft Logo"
-              className="h-52 w-auto object-contain"
-            />
+            <button
+              onClick={() => onNavigate('Home')}
+              className="transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-[#B11226] focus:ring-offset-2 focus:ring-offset-black rounded"
+              aria-label="Go to homepage"
+            >
+              <img
+                src="https://i.postimg.cc/KcNxkd4T/new-2.png"
+                alt="CombatCraft Logo"
+                className="h-52 w-auto object-contain"
+              />
+            </button>
           </div>
 
           <div className="flex justify-center items-center gap-8">
