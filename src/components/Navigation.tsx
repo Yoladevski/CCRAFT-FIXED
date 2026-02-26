@@ -359,7 +359,9 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                 )}
               </button>
+            </div>
 
+            <div className="hidden lg:flex items-center justify-end gap-4">
               {user ? (
                 <button
                   onClick={() => handleNavigate('Account')}
@@ -428,19 +430,18 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               ) : (
                 <button
                   onClick={() => handleNavigate('Auth')}
-                  className="button-text px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
+                  className="button-text px-6 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap relative z-10"
                   style={{
                     fontSize: '0.9rem',
                     fontFamily: 'Redhawk, sans-serif',
-                    fontWeight: 700
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em'
                   }}
                 >
                   SIGN IN
                 </button>
               )}
-            </div>
-
-            <div className="hidden lg:flex items-center justify-end">
               <LanguageSelector />
             </div>
 
