@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
+import logoImage from '../assets/xxlogo-removebg-preview.png';
 
 interface NavigationProps {
   currentPage: string;
@@ -27,7 +28,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                 onClick={() => handleNavigate('Home')}
                 className="hover:opacity-80 transition-opacity"
               >
-                <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px]" />
+                <img src={logoImage} alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px]" />
               </button>
             </div>
 
@@ -459,7 +460,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   onClick={() => handleNavigate('Home')}
                   className="hover:opacity-80 transition-opacity"
                 >
-                  <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-11 w-auto max-w-[143px]" />
+                  <img src={logoImage} alt="COMBATCRAFT" className="h-11 w-auto max-w-[143px]" />
                 </button>
               </div>
 
@@ -488,7 +489,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             onClick={() => handleNavigate('Home')}
             className="hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px] object-contain" />
+            <img src={logoImage} alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px] object-contain" />
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
