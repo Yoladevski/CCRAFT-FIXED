@@ -12,7 +12,7 @@ interface DisciplinesProps {
 }
 
 export default function Disciplines({ onNavigate }: DisciplinesProps) {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -110,12 +110,12 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                   </p>
                 )}
 
-                {discipline.is_active && (
+                {(discipline.is_active || isAdmin) && (
                   <button
                     onClick={() => onNavigate('Discipline', discipline.id)}
                     className="button-text w-full py-3 bg-[#B11226] hover:bg-[#8B0E1E] transition-colors rounded-lg font-bold text-xl tracking-wider"
                   >
-                    ENTER
+                    ENTER {!discipline.is_active && isAdmin && '(ADMIN)'}
                   </button>
                 )}
               </div>
