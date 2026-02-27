@@ -44,6 +44,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
     how: false,
     mistakes: false,
     drills: false,
+    coachesTips: false,
   });
 
   const [sectionsRead, setSectionsRead] = useState({
@@ -51,6 +52,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
     how: false,
     mistakes: false,
     drills: false,
+    coachesTips: false,
   });
 
   const toggleSection = async (section: keyof typeof openSections) => {
@@ -126,6 +128,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
             how: savedSections.how || false,
             mistakes: savedSections.mistakes || false,
             drills: savedSections.drills || false,
+            coachesTips: savedSections.coachesTips || false,
           });
         }
       }
@@ -188,6 +191,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
       technique?.how ? 'how' : null,
       technique?.common_mistakes ? 'mistakes' : null,
       technique?.simple_drills ? 'drills' : null,
+      technique?.coaches_tips ? 'coachesTips' : null,
     ].filter(Boolean) as (keyof typeof sectionsRead)[];
 
     return availableSections.every(section => sectionsRead[section]);
@@ -357,6 +361,31 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
                   <div className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">
                     {formatText(technique.simple_drills)}
                   </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {technique.coaches_tips && (
+            <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden">
+              <button
+                onClick={() => toggleSection('coachesTips')}
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">COACHES' TIPS</h3>
+                  {sectionsRead.coachesTips && (
+                    <Check size={24} className="text-[#B11226]" />
+                  )}
+                </div>
+                <ChevronDown
+                  size={24}
+                  className={`text-[#B11226] transition-transform ${openSections.coachesTips ? 'rotate-180' : ''}`}
+                />
+              </button>
+              {openSections.coachesTips && (
+                <div className="px-6 pb-6">
+                  <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.coaches_tips}</p>
                 </div>
               )}
             </div>
