@@ -319,12 +319,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
           {/* CURRENT RANK CARD */}
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center">
-            <h2 className="cc-outline-text text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4">
+            <h2 className="cc-outline-text text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
               CURRENT RANK
             </h2>
             <div className="flex-1 flex flex-col items-center justify-center w-full">
               <h1
-                className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold mb-3 break-words text-center max-w-full px-2"
+                className="cc-outline-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-center max-w-full px-2 whitespace-nowrap"
                 style={{
                   color: getRankColor(profile.rank),
                   WebkitTextStroke: '2px black',
@@ -339,7 +339,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   POWER LEVEL
                 </p>
                 <div
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#B11226]"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#B11226]"
                   style={{ fontFamily: 'Inter' }}
                 >
                   {profile.power_level}
