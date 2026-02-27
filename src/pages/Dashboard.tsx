@@ -47,7 +47,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [totalTechniques, setTotalTechniques] = useState(0);
   const [completedTechniques, setCompletedTechniques] = useState(0);
-  const [nextTechnique, setNextTechnique] = useState<{ discipline: string; category: string; technique: string } | null>(null);
+  const [nextTechnique, setNextTechnique] = useState<{ discipline: string; category: string; technique: string; techniqueId: number; disciplineId: number; categoryId: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [dailyMotivation] = useState(getRandomMotivation());
 
@@ -104,7 +104,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               setNextTechnique({
                 discipline: disciplineData.name,
                 category: categoryData.name,
-                technique: nextIncomplete.name
+                technique: nextIncomplete.name,
+                techniqueId: nextIncomplete.id,
+                disciplineId: categoryData.discipline_id,
+                categoryId: nextIncomplete.category_id
               });
             }
           }
@@ -228,7 +231,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* CONTINUE BUTTON */}
         <button
-          onClick={() => onNavigate('Disciplines')}
+          onClick={() => {
+            if (nextTechnique) {
+              navigate(`/technique/${nextTechnique.disciplineId}/${nextTechnique.categoryId}/${nextTechnique.techniqueId}`);
+            } else {
+              onNavigate('Disciplines');
+            }
+          }}
           className="w-full transition-transform hover:scale-105"
         >
           <img
