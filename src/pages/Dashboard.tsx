@@ -230,22 +230,24 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         </div>
 
         {/* CONTINUE BUTTON */}
-        <button
-          onClick={() => {
-            if (nextTechnique) {
-              navigate(`/technique/${nextTechnique.disciplineId}/${nextTechnique.categoryId}/${nextTechnique.techniqueId}`);
-            } else {
-              onNavigate('Disciplines');
-            }
-          }}
-          className="w-full transition-transform hover:scale-105"
-        >
-          <img
-            src={continueButton}
-            alt={nextTechnique ? `Continue: ${nextTechnique.technique}` : 'View Disciplines'}
-            className="w-full h-auto"
-          />
-        </button>
+        <div className="flex justify-center">
+          <button
+            onClick={() => {
+              if (nextTechnique) {
+                navigate(`/technique/${nextTechnique.disciplineId}/${nextTechnique.categoryId}/${nextTechnique.techniqueId}`);
+              } else {
+                onNavigate('Disciplines');
+              }
+            }}
+            className="w-full lg:w-3/5 transition-transform hover:scale-105"
+          >
+            <img
+              src={continueButton}
+              alt={nextTechnique ? `Continue: ${nextTechnique.technique}` : 'View Disciplines'}
+              className="w-full h-auto"
+            />
+          </button>
+        </div>
 
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
