@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import { BGPattern } from '../components/ui/bg-pattern';
+import continueButton from '../assets/continue.png';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
@@ -228,9 +229,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* CONTINUE BUTTON */}
         <button
           onClick={() => onNavigate('Disciplines')}
-          className="button-text w-full py-3 md:py-4 bg-[#B11226] text-white text-lg md:text-xl font-bold hover:bg-[#8B0E1C] transition-colors rounded"
+          className="w-full transition-transform hover:scale-105"
         >
-          {nextTechnique ? `CONTINUE: ${nextTechnique.technique.toUpperCase()}` : 'VIEW DISCIPLINES'}
+          <img
+            src={continueButton}
+            alt={nextTechnique ? `Continue: ${nextTechnique.technique}` : 'View Disciplines'}
+            className="w-full h-auto"
+          />
         </button>
 
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
