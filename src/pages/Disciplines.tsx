@@ -24,7 +24,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
         .order('order_index');
 
       if (data) {
-        setDisciplines(data.filter(d => d.name !== 'Kickboxing'));
+        setDisciplines(data.filter(d => d.name !== 'Kickboxing' && d.name !== 'Muay Thai'));
       }
       setLoading(false);
     }

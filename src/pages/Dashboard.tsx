@@ -67,9 +67,31 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         return;
       }
 
+      // Get Boxing discipline ID
+      const { data: boxingDiscipline } = await supabase
+        .from('disciplines')
+        .select('id')
+        .eq('name', 'Boxing')
+        .single();
+
+      if (!boxingDiscipline) {
+        setLoading(false);
+        return;
+      }
+
+      // Get Boxing categories
+      const { data: boxingCategories } = await supabase
+        .from('categories')
+        .select('id')
+        .eq('discipline_id', boxingDiscipline.id);
+
+      const boxingCategoryIds = boxingCategories?.map(c => c.id) || [];
+
+      // Get only Boxing techniques
       const { data: techniquesData } = await supabase
         .from('techniques')
-        .select('*');
+        .select('*')
+        .in('category_id', boxingCategoryIds);
 
       const { data: progressData } = await supabase
         .from('user_progress')
