@@ -26,8 +26,8 @@ function formatText(text: string) {
 }
 
 export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps) {
-  const { id } = useParams<{ id: string }>();
-  const techniqueId = id || '';
+  const params = useParams<{ id?: string; techniqueId?: string; disciplineId?: string; categoryId?: string }>();
+  const techniqueId = params.techniqueId || params.id || '';
   const { user } = useAuth();
   const [technique, setTechnique] = useState<Technique | null>(null);
   const [isCompleted, setIsCompleted] = useState(false);
