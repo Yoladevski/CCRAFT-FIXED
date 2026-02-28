@@ -79,7 +79,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                   <img
                     src={
                       discipline.name === 'Boxing'
-                        ? 'https://i.postimg.cc/1R0dtft2/booxing.png'
+                        ? 'https://api.combatcraft.co.uk/storage/v1/object/public/images/booxing.PNG'
                         : discipline.name === 'Muay Thai'
                         ? 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg'
                         : discipline.name === 'BJJ'
