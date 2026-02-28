@@ -11,6 +11,24 @@ interface DisciplinesProps {
   onNavigate: (page: string, disciplineId?: string) => void;
 }
 
+const buttonImages: Record<string, string> = {
+  'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/boxing.png',
+  'Muay Thai': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/mauythai.png',
+  'BJJ': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/bjj.png',
+  'Karate': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/karate.png',
+  'Taekwondo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/taekwondo.png',
+  'Judo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/judo.png',
+};
+
+const cardImages: Record<string, string> = {
+  'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/booxing.PNG',
+  'Muay Thai': 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg',
+  'BJJ': 'https://i.postimg.cc/MHT6KD7s/bjjjj.png',
+  'Karate': 'https://i.postimg.cc/3xZrFKnC/karate.png',
+  'Taekwondo': 'https://i.postimg.cc/MpntyTW0/tikwan.png',
+  'Judo': 'https://i.postimg.cc/JzQ751PX/judo.png',
+};
+
 export default function Disciplines({ onNavigate }: DisciplinesProps) {
   const { user, isAdmin } = useAuth();
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
@@ -40,7 +58,6 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
     );
   }
 
-  // Show sign-up form directly for non-authenticated users
   if (!user) {
     return <Auth onNavigate={onNavigate} />;
   }
@@ -58,67 +75,55 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
             <div
               key={discipline.id}
               className={`flex flex-col ${
-                !discipline.is_active && !isAdmin ? 'opacity-60' : ''
+                !discipline.is_active && !isAdmin ? 'opacity-60 pointer-events-none' : ''
               }`}
             >
-              <div className="relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#2E2E2E] group">
-                {!discipline.is_active && !isAdmin && (
-                  <div className="absolute inset-0 z-20 flex items-center justify-center p-2 sm:p-4">
+              <button
+                onClick={() => (discipline.is_active || isAdmin) && onNavigate('Discipline', discipline.id)}
+                disabled={!discipline.is_active && !isAdmin}
+                className="relative group block w-full focus:outline-none"
+              >
+                <div className="relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#2E2E2E] transition-all duration-300 group-hover:border-[#B11226] group-focus:border-[#B11226]">
+                  {!discipline.is_active && !isAdmin && (
+                    <div className="absolute inset-0 z-20 flex items-center justify-center p-2 sm:p-4">
+                      <img
+                        src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
+                        alt="Coming Soon"
+                        className="w-[300%] h-[300%] object-contain"
+                        style={{
+                          filter: 'drop-shadow(0 0 3px black) drop-shadow(0 0 3px black) drop-shadow(0 0 3px black)'
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  <div className="absolute inset-0 bg-[#1A1A1A]">
                     <img
-                      src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
-                      alt="Coming Soon"
-                      className="w-[300%] h-[300%] object-contain"
-                      style={{
-                        filter: 'drop-shadow(0 0 3px black) drop-shadow(0 0 3px black) drop-shadow(0 0 3px black)'
-                      }}
+                      src={cardImages[discipline.name] || cardImages['Boxing']}
+                      alt={discipline.name}
+                      className="w-full h-full object-cover object-center brightness-90 contrast-125 transition-transform duration-300 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   </div>
-                )}
 
-                <div className="absolute inset-0 bg-[#1A1A1A]">
-                  <img
-                    src={
-                      discipline.name === 'Boxing'
-                        ? 'https://api.combatcraft.co.uk/storage/v1/object/public/images/booxing.PNG'
-                        : discipline.name === 'Muay Thai'
-                        ? 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg'
-                        : discipline.name === 'BJJ'
-                        ? 'https://i.postimg.cc/MHT6KD7s/bjjjj.png'
-                        : discipline.name === 'Kickboxing'
-                        ? 'https://i.postimg.cc/qRBvLNb4/kickboxing.png'
-                        : discipline.name === 'Karate'
-                        ? 'https://i.postimg.cc/3xZrFKnC/karate.png'
-                        : discipline.name === 'Taekwondo'
-                        ? 'https://i.postimg.cc/MpntyTW0/tikwan.png'
-                        : discipline.name === 'Judo'
-                        ? 'https://i.postimg.cc/JzQ751PX/judo.png'
-                        : 'https://i.postimg.cc/1R0dtft2/booxing.png'
-                    }
-                    alt={discipline.name}
-                    className="w-full h-full object-cover object-center brightness-90 contrast-125"
-                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                    <img
+                      src={buttonImages[discipline.name] || buttonImages['Boxing']}
+                      alt={`${discipline.name} button`}
+                      className="w-full h-12 sm:h-14 object-contain"
+                    />
+                    {!discipline.is_active && isAdmin && (
+                      <span className="block text-xs text-[#B11226] mt-1 text-center">(ADMIN ACCESS)</span>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </button>
 
-              <div className="mt-4 px-2">
-                <h1 className="cc-outline-text text-2xl sm:text-3xl font-bold mb-2 text-center">
-                  {discipline.name}
-                </h1>
-                {discipline.description && (
-                  <p className="text-sm text-[#A0A0A0] text-center mb-4 min-h-[2.5rem]">
-                    {discipline.description}
-                  </p>
-                )}
-
-                {(discipline.is_active || isAdmin) && (
-                  <button
-                    onClick={() => onNavigate('Discipline', discipline.id)}
-                    className="button-text w-full py-3 bg-[#B11226] hover:bg-[#8B0E1E] transition-colors rounded-lg font-bold text-xl tracking-wider"
-                  >
-                    ENTER {!discipline.is_active && isAdmin && '(ADMIN)'}
-                  </button>
-                )}
-              </div>
+              {discipline.description && (
+                <p className="text-sm text-[#A0A0A0] text-center mt-4 min-h-[2.5rem] px-2">
+                  {discipline.description}
+                </p>
+              )}
             </div>
           ))}
         </div>
