@@ -152,9 +152,12 @@ export default function Home({ onNavigate }: HomeProps) {
                 <img
                   src="https://i.postimg.cc/D0fKBBM2/fightcraft1.jpg"
                   alt="Structured Progression"
-                  className="w-24 h-24 object-cover rounded"
+                  className="w-24 h-24 object-cover rounded-full border-2 border-[#B11226]"
                   width="96"
                   height="96"
+                  style={{
+                    boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                  }}
                 />
               </div>
               <h3 className="cc-section-heading text-center mb-4" data-text="STRUCTURED PROGRESSION" style={{ fontSize: '19.2px' }}>
@@ -173,9 +176,12 @@ export default function Home({ onNavigate }: HomeProps) {
                 <img
                   src="https://i.postimg.cc/fyWhBBrT/fightcraft2.jpg"
                   alt="AI Enhanced Instruction"
-                  className="w-24 h-24 object-cover rounded"
+                  className="w-24 h-24 object-cover rounded-full border-2 border-[#B11226]"
                   width="96"
                   height="96"
+                  style={{
+                    boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                  }}
                 />
               </div>
               <h3 className="cc-section-heading text-center mb-4" data-text="AI ENHANCED INSTRUCTION" style={{ fontSize: '19.2px' }}>
@@ -194,9 +200,12 @@ export default function Home({ onNavigate }: HomeProps) {
                 <img
                   src="https://i.postimg.cc/zvD100cG/fightcraft3.jpg"
                   alt="Multi Discipline System"
-                  className="w-24 h-24 object-cover rounded"
+                  className="w-24 h-24 object-cover rounded-full border-2 border-[#B11226]"
                   width="96"
                   height="96"
+                  style={{
+                    boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                  }}
                 />
               </div>
               <h3 className="cc-section-heading text-center mb-4" data-text="MULTI DISCIPLINE SYSTEM" style={{ fontSize: '19.2px' }}>

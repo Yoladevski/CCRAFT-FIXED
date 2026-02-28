@@ -46,7 +46,10 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-[#1A1A1A] border border-[#2E2E2E] rounded-lg overflow-hidden hover:border-[#B11226] transition-all transform hover:scale-105"
+              className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg overflow-hidden transition-all transform hover:scale-105"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              }}
             >
               <div className="aspect-square w-full overflow-hidden bg-[#0E0E0E]">
                 <img
@@ -76,7 +79,12 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
           ))}
         </div>
 
-        <div className="mt-12 sm:mt-16 bg-[#1A1A1A] border border-[#2E2E2E] rounded-lg p-6 sm:p-8 max-w-3xl mx-auto text-center">
+        <div
+          className="mt-12 sm:mt-16 bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 max-w-3xl mx-auto text-center"
+          style={{
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+          }}
+        >
           <div className="w-16 h-16 mx-auto bg-[#B11226]/20 rounded-full flex items-center justify-center mb-4">
             <svg
               className="w-8 h-8 text-[#B11226]"
