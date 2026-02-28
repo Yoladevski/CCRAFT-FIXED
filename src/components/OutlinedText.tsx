@@ -38,7 +38,7 @@ export function OutlinedText({ children, className = '', style = {} }: OutlinedT
         textAnchor="middle"
         dominantBaseline="middle"
         stroke="#B11226"
-        strokeWidth="12"
+        strokeWidth="9"
         fill="none"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
