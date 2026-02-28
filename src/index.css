@@ -99,6 +99,9 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 5px;
   line-height: 1.2;
   color: #FFFFFF;
+  -webkit-text-stroke: 2px #B11226;
+  text-stroke: 2px #B11226;
+  paint-order: stroke fill;
 }
 
 h1 {

@@ -338,13 +338,13 @@ export default function Account({ onBack }: AccountProps) {
   }
 
   return (
-    <div className="min-h-screen py-6 sm:py-12 px-3 sm:px-4 relative -mt-20 pt-20 sm:pt-24">
+    <div className="min-h-screen py-4 sm:py-12 px-2 sm:px-4 relative -mt-20 pt-16 sm:pt-24 overflow-x-hidden">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
-      <div className="max-w-4xl mx-auto relative z-10">
-        <div className="mb-4 sm:mb-6">
+      <div className="max-w-4xl mx-auto relative z-10 w-full">
+        <div className="mb-3 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
-        <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 sm:mb-12">
+        <h1 className="cc-outline-text text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-12">
           {isFirstTimeSetup ? 'COMPLETE YOUR PROFILE' : 'ACCOUNT'}
         </h1>
 
@@ -369,11 +369,11 @@ export default function Account({ onBack }: AccountProps) {
           </div>
         )}
 
-        <div className="bg-[#1A1A1A] border border-[#2E2E2E] mb-6">
+        <div className="bg-[#1A1A1A] border border-[#2E2E2E] mb-4 sm:mb-6 overflow-hidden">
           <div className="grid grid-cols-3 border-b border-[#2E2E2E]">
             <button
               onClick={() => setActiveTab('profile')}
-              className={`button-text py-2.5 sm:py-4 px-1 sm:px-6 text-[10px] sm:text-base font-bold transition-colors text-center ${
+              className={`button-text py-2 sm:py-4 px-0.5 sm:px-6 text-[9px] sm:text-base font-bold transition-colors text-center whitespace-nowrap ${
                 activeTab === 'profile'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -383,7 +383,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('security')}
-              className={`button-text py-2.5 sm:py-4 px-1 sm:px-6 text-[10px] sm:text-base font-bold transition-colors text-center ${
+              className={`button-text py-2 sm:py-4 px-0.5 sm:px-6 text-[9px] sm:text-base font-bold transition-colors text-center whitespace-nowrap ${
                 activeTab === 'security'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -393,7 +393,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('settings')}
-              className={`button-text py-2.5 sm:py-4 px-1 sm:px-6 text-[10px] sm:text-base font-bold transition-colors text-center ${
+              className={`button-text py-2 sm:py-4 px-0.5 sm:px-6 text-[9px] sm:text-base font-bold transition-colors text-center whitespace-nowrap ${
                 activeTab === 'settings'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -403,16 +403,19 @@ export default function Account({ onBack }: AccountProps) {
             </button>
           </div>
 
-          <div className="p-4 sm:p-6 md:p-8">
+          <div className="p-3 sm:p-6 md:p-8">
             {activeTab === 'profile' && (
-              <div className="space-y-8">
-                <div className="flex flex-col items-center gap-4 pb-8 border-b border-[#2E2E2E]">
+              <div className="space-y-6 sm:space-y-8">
+                <div className="flex flex-col items-center gap-3 sm:gap-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
                   <div className="relative">
-                    <div className="w-32 h-32 min-w-[128px] min-h-[128px] rounded-full border-4 border-[#B11226] overflow-hidden bg-[#2E2E2E] flex items-center justify-center">
+                    <div className="w-24 h-24 sm:w-32 sm:h-32 min-w-[96px] min-h-[96px] sm:min-w-[128px] sm:min-h-[128px] rounded-full border-4 border-[#B11226] overflow-hidden bg-[#2E2E2E] flex items-center justify-center">
                       {profilePicture ? (
                         <img src={profilePicture} alt="Profile" className="w-full h-full object-cover" width="128" height="128" />
                       ) : (
-                        <User size={64} className="text-[#A0A0A0]" />
+                        <User size={48} className="text-[#A0A0A0] sm:hidden" />
+                      )}
+                      {!profilePicture && (
+                        <User size={64} className="text-[#A0A0A0] hidden sm:block" />
                       )}
                     </div>
                     <button
@@ -441,7 +444,7 @@ export default function Account({ onBack }: AccountProps) {
                   </p>
                 </div>
 
-                <form onSubmit={handleProfileSave} className="space-y-6">
+                <form onSubmit={handleProfileSave} className="space-y-4 sm:space-y-6">
                   <div>
                     <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       FULL NAME {isFirstTimeSetup && <span className="text-[#B11226]">*</span>}
@@ -466,30 +469,30 @@ export default function Account({ onBack }: AccountProps) {
                     )}
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-6">
                     <div>
-                      <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'Redhawk' }}>
                         WEIGHT (LBS)
                       </label>
                       <input
                         type="number"
                         value={weight}
                         onChange={(e) => setWeight(e.target.value)}
-                        className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
                         style={{ fontFamily: 'Redhawk' }}
                         placeholder="185"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
-                        HEIGHT (INCHES)
+                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'Redhawk' }}>
+                        HEIGHT (IN)
                       </label>
                       <input
                         type="number"
                         value={height}
                         onChange={(e) => setHeight(e.target.value)}
-                        className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
                         style={{ fontFamily: 'Redhawk' }}
                         placeholder="72"
                       />
@@ -497,13 +500,13 @@ export default function Account({ onBack }: AccountProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'Redhawk' }}>
                       EXPERIENCE LEVEL
                     </label>
                     <select
                       value={experienceLevel}
                       onChange={(e) => setExperienceLevel(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
                       style={{ fontFamily: 'Redhawk' }}
                     >
                       <option value="Beginner">BEGINNER</option>
@@ -514,13 +517,13 @@ export default function Account({ onBack }: AccountProps) {
                   </div>
 
                   <div>
-                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'Redhawk' }}>
                       PREFERRED DISCIPLINE
                     </label>
                     <select
                       value={preferredDiscipline}
                       onChange={(e) => setPreferredDiscipline(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
                       style={{ fontFamily: 'Redhawk' }}
                     >
                       <option value="">SELECT...</option>
@@ -537,7 +540,7 @@ export default function Account({ onBack }: AccountProps) {
                   <button
                     type="submit"
                     disabled={saving}
-                    className="button-text w-full py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {saving ? 'SAVING...' : 'SAVE PROFILE'}
                   </button>
