@@ -67,7 +67,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
-                letterSpacing: '0.15em',
+                letterSpacing: '0.27em',
               }}
             >
               STRUCTURED TRAINING
@@ -78,7 +78,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
-                letterSpacing: '0.15em',
+                letterSpacing: '0.27em',
               }}
             >
               POWERED BY AI
@@ -120,7 +120,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1rem, 3.3vw, 2rem)',
-                letterSpacing: '0.15em',
+                letterSpacing: '0.27em',
               }}
             >
               TRAIN WITH PURPOSE
@@ -131,7 +131,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1rem, 3.3vw, 2rem)',
-                letterSpacing: '0.15em',
+                letterSpacing: '0.27em',
               }}
             >
               IMPROVE WITH STRUCTURE
@@ -143,7 +143,7 @@ export default function Home({ onNavigate }: HomeProps) {
       <section className="py-16 sm:py-24 px-4 bg-[#0E0E0E] relative">
         <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mt-[10px]">
             <button
               onClick={() => onNavigate('StructuredProgression')}
               className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"

@@ -441,7 +441,7 @@ nav a {
 @media (max-width: 767px) {
   .hero-top-text .outlined-text,
   .hero-bottom-text .outlined-text {
-    letter-spacing: 3px !important;
+    letter-spacing: 5px !important;
     font-size: clamp(0.7rem, 3.2vw, 1.8rem) !important;
   }
 }
