@@ -67,7 +67,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
-                letterSpacing: '5px',
+                letterSpacing: '0.15em',
               }}
             >
               STRUCTURED TRAINING
@@ -78,7 +78,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
-                letterSpacing: '5px',
+                letterSpacing: '0.15em',
               }}
             >
               POWERED BY AI
@@ -120,7 +120,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1rem, 3.3vw, 2rem)',
-                letterSpacing: '5px',
+                letterSpacing: '0.15em',
               }}
             >
               TRAIN WITH PURPOSE
@@ -131,7 +131,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1rem, 3.3vw, 2rem)',
-                letterSpacing: '5px',
+                letterSpacing: '0.15em',
               }}
             >
               IMPROVE WITH STRUCTURE

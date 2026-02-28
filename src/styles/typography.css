@@ -150,7 +150,7 @@
 .cc-outline-text {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
-  letter-spacing: 5px;
+  letter-spacing: 0.15em;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 6px #000000;
@@ -167,6 +167,14 @@
   -webkit-text-stroke: 10px #B11226;
   text-stroke: 10px #B11226;
   color: transparent;
+}
+
+.cc-red-shadow-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: #EDEDED;
+  text-shadow: 1px 1px 0 #B11226;
 }
 
 .button-text {
