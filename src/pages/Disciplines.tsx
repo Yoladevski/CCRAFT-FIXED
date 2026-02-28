@@ -76,9 +76,14 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
               key={discipline.id}
               className="flex flex-col"
             >
-              <div className={`relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#2E2E2E] ${
-                !discipline.is_active && !isAdmin ? 'opacity-60' : ''
-              }`}>
+              <div
+                className={`relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#B11226] ${
+                  !discipline.is_active && !isAdmin ? 'opacity-60' : ''
+                }`}
+                style={{
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                }}
+              >
                 {!discipline.is_active && !isAdmin && (
                   <div className="absolute inset-0 z-20 flex items-center justify-center p-2 sm:p-4">
                     <img
@@ -101,7 +106,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 </div>
               </div>
 
-              <div className="h-[3.5rem] flex items-center justify-center px-2 mt-2">
+              <div className="h-[2.5rem] flex items-center justify-center px-2 mt-1">
                 {discipline.description && (
                   <p className="text-sm text-[#A0A0A0] text-center line-clamp-2">
                     {discipline.description}
@@ -112,9 +117,9 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
               <button
                 onClick={() => (discipline.is_active || isAdmin) && onNavigate('Discipline', discipline.id)}
                 disabled={!discipline.is_active && !isAdmin}
-                className={`mt-2 focus:outline-none group w-full ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed opacity-60' : ''}`}
+                className={`mt-1 focus:outline-none group w-full ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed opacity-60' : ''}`}
               >
-                <div className="w-full h-[256px] sm:h-[320px] flex items-center justify-center">
+                <div className="w-full h-[205px] sm:h-[256px] flex items-center justify-center">
                   <img
                     src={buttonImages[discipline.name] || buttonImages['Boxing']}
                     alt={`${discipline.name} button`}
