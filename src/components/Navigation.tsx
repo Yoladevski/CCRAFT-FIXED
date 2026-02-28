@@ -34,62 +34,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             <div className="hidden lg:flex items-center justify-center space-x-8">
               <button
                 onClick={() => handleNavigate('Home')}
-                className={`button-text relative transition-all duration-300 pb-1`}
-                style={{
-                  fontSize: '0.9rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: '#FFFFFF',
-                  textShadow: `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    0 0 10px #B11226,
-                    0 0 20px #B11226,
-                    0 0 30px #B11226`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`;
-                }}
+                className="nav-menu-item relative transition-all duration-300 pb-1"
               >
                 HOME
                 {currentPage === 'Home' && (
@@ -100,62 +45,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user && (
                 <button
                   onClick={() => handleNavigate('Dashboard')}
-                  className={`button-text relative transition-all duration-300 pb-1`}
-                  style={{
-                    fontSize: '0.9rem',
-                    fontFamily: 'Redhawk, sans-serif',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    color: '#FFFFFF',
-                    textShadow: `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      -0.5px -0.5px 0 #000000,
-                      0.5px -0.5px 0 #000000,
-                      -0.5px 0.5px 0 #000000,
-                      0.5px 0.5px 0 #000000,
-                      -1px 0 0 #000000,
-                      1px 0 0 #000000,
-                      0 -1px 0 #000000,
-                      0 1px 0 #000000`
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      0 0 10px #B11226,
-                      0 0 20px #B11226,
-                      0 0 30px #B11226`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      -0.5px -0.5px 0 #000000,
-                      0.5px -0.5px 0 #000000,
-                      -0.5px 0.5px 0 #000000,
-                      0.5px 0.5px 0 #000000,
-                      -1px 0 0 #000000,
-                      1px 0 0 #000000,
-                      0 -1px 0 #000000,
-                      0 1px 0 #000000`;
-                  }}
+                  className="nav-menu-item relative transition-all duration-300 pb-1"
                 >
                   DASHBOARD
                   {currentPage === 'Dashboard' && (
@@ -166,62 +56,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('Disciplines')}
-                className={`button-text relative transition-all duration-300 pb-1`}
-                style={{
-                  fontSize: '0.9rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: '#FFFFFF',
-                  textShadow: `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    0 0 10px #B11226,
-                    0 0 20px #B11226,
-                    0 0 30px #B11226`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`;
-                }}
+                className="nav-menu-item relative transition-all duration-300 pb-1"
               >
                 DISCIPLINES
                 {(currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique') && (
@@ -231,62 +66,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('News')}
-                className={`button-text relative transition-all duration-300 pb-1`}
-                style={{
-                  fontSize: '0.9rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: '#FFFFFF',
-                  textShadow: `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    0 0 10px #B11226,
-                    0 0 20px #B11226,
-                    0 0 30px #B11226`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`;
-                }}
+                className="nav-menu-item relative transition-all duration-300 pb-1"
               >
                 NEWS
                 {currentPage === 'News' && (
@@ -296,62 +76,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
               <button
                 onClick={() => handleNavigate('Merchandise')}
-                className={`button-text relative transition-all duration-300 pb-1`}
-                style={{
-                  fontSize: '0.9rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: '#FFFFFF',
-                  textShadow: `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    0 0 10px #B11226,
-                    0 0 20px #B11226,
-                    0 0 30px #B11226`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`;
-                }}
+                className="nav-menu-item relative transition-all duration-300 pb-1"
               >
                 MERCHANDISE
                 {currentPage === 'Merchandise' && (
@@ -362,62 +87,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               {user ? (
                 <button
                   onClick={() => handleNavigate('Account')}
-                  className={`button-text relative transition-all duration-300 pb-1 whitespace-nowrap`}
-                  style={{
-                    fontSize: '0.9rem',
-                    fontFamily: 'Redhawk, sans-serif',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    color: '#FFFFFF',
-                    textShadow: `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      -0.5px -0.5px 0 #000000,
-                      0.5px -0.5px 0 #000000,
-                      -0.5px 0.5px 0 #000000,
-                      0.5px 0.5px 0 #000000,
-                      -1px 0 0 #000000,
-                      1px 0 0 #000000,
-                      0 -1px 0 #000000,
-                      0 1px 0 #000000`
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      0 0 10px #B11226,
-                      0 0 20px #B11226,
-                      0 0 30px #B11226`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      -0.5px -0.5px 0 #000000,
-                      0.5px -0.5px 0 #000000,
-                      -0.5px 0.5px 0 #000000,
-                      0.5px 0.5px 0 #000000,
-                      -1px 0 0 #000000,
-                      1px 0 0 #000000,
-                      0 -1px 0 #000000,
-                      0 1px 0 #000000`;
-                  }}
+                  className="nav-menu-item relative transition-all duration-300 pb-1 whitespace-nowrap"
                 >
                   MY ACCOUNT
                   {currentPage === 'Account' && (
@@ -427,12 +97,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               ) : (
                 <button
                   onClick={() => handleNavigate('Auth')}
-                  className="button-text px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
-                  style={{
-                    fontSize: '0.9rem',
-                    fontFamily: 'Redhawk, sans-serif',
-                    fontWeight: 700
-                  }}
+                  className="nav-menu-item px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
                 >
                   SIGN IN
                 </button>

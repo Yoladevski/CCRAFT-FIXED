@@ -63,10 +63,10 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(2rem, 6vw, 3rem)',
+                fontSize: 'clamp(1.2rem, 3.6vw, 1.8rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(2.5rem, 7vw, 4rem)',
+                height: 'clamp(1.5rem, 4.2vw, 2.4rem)',
                 letterSpacing: '5px',
               }}
             >
@@ -74,10 +74,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(2rem, 6vw, 3rem)',
+                fontSize: 'clamp(1.2rem, 3.6vw, 1.8rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(2.5rem, 7vw, 4rem)',
+                height: 'clamp(1.5rem, 4.2vw, 2.4rem)',
                 letterSpacing: '5px',
               }}
             >
@@ -116,10 +116,10 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.5rem, 4.5vw, 2.25rem)',
+                fontSize: 'clamp(0.9rem, 2.7vw, 1.35rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(2rem, 5.5vw, 3rem)',
+                height: 'clamp(1.2rem, 3.3vw, 1.8rem)',
                 letterSpacing: '5px',
               }}
             >
@@ -127,10 +127,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.5rem, 4.5vw, 2.25rem)',
+                fontSize: 'clamp(0.9rem, 2.7vw, 1.35rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(2rem, 5.5vw, 3rem)',
+                height: 'clamp(1.2rem, 3.3vw, 1.8rem)',
                 letterSpacing: '5px',
               }}
             >
@@ -157,10 +157,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="cc-section-heading text-center mb-4" data-text="STRUCTURED PROGRESSION">
+              <h3 className="cc-section-heading text-center mb-4" data-text="STRUCTURED PROGRESSION" style={{ fontSize: '19.2px' }}>
                 STRUCTURED PROGRESSION
               </h3>
-              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px', fontWeight: 500, color: '#A0A0A0' }}>
+              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
                 Sequential unlock system ensures mastery before advancement. Build foundations properly.
               </p>
             </button>
@@ -178,10 +178,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="cc-section-heading text-center mb-4" data-text="AI ENHANCED INSTRUCTION">
+              <h3 className="cc-section-heading text-center mb-4" data-text="AI ENHANCED INSTRUCTION" style={{ fontSize: '19.2px' }}>
                 AI ENHANCED INSTRUCTION
               </h3>
-              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px', fontWeight: 500, color: '#A0A0A0' }}>
+              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
                 Detailed technique breakdowns with common mistakes and tactical applications.
               </p>
             </button>
@@ -199,10 +199,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="cc-section-heading text-center mb-4" data-text="MULTI DISCIPLINE SYSTEM">
+              <h3 className="cc-section-heading text-center mb-4" data-text="MULTI DISCIPLINE SYSTEM" style={{ fontSize: '19.2px' }}>
                 MULTI DISCIPLINE SYSTEM
               </h3>
-              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px', fontWeight: 500, color: '#A0A0A0' }}>
+              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
                 Train across Boxing, Muay Thai, BJJ, and more. Become a complete fighter.
               </p>
             </button>
