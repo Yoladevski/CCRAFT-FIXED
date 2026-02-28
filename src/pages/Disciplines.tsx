@@ -114,7 +114,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 disabled={!discipline.is_active && !isAdmin}
                 className={`mt-2 focus:outline-none group w-full ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed opacity-60' : ''}`}
               >
-                <div className="w-full h-[64px] sm:h-[80px] flex items-center justify-center">
+                <div className="w-full h-[256px] sm:h-[320px] flex items-center justify-center">
                   <img
                     src={buttonImages[discipline.name] || buttonImages['Boxing']}
                     alt={`${discipline.name} button`}
