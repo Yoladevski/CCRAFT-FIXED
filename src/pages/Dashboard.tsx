@@ -285,18 +285,18 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           {/* CURRENT TRAINING PANEL */}
-          <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center flex flex-col justify-center">
-            <h2 className="cc-section-heading mb-3 md:mb-4 hidden sm:block" data-text="CURRENT TRAINING">
+          <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 md:p-10 text-center flex flex-col justify-center">
+            <h2 className="cc-section-heading mb-6 md:mb-8 hidden sm:block" data-text="CURRENT TRAINING">
               CURRENT TRAINING
             </h2>
-            <h2 className="cc-section-heading mb-3 sm:hidden whitespace-nowrap" data-text="CURRENT TRAINING" style={{ fontSize: '0.96rem', textShadow: '1px 1px 0 #B11226, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000' }}>
+            <h2 className="cc-section-heading mb-6 sm:hidden whitespace-nowrap" data-text="CURRENT TRAINING" style={{ fontSize: '0.96rem', textShadow: '1px 1px 0 #B11226, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000' }}>
               CURRENT TRAINING
             </h2>
 
             {nextTechnique ? (
-              <div className="space-y-3">
+              <div className="space-y-6 md:space-y-8">
                 <div>
-                  <p className="cc-card-label mb-1 tracking-wider">
+                  <p className="cc-card-label mb-2 md:mb-3 tracking-wider">
                     DISCIPLINE
                   </p>
                   <p className="cc-card-value">
@@ -305,7 +305,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 </div>
 
                 <div>
-                  <p className="cc-card-label mb-1 tracking-wider">
+                  <p className="cc-card-label mb-2 md:mb-3 tracking-wider">
                     CATEGORY
                   </p>
                   <p className="cc-card-value">
@@ -314,7 +314,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 </div>
 
                 <div>
-                  <p className="cc-card-label mb-1 tracking-wider">
+                  <p className="cc-card-label mb-2 md:mb-3 tracking-wider">
                     NEXT TECHNIQUE
                   </p>
                   <p className="cc-card-value text-[#B11226]">
