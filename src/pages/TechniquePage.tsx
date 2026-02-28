@@ -393,18 +393,21 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
         </div>
 
         {user && nextTechnique && (
-          <div className="mt-12">
+          <div className="mt-12 flex flex-col items-center">
             <button
               onClick={handleNextTechnique}
               disabled={!allSectionsRead()}
-              className={`button-text w-full py-4 flex items-center justify-center gap-3 text-xl font-bold rounded transition-all transform ${
+              className={`transition-all transform ${
                 allSectionsRead()
-                  ? 'bg-[#B11226] text-white hover:bg-[#8B0E1C] hover:scale-105'
-                  : 'bg-[#2E2E2E] text-[#666666] cursor-not-allowed'
+                  ? 'hover:scale-105 opacity-100'
+                  : 'opacity-40 cursor-not-allowed'
               }`}
             >
-              <span>NEXT TECHNIQUE: {nextTechnique.name}</span>
-              <ChevronRight size={24} />
+              <img
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/nr.png"
+                alt="Next Technique"
+                className="w-full max-w-[300px] sm:max-w-[400px] h-auto"
+              />
             </button>
             {!allSectionsRead() && (
               <p className="text-center text-[#666666] mt-4 text-sm">
