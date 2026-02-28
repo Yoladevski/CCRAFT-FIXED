@@ -63,10 +63,10 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.2rem, 3.6vw, 1.8rem)',
+                fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.5rem, 4.2vw, 2.4rem)',
+                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
                 letterSpacing: '5px',
               }}
             >
@@ -74,10 +74,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.2rem, 3.6vw, 1.8rem)',
+                fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.5rem, 4.2vw, 2.4rem)',
+                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
                 letterSpacing: '5px',
               }}
             >
@@ -116,10 +116,10 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.9rem, 2.7vw, 1.35rem)',
+                fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.2rem, 3.3vw, 1.8rem)',
+                height: 'clamp(1rem, 3.3vw, 2rem)',
                 letterSpacing: '5px',
               }}
             >
@@ -127,10 +127,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.9rem, 2.7vw, 1.35rem)',
+                fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.2rem, 3.3vw, 1.8rem)',
+                height: 'clamp(1rem, 3.3vw, 2rem)',
                 letterSpacing: '5px',
               }}
             >

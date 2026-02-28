@@ -243,10 +243,21 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* WELCOME MESSAGE */}
         <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center">
-          <h2 className="cc-primary-title mb-2" data-text={`WELCOME BACK ${(profile.full_name || 'FIGHTER').toUpperCase()}`}>
+          <h2 className="cc-primary-title mb-2 hidden sm:block" data-text={`WELCOME BACK ${(profile.full_name || 'FIGHTER').toUpperCase()}`}>
             WELCOME BACK {(profile.full_name || 'FIGHTER').toUpperCase()}
           </h2>
-          <p className="cc-quote">
+          <div className="sm:hidden mb-2">
+            <h2 className="cc-primary-title text-[0.7rem]" style={{ fontSize: '0.7rem' }} data-text="WELCOME BACK">
+              WELCOME BACK
+            </h2>
+            <h2 className="cc-primary-title text-[0.7rem]" style={{ fontSize: '0.7rem' }} data-text={(profile.full_name || 'FIGHTER').toUpperCase()}>
+              {(profile.full_name || 'FIGHTER').toUpperCase()}
+            </h2>
+          </div>
+          <p className="cc-quote hidden sm:block">
+            {dailyMotivation}
+          </p>
+          <p className="cc-quote sm:hidden" style={{ fontSize: '0.6rem' }}>
             {dailyMotivation}
           </p>
         </div>
@@ -275,7 +286,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           {/* CURRENT TRAINING PANEL */}
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center flex flex-col justify-center">
-            <h2 className="cc-section-heading mb-3 md:mb-4" data-text="CURRENT TRAINING">
+            <h2 className="cc-section-heading mb-3 md:mb-4 hidden sm:block" data-text="CURRENT TRAINING">
+              CURRENT TRAINING
+            </h2>
+            <h2 className="cc-section-heading mb-3 sm:hidden whitespace-nowrap" data-text="CURRENT TRAINING" style={{ fontSize: '0.96rem', textShadow: '1px 1px 0 #B11226, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000' }}>
               CURRENT TRAINING
             </h2>
 
@@ -319,17 +333,33 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
           {/* CURRENT RANK CARD */}
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center">
-            <h2 className="cc-section-heading mb-3 md:mb-4" data-text="CURRENT RANK">
+            <h2 className="cc-section-heading mb-3 md:mb-4 hidden sm:block" data-text="CURRENT RANK">
+              CURRENT RANK
+            </h2>
+            <h2 className="cc-section-heading mb-3 sm:hidden" data-text="CURRENT RANK" style={{ textShadow: '1px 1px 0 #B11226, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000' }}>
               CURRENT RANK
             </h2>
             <div className="flex-1 flex flex-col items-center justify-center w-full">
               <h1
-                className="cc-primary-title mb-3 text-center max-w-full px-2 whitespace-nowrap"
+                className="cc-primary-title mb-3 text-center max-w-full px-2 whitespace-nowrap hidden sm:block"
                 style={{
                   color: getRankColor(profile.rank),
                   WebkitTextStroke: '2px black',
                   textStroke: '2px black',
                   paintOrder: 'stroke fill'
+                }}
+                data-text={profile.rank.toUpperCase()}
+              >
+                {profile.rank.toUpperCase()}
+              </h1>
+              <h1
+                className="cc-primary-title mb-3 text-center max-w-full px-2 whitespace-nowrap sm:hidden"
+                style={{
+                  color: getRankColor(profile.rank),
+                  WebkitTextStroke: '1px black',
+                  textStroke: '1px black',
+                  paintOrder: 'stroke fill',
+                  fontSize: '0.56rem'
                 }}
                 data-text={profile.rank.toUpperCase()}
               >
