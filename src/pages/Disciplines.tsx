@@ -70,15 +70,15 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
           CHOOSE YOUR DISCIPLINE
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {disciplines.map((discipline) => (
             <div
               key={discipline.id}
-              className={`flex flex-col ${
-                !discipline.is_active && !isAdmin ? 'opacity-60' : ''
-              }`}
+              className="flex flex-col"
             >
-              <div className="relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#2E2E2E]">
+              <div className={`relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#2E2E2E] ${
+                !discipline.is_active && !isAdmin ? 'opacity-60' : ''
+              }`}>
                 {!discipline.is_active && !isAdmin && (
                   <div className="absolute inset-0 z-20 flex items-center justify-center p-2 sm:p-4">
                     <img
@@ -101,22 +101,26 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 </div>
               </div>
 
-              {discipline.description && (
-                <p className="text-sm text-[#A0A0A0] text-center mt-2 min-h-[2.5rem] px-2">
-                  {discipline.description}
-                </p>
-              )}
+              <div className="h-[3.5rem] flex items-center justify-center px-2 mt-2">
+                {discipline.description && (
+                  <p className="text-sm text-[#A0A0A0] text-center line-clamp-2">
+                    {discipline.description}
+                  </p>
+                )}
+              </div>
 
               <button
                 onClick={() => (discipline.is_active || isAdmin) && onNavigate('Discipline', discipline.id)}
                 disabled={!discipline.is_active && !isAdmin}
-                className={`mt-2 focus:outline-none group ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed' : ''}`}
+                className={`mt-2 focus:outline-none group w-full ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed opacity-60' : ''}`}
               >
-                <img
-                  src={buttonImages[discipline.name] || buttonImages['Boxing']}
-                  alt={`${discipline.name} button`}
-                  className="w-full h-16 sm:h-20 object-contain transition-transform duration-200 group-hover:scale-105"
-                />
+                <div className="w-full h-[64px] sm:h-[80px] flex items-center justify-center">
+                  <img
+                    src={buttonImages[discipline.name] || buttonImages['Boxing']}
+                    alt={`${discipline.name} button`}
+                    className="max-w-full max-h-full object-contain transition-transform duration-200 group-hover:scale-105"
+                  />
+                </div>
                 {!discipline.is_active && isAdmin && (
                   <span className="block text-xs text-[#B11226] mt-1 text-center">(ADMIN ACCESS)</span>
                 )}
