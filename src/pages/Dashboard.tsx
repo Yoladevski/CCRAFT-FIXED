@@ -243,10 +243,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* WELCOME MESSAGE */}
         <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center">
-          <h2 className="cc-outline-text text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+          <h2 className="cc-primary-title mb-2" data-text={`WELCOME BACK ${(profile.full_name || 'FIGHTER').toUpperCase()}`}>
             WELCOME BACK {(profile.full_name || 'FIGHTER').toUpperCase()}
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-[#B11226] font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+          <p className="cc-quote">
             {dailyMotivation}
           </p>
         </div>
@@ -275,42 +275,42 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           {/* CURRENT TRAINING PANEL */}
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center flex flex-col justify-center">
-            <h2 className="cc-outline-text text-2xl md:text-3xl font-bold mb-3 md:mb-4">
+            <h2 className="cc-section-heading mb-3 md:mb-4" data-text="CURRENT TRAINING">
               CURRENT TRAINING
             </h2>
 
             {nextTechnique ? (
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+                  <p className="cc-card-label mb-1 tracking-wider">
                     DISCIPLINE
                   </p>
-                  <p className="text-lg md:text-xl text-white font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+                  <p className="cc-card-value">
                     {nextTechnique.discipline}
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-sm text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+                  <p className="cc-card-label mb-1 tracking-wider">
                     CATEGORY
                   </p>
-                  <p className="text-lg md:text-xl text-white font-bold" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+                  <p className="cc-card-value">
                     {nextTechnique.category}
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-sm text-[#A0A0A0] mb-1 tracking-wider" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+                  <p className="cc-card-label mb-1 tracking-wider">
                     NEXT TECHNIQUE
                   </p>
-                  <p className="text-xl md:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+                  <p className="cc-card-value text-[#B11226]">
                     {nextTechnique.technique}
                   </p>
                 </div>
               </div>
             ) : (
               <div>
-                <p className="text-[#A0A0A0] text-lg" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+                <p className="cc-body">
                   All techniques completed!
                 </p>
               </div>
@@ -319,23 +319,24 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
           {/* CURRENT RANK CARD */}
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center">
-            <h2 className="cc-outline-text text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4">
+            <h2 className="cc-section-heading mb-3 md:mb-4" data-text="CURRENT RANK">
               CURRENT RANK
             </h2>
             <div className="flex-1 flex flex-col items-center justify-center w-full">
               <h1
-                className="cc-outline-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-center max-w-full px-2 whitespace-nowrap"
+                className="cc-primary-title mb-3 text-center max-w-full px-2 whitespace-nowrap"
                 style={{
                   color: getRankColor(profile.rank),
                   WebkitTextStroke: '2px black',
                   textStroke: '2px black',
                   paintOrder: 'stroke fill'
                 }}
+                data-text={profile.rank.toUpperCase()}
               >
                 {profile.rank.toUpperCase()}
               </h1>
               <div className="text-center mb-3">
-                <p className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+                <p className="cc-card-label mb-1">
                   POWER LEVEL
                 </p>
                 <div
@@ -350,7 +351,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             {/* Progress Info */}
             <div className="w-full pt-3 border-t border-[#2E2E2E]">
               <div className="text-center">
-                <p className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'Redhawk, sans-serif' }}>
+                <p className="cc-card-label mb-1">
                   OVERALL PROGRESS
                 </p>
                 <div className="flex items-center justify-center gap-2 flex-wrap">

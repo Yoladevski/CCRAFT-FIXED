@@ -1,23 +1,214 @@
-@font-face {
-  font-family: 'LatoBlack';
-  src: url('/src/assets/fonts/Lato-Black.ttf') format('truetype');
+.cc-hero-heading {
+  font-family: 'Orbitron', sans-serif;
   font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+  font-size: 48px;
+  line-height: 1.2;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 8px #000000;
+  text-stroke: 8px #000000;
+  paint-order: stroke fill;
 }
 
-.display-text,
-.heading-text,
-.button-text {
-  font-family: 'LatoBlack', sans-serif;
+.cc-hero-heading::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 12px #B11226;
+  text-stroke: 12px #B11226;
+  color: transparent;
+}
+
+.cc-hero-sub {
+  font-family: 'Orbitron', sans-serif;
   font-weight: 900;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  -webkit-text-stroke: 1.5px #B11226;
-  text-stroke: 1.5px #B11226;
+  font-size: 36px;
+  line-height: 1.2;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 6px #000000;
+  text-stroke: 6px #000000;
   paint-order: stroke fill;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+.cc-hero-sub::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 10px #B11226;
+  text-stroke: 10px #B11226;
+  color: transparent;
+}
+
+.cc-primary-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.2;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 8px #000000;
+  text-stroke: 8px #000000;
+  paint-order: stroke fill;
+}
+
+.cc-primary-title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 12px #B11226;
+  text-stroke: 12px #B11226;
+  color: transparent;
+}
+
+.cc-quote {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #EDEDED;
+}
+
+.cc-section-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.2;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 6px #000000;
+  text-stroke: 6px #000000;
+  paint-order: stroke fill;
+}
+
+.cc-section-heading::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 10px #B11226;
+  text-stroke: 10px #B11226;
+  color: transparent;
+}
+
+.cc-tertiary-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #FFFFFF;
+}
+
+.cc-card-label {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #A0A0A0;
+}
+
+.cc-card-value {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #FFFFFF;
+}
+
+.cc-button {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #FFFFFF;
+}
+
+.cc-body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #A0A0A0;
+}
+
+.cc-outline-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 6px #000000;
+  text-stroke: 6px #000000;
+  paint-order: stroke fill;
+}
+
+.cc-outline-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 10px #B11226;
+  text-stroke: 10px #B11226;
+  color: transparent;
+}
+
+.button-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #FFFFFF;
+}
+
+.heading-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.2;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 6px #000000;
+  text-stroke: 6px #000000;
+  paint-order: stroke fill;
+}
+
+.heading-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 10px #B11226;
+  text-stroke: 10px #B11226;
+  color: transparent;
+}
+
+.display-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.2;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 8px #000000;
+  text-stroke: 8px #000000;
+  paint-order: stroke fill;
+}
+
+.display-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 12px #B11226;
+  text-stroke: 12px #B11226;
+  color: transparent;
 }

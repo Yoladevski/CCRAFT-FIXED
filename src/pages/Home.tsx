@@ -63,20 +63,20 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.1rem, 4.95vw, 2.475rem)',
-                fontFamily: 'Redhawk, sans-serif',
-                fontWeight: 700,
-                height: 'clamp(1.6rem, 6vw, 3.5rem)',
+                fontSize: 'clamp(2rem, 6vw, 3rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(2.5rem, 7vw, 4rem)',
               }}
             >
               STRUCTURED TRAINING
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.1rem, 4.95vw, 2.475rem)',
-                fontFamily: 'Redhawk, sans-serif',
-                fontWeight: 700,
-                height: 'clamp(1.6rem, 6vw, 3.5rem)',
+                fontSize: 'clamp(2rem, 6vw, 3rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(2.5rem, 7vw, 4rem)',
               }}
             >
               POWERED BY AI
@@ -114,20 +114,20 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.95rem, 3.3vw, 1.65rem)',
-                fontFamily: 'Redhawk, sans-serif',
-                fontWeight: 700,
-                height: 'clamp(1.4rem, 4.5vw, 2.5rem)',
+                fontSize: 'clamp(1.5rem, 4.5vw, 2.25rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(2rem, 5.5vw, 3rem)',
               }}
             >
               TRAIN WITH PURPOSE
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.95rem, 3.3vw, 1.65rem)',
-                fontFamily: 'Redhawk, sans-serif',
-                fontWeight: 700,
-                height: 'clamp(1.4rem, 4.5vw, 2.5rem)',
+                fontSize: 'clamp(1.5rem, 4.5vw, 2.25rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(2rem, 5.5vw, 3rem)',
               }}
             >
               IMPROVE WITH STRUCTURE
@@ -153,10 +153,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="heading-text text-center mb-4 text-xl sm:text-2xl leading-tight">
+              <h3 className="cc-section-heading text-center mb-4" data-text="STRUCTURED PROGRESSION">
                 STRUCTURED PROGRESSION
               </h3>
-              <p className="text-[#A0A0A0] text-center text-sm sm:text-base leading-relaxed">
+              <p className="cc-body text-center leading-relaxed">
                 Sequential unlock system ensures mastery before advancement. Build foundations properly.
               </p>
             </button>
@@ -174,10 +174,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="heading-text text-center mb-4 text-xl sm:text-2xl leading-tight">
+              <h3 className="cc-section-heading text-center mb-4" data-text="AI ENHANCED INSTRUCTION">
                 AI ENHANCED INSTRUCTION
               </h3>
-              <p className="text-[#A0A0A0] text-center text-sm sm:text-base leading-relaxed">
+              <p className="cc-body text-center leading-relaxed">
                 Detailed technique breakdowns with common mistakes and tactical applications.
               </p>
             </button>
@@ -195,10 +195,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   height="96"
                 />
               </div>
-              <h3 className="heading-text text-center mb-4 text-xl sm:text-2xl leading-tight">
+              <h3 className="cc-section-heading text-center mb-4" data-text="MULTI DISCIPLINE SYSTEM">
                 MULTI DISCIPLINE SYSTEM
               </h3>
-              <p className="text-[#A0A0A0] text-center text-sm sm:text-base leading-relaxed">
+              <p className="cc-body text-center leading-relaxed">
                 Train across Boxing, Muay Thai, BJJ, and more. Become a complete fighter.
               </p>
             </button>

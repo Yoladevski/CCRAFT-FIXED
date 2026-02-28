@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,8 +13,16 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/src/assets/fonts/Orbitron-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --font-heading: 'Redhawk', sans-serif;
+  --font-heading: 'Orbitron', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -83,33 +92,13 @@ body::before {
   display: none !important;
 }
 
-h1, h2, h3, h4, h5, h6,
-.heading-font,
-.section-title,
-.heading-text {
-  font-family: 'Redhawk', sans-serif;
-  font-weight: 700;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   line-height: 1.2;
   color: #FFFFFF;
-  text-shadow:
-    -1.5px -1.5px 0 #B11226,
-    1.5px -1.5px 0 #B11226,
-    -1.5px 1.5px 0 #B11226,
-    1.5px 1.5px 0 #B11226,
-    -2px -2px 0 #B11226,
-    2px -2px 0 #B11226,
-    -2px 2px 0 #B11226,
-    2px 2px 0 #B11226,
-    -1px -1px 0 #000000,
-    1px -1px 0 #000000,
-    -1px 1px 0 #000000,
-    1px 1px 0 #000000,
-    -1.5px 0 0 #000000,
-    1.5px 0 0 #000000,
-    0 -1.5px 0 #000000,
-    0 1.5px 0 #000000;
 }
 
 h1 {
@@ -126,20 +115,11 @@ h3, h4, h5, h6 {
 }
 
 button {
-  font-family: 'Redhawk', sans-serif;
-  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   border-radius: 9999px !important;
-  text-shadow:
-    -1px -1px 0 #000000,
-    1px -1px 0 #000000,
-    -1px 1px 0 #000000,
-    1px 1px 0 #000000,
-    -1.5px 0 0 #000000,
-    1.5px 0 0 #000000,
-    0 -1.5px 0 #000000,
-    0 1.5px 0 #000000;
 }
 
 label, input, select, textarea {
@@ -175,19 +155,19 @@ button[class*="rounded"] {
 
 nav button,
 nav a {
-  font-family: 'Redhawk', sans-serif;
-  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   color: #FFFFFF;
 }
 
 .outlined-text {
   display: block;
-  font-family: 'Redhawk', sans-serif;
-  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
 }
 
 .text-body {
