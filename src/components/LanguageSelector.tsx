@@ -124,17 +124,14 @@ export default function LanguageSelector({ compact = false }: LanguageSelectorPr
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 ${
+        className={`flex items-center justify-center ${
           compact
-            ? 'px-3 py-2 bg-transparent hover:bg-[#1A1A1A]'
-            : 'px-6 py-3 bg-[#1A1A1A] border border-[#2E2E2E]'
-        } rounded-lg transition-colors`}
+            ? 'p-1.5 bg-[#1A1A1A] border border-[#2E2E2E]'
+            : 'p-2 bg-[#1A1A1A] border border-[#2E2E2E]'
+        } rounded-md transition-colors hover:bg-[#2E2E2E]`}
         aria-label="Select language"
       >
-        <Globe size={compact ? 18 : 20} className="text-[#B11226]" />
-        <span className="text-white font-medium text-sm" style={{ fontFamily: 'Redhawk' }}>
-          {compact ? selectedLanguage.toUpperCase() : currentLanguage.name}
-        </span>
+        <Globe size={compact ? 16 : 18} className="text-[#B11226]" />
       </button>
 
       {isOpen && (

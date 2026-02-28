@@ -31,7 +31,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
               </button>
             </div>
 
-            <div className="hidden lg:flex items-center justify-center space-x-8">
+            <div className="hidden lg:flex items-center justify-center space-x-5 py-[3px]">
               <button
                 onClick={() => handleNavigate('Home')}
                 className="nav-menu-item relative transition-all duration-300 pb-1"

@@ -435,6 +435,14 @@ nav a {
   }
 }
 
+@media (max-width: 767px) {
+  .hero-top-text .outlined-text,
+  .hero-bottom-text .outlined-text {
+    letter-spacing: 3px !important;
+    font-size: clamp(0.7rem, 3.2vw, 1.8rem) !important;
+  }
+}
+
 @media (min-width: 768px) {
   .hero-content-grid {
     transform: translateY(80px);
