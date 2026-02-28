@@ -279,6 +279,36 @@ nav a {
   }
 }
 
+@keyframes pulsingGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px #B11226, 0 0 40px #B11226, 0 0 60px #B11226;
+  }
+  50% {
+    box-shadow: 0 0 30px #B11226, 0 0 60px #B11226, 0 0 90px #B11226;
+  }
+}
+
+.xp-gain-card {
+  animation: pulsingGlow 0.75s ease-in-out infinite, scaleIn 0.3s ease-out;
+  background: linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%);
+  border: 2px solid #B11226;
+}
+
+.xp-gain-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-shadow:
+    2px 2px 0 #B11226,
+    -2px -2px 0 #000000,
+    2px -2px 0 #000000,
+    -2px 2px 0 #000000,
+    -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000;
+}
+
 @keyframes powerLevelTick {
   0% {
     transform: scale(1);

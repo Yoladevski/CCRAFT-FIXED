@@ -370,10 +370,10 @@ export default function Account({ onBack }: AccountProps) {
         )}
 
         <div className="bg-[#1A1A1A] border border-[#2E2E2E] mb-6">
-          <div className="flex border-b border-[#2E2E2E]">
+          <div className="grid grid-cols-3 border-b border-[#2E2E2E]">
             <button
               onClick={() => setActiveTab('profile')}
-              className={`button-text flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors ${
+              className={`button-text py-2.5 sm:py-4 px-1 sm:px-6 text-[10px] sm:text-base font-bold transition-colors text-center ${
                 activeTab === 'profile'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -383,7 +383,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('security')}
-              className={`button-text flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors ${
+              className={`button-text py-2.5 sm:py-4 px-1 sm:px-6 text-[10px] sm:text-base font-bold transition-colors text-center ${
                 activeTab === 'security'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -393,7 +393,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('settings')}
-              className={`button-text flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors ${
+              className={`button-text py-2.5 sm:py-4 px-1 sm:px-6 text-[10px] sm:text-base font-bold transition-colors text-center ${
                 activeTab === 'settings'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'

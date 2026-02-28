@@ -179,7 +179,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
         if (newRank) {
           setTimeout(() => setNewRank(null), 3000);
         }
-      }, 2000);
+      }, 1500);
     } catch (error) {
       console.error('Error completing technique:', error);
     }
@@ -420,8 +420,8 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
 
       {showXPGain && (
         <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
-          <div className="animate-scale-in">
-            <div className="text-6xl font-bold text-[#B11226]">+{xpGained} XP</div>
+          <div className="xp-gain-card rounded-lg px-8 py-6 sm:px-12 sm:py-8">
+            <div className="xp-gain-text text-4xl sm:text-6xl text-center">+{xpGained} XP</div>
           </div>
         </div>
       )}
