@@ -49,7 +49,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
     <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-7xl mx-auto relative z-10">
-        <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12" data-text="CHOOSE YOUR DISCIPLINE" style={{ textShadow: '1px 1px 0 #B11226' }}>
+        <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
           CHOOSE YOUR DISCIPLINE
         </h1>
 
