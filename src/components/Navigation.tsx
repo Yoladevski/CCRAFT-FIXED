@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
+import { NavMenuItem } from './NavMenuItem';
+import { MobileNavMenuItem } from './MobileNavMenuItem';
 
 interface NavigationProps {
   currentPage: string;
@@ -32,406 +34,45 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
             </div>
 
             <div className="hidden lg:flex items-center justify-center space-x-8">
-              <button
-                onClick={() => handleNavigate('Home')}
-                className={`button-text relative transition-all duration-300 pb-1`}
-                style={{
-                  fontSize: '0.9rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: '#FFFFFF',
-                  textShadow: `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    0 0 10px #B11226,
-                    0 0 20px #B11226,
-                    0 0 30px #B11226`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`;
-                }}
-              >
+              <NavMenuItem onClick={() => handleNavigate('Home')} isActive={currentPage === 'Home'}>
                 HOME
-                {currentPage === 'Home' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
-                )}
-              </button>
+              </NavMenuItem>
 
               {user && (
-                <button
-                  onClick={() => handleNavigate('Dashboard')}
-                  className={`button-text relative transition-all duration-300 pb-1`}
-                  style={{
-                    fontSize: '0.9rem',
-                    fontFamily: 'Redhawk, sans-serif',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    color: '#FFFFFF',
-                    textShadow: `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      -0.5px -0.5px 0 #000000,
-                      0.5px -0.5px 0 #000000,
-                      -0.5px 0.5px 0 #000000,
-                      0.5px 0.5px 0 #000000,
-                      -1px 0 0 #000000,
-                      1px 0 0 #000000,
-                      0 -1px 0 #000000,
-                      0 1px 0 #000000`
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      0 0 10px #B11226,
-                      0 0 20px #B11226,
-                      0 0 30px #B11226`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      -0.5px -0.5px 0 #000000,
-                      0.5px -0.5px 0 #000000,
-                      -0.5px 0.5px 0 #000000,
-                      0.5px 0.5px 0 #000000,
-                      -1px 0 0 #000000,
-                      1px 0 0 #000000,
-                      0 -1px 0 #000000,
-                      0 1px 0 #000000`;
-                  }}
-                >
+                <NavMenuItem onClick={() => handleNavigate('Dashboard')} isActive={currentPage === 'Dashboard'}>
                   DASHBOARD
-                  {currentPage === 'Dashboard' && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
-                  )}
-                </button>
+                </NavMenuItem>
               )}
 
-              <button
+              <NavMenuItem
                 onClick={() => handleNavigate('Disciplines')}
-                className={`button-text relative transition-all duration-300 pb-1`}
-                style={{
-                  fontSize: '0.9rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: '#FFFFFF',
-                  textShadow: `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    0 0 10px #B11226,
-                    0 0 20px #B11226,
-                    0 0 30px #B11226`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`;
-                }}
+                isActive={currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'}
               >
                 DISCIPLINES
-                {(currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique') && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
-                )}
-              </button>
+              </NavMenuItem>
 
-              <button
-                onClick={() => handleNavigate('News')}
-                className={`button-text relative transition-all duration-300 pb-1`}
-                style={{
-                  fontSize: '0.9rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: '#FFFFFF',
-                  textShadow: `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    0 0 10px #B11226,
-                    0 0 20px #B11226,
-                    0 0 30px #B11226`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`;
-                }}
-              >
+              <NavMenuItem onClick={() => handleNavigate('News')} isActive={currentPage === 'News'}>
                 NEWS
-                {currentPage === 'News' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
-                )}
-              </button>
+              </NavMenuItem>
 
-              <button
-                onClick={() => handleNavigate('Merchandise')}
-                className={`button-text relative transition-all duration-300 pb-1`}
-                style={{
-                  fontSize: '0.9rem',
-                  fontFamily: 'Redhawk, sans-serif',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: '#FFFFFF',
-                  textShadow: `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    0 0 10px #B11226,
-                    0 0 20px #B11226,
-                    0 0 30px #B11226`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                    1px -1px 0 #B11226,
-                    -1px 1px 0 #B11226,
-                    1px 1px 0 #B11226,
-                    -1.5px -1.5px 0 #B11226,
-                    1.5px -1.5px 0 #B11226,
-                    -1.5px 1.5px 0 #B11226,
-                    1.5px 1.5px 0 #B11226,
-                    -0.5px -0.5px 0 #000000,
-                    0.5px -0.5px 0 #000000,
-                    -0.5px 0.5px 0 #000000,
-                    0.5px 0.5px 0 #000000,
-                    -1px 0 0 #000000,
-                    1px 0 0 #000000,
-                    0 -1px 0 #000000,
-                    0 1px 0 #000000`;
-                }}
-              >
+              <NavMenuItem onClick={() => handleNavigate('Merchandise')} isActive={currentPage === 'Merchandise'}>
                 MERCHANDISE
-                {currentPage === 'Merchandise' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
-                )}
-              </button>
+              </NavMenuItem>
 
               {user ? (
-                <button
-                  onClick={() => handleNavigate('Account')}
-                  className={`button-text relative transition-all duration-300 pb-1 whitespace-nowrap`}
-                  style={{
-                    fontSize: '0.9rem',
-                    fontFamily: 'Redhawk, sans-serif',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    color: '#FFFFFF',
-                    textShadow: `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      -0.5px -0.5px 0 #000000,
-                      0.5px -0.5px 0 #000000,
-                      -0.5px 0.5px 0 #000000,
-                      0.5px 0.5px 0 #000000,
-                      -1px 0 0 #000000,
-                      1px 0 0 #000000,
-                      0 -1px 0 #000000,
-                      0 1px 0 #000000`
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      0 0 10px #B11226,
-                      0 0 20px #B11226,
-                      0 0 30px #B11226`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.textShadow = `-1px -1px 0 #B11226,
-                      1px -1px 0 #B11226,
-                      -1px 1px 0 #B11226,
-                      1px 1px 0 #B11226,
-                      -1.5px -1.5px 0 #B11226,
-                      1.5px -1.5px 0 #B11226,
-                      -1.5px 1.5px 0 #B11226,
-                      1.5px 1.5px 0 #B11226,
-                      -0.5px -0.5px 0 #000000,
-                      0.5px -0.5px 0 #000000,
-                      -0.5px 0.5px 0 #000000,
-                      0.5px 0.5px 0 #000000,
-                      -1px 0 0 #000000,
-                      1px 0 0 #000000,
-                      0 -1px 0 #000000,
-                      0 1px 0 #000000`;
-                  }}
-                >
+                <NavMenuItem onClick={() => handleNavigate('Account')} isActive={currentPage === 'Account'}>
                   MY ACCOUNT
-                  {currentPage === 'Account' && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
-                  )}
-                </button>
+                </NavMenuItem>
               ) : (
                 <button
                   onClick={() => handleNavigate('Auth')}
-                  className="button-text px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
+                  className="px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
                   style={{
-                    fontSize: '0.9rem',
-                    fontFamily: 'Redhawk, sans-serif',
-                    fontWeight: 700
+                    fontSize: '18px',
+                    fontFamily: 'Orbitron, sans-serif',
+                    fontWeight: 900,
+                    letterSpacing: '5px',
+                    color: '#FFFFFF'
                   }}
                 >
                   SIGN IN
@@ -499,193 +140,46 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
         </div>
 
         <div className="flex flex-col p-6 space-y-2">
-          <button
-            onClick={() => handleNavigate('Home')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              currentPage === 'Home'
-                ? 'bg-[#B11226] text-white'
-                : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-            }`}
-            style={{
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              WebkitTextStroke: '1px #B11226',
-              textStroke: '1px #B11226'
-            }}
-            onMouseEnter={(e) => {
-              if (currentPage !== 'Home') {
-                e.currentTarget.style.color = 'white';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (currentPage !== 'Home') {
-                e.currentTarget.style.color = '#A0A0A0';
-              }
-            }}
-          >
+          <MobileNavMenuItem onClick={() => handleNavigate('Home')} isActive={currentPage === 'Home'}>
             HOME
-          </button>
+          </MobileNavMenuItem>
 
           {user && (
-            <button
-              onClick={() => handleNavigate('Dashboard')}
-              className={`text-left text-xl py-4 px-4 rounded transition-all ${
-                currentPage === 'Dashboard'
-                  ? 'bg-[#B11226] text-white'
-                  : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-              }`}
-              style={{
-                fontFamily: 'Redhawk, sans-serif',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                WebkitTextStroke: '1px #B11226',
-                textStroke: '1px #B11226'
-              }}
-              onMouseEnter={(e) => {
-                if (currentPage !== 'Dashboard') {
-                  e.currentTarget.style.color = 'white';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (currentPage !== 'Dashboard') {
-                  e.currentTarget.style.color = '#A0A0A0';
-                }
-              }}
-            >
+            <MobileNavMenuItem onClick={() => handleNavigate('Dashboard')} isActive={currentPage === 'Dashboard'}>
               DASHBOARD
-            </button>
+            </MobileNavMenuItem>
           )}
 
-          <button
+          <MobileNavMenuItem
             onClick={() => handleNavigate('Disciplines')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
-                ? 'bg-[#B11226] text-white'
-                : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-            }`}
-            style={{
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              WebkitTextStroke: '1px #B11226',
-              textStroke: '1px #B11226'
-            }}
-            onMouseEnter={(e) => {
-              const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
-              if (!isActive) {
-                e.currentTarget.style.color = 'white';
-              }
-            }}
-            onMouseLeave={(e) => {
-              const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
-              if (!isActive) {
-                e.currentTarget.style.color = '#A0A0A0';
-              }
-            }}
+            isActive={currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'}
           >
             DISCIPLINES
-          </button>
+          </MobileNavMenuItem>
 
-          <button
-            onClick={() => handleNavigate('News')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              currentPage === 'News'
-                ? 'bg-[#B11226] text-white'
-                : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-            }`}
-            style={{
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              WebkitTextStroke: '1px #B11226',
-              textStroke: '1px #B11226'
-            }}
-            onMouseEnter={(e) => {
-              if (currentPage !== 'News') {
-                e.currentTarget.style.color = 'white';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (currentPage !== 'News') {
-                e.currentTarget.style.color = '#A0A0A0';
-              }
-            }}
-          >
+          <MobileNavMenuItem onClick={() => handleNavigate('News')} isActive={currentPage === 'News'}>
             NEWS
-          </button>
+          </MobileNavMenuItem>
 
-          <button
-            onClick={() => handleNavigate('Merchandise')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              currentPage === 'Merchandise'
-                ? 'bg-[#B11226] text-white'
-                : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-            }`}
-            style={{
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              WebkitTextStroke: '1px #B11226',
-              textStroke: '1px #B11226'
-            }}
-            onMouseEnter={(e) => {
-              if (currentPage !== 'Merchandise') {
-                e.currentTarget.style.color = 'white';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (currentPage !== 'Merchandise') {
-                e.currentTarget.style.color = '#A0A0A0';
-              }
-            }}
-          >
+          <MobileNavMenuItem onClick={() => handleNavigate('Merchandise')} isActive={currentPage === 'Merchandise'}>
             MERCHANDISE
-          </button>
+          </MobileNavMenuItem>
 
           {user ? (
-            <button
-              onClick={() => handleNavigate('Account')}
-              className={`text-left text-xl py-4 px-4 rounded transition-all ${
-                currentPage === 'Account'
-                  ? 'bg-[#B11226] text-white'
-                  : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-              }`}
-              style={{
-                fontFamily: 'Redhawk, sans-serif',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                WebkitTextStroke: '1px #B11226',
-                textStroke: '1px #B11226'
-              }}
-              onMouseEnter={(e) => {
-                if (currentPage !== 'Account') {
-                  e.currentTarget.style.color = 'white';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (currentPage !== 'Account') {
-                  e.currentTarget.style.color = '#A0A0A0';
-                }
-              }}
-            >
+            <MobileNavMenuItem onClick={() => handleNavigate('Account')} isActive={currentPage === 'Account'}>
               MY ACCOUNT
-            </button>
+            </MobileNavMenuItem>
           ) : (
             <button
               onClick={() => handleNavigate('Auth')}
               className="w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
               style={{
-                fontFamily: 'Redhawk, sans-serif',
-                fontWeight: 700,
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em'
+                letterSpacing: '5px',
+                fontSize: '18px',
+                color: '#FFFFFF'
               }}
             >
               SIGN IN
