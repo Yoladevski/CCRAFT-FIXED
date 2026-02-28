@@ -338,9 +338,9 @@ export default function Account({ onBack }: AccountProps) {
   }
 
   return (
-    <div className="min-h-screen py-4 sm:py-12 px-2 sm:px-4 relative -mt-20 pt-16 sm:pt-24 overflow-x-hidden">
+    <div className="min-h-screen py-4 sm:py-12 px-3 sm:px-4 relative -mt-20 pt-16 sm:pt-24 overflow-x-hidden">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
-      <div className="max-w-4xl mx-auto relative z-10 w-full">
+      <div className="max-w-4xl mx-auto relative z-10 w-full box-border">
         <div className="mb-3 sm:mb-6">
           <BackButton onBack={onBack} />
         </div>
@@ -373,7 +373,7 @@ export default function Account({ onBack }: AccountProps) {
           <div className="flex border-b border-[#2E2E2E]">
             <button
               onClick={() => setActiveTab('profile')}
-              className={`button-text flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors text-center ${
+              className={`button-text flex-1 py-3 sm:py-4 px-1 sm:px-6 text-[11px] sm:text-base font-bold transition-colors text-center ${
                 activeTab === 'profile'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -383,7 +383,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('security')}
-              className={`button-text flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors text-center ${
+              className={`button-text flex-1 py-3 sm:py-4 px-1 sm:px-6 text-[11px] sm:text-base font-bold transition-colors text-center ${
                 activeTab === 'security'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -393,7 +393,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('settings')}
-              className={`button-text flex-1 py-3 sm:py-4 px-2 sm:px-6 text-xs sm:text-base font-bold transition-colors text-center ${
+              className={`button-text flex-1 py-3 sm:py-4 px-1 sm:px-6 text-[11px] sm:text-base font-bold transition-colors text-center ${
                 activeTab === 'settings'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
