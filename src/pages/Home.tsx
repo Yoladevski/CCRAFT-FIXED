@@ -1,6 +1,5 @@
 import { useAuth } from '../contexts/AuthContext';
 import { BGPattern } from '../components/ui/bg-pattern';
-import { OutlinedText } from '../components/OutlinedText';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -59,30 +58,29 @@ export default function Home({ onNavigate }: HomeProps) {
               flexDirection: 'column',
               gap: '0.5rem',
               width: '100%',
+              textAlign: 'center',
             }}
           >
-            <OutlinedText
+            <h1
+              className="cc-outline-text"
+              data-text="STRUCTURED TRAINING"
               style={{
                 fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
-                fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
                 letterSpacing: '5px',
               }}
             >
               STRUCTURED TRAINING
-            </OutlinedText>
-            <OutlinedText
+            </h1>
+            <h1
+              className="cc-outline-text"
+              data-text="POWERED BY AI"
               style={{
                 fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
-                fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
                 letterSpacing: '5px',
               }}
             >
               POWERED BY AI
-            </OutlinedText>
+            </h1>
           </div>
 
           <div className="hero-middle-button">
@@ -112,30 +110,29 @@ export default function Home({ onNavigate }: HomeProps) {
               flexDirection: 'column',
               gap: '0.5rem',
               width: '100%',
+              textAlign: 'center',
             }}
           >
-            <OutlinedText
+            <h2
+              className="cc-outline-text"
+              data-text="TRAIN WITH PURPOSE"
               style={{
                 fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
-                fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                height: 'clamp(1rem, 3.3vw, 2rem)',
                 letterSpacing: '5px',
               }}
             >
               TRAIN WITH PURPOSE
-            </OutlinedText>
-            <OutlinedText
+            </h2>
+            <h2
+              className="cc-outline-text"
+              data-text="IMPROVE WITH STRUCTURE"
               style={{
                 fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
-                fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                height: 'clamp(1rem, 3.3vw, 2rem)',
                 letterSpacing: '5px',
               }}
             >
               IMPROVE WITH STRUCTURE
-            </OutlinedText>
+            </h2>
           </div>
         </div>
       </section>
