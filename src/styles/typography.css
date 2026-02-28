@@ -3,6 +3,7 @@
   font-weight: 900;
   font-size: 48px;
   line-height: 1.2;
+  letter-spacing: 5px;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 8px #000000;
@@ -26,6 +27,7 @@
   font-weight: 900;
   font-size: 36px;
   line-height: 1.2;
+  letter-spacing: 5px;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 6px #000000;
@@ -49,6 +51,7 @@
   font-weight: 900;
   font-size: 48px;
   line-height: 1.2;
+  letter-spacing: 5px;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 8px #000000;
@@ -72,6 +75,7 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 1.2;
+  letter-spacing: 5px;
   color: #EDEDED;
 }
 
@@ -80,6 +84,7 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 1.2;
+  letter-spacing: 5px;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 6px #000000;
@@ -103,6 +108,7 @@
   font-weight: 900;
   font-size: 18px;
   line-height: 1.2;
+  letter-spacing: 5px;
   color: #FFFFFF;
 }
 
@@ -111,6 +117,7 @@
   font-weight: 900;
   font-size: 12px;
   line-height: 1.2;
+  letter-spacing: 5px;
   color: #A0A0A0;
 }
 
@@ -119,6 +126,7 @@
   font-weight: 900;
   font-size: 18px;
   line-height: 1.2;
+  letter-spacing: 5px;
   color: #FFFFFF;
 }
 
@@ -127,13 +135,14 @@
   font-weight: 900;
   font-size: 18px;
   line-height: 1.2;
+  letter-spacing: 5px;
   color: #FFFFFF;
 }
 
 .cc-body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   color: #A0A0A0;
 }
@@ -141,6 +150,7 @@
 .cc-outline-text {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
+  letter-spacing: 5px;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 6px #000000;
@@ -164,6 +174,7 @@
   font-weight: 900;
   font-size: 18px;
   line-height: 1.2;
+  letter-spacing: 5px;
   color: #FFFFFF;
 }
 
@@ -172,6 +183,7 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 1.2;
+  letter-spacing: 5px;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 6px #000000;
@@ -195,6 +207,7 @@
   font-weight: 900;
   font-size: 48px;
   line-height: 1.2;
+  letter-spacing: 5px;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 8px #000000;

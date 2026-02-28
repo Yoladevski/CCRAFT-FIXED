@@ -96,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 5px;
   line-height: 1.2;
   color: #FFFFFF;
 }
@@ -118,7 +118,7 @@ button {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 5px;
   border-radius: 9999px !important;
 }
 
@@ -128,8 +128,9 @@ label, input, select, textarea {
 }
 
 p, span, div, li, small {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-weight: 500;
+  font-size: 14px;
 }
 
 .bg-\[\#1A1A1A\]:not(button),
@@ -158,7 +159,7 @@ nav a {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 5px;
   color: #FFFFFF;
 }
 
@@ -167,7 +168,7 @@ nav a {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 5px;
 }
 
 .text-body {

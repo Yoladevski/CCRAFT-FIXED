@@ -67,6 +67,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(2.5rem, 7vw, 4rem)',
+                letterSpacing: '5px',
               }}
             >
               STRUCTURED TRAINING
@@ -77,6 +78,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(2.5rem, 7vw, 4rem)',
+                letterSpacing: '5px',
               }}
             >
               POWERED BY AI
@@ -118,6 +120,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(2rem, 5.5vw, 3rem)',
+                letterSpacing: '5px',
               }}
             >
               TRAIN WITH PURPOSE
@@ -128,6 +131,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(2rem, 5.5vw, 3rem)',
+                letterSpacing: '5px',
               }}
             >
               IMPROVE WITH STRUCTURE
@@ -156,7 +160,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <h3 className="cc-section-heading text-center mb-4" data-text="STRUCTURED PROGRESSION">
                 STRUCTURED PROGRESSION
               </h3>
-              <p className="cc-body text-center leading-relaxed">
+              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px', fontWeight: 500, color: '#A0A0A0' }}>
                 Sequential unlock system ensures mastery before advancement. Build foundations properly.
               </p>
             </button>
@@ -177,7 +181,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <h3 className="cc-section-heading text-center mb-4" data-text="AI ENHANCED INSTRUCTION">
                 AI ENHANCED INSTRUCTION
               </h3>
-              <p className="cc-body text-center leading-relaxed">
+              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px', fontWeight: 500, color: '#A0A0A0' }}>
                 Detailed technique breakdowns with common mistakes and tactical applications.
               </p>
             </button>
@@ -198,7 +202,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <h3 className="cc-section-heading text-center mb-4" data-text="MULTI DISCIPLINE SYSTEM">
                 MULTI DISCIPLINE SYSTEM
               </h3>
-              <p className="cc-body text-center leading-relaxed">
+              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px', fontWeight: 500, color: '#A0A0A0' }}>
                 Train across Boxing, Muay Thai, BJJ, and more. Become a complete fighter.
               </p>
             </button>

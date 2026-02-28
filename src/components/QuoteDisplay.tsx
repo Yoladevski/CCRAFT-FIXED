@@ -92,10 +92,10 @@ export default function QuoteDisplay() {
     <div className="bg-[#0E0E0E] border border-[#2E2E2E] p-8 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-1 h-full bg-[#B11226]" />
       <div className="relative z-10">
-        <p className="text-white text-lg md:text-xl mb-4 leading-relaxed italic">
+        <p className="text-white mb-4 leading-relaxed italic" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px' }}>
           "{currentQuote.text}"
         </p>
-        <p className="text-[#B11226] text-sm md:text-base font-bold tracking-wider">
+        <p className="text-[#B11226] font-bold tracking-wider" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px' }}>
           — {currentQuote.author.toUpperCase()}
         </p>
       </div>
