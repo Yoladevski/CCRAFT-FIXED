@@ -102,26 +102,25 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
               </div>
 
               {discipline.description && (
-                <p className="text-sm text-[#A0A0A0] text-center mt-4 min-h-[2.5rem] px-2">
+                <p className="text-sm text-[#A0A0A0] text-center mt-2 min-h-[2.5rem] px-2">
                   {discipline.description}
                 </p>
               )}
 
-              {(discipline.is_active || isAdmin) && (
-                <button
-                  onClick={() => onNavigate('Discipline', discipline.id)}
-                  className="mt-4 focus:outline-none group"
-                >
-                  <img
-                    src={buttonImages[discipline.name] || buttonImages['Boxing']}
-                    alt={`${discipline.name} button`}
-                    className="w-full h-24 sm:h-28 object-contain transition-transform duration-200 group-hover:scale-105"
-                  />
-                  {!discipline.is_active && isAdmin && (
-                    <span className="block text-xs text-[#B11226] mt-1 text-center">(ADMIN ACCESS)</span>
-                  )}
-                </button>
-              )}
+              <button
+                onClick={() => (discipline.is_active || isAdmin) && onNavigate('Discipline', discipline.id)}
+                disabled={!discipline.is_active && !isAdmin}
+                className={`mt-2 focus:outline-none group ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed' : ''}`}
+              >
+                <img
+                  src={buttonImages[discipline.name] || buttonImages['Boxing']}
+                  alt={`${discipline.name} button`}
+                  className="w-full h-16 sm:h-20 object-contain transition-transform duration-200 group-hover:scale-105"
+                />
+                {!discipline.is_active && isAdmin && (
+                  <span className="block text-xs text-[#B11226] mt-1 text-center">(ADMIN ACCESS)</span>
+                )}
+              </button>
             </div>
           ))}
         </div>
