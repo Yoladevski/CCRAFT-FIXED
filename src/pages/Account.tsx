@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { LogOut, User, Camera, Copy, Check, Eye, EyeOff, Trash2 } from 'lucide-react';
+import { LogOut, User, Camera, Copy, Check, Eye, EyeOff, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
@@ -373,10 +373,50 @@ export default function Account({ onBack }: AccountProps) {
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
           }}
         >
-          <div className="flex border-b border-[#2E2E2E]">
+          {/* Mobile Tab Navigation with Arrows */}
+          <div className="flex sm:hidden border-b border-[#2E2E2E] items-center">
+            <button
+              onClick={() => {
+                if (activeTab === 'security') setActiveTab('profile');
+                else if (activeTab === 'settings') setActiveTab('security');
+              }}
+              disabled={activeTab === 'profile'}
+              className={`p-3 transition-colors ${
+                activeTab === 'profile'
+                  ? 'text-[#2E2E2E] cursor-not-allowed'
+                  : 'text-[#A0A0A0] hover:text-white'
+              }`}
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <div className="flex-1 py-3 text-center">
+              <span className="button-text text-sm font-bold text-white bg-[#B11226] px-4 py-2 rounded">
+                {activeTab === 'profile' && 'PROFILE'}
+                {activeTab === 'security' && 'SECURITY'}
+                {activeTab === 'settings' && 'SETTINGS'}
+              </span>
+            </div>
+            <button
+              onClick={() => {
+                if (activeTab === 'profile') setActiveTab('security');
+                else if (activeTab === 'security') setActiveTab('settings');
+              }}
+              disabled={activeTab === 'settings'}
+              className={`p-3 transition-colors ${
+                activeTab === 'settings'
+                  ? 'text-[#2E2E2E] cursor-not-allowed'
+                  : 'text-[#A0A0A0] hover:text-white'
+              }`}
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+
+          {/* Desktop Tab Navigation */}
+          <div className="hidden sm:flex border-b border-[#2E2E2E]">
             <button
               onClick={() => setActiveTab('profile')}
-              className={`button-text flex-1 py-2 sm:py-4 px-1 sm:px-6 text-[10px] sm:text-base font-bold transition-colors text-center whitespace-nowrap ${
+              className={`button-text flex-1 py-4 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
                 activeTab === 'profile'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -386,7 +426,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('security')}
-              className={`button-text flex-1 py-2 sm:py-4 px-1 sm:px-6 text-[10px] sm:text-base font-bold transition-colors text-center whitespace-nowrap ${
+              className={`button-text flex-1 py-4 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
                 activeTab === 'security'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -396,7 +436,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('settings')}
-              className={`button-text flex-1 py-2 sm:py-4 px-1 sm:px-6 text-[10px] sm:text-base font-bold transition-colors text-center whitespace-nowrap ${
+              className={`button-text flex-1 py-4 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
                 activeTab === 'settings'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
