@@ -1,5 +1,4 @@
 import BackButton from '../components/BackButton';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 interface MerchandiseProps {
   onBack: () => void;
@@ -25,7 +24,6 @@ const products = [
 export default function Merchandise({ onBack }: MerchandiseProps) {
   return (
     <div className="min-h-screen bg-[#0E0E0E] text-white relative">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div
         className="fixed inset-0 z-[1] pointer-events-none"
         style={{

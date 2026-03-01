@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Lock, ArrowLeft } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 type Category = Database['public']['Tables']['categories']['Row'];
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
@@ -53,7 +52,6 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
 
   return (
     <div className="min-h-screen py-6 sm:py-12 px-4 relative -mt-20 pt-20 sm:pt-24">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           <button

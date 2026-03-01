@@ -4,7 +4,6 @@ import { ArrowLeft, CheckCircle, ChevronDown, Check, ChevronRight } from 'lucide
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 type Technique = Database['public']['Tables']['techniques']['Row'];
 
@@ -222,7 +221,6 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
 
   return (
     <div className="min-h-screen py-6 sm:py-12 px-4 relative -mt-20 pt-20 sm:pt-24">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           <button

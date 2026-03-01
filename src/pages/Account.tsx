@@ -4,7 +4,6 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import BackButton from '../components/BackButton';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
@@ -339,7 +338,6 @@ export default function Account({ onBack }: AccountProps) {
 
   return (
     <div className="min-h-screen py-4 sm:py-12 px-3 sm:px-4 relative -mt-20 pt-16 sm:pt-24 overflow-x-hidden">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-4xl mx-auto relative z-10 w-full box-border">
         <div className="mb-3 sm:mb-6">
           <BackButton onBack={onBack} />

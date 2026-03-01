@@ -1,5 +1,4 @@
 import BackButton from '../components/BackButton';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 interface MultiDisciplineProps {
   onBack: () => void;
@@ -8,7 +7,6 @@ interface MultiDisciplineProps {
 export default function MultiDiscipline({ onBack }: MultiDisciplineProps) {
   return (
     <div className="min-h-screen py-8 px-4 relative">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-4xl mx-auto relative z-10">
         <BackButton onClick={onBack} />
 

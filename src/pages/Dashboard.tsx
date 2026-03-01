@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
-import { BGPattern } from '../components/ui/bg-pattern';
 import continueButton from '../assets/continue.png';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
@@ -164,7 +163,6 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   if (!user) {
     return (
       <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20 flex items-center justify-center">
-        <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
         <div className="max-w-2xl mx-auto relative z-10">
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center">
             <div className="mb-6">
@@ -238,7 +236,6 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
   return (
     <div className="min-h-screen py-4 px-4 relative -mt-20 pt-20">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-7xl mx-auto space-y-4 relative z-10">
 
         {/* WELCOME MESSAGE */}

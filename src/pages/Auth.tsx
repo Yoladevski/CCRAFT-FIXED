@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { BGPattern } from '../components/ui/bg-pattern';
 import { supabase } from '../lib/supabase';
 
 interface AuthProps {
@@ -135,7 +134,6 @@ export default function Auth({ onNavigate }: AuthProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-8 relative -mt-20 pt-20">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="w-full max-w-2xl relative z-10">
         <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
           {/* Background image with opacity - only visible in the card background */}
