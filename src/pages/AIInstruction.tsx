@@ -1,5 +1,5 @@
 import BackButton from '../components/BackButton';
-import { BGPattern } from '../components/ui/bg-pattern';
+import { RedEffectBackground } from '../components/ui/red-effect-background';
 
 interface AIInstructionProps {
   onBack: () => void;
@@ -8,7 +8,7 @@ interface AIInstructionProps {
 export default function AIInstruction({ onBack }: AIInstructionProps) {
   return (
     <div className="min-h-screen py-8 px-4 relative">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
+      <RedEffectBackground />
       <div className="max-w-4xl mx-auto relative z-10">
         <BackButton onClick={onBack} />
 

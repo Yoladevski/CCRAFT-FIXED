@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import BackButton from '../components/BackButton';
-import { BGPattern } from '../components/ui/bg-pattern';
+import { RedEffectBackground } from '../components/ui/red-effect-background';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
@@ -339,7 +339,7 @@ export default function Account({ onBack }: AccountProps) {
 
   return (
     <div className="min-h-screen py-4 sm:py-12 px-3 sm:px-4 relative -mt-20 pt-16 sm:pt-24 overflow-x-hidden">
-      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
+      <RedEffectBackground />
       <div className="max-w-4xl mx-auto relative z-10 w-full box-border">
         <div className="mb-3 sm:mb-6">
           <BackButton onBack={onBack} />
@@ -369,7 +369,12 @@ export default function Account({ onBack }: AccountProps) {
           </div>
         )}
 
-        <div className="bg-[#1A1A1A] border border-[#2E2E2E] mb-4 sm:mb-6 overflow-hidden rounded-lg">
+        <div
+          className="bg-[#1A1A1A] border border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg"
+          style={{
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
+          }}
+        >
           <div className="flex border-b border-[#2E2E2E]">
             <button
               onClick={() => setActiveTab('profile')}

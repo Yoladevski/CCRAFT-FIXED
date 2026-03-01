@@ -1,5 +1,5 @@
 import { useAuth } from '../contexts/AuthContext';
-import { BGPattern } from '../components/ui/bg-pattern';
+import { RedEffectBackground } from '../components/ui/red-effect-background';
 import { OutlinedText } from '../components/OutlinedText';
 
 interface HomeProps {
@@ -141,7 +141,7 @@ export default function Home({ onNavigate }: HomeProps) {
       </section>
 
       <section className="py-16 sm:py-24 px-4 bg-[#0E0E0E] relative">
-        <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
+        <RedEffectBackground />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mt-[10px]">
             <button
