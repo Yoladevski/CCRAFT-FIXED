@@ -9,16 +9,6 @@ export default function MultiDiscipline({ onBack }: MultiDisciplineProps) {
   return (
     <div className="min-h-screen py-8 px-4 relative">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
-      <div
-        className="fixed inset-0 z-[1] pointer-events-none"
-        style={{
-          backgroundImage: 'url(https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.08
-        }}
-      />
       <div className="max-w-4xl mx-auto relative z-10">
         <BackButton onClick={onBack} />
 

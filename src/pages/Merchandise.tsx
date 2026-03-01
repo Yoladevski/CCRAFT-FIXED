@@ -29,11 +29,11 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
       <div
         className="fixed inset-0 z-[1] pointer-events-none"
         style={{
-          backgroundImage: 'url(https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png)',
+          backgroundImage: 'url(https://api.combatcraft.co.uk/storage/v1/object/public/images/runnn.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.08
+          opacity: 0.2
         }}
       />
 

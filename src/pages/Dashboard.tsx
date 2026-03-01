@@ -239,16 +239,6 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   return (
     <div className="min-h-screen py-4 px-4 relative -mt-20 pt-20">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
-      <div
-        className="fixed inset-0 z-[1] pointer-events-none"
-        style={{
-          backgroundImage: 'url(https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.08
-        }}
-      />
       <div className="max-w-7xl mx-auto space-y-4 relative z-10">
 
         {/* WELCOME MESSAGE */}
