@@ -75,11 +75,14 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
                 category.is_active && onNavigate('Category', category.id)
               }
               disabled={!category.is_active}
-              className={`relative group h-48 rounded-lg overflow-hidden border-2 transition-all transform ${
+              className={`relative group h-48 rounded-2xl overflow-hidden border-2 transition-all transform ${
                 category.is_active
-                  ? 'border-[#2E2E2E] hover:border-[#B11226] hover:scale-105 cursor-pointer'
+                  ? 'border-[#B11226] hover:scale-105 cursor-pointer'
                   : 'border-[#2E2E2E] opacity-60 cursor-not-allowed'
               }`}
+              style={category.is_active ? {
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              } : undefined}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0E0E0E]" />
 
