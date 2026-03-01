@@ -187,9 +187,12 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
                   completed
                     ? 'border-[#B11226] bg-[#B11226]/10'
                     : unlocked
-                    ? 'border-[#2E2E2E] hover:border-[#B11226] hover:scale-105 bg-[#1A1A1A]'
+                    ? 'border-[#B11226] hover:scale-105 bg-[#1A1A1A]'
                     : 'border-[#2E2E2E] opacity-50 cursor-not-allowed bg-[#1A1A1A]'
                 }`}
+                style={unlocked ? {
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                } : undefined}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">

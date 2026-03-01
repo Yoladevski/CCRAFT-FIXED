@@ -263,7 +263,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
 
         <div className="space-y-4">
           {technique.why && (
-            <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden">
+            <div
+              className="bg-[#1A1A1A] rounded-lg border-2 border-[#B11226] overflow-hidden"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              }}
+            >
               <button
                 onClick={() => toggleSection('why')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -288,7 +293,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
           )}
 
           {technique.how && (
-            <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden">
+            <div
+              className="bg-[#1A1A1A] rounded-lg border-2 border-[#B11226] overflow-hidden"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              }}
+            >
               <button
                 onClick={() => toggleSection('how')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -313,7 +323,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
           )}
 
           {technique.common_mistakes && (
-            <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden">
+            <div
+              className="bg-[#1A1A1A] rounded-lg border-2 border-[#B11226] overflow-hidden"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              }}
+            >
               <button
                 onClick={() => toggleSection('mistakes')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -338,7 +353,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
           )}
 
           {technique.simple_drills && (
-            <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden">
+            <div
+              className="bg-[#1A1A1A] rounded-lg border-2 border-[#B11226] overflow-hidden"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              }}
+            >
               <button
                 onClick={() => toggleSection('drills')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -365,7 +385,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
           )}
 
           {technique.coaches_tips && (
-            <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden">
+            <div
+              className="bg-[#1A1A1A] rounded-lg border-2 border-[#B11226] overflow-hidden"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              }}
+            >
               <button
                 onClick={() => toggleSection('coachesTips')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
