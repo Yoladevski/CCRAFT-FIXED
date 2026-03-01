@@ -367,7 +367,12 @@ export default function Account({ onBack }: AccountProps) {
           </div>
         )}
 
-        <div className="bg-[#1A1A1A] border border-[#2E2E2E] mb-4 sm:mb-6 overflow-hidden rounded-lg">
+        <div
+          className="bg-[#1A1A1A] border-2 border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg"
+          style={{
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+          }}
+        >
           <div className="flex border-b border-[#2E2E2E]">
             <button
               onClick={() => setActiveTab('profile')}

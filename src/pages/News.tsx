@@ -70,7 +70,10 @@ export default function News({ onBack }: NewsProps) {
           {filteredArticles.map((article) => (
             <div
               key={article.id}
-              className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden hover:border-[#B11226] transition-all transform hover:scale-105"
+              className="bg-[#1A1A1A] rounded-lg border-2 border-[#B11226] overflow-hidden transition-all transform hover:scale-105"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              }}
             >
               <div className="h-48 bg-[#2E2E2E] flex items-center justify-center text-7xl">
                 {article.image}
