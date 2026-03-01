@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
-import { RedEffectBackground } from '../components/ui/red-effect-background';
+import { BGPattern } from '../components/ui/bg-pattern';
 import { useAuth } from '../contexts/AuthContext';
 import Auth from './Auth';
 
@@ -64,7 +64,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
 
   return (
     <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
-      <RedEffectBackground />
+      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-7xl mx-auto relative z-10">
         <h1 className="cc-red-shadow-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
           CHOOSE YOUR DISCIPLINE

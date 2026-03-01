@@ -1,5 +1,5 @@
 import BackButton from '../components/BackButton';
-import { RedEffectBackground } from '../components/ui/red-effect-background';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface TermsOfServiceProps {
   onBack: () => void;
@@ -8,7 +8,7 @@ interface TermsOfServiceProps {
 export default function TermsOfService({ onBack }: TermsOfServiceProps) {
   return (
     <div className="min-h-screen bg-[#0E0E0E] py-6 sm:py-16 px-4 sm:px-6 lg:px-8 relative -mt-20 pt-20 sm:pt-24">
-      <RedEffectBackground />
+      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />

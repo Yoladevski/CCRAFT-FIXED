@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import BackButton from '../components/BackButton';
-import { RedEffectBackground } from '../components/ui/red-effect-background';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface NewsProps {
   onBack: () => void;
@@ -45,7 +45,7 @@ export default function News({ onBack }: NewsProps) {
 
   return (
     <div className="min-h-screen py-6 sm:py-12 px-4 relative -mt-20 pt-20 sm:pt-24">
-      <RedEffectBackground />
+      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-4 sm:mb-6">
           <BackButton onBack={onBack} />
@@ -72,10 +72,7 @@ export default function News({ onBack }: NewsProps) {
           {filteredArticles.map((article) => (
             <div
               key={article.id}
-              className="bg-[#1A1A1A] rounded-lg border border-[#B11226] overflow-hidden hover:border-[#B11226] transition-all transform hover:scale-105"
-              style={{
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
-              }}
+              className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] overflow-hidden hover:border-[#B11226] transition-all transform hover:scale-105"
             >
               <div className="h-48 bg-[#2E2E2E] flex items-center justify-center text-7xl">
                 {article.image}

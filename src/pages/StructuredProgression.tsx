@@ -1,5 +1,5 @@
 import BackButton from '../components/BackButton';
-import { RedEffectBackground } from '../components/ui/red-effect-background';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface StructuredProgressionProps {
   onBack: () => void;
@@ -8,7 +8,7 @@ interface StructuredProgressionProps {
 export default function StructuredProgression({ onBack }: StructuredProgressionProps) {
   return (
     <div className="min-h-screen py-8 px-4 relative">
-      <RedEffectBackground />
+      <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
       <div className="max-w-4xl mx-auto relative z-10">
         <BackButton onClick={onBack} />
 
