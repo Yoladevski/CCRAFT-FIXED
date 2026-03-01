@@ -26,6 +26,16 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
   return (
     <div className="min-h-screen bg-[#0E0E0E] text-white relative">
       <BGPattern variant="grid" size={24} fill="#1a1a1a" mask="fade-edges" className="opacity-30" />
+      <div
+        className="fixed inset-0 z-[1] pointer-events-none"
+        style={{
+          backgroundImage: 'url(https://api.combatcraft.co.uk/storage/v1/object/public/images/runnn.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.2
+        }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <BackButton onClick={onBack} />
