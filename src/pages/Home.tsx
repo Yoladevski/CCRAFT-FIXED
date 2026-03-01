@@ -146,7 +146,10 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mt-[10px]">
             <button
               onClick={() => onNavigate('StructuredProgression')}
-              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
+              }}
             >
               <div className="mb-6 mx-auto flex items-center justify-center">
                 <img
@@ -170,7 +173,10 @@ export default function Home({ onNavigate }: HomeProps) {
 
             <button
               onClick={() => onNavigate('AIInstruction')}
-              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
+              }}
             >
               <div className="mb-6 mx-auto flex items-center justify-center">
                 <img
@@ -194,7 +200,10 @@ export default function Home({ onNavigate }: HomeProps) {
 
             <button
               onClick={() => onNavigate('MultiDiscipline')}
-              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#2E2E2E] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
+              }}
             >
               <div className="mb-6 mx-auto flex items-center justify-center">
                 <img
