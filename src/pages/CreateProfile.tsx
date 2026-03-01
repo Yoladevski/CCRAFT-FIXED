@@ -72,8 +72,18 @@ export default function CreateProfile() {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center p-3 sm:p-4">
-      <div className="max-w-md w-full bg-[#1A1A1A] rounded-lg p-6 sm:p-8 border border-[#B11226]/30">
+    <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center p-3 sm:p-4 relative">
+      <div
+        className="fixed inset-0 z-[1] pointer-events-none"
+        style={{
+          backgroundImage: 'url(https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.08
+        }}
+      />
+      <div className="max-w-md w-full bg-[#1A1A1A] rounded-lg p-6 sm:p-8 border border-[#B11226]/30 relative z-10">
         <h1
           className="text-3xl sm:text-4xl font-bold text-white text-center mb-2"
           style={{ fontFamily: 'Redhawk' }}
