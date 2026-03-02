@@ -26,6 +26,7 @@ export default function Account({ onBack }: AccountProps) {
   const [uploadingPicture, setUploadingPicture] = useState(false);
 
   const [newEmail, setNewEmail] = useState('');
+  const [countryCode, setCountryCode] = useState('+1');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -294,7 +295,7 @@ export default function Account({ onBack }: AccountProps) {
 
     try {
       const { error } = await supabase.auth.updateUser({
-        phone: phoneNumber
+        phone: `${countryCode}${phoneNumber}`
       });
 
       if (error) throw error;
@@ -649,14 +650,77 @@ export default function Account({ onBack }: AccountProps) {
                     <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
                       PHONE NUMBER
                     </label>
-                    <input
-                      type="tel"
-                      value={phoneNumber}
-                      onChange={(e) => setPhoneNumber(e.target.value)}
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'Inter' }}
-                      placeholder="+1 (555) 123-4567"
-                    />
+                    <div className="flex gap-2">
+                      <select
+                        value={countryCode}
+                        onChange={(e) => setCountryCode(e.target.value)}
+                        className="w-28 sm:w-32 shrink-0 px-2 sm:px-3 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-xs sm:text-sm focus:outline-none focus:border-[#B11226] transition-colors"
+                        style={{ fontFamily: 'Inter' }}
+                      >
+                        <option value="+1">🇺🇸 +1</option>
+                        <option value="+44">🇬🇧 +44</option>
+                        <option value="+61">🇦🇺 +61</option>
+                        <option value="+64">🇳🇿 +64</option>
+                        <option value="+353">🇮🇪 +353</option>
+                        <option value="+33">🇫🇷 +33</option>
+                        <option value="+49">🇩🇪 +49</option>
+                        <option value="+34">🇪🇸 +34</option>
+                        <option value="+39">🇮🇹 +39</option>
+                        <option value="+31">🇳🇱 +31</option>
+                        <option value="+32">🇧🇪 +32</option>
+                        <option value="+41">🇨🇭 +41</option>
+                        <option value="+43">🇦🇹 +43</option>
+                        <option value="+46">🇸🇪 +46</option>
+                        <option value="+47">🇳🇴 +47</option>
+                        <option value="+45">🇩🇰 +45</option>
+                        <option value="+358">🇫🇮 +358</option>
+                        <option value="+351">🇵🇹 +351</option>
+                        <option value="+30">🇬🇷 +30</option>
+                        <option value="+48">🇵🇱 +48</option>
+                        <option value="+420">🇨🇿 +420</option>
+                        <option value="+36">🇭🇺 +36</option>
+                        <option value="+40">🇷🇴 +40</option>
+                        <option value="+7">🇷🇺 +7</option>
+                        <option value="+380">🇺🇦 +380</option>
+                        <option value="+90">🇹🇷 +90</option>
+                        <option value="+972">🇮🇱 +972</option>
+                        <option value="+971">🇦🇪 +971</option>
+                        <option value="+966">🇸🇦 +966</option>
+                        <option value="+92">🇵🇰 +92</option>
+                        <option value="+91">🇮🇳 +91</option>
+                        <option value="+880">🇧🇩 +880</option>
+                        <option value="+94">🇱🇰 +94</option>
+                        <option value="+977">🇳🇵 +977</option>
+                        <option value="+86">🇨🇳 +86</option>
+                        <option value="+81">🇯🇵 +81</option>
+                        <option value="+82">🇰🇷 +82</option>
+                        <option value="+84">🇻🇳 +84</option>
+                        <option value="+66">🇹🇭 +66</option>
+                        <option value="+60">🇲🇾 +60</option>
+                        <option value="+65">🇸🇬 +65</option>
+                        <option value="+63">🇵🇭 +63</option>
+                        <option value="+62">🇮🇩 +62</option>
+                        <option value="+55">🇧🇷 +55</option>
+                        <option value="+54">🇦🇷 +54</option>
+                        <option value="+57">🇨🇴 +57</option>
+                        <option value="+56">🇨🇱 +56</option>
+                        <option value="+52">🇲🇽 +52</option>
+                        <option value="+27">🇿🇦 +27</option>
+                        <option value="+234">🇳🇬 +234</option>
+                        <option value="+254">🇰🇪 +254</option>
+                        <option value="+233">🇬🇭 +233</option>
+                        <option value="+20">🇪🇬 +20</option>
+                        <option value="+212">🇲🇦 +212</option>
+                      </select>
+                      <input
+                        type="tel"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        className="flex-1 min-w-0 px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
+                        style={{ fontFamily: 'Inter' }}
+                        placeholder="7911 123456"
+                      />
+                    </div>
                   </div>
                   <button
                     type="submit"
