@@ -186,7 +186,7 @@ function App() {
       <ThemeProvider>
         <AuthProvider>
           <AppContent />
-          {showLoading && !loadingComplete && (
+          {showLoading && (
             <LoadingScreen onComplete={handleLoadingComplete} />
           )}
         </AuthProvider>
