@@ -269,7 +269,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           <button
             onClick={() => {
               if (nextTechnique) {
-                navigate(`/technique/${nextTechnique.disciplineId}/${nextTechnique.categoryId}/${nextTechnique.techniqueId}`);
+                navigate(`/technique/${nextTechnique.techniqueId}`);
               } else {
                 onNavigate('Disciplines');
               }
