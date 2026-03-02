@@ -359,7 +359,7 @@ export default function Account({ onBack }: AccountProps) {
 
         {message && (
           <div className={`mb-6 p-4 rounded text-center ${
-            message.includes('success')
+            message.includes('success') || message.includes('initiated') || message.includes('check your')
               ? 'bg-green-500/20 border border-green-500 text-green-500'
               : 'bg-[#B11226]/20 border border-[#B11226] text-[#B11226]'
           }`} style={{ fontFamily: 'Redhawk' }}>
