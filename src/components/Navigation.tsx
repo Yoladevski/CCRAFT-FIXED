@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
@@ -8,7 +8,7 @@ interface NavigationProps {
   onNavigate: (page: string, disciplineId?: string) => void;
 }
 
-export default function Navigation({ currentPage, onNavigate }: NavigationProps) {
+const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user } = useAuth();
 
@@ -362,4 +362,6 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
       <div className="h-16" />
     </>
   );
-}
+});
+
+export default Navigation;

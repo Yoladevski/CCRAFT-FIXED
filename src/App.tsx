@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useCallback, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -63,7 +63,7 @@ function AppContent() {
     history: [],
   });
 
-  const handleNavigate = (page: Page, id?: string) => {
+  const handleNavigate = useCallback((page: Page, id?: string) => {
     window.scrollTo(0, 0);
 
     const routes: Record<string, string> = {
@@ -124,12 +124,12 @@ function AppContent() {
 
       return newState;
     });
-  };
+  }, [navigate]);
 
-  const goBack = () => {
+  const goBack = useCallback(() => {
     window.scrollTo(0, 0);
     navigate(-1);
-  };
+  }, [navigate]);
 
   if (loading) {
     return (

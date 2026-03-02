@@ -1,10 +1,11 @@
+import React from 'react';
 import { Instagram } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
 }
 
-export default function Footer({ onNavigate }: FooterProps) {
+const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="bg-black border-t border-[#2E2E2E] mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -107,4 +108,6 @@ export default function Footer({ onNavigate }: FooterProps) {
       </div>
     </footer>
   );
-}
+});
+
+export default Footer;
