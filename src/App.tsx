@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -174,30 +174,21 @@ function AppContent() {
 }
 
 function App() {
-  const [showLoading, setShowLoading] = useState(true);
-  const [loadingComplete, setLoadingComplete] = useState(false);
-
-  useEffect(() => {
-    const hasShownLoading = sessionStorage.getItem('cc_loading_shown');
-    if (hasShownLoading) {
-      setShowLoading(false);
-      setLoadingComplete(true);
-    }
-  }, []);
+  const [showLoading, setShowLoading] = useState(() => !sessionStorage.getItem('cc_loading_shown'));
 
   const handleLoadingComplete = () => {
     sessionStorage.setItem('cc_loading_shown', 'true');
-    setLoadingComplete(true);
+    setShowLoading(false);
   };
 
   return (
     <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
+          <AppContent />
           {showLoading && !loadingComplete && (
             <LoadingScreen onComplete={handleLoadingComplete} />
           )}
-          {loadingComplete && <AppContent />}
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
