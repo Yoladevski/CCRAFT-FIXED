@@ -2,8 +2,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
+import MainLayout from './components/MainLayout';
 import LoadingScreen from './components/LoadingScreen';
 
 const Home = lazy(() => import('./pages/Home'));
@@ -141,39 +140,31 @@ function AppContent() {
         <Route path="/post-verify" element={<PostVerify />} />
         <Route path="/create-profile" element={<CreateProfile />} />
         <Route path="/auth/callback" element={<AuthCallback />} />
-        <Route path="*" element={
-          <div className="flex flex-col min-h-screen relative bg-[#0E0E0E]">
-            <Navigation currentPage={navState.page} onNavigate={(page, id) => handleNavigate(page as Page, id)} />
-            <main className="flex-grow relative z-10 bg-[#0E0E0E]">
-              <Routes>
-                <Route path="/" element={<Home onNavigate={(page) => handleNavigate(page as Page)} />} />
-                <Route path="/auth" element={<Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
-                <Route path="/disciplines" element={<Disciplines onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
-                <Route path="/discipline/:id" element={<DisciplinePage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
-                <Route path="/category/:id" element={<CategoryPage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
-                <Route path="/technique/:disciplineId/:categoryId/:techniqueId" element={<TechniquePage onNavigate={(page, id) => handleNavigate(page as Page, id)} onBack={goBack} />} />
-                <Route path="/technique/:id" element={<TechniquePage onNavigate={(page, id) => handleNavigate(page as Page, id)} onBack={goBack} />} />
-                <Route path="/dashboard" element={user ? <Dashboard onNavigate={(page) => handleNavigate(page as Page)} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
-                <Route path="/news" element={<News onBack={goBack} />} />
-                <Route path="/merchandise" element={<Merchandise onBack={goBack} />} />
-                <Route path="/account" element={user ? <Account onBack={goBack} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy onBack={goBack} />} />
-                <Route path="/terms-of-service" element={<TermsOfService onBack={goBack} />} />
-                <Route path="/cookie-policy" element={<CookiePolicy onBack={goBack} />} />
-                <Route path="/disclaimer" element={<Disclaimer onBack={goBack} />} />
-                <Route path="/legal" element={<Legal onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} />} />
-                <Route path="/about-us" element={<AboutUs onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} />} />
-                <Route path="/vision" element={<Vision onBack={goBack} />} />
-                <Route path="/contact" element={<Contact onBack={goBack} />} />
-                <Route path="/affiliates" element={<Affiliates onBack={goBack} />} />
-                <Route path="/structured-progression" element={<StructuredProgression onBack={goBack} />} />
-                <Route path="/ai-instruction" element={<AIInstruction onBack={goBack} />} />
-                <Route path="/multi-discipline" element={<MultiDiscipline onBack={goBack} />} />
-              </Routes>
-            </main>
-            <Footer onNavigate={(page) => handleNavigate(page as Page)} />
-          </div>
-        } />
+        <Route element={<MainLayout currentPage={navState.page} onNavigate={(page, id) => handleNavigate(page as Page, id)} />}>
+          <Route path="/" element={<Home onNavigate={(page) => handleNavigate(page as Page)} />} />
+          <Route path="/auth" element={<Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
+          <Route path="/disciplines" element={<Disciplines onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
+          <Route path="/discipline/:id" element={<DisciplinePage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
+          <Route path="/category/:id" element={<CategoryPage onNavigate={(page, id) => handleNavigate(page as Page, id)} />} />
+          <Route path="/technique/:disciplineId/:categoryId/:techniqueId" element={<TechniquePage onNavigate={(page, id) => handleNavigate(page as Page, id)} onBack={goBack} />} />
+          <Route path="/technique/:id" element={<TechniquePage onNavigate={(page, id) => handleNavigate(page as Page, id)} onBack={goBack} />} />
+          <Route path="/dashboard" element={user ? <Dashboard onNavigate={(page) => handleNavigate(page as Page)} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
+          <Route path="/news" element={<News onBack={goBack} />} />
+          <Route path="/merchandise" element={<Merchandise onBack={goBack} />} />
+          <Route path="/account" element={user ? <Account onBack={goBack} /> : <Auth onNavigate={(page) => handleNavigate(page as Page)} />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy onBack={goBack} />} />
+          <Route path="/terms-of-service" element={<TermsOfService onBack={goBack} />} />
+          <Route path="/cookie-policy" element={<CookiePolicy onBack={goBack} />} />
+          <Route path="/disclaimer" element={<Disclaimer onBack={goBack} />} />
+          <Route path="/legal" element={<Legal onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} />} />
+          <Route path="/about-us" element={<AboutUs onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} />} />
+          <Route path="/vision" element={<Vision onBack={goBack} />} />
+          <Route path="/contact" element={<Contact onBack={goBack} />} />
+          <Route path="/affiliates" element={<Affiliates onBack={goBack} />} />
+          <Route path="/structured-progression" element={<StructuredProgression onBack={goBack} />} />
+          <Route path="/ai-instruction" element={<AIInstruction onBack={goBack} />} />
+          <Route path="/multi-discipline" element={<MultiDiscipline onBack={goBack} />} />
+        </Route>
       </Routes>
     </Suspense>
   );
