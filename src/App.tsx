@@ -35,12 +35,15 @@ const AuthCallback = lazy(() => import('./pages/AuthCallback'));
 
 type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline';
 
-interface NavigationState {
+interface NavSnapshot {
   page: Page;
   disciplineId?: string;
   categoryId?: string;
   techniqueId?: string;
-  history: NavigationState[];
+}
+
+interface NavigationState extends NavSnapshot {
+  history: NavSnapshot[];
 }
 
 function AppContent() {
@@ -87,9 +90,16 @@ function AppContent() {
     }
 
     setNavState((prev) => {
+      const snapshot: NavSnapshot = {
+        page: prev.page,
+        disciplineId: prev.disciplineId,
+        categoryId: prev.categoryId,
+        techniqueId: prev.techniqueId,
+      };
+
       const newState: NavigationState = {
         page,
-        history: [...prev.history, { ...prev }],
+        history: [...prev.history, snapshot],
       };
 
       if (page === 'Discipline') {
