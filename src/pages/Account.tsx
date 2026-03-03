@@ -391,7 +391,7 @@ export default function Account({ onBack }: AccountProps) {
               <ChevronLeft size={24} />
             </button>
             <div className="flex-1 py-3 text-center">
-              <span className="button-text text-sm font-bold text-white bg-[#B11226] px-4 py-2 rounded">
+              <span className="button-text text-sm font-bold text-white bg-[#B11226] px-4 py-1 rounded">
                 {activeTab === 'profile' && 'PROFILE'}
                 {activeTab === 'security' && 'SECURITY'}
                 {activeTab === 'settings' && 'SETTINGS'}
