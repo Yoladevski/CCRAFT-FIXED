@@ -10,6 +10,7 @@ const WAIVER_VERSION = '1.0_Feb_2026';
 
 export default function Auth({ onNavigate }: AuthProps) {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -122,8 +123,31 @@ export default function Auth({ onNavigate }: AuthProps) {
     }
   };
 
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      setError('Please enter your email address');
+      return;
+    }
+    setLoading(true);
+    setError('');
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/auth/callback?type=recovery`,
+      });
+      if (error) throw error;
+      setSuccessMessage('Password reset email sent! Check your inbox.');
+      setEmail('');
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const toggleMode = () => {
     setIsSignUp(!isSignUp);
+    setIsForgotPassword(false);
     setError('');
     setSuccessMessage('');
     setAgeConfirmed(false);
@@ -147,7 +171,7 @@ export default function Auth({ onNavigate }: AuthProps) {
 
           <div className="relative z-10">
             <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">
-              {isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
+              {isForgotPassword ? 'RESET PASSWORD' : isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
             </h2>
 
           {error && (
@@ -162,6 +186,39 @@ export default function Auth({ onNavigate }: AuthProps) {
             </div>
           )}
 
+          {isForgotPassword ? (
+            <form onSubmit={handleForgotPassword} className="space-y-4 sm:space-y-6">
+              <div>
+                <label className="block text-sm text-[#A0A0A0] mb-2 text-body">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white focus:outline-none focus:border-[#B11226] transition-colors text-body"
+                  placeholder="your@email.com"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="button-text w-full py-3 sm:py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              >
+                {loading ? 'SENDING...' : 'SEND RESET EMAIL'}
+              </button>
+              <div className="text-center">
+                <button
+                  type="button"
+                  onClick={() => { setIsForgotPassword(false); setError(''); setSuccessMessage(''); }}
+                  className="text-[#A0A0A0] hover:text-white transition-colors text-sm sm:text-base text-body underline hover:no-underline"
+                >
+                  Back to sign in
+                </button>
+              </div>
+            </form>
+          ) : (
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <div>
               <label className="block text-sm text-[#A0A0A0] mb-2 text-body">
@@ -178,9 +235,20 @@ export default function Auth({ onNavigate }: AuthProps) {
             </div>
 
             <div>
-              <label className="block text-sm text-[#A0A0A0] mb-2 text-body">
-                Password
-              </label>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-sm text-[#A0A0A0] text-body">
+                  Password
+                </label>
+                {!isSignUp && (
+                  <button
+                    type="button"
+                    onClick={() => { setIsForgotPassword(true); setError(''); setSuccessMessage(''); }}
+                    className="text-xs text-[#B11226] hover:text-white transition-colors text-body underline hover:no-underline"
+                  >
+                    Forgot password?
+                  </button>
+                )}
+              </div>
               <input
                 type="password"
                 value={password}
@@ -315,7 +383,10 @@ export default function Auth({ onNavigate }: AuthProps) {
               {loading ? 'LOADING...' : isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN'}
             </button>
           </form>
+          )}
 
+          {!isForgotPassword && (
+          <>
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-[#2E2E2E]"></div>
@@ -362,6 +433,8 @@ export default function Auth({ onNavigate }: AuthProps) {
                 : "Don't have an account? Sign up"}
             </button>
           </div>
+          </>
+          )}
           </div>
         </div>
       </div>
