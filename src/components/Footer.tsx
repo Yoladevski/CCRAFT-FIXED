@@ -13,7 +13,7 @@ const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
           <div className="flex justify-center">
             <button
               onClick={() => onNavigate('Home')}
-              className="hover:opacity-80 transition-opacity"
+              className="hover:opacity-80 transition-opacity bg-transparent"
               aria-label="Go to home page"
             >
               <img
