@@ -369,7 +369,7 @@ export default function Account({ onBack }: AccountProps) {
         )}
 
         <div
-          className="bg-[#1A1A1A] border-4 border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg mt-[65px]"
+          className="bg-[#1A1A1A] border-2 border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg mt-[65px]"
           style={{
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
           }}
