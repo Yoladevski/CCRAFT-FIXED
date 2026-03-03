@@ -30,10 +30,10 @@ export default function Affiliates({ onBack }: AffiliatesProps) {
             <div className="flex items-center gap-4">
               <Mail className="text-[#B11226] flex-shrink-0" size={32} />
               <a
-                href="mailto:affiliates@combatcraft.com"
+                href="mailto:affiliates@combatcraft.co.uk"
                 className="text-white hover:text-[#B11226] transition-colors font-semibold text-lg"
               >
-                affiliates@combatcraft.com
+                affiliates@combatcraft.co.uk
               </a>
             </div>
           </div>

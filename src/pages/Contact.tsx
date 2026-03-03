@@ -27,10 +27,10 @@ export default function Contact({ onBack }: ContactProps) {
               <div>
                 <p className="text-[#A0A0A0] text-sm mb-1">Email</p>
                 <a
-                  href="mailto:support@combatcraft.com"
+                  href="mailto:support@combatcraft.co.uk"
                   className="text-white hover:text-[#B11226] transition-colors font-semibold"
                 >
-                  support@combatcraft.com
+                  support@combatcraft.co.uk
                 </a>
               </div>
             </div>
@@ -40,10 +40,10 @@ export default function Contact({ onBack }: ContactProps) {
               <div>
                 <p className="text-[#A0A0A0] text-sm mb-1">Business Inquiries</p>
                 <a
-                  href="mailto:business@combatcraft.com"
+                  href="mailto:business@combatcraft.co.uk"
                   className="text-white hover:text-[#B11226] transition-colors font-semibold"
                 >
-                  business@combatcraft.com
+                  business@combatcraft.co.uk
                 </a>
               </div>
             </div>
@@ -71,10 +71,10 @@ export default function Contact({ onBack }: ContactProps) {
               <div>
                 <p className="text-[#A0A0A0] text-sm mb-1">Affiliate Opportunities</p>
                 <a
-                  href="mailto:affiliates@combatcraft.com"
+                  href="mailto:affiliates@combatcraft.co.uk"
                   className="text-white hover:text-[#B11226] transition-colors font-semibold"
                 >
-                  affiliates@combatcraft.com
+                  affiliates@combatcraft.co.uk
                 </a>
               </div>
             </div>
