@@ -10,7 +10,45 @@ export default function Home({ onNavigate }: HomeProps) {
 
   return (
     <div>
-      <section className="relative w-full overflow-hidden -mt-20 bg-black" style={{ height: '100vh' }}>
+      <section className="relative w-full overflow-hidden -mt-20" style={{ height: '100vh' }}>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0E0E0E] z-10" />
+
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full hidden md:block"
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center'
+            }}
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
+          >
+            <source
+              src="https://image2url.com/r2/default/videos/1771664442251-d7340661-5e0d-4641-afae-c12227116d28.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full md:hidden"
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center 20%'
+            }}
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
+          >
+            <source
+              src="https://image2url.com/r2/default/videos/1770858582620-ae5b1808-3859-4637-b784-cc115c44e502.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
 
         <div className="hero-content-grid px-6">
           <div
