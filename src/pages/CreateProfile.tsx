@@ -72,7 +72,7 @@ export default function CreateProfile() {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center p-3 sm:p-4">
+    <div className="min-h-screen flex items-center justify-center p-3 sm:p-4">
       <div className="max-w-md w-full bg-[#1A1A1A] rounded-lg p-6 sm:p-8 border border-[#B11226]/30">
         <h1
           className="text-3xl sm:text-4xl font-bold text-white text-center mb-2"

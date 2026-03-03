@@ -23,7 +23,7 @@ const products = [
 
 export default function Merchandise({ onBack }: MerchandiseProps) {
   return (
-    <div className="min-h-screen bg-[#0E0E0E] text-white relative">
+    <div className="min-h-screen text-white relative">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <BackButton onClick={onBack} />
 
