@@ -7,7 +7,7 @@ interface FooterProps {
 
 const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
   return (
-    <footer className="bg-black border-t border-[#2E2E2E] mt-auto">
+    <footer className="bg-black border-t border-[#2E2E2E] mt-auto relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center space-y-8">
           <div className="flex justify-center">
