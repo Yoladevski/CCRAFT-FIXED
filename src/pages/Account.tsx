@@ -417,7 +417,7 @@ export default function Account({ onBack }: AccountProps) {
           <div className="hidden sm:flex border-b border-[#2E2E2E]">
             <button
               onClick={() => setActiveTab('profile')}
-              className={`button-text flex-1 py-4 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
+              className={`button-text flex-1 py-2 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
                 activeTab === 'profile'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -427,7 +427,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('security')}
-              className={`button-text flex-1 py-4 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
+              className={`button-text flex-1 py-2 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
                 activeTab === 'security'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
@@ -437,7 +437,7 @@ export default function Account({ onBack }: AccountProps) {
             </button>
             <button
               onClick={() => setActiveTab('settings')}
-              className={`button-text flex-1 py-4 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
+              className={`button-text flex-1 py-2 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
                 activeTab === 'settings'
                   ? 'bg-[#B11226] text-white'
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
