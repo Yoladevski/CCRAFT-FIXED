@@ -69,7 +69,18 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.27em',
               }}
             >
-              STRUCTURED TRAINING
+              BUILT BY REAL COACHES
+            </OutlinedText>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
+                letterSpacing: '0.27em',
+              }}
+            >
+              USED BY FIGHTERS
             </OutlinedText>
             <OutlinedText
               style={{
