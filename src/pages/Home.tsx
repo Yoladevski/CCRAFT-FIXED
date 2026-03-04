@@ -133,7 +133,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.27em',
               }}
             >
-              TRAIN WITH PURPOSE
+              START FREE. TRAIN FREE. AD FREE
             </OutlinedText>
             <OutlinedText
               style={{
@@ -144,7 +144,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.27em',
               }}
             >
-              IMPROVE WITH STRUCTURE
+              NO COMMITMENT. CANCEL ANYTIME
             </OutlinedText>
           </div>
         </div>
