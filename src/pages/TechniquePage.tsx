@@ -277,7 +277,8 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
         </div>
 
         {technique.video_url && (
-          <div className="relative w-full aspect-[9/16] bg-black rounded-lg overflow-hidden mb-12">
+          <div className="flex justify-center mb-12">
+          <div className="relative w-full md:w-64 aspect-[9/16] bg-black rounded-lg overflow-hidden">
             <iframe
               ref={videoRef}
               src={technique.video_url}
@@ -286,6 +287,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+          </div>
           </div>
         )}
 
