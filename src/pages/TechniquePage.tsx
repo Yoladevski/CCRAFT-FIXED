@@ -13,6 +13,44 @@ interface TechniquePageProps {
   onBack: () => void;
 }
 
+function formatHowSection(text: string) {
+  const lines = text.split('\n');
+  const items: { heading: string; body: string[] }[] = [];
+  let current: { heading: string; body: string[] } | null = null;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    if (trimmed.startsWith('•')) {
+      if (current) items.push(current);
+      current = { heading: trimmed.replace(/^•\s*/, ''), body: [] };
+    } else {
+      if (current) {
+        current.body.push(trimmed);
+      } else {
+        items.push({ heading: trimmed, body: [] });
+      }
+    }
+  }
+  if (current) items.push(current);
+
+  return (
+    <ol className="space-y-4">
+      {items.map((item, i) => (
+        <li key={i} className="flex gap-3">
+          <span className="text-[#B11226] font-bold text-body shrink-0" style={{ fontFamily: 'Orbitron, sans-serif', minWidth: '1.5rem' }}>{i + 1}.</span>
+          <div>
+            <span className="text-white font-semibold text-body">{item.heading}</span>
+            {item.body.map((b, j) => (
+              <p key={j} className="text-[#A0A0A0] text-body leading-relaxed mt-1">{b}</p>
+            ))}
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 function formatText(text: string) {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
   return parts.map((part, index) => {
@@ -315,7 +353,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
               </button>
               {openSections.how && (
                 <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.how}</p>
+                  {formatHowSection(technique.how)}
                 </div>
               )}
             </div>
