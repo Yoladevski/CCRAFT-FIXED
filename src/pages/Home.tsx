@@ -137,10 +137,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
+                fontSize: 'clamp(0.3825rem, 1.35vw, 0.81rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1rem, 3.3vw, 2rem)',
+                height: 'clamp(0.5rem, 1.65vw, 1rem)',
                 letterSpacing: '0.27em',
               }}
             >
