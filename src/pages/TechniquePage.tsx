@@ -277,7 +277,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
         </div>
 
         {technique.video_url && (
-          <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden mb-12">
+          <div className="relative w-full aspect-[9/16] bg-black rounded-lg overflow-hidden mb-12">
             <iframe
               ref={videoRef}
               src={technique.video_url}
