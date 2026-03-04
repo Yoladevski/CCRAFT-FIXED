@@ -133,18 +133,18 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.27em',
               }}
             >
-              START FREE. TRAIN FREE. AD FREE.
+              TRAIN WITH PURPOSE
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.3825rem, 1.35vw, 0.81rem)',
+                fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(0.5rem, 1.65vw, 1rem)',
+                height: 'clamp(1rem, 3.3vw, 2rem)',
                 letterSpacing: '0.27em',
               }}
             >
-              NO COMMITMENT. CANCEL ANYTIME.
+              IMPROVE WITH STRUCTURE
             </OutlinedText>
           </div>
         </div>
