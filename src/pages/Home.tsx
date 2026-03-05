@@ -62,10 +62,10 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
+                fontSize: 'clamp(0.88rem, 3.1vw, 1.9rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
+                height: 'clamp(1.15rem, 3.7vw, 2.4rem)',
                 letterSpacing: '0.27em',
               }}
             >
@@ -73,10 +73,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
+                fontSize: 'clamp(0.88rem, 3.1vw, 1.9rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
+                height: 'clamp(1.15rem, 3.7vw, 2.4rem)',
                 letterSpacing: '0.27em',
               }}
             >
@@ -84,10 +84,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
+                fontSize: 'clamp(0.88rem, 3.1vw, 1.9rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
+                height: 'clamp(1.15rem, 3.7vw, 2.4rem)',
                 letterSpacing: '0.27em',
               }}
             >
@@ -126,22 +126,22 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
+                fontSize: 'clamp(0.62rem, 2.1vw, 1.3rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1rem, 3.3vw, 2rem)',
-                letterSpacing: '0.27em',
+                height: 'clamp(0.85rem, 2.6vw, 1.65rem)',
+                letterSpacing: '0.22em',
               }}
             >
               FOLLOW THE COMBATCRAFT PATHWAY
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
+                fontSize: 'clamp(0.52rem, 1.7vw, 1.05rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1rem, 3.3vw, 2rem)',
-                letterSpacing: '0.27em',
+                height: 'clamp(0.72rem, 2.2vw, 1.35rem)',
+                letterSpacing: '0.18em',
               }}
             >
               START FREE. NO ADS. CANCEL ANYTIME

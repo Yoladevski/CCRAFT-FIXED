@@ -428,10 +428,22 @@ nav a {
 }
 
 @media (max-width: 767px) {
-  .hero-top-text .outlined-text,
-  .hero-bottom-text .outlined-text {
-    letter-spacing: 5px !important;
-    font-size: clamp(0.7rem, 3.2vw, 1.8rem) !important;
+  .hero-top-text .outlined-text {
+    letter-spacing: 4px !important;
+    font-size: clamp(0.78rem, 3.0vw, 1.6rem) !important;
+    height: clamp(1.05rem, 3.6vw, 2.1rem) !important;
+  }
+
+  .hero-bottom-text .outlined-text:first-child {
+    letter-spacing: 3px !important;
+    font-size: clamp(0.55rem, 2.1vw, 1.1rem) !important;
+    height: clamp(0.78rem, 2.6vw, 1.4rem) !important;
+  }
+
+  .hero-bottom-text .outlined-text:last-child {
+    letter-spacing: 2px !important;
+    font-size: clamp(0.44rem, 1.7vw, 0.88rem) !important;
+    height: clamp(0.64rem, 2.2vw, 1.15rem) !important;
   }
 }
 
