@@ -85,14 +85,14 @@ export default function Home({ onNavigate }: HomeProps) {
             <p
               style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(0.78rem, 2.33vw, 1.43rem)',
+                fontSize: 'clamp(1.56rem, 4.66vw, 2.86rem)',
                 fontWeight: 500,
                 color: '#CCCCCC',
                 lineHeight: 1.5,
                 letterSpacing: '0.04em',
-                marginTop: '0.35rem',
+                marginTop: 'calc(0.35rem + 100px)',
                 maxWidth: '560px',
-                margin: '0.35rem auto 0',
+                margin: 'calc(0.35rem + 100px) auto 0',
               }}
             >
               Learn martial arts online with structured striking, grappling and mobility training designed by real coaches, used by fighters and powered by AI
@@ -126,12 +126,13 @@ export default function Home({ onNavigate }: HomeProps) {
               flexDirection: 'column',
               gap: '0.3rem',
               width: '100%',
+              marginBottom: '300px',
             }}
           >
             <p
               style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(0.66rem, 1.95vw, 1.2rem)',
+                fontSize: 'clamp(1.32rem, 3.9vw, 2.4rem)',
                 fontWeight: 500,
                 color: '#BBBBBB',
                 lineHeight: 1.4,
@@ -142,18 +143,17 @@ export default function Home({ onNavigate }: HomeProps) {
             >
               Follow the CombatCraft foundations pathway to learn martial arts and build real combat skills
             </p>
-            <p
+            <OutlinedText
               style={{
+                fontSize: 'clamp(0.76rem, 2.2vw, 1.36rem)',
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(0.38rem, 1.1vw, 0.68rem)',
-                fontWeight: 500,
-                color: '#999999',
-                letterSpacing: '0.06em',
-                margin: '0 auto',
+                fontWeight: 900,
+                height: 'clamp(1.08rem, 3.4vw, 2.2rem)',
+                letterSpacing: '0.25em',
               }}
             >
               Start free. No ads. Cancel anytime.
-            </p>
+            </OutlinedText>
           </div>
         </div>
       </section>
