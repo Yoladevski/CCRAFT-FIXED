@@ -85,7 +85,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <p
               style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(0.52rem, 1.55vw, 0.95rem)',
+                fontSize: 'clamp(0.78rem, 2.33vw, 1.43rem)',
                 fontWeight: 500,
                 color: '#CCCCCC',
                 lineHeight: 1.5,
@@ -131,7 +131,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <p
               style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(0.44rem, 1.3vw, 0.8rem)',
+                fontSize: 'clamp(0.66rem, 1.95vw, 1.2rem)',
                 fontWeight: 500,
                 color: '#BBBBBB',
                 lineHeight: 1.4,
