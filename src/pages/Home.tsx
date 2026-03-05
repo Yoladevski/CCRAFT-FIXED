@@ -56,43 +56,47 @@ export default function Home({ onNavigate }: HomeProps) {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '0.5rem',
+              gap: '0.4rem',
               width: '100%',
             }}
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.88rem, 3.1vw, 1.9rem)',
+                fontSize: 'clamp(0.82rem, 2.8vw, 1.75rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.15rem, 3.7vw, 2.4rem)',
-                letterSpacing: '0.27em',
+                height: 'clamp(1.08rem, 3.4vw, 2.2rem)',
+                letterSpacing: '0.25em',
               }}
             >
-              YOUR STEP BY STEP
+              YOUR STEP BY STEP PATHWAY TO
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.88rem, 3.1vw, 1.9rem)',
+                fontSize: 'clamp(0.82rem, 2.8vw, 1.75rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.15rem, 3.7vw, 2.4rem)',
-                letterSpacing: '0.27em',
+                height: 'clamp(1.08rem, 3.4vw, 2.2rem)',
+                letterSpacing: '0.25em',
               }}
             >
-              PATHWAY TO LEARNING
+              LEARNING MARTIAL ARTS
             </OutlinedText>
-            <OutlinedText
+            <p
               style={{
-                fontSize: 'clamp(0.88rem, 3.1vw, 1.9rem)',
                 fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                height: 'clamp(1.15rem, 3.7vw, 2.4rem)',
-                letterSpacing: '0.27em',
+                fontSize: 'clamp(0.52rem, 1.55vw, 0.95rem)',
+                fontWeight: 500,
+                color: '#CCCCCC',
+                lineHeight: 1.5,
+                letterSpacing: '0.04em',
+                marginTop: '0.35rem',
+                maxWidth: '560px',
+                margin: '0.35rem auto 0',
               }}
             >
-              MARTIAL ARTS
-            </OutlinedText>
+              Learn martial arts online with structured striking, grappling and mobility training designed by real coaches, used by fighters and powered by AI
+            </p>
           </div>
 
           <div className="hero-middle-button">
@@ -120,32 +124,36 @@ export default function Home({ onNavigate }: HomeProps) {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '0.5rem',
+              gap: '0.3rem',
               width: '100%',
             }}
           >
-            <OutlinedText
+            <p
               style={{
-                fontSize: 'clamp(0.62rem, 2.1vw, 1.3rem)',
                 fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                height: 'clamp(0.85rem, 2.6vw, 1.65rem)',
-                letterSpacing: '0.22em',
+                fontSize: 'clamp(0.44rem, 1.3vw, 0.8rem)',
+                fontWeight: 500,
+                color: '#BBBBBB',
+                lineHeight: 1.4,
+                letterSpacing: '0.04em',
+                maxWidth: '500px',
+                margin: '0 auto',
               }}
             >
-              FOLLOW THE COMBATCRAFT PATHWAY
-            </OutlinedText>
-            <OutlinedText
+              Follow the CombatCraft foundations pathway to learn martial arts and build real combat skills
+            </p>
+            <p
               style={{
-                fontSize: 'clamp(0.52rem, 1.7vw, 1.05rem)',
                 fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                height: 'clamp(0.72rem, 2.2vw, 1.35rem)',
-                letterSpacing: '0.18em',
+                fontSize: 'clamp(0.38rem, 1.1vw, 0.68rem)',
+                fontWeight: 500,
+                color: '#999999',
+                letterSpacing: '0.06em',
+                margin: '0 auto',
               }}
             >
-              START FREE. NO ADS. CANCEL ANYTIME
-            </OutlinedText>
+              Start free. No ads. Cancel anytime.
+            </p>
           </div>
         </div>
       </section>

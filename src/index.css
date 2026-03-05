@@ -418,32 +418,24 @@ nav a {
 }
 
 @media (max-width: 767px) {
-  .hero-bottom-text span {
-    display: inline;
-  }
-
-  .hero-bottom-text span:first-child::after {
-    content: ' ';
-  }
-}
-
-@media (max-width: 767px) {
   .hero-top-text .outlined-text {
-    letter-spacing: 4px !important;
-    font-size: clamp(0.78rem, 3.0vw, 1.6rem) !important;
-    height: clamp(1.05rem, 3.6vw, 2.1rem) !important;
-  }
-
-  .hero-bottom-text .outlined-text:first-child {
     letter-spacing: 3px !important;
-    font-size: clamp(0.55rem, 2.1vw, 1.1rem) !important;
-    height: clamp(0.78rem, 2.6vw, 1.4rem) !important;
+    font-size: clamp(0.72rem, 4.2vw, 1.5rem) !important;
+    height: clamp(1.0rem, 5.0vw, 2.0rem) !important;
   }
 
-  .hero-bottom-text .outlined-text:last-child {
-    letter-spacing: 2px !important;
-    font-size: clamp(0.44rem, 1.7vw, 0.88rem) !important;
-    height: clamp(0.64rem, 2.2vw, 1.15rem) !important;
+  .hero-top-text p {
+    font-size: clamp(0.6rem, 2.8vw, 0.95rem) !important;
+    max-width: 90vw !important;
+  }
+
+  .hero-bottom-text p:first-child {
+    font-size: clamp(0.5rem, 2.4vw, 0.8rem) !important;
+    max-width: 88vw !important;
+  }
+
+  .hero-bottom-text p:last-child {
+    font-size: clamp(0.42rem, 2.0vw, 0.68rem) !important;
   }
 }
 
