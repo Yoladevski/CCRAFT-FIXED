@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ChevronDown, Check } from 'lucide-react';
+import { ArrowLeft, ChevronDown, Check, Facebook, MessageCircle, Share2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
@@ -13,6 +13,273 @@ import {
 } from '../data/foundationsLessons';
 
 type Technique = Database['public']['Tables']['techniques']['Row'];
+
+const VICTORY_QUOTES = [
+  "CHAMPION!",
+  "VICTORIOUS!",
+  "UNSTOPPABLE!",
+  "LEGENDARY!",
+  "DOMINANT!",
+];
+
+interface ConfettiPiece {
+  id: number;
+  x: number;
+  y: number;
+  rotation: number;
+  color: string;
+  size: number;
+  velocityX: number;
+  velocityY: number;
+  side: 'left' | 'right';
+}
+
+function LevelCompleteModal({
+  levelNumber,
+  levelTitle,
+  userName,
+  onClose,
+}: {
+  levelNumber: number;
+  levelTitle: string;
+  userName: string;
+  onClose: () => void;
+}) {
+  const [showContent, setShowContent] = useState(false);
+  const [showShareButtons, setShowShareButtons] = useState(false);
+  const [confetti, setConfetti] = useState<ConfettiPiece[]>([]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const animationRef = useRef<number>();
+
+  const quote = VICTORY_QUOTES[Math.floor(Math.random() * VICTORY_QUOTES.length)];
+
+  const createConfetti = useCallback(() => {
+    const colors = ['#B11226', '#FFD700', '#FFFFFF', '#FF4444', '#FF6B6B'];
+    const pieces: ConfettiPiece[] = [];
+
+    for (let i = 0; i < 100; i++) {
+      const side = i < 50 ? 'left' : 'right';
+      pieces.push({
+        id: i,
+        x: side === 'left' ? -20 : window.innerWidth + 20,
+        y: Math.random() * window.innerHeight * 0.6,
+        rotation: Math.random() * 360,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: Math.random() * 10 + 5,
+        velocityX: side === 'left' ? Math.random() * 15 + 5 : -(Math.random() * 15 + 5),
+        velocityY: Math.random() * 5 - 2,
+        side,
+      });
+    }
+    setConfetti(pieces);
+  }, []);
+
+  useEffect(() => {
+    audioRef.current = new Audio('https://api.combatcraft.co.uk/storage/v1/object/public/audio/crowd-cheer.mp3');
+    audioRef.current.volume = 0.5;
+    audioRef.current.play().catch(() => {});
+
+    createConfetti();
+
+    const contentTimer = setTimeout(() => {
+      setShowContent(true);
+    }, 100);
+
+    const shareTimer = setTimeout(() => {
+      setShowShareButtons(true);
+    }, 1100);
+
+    return () => {
+      clearTimeout(contentTimer);
+      clearTimeout(shareTimer);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [createConfetti]);
+
+  useEffect(() => {
+    if (confetti.length === 0) return;
+
+    const animate = () => {
+      setConfetti(prev =>
+        prev.map(piece => ({
+          ...piece,
+          x: piece.x + piece.velocityX,
+          y: piece.y + piece.velocityY + 2,
+          rotation: piece.rotation + 5,
+          velocityX: piece.velocityX * 0.99,
+          velocityY: piece.velocityY + 0.1,
+        })).filter(piece => piece.y < window.innerHeight + 50)
+      );
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [confetti.length > 0]);
+
+  const shareText = `I just completed Level ${levelNumber}: ${levelTitle} on Combat Craft! Training like a champion.`;
+  const shareUrl = 'https://combatcraft.co.uk';
+
+  const handleFacebookShare = () => {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`, '_blank');
+  };
+
+  const handleInstagramShare = () => {
+    if (navigator.share) {
+      navigator.share({ title: 'Combat Craft', text: shareText, url: shareUrl });
+    } else {
+      navigator.clipboard.writeText(shareText);
+    }
+  };
+
+  const handleSnapchatShare = () => {
+    window.open(`https://www.snapchat.com/share?text=${encodeURIComponent(shareText)}`, '_blank');
+  };
+
+  const handleMessageShare = () => {
+    if (navigator.share) {
+      navigator.share({ title: 'Combat Craft', text: shareText, url: shareUrl });
+    } else {
+      window.open(`sms:?body=${encodeURIComponent(shareText + ' ' + shareUrl)}`, '_blank');
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95">
+      {confetti.map(piece => (
+        <div
+          key={piece.id}
+          className="absolute pointer-events-none"
+          style={{
+            left: piece.x,
+            top: piece.y,
+            width: piece.size,
+            height: piece.size,
+            backgroundColor: piece.color,
+            transform: `rotate(${piece.rotation}deg)`,
+            borderRadius: Math.random() > 0.5 ? '50%' : '0%',
+          }}
+        />
+      ))}
+
+      <div className="relative z-10 flex flex-col items-center px-6 max-w-md w-full">
+        <div
+          className={`transition-all duration-700 ease-out ${
+            showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20'
+          }`}
+          style={{
+            transform: showContent ? 'translateY(0) scale(1)' : 'translateY(-100px) scale(1.2)',
+          }}
+        >
+          <img
+            src="https://api.combatcraft.co.uk/storage/v1/object/public/images/logo.png"
+            alt="Combat Craft"
+            className="w-32 h-32 sm:w-40 sm:h-40 object-contain opacity-90 mb-6"
+          />
+
+          <h2
+            className="text-4xl sm:text-5xl font-bold text-center mb-4"
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              color: '#B11226',
+              textShadow: '0 0 20px rgba(177, 18, 38, 0.8), 0 0 40px rgba(177, 18, 38, 0.4)',
+            }}
+          >
+            {userName.toUpperCase()}
+          </h2>
+
+          <p className="text-[#A0A0A0] text-center text-lg mb-2">Completed</p>
+
+          <h3
+            className="text-2xl sm:text-3xl font-bold text-center text-white mb-6"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            LEVEL {levelNumber}: {levelTitle.toUpperCase()}
+          </h3>
+
+          <p
+            className="text-3xl sm:text-4xl font-bold text-center"
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 0 30px rgba(255, 215, 0, 0.5)',
+            }}
+          >
+            {quote}
+          </p>
+        </div>
+
+        <div
+          className={`flex gap-4 mt-10 transition-all duration-500 ${
+            showShareButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <button
+            onClick={handleFacebookShare}
+            className="w-12 h-12 rounded-full bg-[#1877F2] flex items-center justify-center hover:scale-110 transition-transform"
+          >
+            <Facebook size={24} className="text-white" />
+          </button>
+
+          <button
+            onClick={handleInstagramShare}
+            className="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+            style={{
+              background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+            }}
+          >
+            <svg viewBox="0 0 24 24" className="w-6 h-6 text-white fill-current">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </button>
+
+          <button
+            onClick={handleSnapchatShare}
+            className="w-12 h-12 rounded-full bg-[#FFFC00] flex items-center justify-center hover:scale-110 transition-transform"
+          >
+            <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-black">
+              <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+            </svg>
+          </button>
+
+          <button
+            onClick={handleMessageShare}
+            className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center hover:scale-110 transition-transform"
+          >
+            <MessageCircle size={24} className="text-white" />
+          </button>
+        </div>
+
+        <button
+          onClick={onClose}
+          className={`mt-8 px-8 py-3 rounded-xl font-bold text-white transition-all hover:scale-105 ${
+            showShareButtons ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
+            boxShadow: '0 0 20px rgba(177, 18, 38, 0.5)',
+            fontFamily: 'Orbitron, sans-serif',
+          }}
+        >
+          CONTINUE
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function formatHowSection(text: string) {
   const lines = text.split('\n');
@@ -71,6 +338,8 @@ export default function FoundationLesson() {
   const [alreadyDone, setAlreadyDone] = useState(false);
   const [technique, setTechnique] = useState<Technique | null>(null);
   const [loadingTechnique, setLoadingTechnique] = useState(true);
+  const [showLevelComplete, setShowLevelComplete] = useState(false);
+  const [userName, setUserName] = useState('Fighter');
 
   const [openSections, setOpenSections] = useState({
     why: false,
@@ -93,6 +362,19 @@ export default function FoundationLesson() {
   const nextLesson = lessonId ? getNextLesson(lessonId) : null;
   const currentLevel = lessonId ? getLevelForLesson(lessonId) : 1;
 
+  const allSectionsRead = () => {
+    if (!technique) return false;
+    const availableSections = [
+      technique.why ? 'why' : null,
+      technique.how ? 'how' : null,
+      technique.common_mistakes ? 'mistakes' : null,
+      technique.simple_drills ? 'drills' : null,
+      technique.coaches_tips ? 'coachesTips' : null,
+    ].filter(Boolean) as (keyof typeof sectionsRead)[];
+
+    return availableSections.length === 0 || availableSections.every(section => sectionsRead[section]);
+  };
+
   useEffect(() => {
     async function checkCompletion() {
       if (!user || !lessonId) return;
@@ -108,6 +390,22 @@ export default function FoundationLesson() {
     }
     checkCompletion();
   }, [user, lessonId]);
+
+  useEffect(() => {
+    async function fetchUserName() {
+      if (!user) return;
+      const { data } = await supabase
+        .from('profiles')
+        .select('full_name')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      if (data?.full_name) {
+        setUserName(data.full_name);
+      }
+    }
+    fetchUserName();
+  }, [user]);
 
   useEffect(() => {
     async function loadTechnique() {
@@ -159,13 +457,19 @@ export default function FoundationLesson() {
     }
 
     if (isLast) {
-      navigate('/boxing/foundations');
+      setShowLevelComplete(true);
     } else if (nextLesson) {
       navigate(`/boxing/foundations/lesson/${nextLesson.id}`);
+      window.scrollTo(0, 0);
     }
 
     setCompleting(false);
   }
+
+  const handleLevelCompleteClose = () => {
+    setShowLevelComplete(false);
+    navigate('/boxing/foundations');
+  };
 
   if (!lesson) {
     return (
@@ -391,11 +695,11 @@ export default function FoundationLesson() {
           <div className="mt-12 flex flex-col items-center">
             <button
               onClick={handleAction}
-              disabled={completing}
+              disabled={completing || !allSectionsRead()}
               className={`transition-all transform ${
-                !completing
+                allSectionsRead() && !completing
                   ? 'hover:scale-105 opacity-100'
-                  : 'opacity-60 cursor-not-allowed'
+                  : 'opacity-40 cursor-not-allowed'
               }`}
             >
               <img
@@ -404,15 +708,24 @@ export default function FoundationLesson() {
                 className="w-full max-w-[300px] sm:max-w-[400px] h-auto"
               />
             </button>
+            {!allSectionsRead() && (
+              <p className="text-center text-[#666666] mt-4 text-sm">
+                Read all sections to unlock the next round
+              </p>
+            )}
           </div>
         )}
 
         {isLast && (
-          <div className="flex justify-center mt-12">
+          <div className="flex flex-col items-center mt-12">
             <button
               onClick={handleAction}
-              disabled={completing}
-              className="w-full sm:w-auto px-10 sm:px-16 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg text-white transition-all hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={completing || !allSectionsRead()}
+              className={`w-full sm:w-auto px-10 sm:px-16 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg text-white transition-all hover:scale-[1.02] ${
+                allSectionsRead() && !completing
+                  ? ''
+                  : 'opacity-40 cursor-not-allowed'
+              }`}
               style={{
                 background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
                 boxShadow: '0 0 20px rgba(177, 18, 38, 0.5), 0 0 40px rgba(177, 18, 38, 0.2)',
@@ -421,6 +734,11 @@ export default function FoundationLesson() {
             >
               {completing ? 'LOADING...' : 'COMPLETE LEVEL'}
             </button>
+            {!allSectionsRead() && (
+              <p className="text-center text-[#666666] mt-4 text-sm">
+                Read all sections to complete this level
+              </p>
+            )}
           </div>
         )}
 
@@ -442,6 +760,15 @@ export default function FoundationLesson() {
           })}
         </div>
       </div>
+
+      {showLevelComplete && levelData && (
+        <LevelCompleteModal
+          levelNumber={currentLevel}
+          levelTitle={levelData.title}
+          userName={userName}
+          onClose={handleLevelCompleteClose}
+        />
+      )}
     </div>
   );
 }
