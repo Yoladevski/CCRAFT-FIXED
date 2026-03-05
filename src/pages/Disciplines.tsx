@@ -113,7 +113,14 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
               </div>
 
               <button
-                onClick={() => (discipline.is_active || isAdmin) && onNavigate('Discipline', discipline.id)}
+                onClick={() => {
+                  if (!discipline.is_active && !isAdmin) return;
+                  if (discipline.name === 'Boxing') {
+                    onNavigate('BoxingOverview', discipline.id);
+                  } else {
+                    onNavigate('Discipline', discipline.id);
+                  }
+                }}
                 disabled={!discipline.is_active && !isAdmin}
                 className={`mt-1 focus:outline-none group w-full ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed opacity-60' : ''}`}
               >
