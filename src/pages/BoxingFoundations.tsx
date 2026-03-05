@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Lock, ArrowLeft, CheckCircle } from 'lucide-react';
+import { Lock, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { BOXING_FOUNDATIONS_LEVELS, FoundationLesson } from '../data/foundationsLessons';
@@ -80,38 +80,57 @@ export default function BoxingFoundations() {
           FOUNDATIONS PATHWAY
         </h1>
 
-        <div className="flex gap-1 sm:gap-2 mb-6 sm:mb-8 overflow-x-auto pb-1">
-          {BOXING_FOUNDATIONS_LEVELS.map((lvl) => {
-            const locked = !isLevelUnlocked(lvl.level);
-            const isActive = activeLevel === lvl.level;
-            const prog = getLevelProgress(lvl.level);
-            const isComplete = prog.completed === prog.total && prog.total > 0;
+        <div className="flex items-center justify-center gap-4 mb-6 sm:mb-8">
+          <button
+            onClick={() => setActiveLevel(Math.max(1, activeLevel - 1))}
+            disabled={activeLevel === 1}
+            className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center transition-all ${
+              activeLevel === 1
+                ? 'border-[#2E2E2E] text-[#2E2E2E] cursor-not-allowed'
+                : 'border-[#B11226] text-[#B11226] hover:bg-[#B11226]/10'
+            }`}
+          >
+            <ChevronLeft size={24} />
+          </button>
 
-            return (
-              <button
-                key={lvl.level}
-                onClick={() => setActiveLevel(lvl.level)}
-                className={`flex-shrink-0 flex flex-col items-center px-3 sm:px-4 py-2 sm:py-3 rounded-xl border transition-all text-center min-w-[60px] sm:min-w-[80px] ${
-                  isActive
-                    ? 'border-[#B11226] bg-[#B11226]/20 text-white'
-                    : locked
-                    ? 'border-[#2E2E2E] bg-[#1A1A1A] text-[#A0A0A0] opacity-60'
-                    : 'border-[#2E2E2E] bg-[#1A1A1A] text-[#A0A0A0] hover:border-[#B11226]/50 hover:text-white'
-                }`}
-              >
-                {locked ? (
-                  <Lock size={14} className="mb-1" />
-                ) : isComplete ? (
-                  <CheckCircle size={14} className="mb-1 text-[#B11226]" />
-                ) : (
-                  <span className="text-xs font-bold mb-1">{lvl.level}</span>
-                )}
-                <span className="text-[10px] sm:text-xs font-medium leading-tight">
-                  {lvl.level === 4 ? 'FLOW' : lvl.title.split(' ')[0]}
-                </span>
-              </button>
-            );
-          })}
+          <div className="flex flex-col items-center min-w-[120px] sm:min-w-[160px]">
+            {(() => {
+              const lvl = BOXING_FOUNDATIONS_LEVELS.find(l => l.level === activeLevel)!;
+              const locked = !isLevelUnlocked(lvl.level);
+              const prog = getLevelProgress(lvl.level);
+              const isComplete = prog.completed === prog.total && prog.total > 0;
+
+              return (
+                <div className="flex flex-col items-center text-center">
+                  <div className="flex items-center gap-2 mb-1">
+                    {locked ? (
+                      <Lock size={16} className="text-[#A0A0A0]" />
+                    ) : isComplete ? (
+                      <CheckCircle size={16} className="text-[#B11226]" />
+                    ) : null}
+                    <span className="text-white font-bold text-lg sm:text-xl">
+                      LEVEL {lvl.level}
+                    </span>
+                  </div>
+                  <span className="text-[#A0A0A0] text-xs sm:text-sm font-medium">
+                    {lvl.title}
+                  </span>
+                </div>
+              );
+            })()}
+          </div>
+
+          <button
+            onClick={() => setActiveLevel(Math.min(5, activeLevel + 1))}
+            disabled={activeLevel === 5}
+            className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center transition-all ${
+              activeLevel === 5
+                ? 'border-[#2E2E2E] text-[#2E2E2E] cursor-not-allowed'
+                : 'border-[#B11226] text-[#B11226] hover:bg-[#B11226]/10'
+            }`}
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
 
         <div
