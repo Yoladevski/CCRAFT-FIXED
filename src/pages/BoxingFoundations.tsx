@@ -186,7 +186,7 @@ function LevelCompleteModal({
           <img
             src="https://api.combatcraft.co.uk/storage/v1/object/public/images/xxlogo.JPG"
             alt="Combat Craft"
-            className="w-24 h-24 sm:w-28 sm:h-28 object-contain rounded-full mb-4"
+            className="w-36 h-36 sm:w-44 sm:h-44 object-contain rounded-full mb-4"
           />
 
           <h2
@@ -507,7 +507,14 @@ export default function BoxingFoundations() {
           levelNumber={levelCompleteData.levelNumber}
           levelTitle={levelCompleteData.levelTitle}
           userName={levelCompleteData.userName}
-          onClose={() => setShowLevelComplete(false)}
+          onClose={() => {
+            setShowLevelComplete(false);
+            const nextLevelNum = levelCompleteData.levelNumber + 1;
+            const nextLevel = BOXING_FOUNDATIONS_LEVELS.find(l => l.level === nextLevelNum);
+            if (nextLevel && nextLevel.lessons.length > 0) {
+              navigate(`/boxing/foundations/lesson/${nextLevel.lessons[0].id}`);
+            }
+          }}
         />
       )}
     </div>
