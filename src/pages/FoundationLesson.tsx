@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronDown, Check } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
+import { Database } from '../lib/supabase';
 import {
   getLessonById,
   getNextLesson,
@@ -11,12 +12,81 @@ import {
   BOXING_FOUNDATIONS_LEVELS,
 } from '../data/foundationsLessons';
 
+type Technique = Database['public']['Tables']['techniques']['Row'];
+
+function formatHowSection(text: string) {
+  const lines = text.split('\n');
+  const items: { heading: string; body: string[] }[] = [];
+  let current: { heading: string; body: string[] } | null = null;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    if (trimmed.startsWith('•')) {
+      if (current) items.push(current);
+      current = { heading: trimmed.replace(/^•\s*/, ''), body: [] };
+    } else {
+      if (current) {
+        current.body.push(trimmed);
+      } else {
+        items.push({ heading: trimmed, body: [] });
+      }
+    }
+  }
+  if (current) items.push(current);
+
+  return (
+    <ol className="space-y-4">
+      {items.map((item, i) => (
+        <li key={i} className="flex gap-3">
+          <span className="text-[#B11226] font-bold text-body shrink-0" style={{ fontFamily: 'Orbitron, sans-serif', minWidth: '1.5rem' }}>{i + 1}.</span>
+          <div>
+            <span className="text-white font-semibold text-body">{item.heading}</span>
+            {item.body.map((b, j) => (
+              <p key={j} className="text-[#A0A0A0] text-body leading-relaxed mt-1">{b}</p>
+            ))}
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function formatText(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      const content = part.slice(2, -2);
+      return <span key={index} className="text-2xl font-bold text-white">{content}</span>;
+    }
+    return <span key={index}>{part}</span>;
+  });
+}
+
 export default function FoundationLesson() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
   const [completing, setCompleting] = useState(false);
   const [alreadyDone, setAlreadyDone] = useState(false);
+  const [technique, setTechnique] = useState<Technique | null>(null);
+  const [loadingTechnique, setLoadingTechnique] = useState(true);
+
+  const [openSections, setOpenSections] = useState({
+    why: false,
+    how: false,
+    mistakes: false,
+    drills: false,
+    coachesTips: false,
+  });
+
+  const [sectionsRead, setSectionsRead] = useState({
+    why: false,
+    how: false,
+    mistakes: false,
+    drills: false,
+    coachesTips: false,
+  });
 
   const lesson = lessonId ? getLessonById(lessonId) : undefined;
   const isLast = lessonId ? isLastLessonInLevel(lessonId) : false;
@@ -38,6 +108,37 @@ export default function FoundationLesson() {
     }
     checkCompletion();
   }, [user, lessonId]);
+
+  useEffect(() => {
+    async function loadTechnique() {
+      if (!lesson?.techniqueId) {
+        setLoadingTechnique(false);
+        return;
+      }
+
+      const { data } = await supabase
+        .from('techniques')
+        .select('*')
+        .eq('id', lesson.techniqueId)
+        .maybeSingle();
+
+      if (data) {
+        setTechnique(data);
+      }
+      setLoadingTechnique(false);
+    }
+
+    loadTechnique();
+  }, [lesson?.techniqueId]);
+
+  const toggleSection = (section: keyof typeof openSections) => {
+    const wasOpen = openSections[section];
+    setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
+
+    if (!wasOpen && !sectionsRead[section]) {
+      setSectionsRead(prev => ({ ...prev, [section]: true }));
+    }
+  };
 
   async function handleAction() {
     if (!user || !lesson || completing) return;
@@ -100,22 +201,192 @@ export default function FoundationLesson() {
           {lesson.title.toUpperCase()}
         </h1>
 
-        <div
-          className="w-full rounded-2xl overflow-hidden border-2 border-[#2E2E2E] mb-8 sm:mb-10 flex items-center justify-center"
-          style={{
-            background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
-            aspectRatio: '16 / 9',
-          }}
-        >
-          <div className="flex flex-col items-center gap-3 text-[#A0A0A0]">
-            <div
-              className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#2E2E2E] flex items-center justify-center"
-            >
-              <div className="w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[16px] border-l-[#A0A0A0] ml-1" />
+        {technique?.video_url ? (
+          <div className="flex justify-center mb-8 sm:mb-10">
+            <div className="relative w-full md:w-64 aspect-[9/16] bg-black rounded-lg overflow-hidden">
+              <iframe
+                src={technique.video_url}
+                title={lesson.title}
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
-            <p className="text-sm">Video Coming Soon</p>
           </div>
-        </div>
+        ) : (
+          <div
+            className="w-full rounded-2xl overflow-hidden border-2 border-[#2E2E2E] mb-8 sm:mb-10 flex items-center justify-center"
+            style={{
+              background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
+              aspectRatio: '16 / 9',
+            }}
+          >
+            <div className="flex flex-col items-center gap-3 text-[#A0A0A0]">
+              <div
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#2E2E2E] flex items-center justify-center"
+              >
+                <div className="w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[16px] border-l-[#A0A0A0] ml-1" />
+              </div>
+              <p className="text-sm">Video Coming Soon</p>
+            </div>
+          </div>
+        )}
+
+        {technique && !loadingTechnique && (
+          <div className="space-y-4 mb-8 sm:mb-10">
+            {technique.why && (
+              <div
+                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+                style={{
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                }}
+              >
+                <button
+                  onClick={() => toggleSection('why')}
+                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">WHY</h3>
+                    {sectionsRead.why && (
+                      <Check size={20} className="text-[#B11226]" />
+                    )}
+                  </div>
+                  <ChevronDown
+                    size={24}
+                    className={`text-[#B11226] transition-transform ${openSections.why ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openSections.why && (
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                    <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed whitespace-pre-line">{technique.why}</p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {technique.how && (
+              <div
+                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+                style={{
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                }}
+              >
+                <button
+                  onClick={() => toggleSection('how')}
+                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">HOW</h3>
+                    {sectionsRead.how && (
+                      <Check size={20} className="text-[#B11226]" />
+                    )}
+                  </div>
+                  <ChevronDown
+                    size={24}
+                    className={`text-[#B11226] transition-transform ${openSections.how ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openSections.how && (
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                    {formatHowSection(technique.how)}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {technique.common_mistakes && (
+              <div
+                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+                style={{
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                }}
+              >
+                <button
+                  onClick={() => toggleSection('mistakes')}
+                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">COMMON MISTAKES</h3>
+                    {sectionsRead.mistakes && (
+                      <Check size={20} className="text-[#B11226]" />
+                    )}
+                  </div>
+                  <ChevronDown
+                    size={24}
+                    className={`text-[#B11226] transition-transform ${openSections.mistakes ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openSections.mistakes && (
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                    <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed whitespace-pre-line">{technique.common_mistakes}</p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {technique.simple_drills && (
+              <div
+                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+                style={{
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                }}
+              >
+                <button
+                  onClick={() => toggleSection('drills')}
+                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">SIMPLE DRILLS</h3>
+                    {sectionsRead.drills && (
+                      <Check size={20} className="text-[#B11226]" />
+                    )}
+                  </div>
+                  <ChevronDown
+                    size={24}
+                    className={`text-[#B11226] transition-transform ${openSections.drills ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openSections.drills && (
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                    <div className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed whitespace-pre-line">
+                      {formatText(technique.simple_drills)}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {technique.coaches_tips && (
+              <div
+                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+                style={{
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                }}
+              >
+                <button
+                  onClick={() => toggleSection('coachesTips')}
+                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">COACHES' TIPS</h3>
+                    {sectionsRead.coachesTips && (
+                      <Check size={20} className="text-[#B11226]" />
+                    )}
+                  </div>
+                  <ChevronDown
+                    size={24}
+                    className={`text-[#B11226] transition-transform ${openSections.coachesTips ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openSections.coachesTips && (
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                    <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed whitespace-pre-line">{technique.coaches_tips}</p>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="flex justify-center">
           <button

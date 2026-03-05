@@ -93,6 +93,7 @@ export type Database = {
           common_mistakes: string | null;
           tactical_uses: string | null;
           simple_drills: string | null;
+          coaches_tips: string | null;
           created_at: string;
         };
       };
