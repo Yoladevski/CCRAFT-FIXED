@@ -176,7 +176,6 @@ export default function FoundationLesson() {
   }
 
   const levelData = BOXING_FOUNDATIONS_LEVELS.find(l => l.level === currentLevel);
-  const buttonLabel = isLast ? 'COMPLETE LEVEL' : 'NEXT ROUND';
 
   return (
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
@@ -233,7 +232,7 @@ export default function FoundationLesson() {
         )}
 
         {technique && !loadingTechnique && (
-          <div className="space-y-4 mb-8 sm:mb-10">
+          <div className="space-y-8 mb-8 sm:mb-10">
             {technique.why && (
               <div
                 className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
@@ -243,12 +242,12 @@ export default function FoundationLesson() {
               >
                 <button
                   onClick={() => toggleSection('why')}
-                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">WHY</h3>
+                    <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">WHY</h3>
                     {sectionsRead.why && (
-                      <Check size={20} className="text-[#B11226]" />
+                      <Check size={24} className="text-[#B11226]" />
                     )}
                   </div>
                   <ChevronDown
@@ -257,8 +256,8 @@ export default function FoundationLesson() {
                   />
                 </button>
                 {openSections.why && (
-                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
-                    <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed whitespace-pre-line">{technique.why}</p>
+                  <div className="px-6 pb-6">
+                    <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.why}</p>
                   </div>
                 )}
               </div>
@@ -273,12 +272,12 @@ export default function FoundationLesson() {
               >
                 <button
                   onClick={() => toggleSection('how')}
-                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">HOW</h3>
+                    <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">HOW</h3>
                     {sectionsRead.how && (
-                      <Check size={20} className="text-[#B11226]" />
+                      <Check size={24} className="text-[#B11226]" />
                     )}
                   </div>
                   <ChevronDown
@@ -287,7 +286,7 @@ export default function FoundationLesson() {
                   />
                 </button>
                 {openSections.how && (
-                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                  <div className="px-6 pb-6">
                     {formatHowSection(technique.how)}
                   </div>
                 )}
@@ -303,12 +302,12 @@ export default function FoundationLesson() {
               >
                 <button
                   onClick={() => toggleSection('mistakes')}
-                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">COMMON MISTAKES</h3>
+                    <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">COMMON MISTAKES</h3>
                     {sectionsRead.mistakes && (
-                      <Check size={20} className="text-[#B11226]" />
+                      <Check size={24} className="text-[#B11226]" />
                     )}
                   </div>
                   <ChevronDown
@@ -317,8 +316,8 @@ export default function FoundationLesson() {
                   />
                 </button>
                 {openSections.mistakes && (
-                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
-                    <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed whitespace-pre-line">{technique.common_mistakes}</p>
+                  <div className="px-6 pb-6">
+                    <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.common_mistakes}</p>
                   </div>
                 )}
               </div>
@@ -333,12 +332,12 @@ export default function FoundationLesson() {
               >
                 <button
                   onClick={() => toggleSection('drills')}
-                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">SIMPLE DRILLS</h3>
+                    <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">SIMPLE DRILLS</h3>
                     {sectionsRead.drills && (
-                      <Check size={20} className="text-[#B11226]" />
+                      <Check size={24} className="text-[#B11226]" />
                     )}
                   </div>
                   <ChevronDown
@@ -347,8 +346,8 @@ export default function FoundationLesson() {
                   />
                 </button>
                 {openSections.drills && (
-                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
-                    <div className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed whitespace-pre-line">
+                  <div className="px-6 pb-6">
+                    <div className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">
                       {formatText(technique.simple_drills)}
                     </div>
                   </div>
@@ -365,12 +364,12 @@ export default function FoundationLesson() {
               >
                 <button
                   onClick={() => toggleSection('coachesTips')}
-                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[#252525] transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <h3 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226]">COACHES' TIPS</h3>
+                    <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">COACHES' TIPS</h3>
                     {sectionsRead.coachesTips && (
-                      <Check size={20} className="text-[#B11226]" />
+                      <Check size={24} className="text-[#B11226]" />
                     )}
                   </div>
                   <ChevronDown
@@ -379,8 +378,8 @@ export default function FoundationLesson() {
                   />
                 </button>
                 {openSections.coachesTips && (
-                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
-                    <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed whitespace-pre-line">{technique.coaches_tips}</p>
+                  <div className="px-6 pb-6">
+                    <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.coaches_tips}</p>
                   </div>
                 )}
               </div>
@@ -388,22 +387,42 @@ export default function FoundationLesson() {
           </div>
         )}
 
-        <div className="flex justify-center">
-          <button
-            onClick={handleAction}
-            disabled={completing}
-            className="w-full sm:w-auto px-10 sm:px-16 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg text-white transition-all hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed"
-            style={{
-              background: isLast
-                ? 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)'
-                : 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
-              boxShadow: '0 0 20px rgba(177, 18, 38, 0.5), 0 0 40px rgba(177, 18, 38, 0.2)',
-              letterSpacing: '0.1em',
-            }}
-          >
-            {completing ? 'LOADING...' : buttonLabel}
-          </button>
-        </div>
+        {!isLast && nextLesson && (
+          <div className="mt-12 flex flex-col items-center">
+            <button
+              onClick={handleAction}
+              disabled={completing}
+              className={`transition-all transform ${
+                !completing
+                  ? 'hover:scale-105 opacity-100'
+                  : 'opacity-60 cursor-not-allowed'
+              }`}
+            >
+              <img
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/nr.png"
+                alt="Next Round"
+                className="w-full max-w-[300px] sm:max-w-[400px] h-auto"
+              />
+            </button>
+          </div>
+        )}
+
+        {isLast && (
+          <div className="flex justify-center mt-12">
+            <button
+              onClick={handleAction}
+              disabled={completing}
+              className="w-full sm:w-auto px-10 sm:px-16 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg text-white transition-all hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed"
+              style={{
+                background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
+                boxShadow: '0 0 20px rgba(177, 18, 38, 0.5), 0 0 40px rgba(177, 18, 38, 0.2)',
+                letterSpacing: '0.1em',
+              }}
+            >
+              {completing ? 'LOADING...' : 'COMPLETE LEVEL'}
+            </button>
+          </div>
+        )}
 
         <div className="mt-6 sm:mt-8 flex justify-center gap-1.5 flex-wrap">
           {levelData?.lessons.map((l) => {
