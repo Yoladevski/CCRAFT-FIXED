@@ -77,7 +77,7 @@ export default function BoxingFoundations() {
         </div>
 
         <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-10">
-          FOUNDATIONS PATHWAY
+          FOUNDATION PATHWAY
         </h1>
 
         <div className="flex items-center justify-center gap-4 mb-6 sm:mb-8">

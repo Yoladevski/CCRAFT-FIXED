@@ -38,7 +38,7 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
             >
               <div className="absolute inset-0 bg-[#B11226]/0 group-hover:bg-[#B11226]/10 transition-colors" />
               <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-center relative z-10 leading-tight">
-                FOUNDATIONS<br />PATHWAY
+                FOUNDATION<br />PATHWAY
               </h2>
             </button>
 
@@ -47,7 +47,7 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
               style={{ background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)' }}
             >
               <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
-                The Foundations Pathway is a structured beginner progression that builds boxing fundamentals step by step. Each level introduces movement, control and combinations. Users must complete each level before unlocking the next stage.
+                The Foundation Pathway is a structured beginner progression that builds boxing fundamentals step by step. Each level introduces movement, control and combinations. Users must complete each level before unlocking the next stage.
               </p>
             </div>
           </div>
