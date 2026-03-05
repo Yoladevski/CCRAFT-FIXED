@@ -53,18 +53,35 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
   return (
     <div className="min-h-screen py-6 sm:py-12 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-6 sm:mb-8">
+        <div className="mb-6 sm:mb-8 flex items-center gap-4">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
+            className="flex items-center justify-center text-[#A0A0A0] hover:text-white transition-colors group"
           >
-            <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
-            <span className="text-body font-medium">BACK</span>
+            <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={18} />
           </button>
+          {discipline?.name === 'Boxing' && (
+            <button
+              onClick={() => navigate(`/boxing/${disciplineId}`)}
+              className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
+            >
+              <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
+              <span className="text-body font-medium">BOXING MENU</span>
+            </button>
+          )}
+          {discipline?.name !== 'Boxing' && (
+            <button
+              onClick={() => navigate(-1)}
+              className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
+            >
+              <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
+              <span className="text-body font-medium">BACK</span>
+            </button>
+          )}
         </div>
 
-        <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
-          {discipline?.name}
+        <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 sm:mb-12">
+          {discipline?.name === 'Boxing' ? 'TECHNIQUE LIBRARY' : discipline?.name}
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
