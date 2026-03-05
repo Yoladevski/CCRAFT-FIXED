@@ -418,24 +418,20 @@ nav a {
 }
 
 @media (max-width: 767px) {
-  .hero-top-text .outlined-text {
-    letter-spacing: 3px !important;
-    font-size: clamp(0.72rem, 4.2vw, 1.5rem) !important;
-    height: clamp(1.0rem, 5.0vw, 2.0rem) !important;
+  .hero-bottom-text span {
+    display: inline;
   }
 
-  .hero-top-text p {
-    font-size: clamp(0.6rem, 2.8vw, 0.95rem) !important;
-    max-width: 90vw !important;
+  .hero-bottom-text span:first-child::after {
+    content: ' ';
   }
+}
 
-  .hero-bottom-text p:first-child {
-    font-size: clamp(0.5rem, 2.4vw, 0.8rem) !important;
-    max-width: 88vw !important;
-  }
-
-  .hero-bottom-text p:last-child {
-    font-size: clamp(0.42rem, 2.0vw, 0.68rem) !important;
+@media (max-width: 767px) {
+  .hero-top-text .outlined-text,
+  .hero-bottom-text .outlined-text {
+    letter-spacing: 5px !important;
+    font-size: clamp(0.7rem, 3.2vw, 1.8rem) !important;
   }
 }
 
