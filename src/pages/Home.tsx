@@ -69,7 +69,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.27em',
               }}
             >
-              BUILT BY REAL COACHES
+              YOUR STEP BY STEP
             </OutlinedText>
             <OutlinedText
               style={{
@@ -80,7 +80,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.27em',
               }}
             >
-              USED BY FIGHTERS
+              PATHWAY TO LEARNING
             </OutlinedText>
             <OutlinedText
               style={{
@@ -91,7 +91,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.27em',
               }}
             >
-              POWERED BY AI
+              MARTIAL ARTS
             </OutlinedText>
           </div>
 
@@ -133,7 +133,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.27em',
               }}
             >
-              START FREE. TRAIN FREE. AD FREE
+              FOLLOW THE COMBATCRAFT PATHWAY
             </OutlinedText>
             <OutlinedText
               style={{
@@ -144,7 +144,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.27em',
               }}
             >
-              NO COMMITMENT. CANCEL ANYTIME
+              START FREE. NO ADS. CANCEL ANYTIME
             </OutlinedText>
           </div>
         </div>
