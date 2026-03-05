@@ -62,10 +62,10 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.82rem, 2.8vw, 1.75rem)',
+                fontSize: 'clamp(1.125rem, 2.8vw, 1.75rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.08rem, 3.4vw, 2.2rem)',
+                height: 'clamp(1.4rem, 3.4vw, 2.2rem)',
                 letterSpacing: '0.25em',
               }}
             >
@@ -73,10 +73,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.82rem, 2.8vw, 1.75rem)',
+                fontSize: 'clamp(1.125rem, 2.8vw, 1.75rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.08rem, 3.4vw, 2.2rem)',
+                height: 'clamp(1.4rem, 3.4vw, 2.2rem)',
                 letterSpacing: '0.25em',
               }}
             >
@@ -85,7 +85,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <p
               style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(0.78rem, 2.33vw, 1.43rem)',
+                fontSize: 'clamp(0.875rem, 2.33vw, 1.43rem)',
                 fontWeight: 500,
                 color: '#CCCCCC',
                 lineHeight: 1.5,
@@ -131,7 +131,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <p
               style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(0.66rem, 1.95vw, 1.2rem)',
+                fontSize: 'clamp(0.875rem, 1.95vw, 1.2rem)',
                 fontWeight: 500,
                 color: '#BBBBBB',
                 lineHeight: 1.4,
@@ -145,7 +145,7 @@ export default function Home({ onNavigate }: HomeProps) {
             <p
               style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(0.38rem, 1.1vw, 0.68rem)',
+                fontSize: 'clamp(0.75rem, 1.1vw, 0.68rem)',
                 fontWeight: 500,
                 color: '#999999',
                 letterSpacing: '0.06em',
