@@ -85,14 +85,14 @@ export default function Home({ onNavigate }: HomeProps) {
             <p
               style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(1.56rem, 4.66vw, 2.86rem)',
+                fontSize: 'clamp(0.78rem, 2.33vw, 1.43rem)',
                 fontWeight: 500,
                 color: '#CCCCCC',
                 lineHeight: 1.5,
                 letterSpacing: '0.04em',
-                marginTop: 'calc(0.35rem + 100px)',
+                marginTop: '0.35rem',
                 maxWidth: '560px',
-                margin: 'calc(0.35rem + 100px) auto 0',
+                margin: '0.35rem auto 0',
               }}
             >
               Learn martial arts online with structured striking, grappling and mobility training designed by real coaches, used by fighters and powered by AI
@@ -126,13 +126,12 @@ export default function Home({ onNavigate }: HomeProps) {
               flexDirection: 'column',
               gap: '0.3rem',
               width: '100%',
-              marginBottom: '300px',
             }}
           >
             <p
               style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: 'clamp(1.32rem, 3.9vw, 2.4rem)',
+                fontSize: 'clamp(0.66rem, 1.95vw, 1.2rem)',
                 fontWeight: 500,
                 color: '#BBBBBB',
                 lineHeight: 1.4,
@@ -143,17 +142,18 @@ export default function Home({ onNavigate }: HomeProps) {
             >
               Follow the CombatCraft foundations pathway to learn martial arts and build real combat skills
             </p>
-            <OutlinedText
+            <p
               style={{
-                fontSize: 'clamp(0.76rem, 2.2vw, 1.36rem)',
                 fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                height: 'clamp(1.08rem, 3.4vw, 2.2rem)',
-                letterSpacing: '0.25em',
+                fontSize: 'clamp(0.38rem, 1.1vw, 0.68rem)',
+                fontWeight: 500,
+                color: '#999999',
+                letterSpacing: '0.06em',
+                margin: '0 auto',
               }}
             >
               Start free. No ads. Cancel anytime.
-            </OutlinedText>
+            </p>
           </div>
         </div>
       </section>
