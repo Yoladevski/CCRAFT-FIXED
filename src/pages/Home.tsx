@@ -69,7 +69,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.25em',
               }}
             >
-              YOUR STEP BY STEP PATHWAY TO
+              YOUR STEP BY STEP PATHWAY
             </OutlinedText>
             <OutlinedText
               style={{
@@ -80,7 +80,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.25em',
               }}
             >
-              LEARNING MARTIAL ARTS
+              TO LEARNING MARTIAL ARTS
             </OutlinedText>
             <p
               style={{
