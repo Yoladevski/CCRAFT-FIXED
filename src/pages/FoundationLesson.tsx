@@ -156,7 +156,7 @@ function LevelCompleteModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 overflow-hidden">
       {confetti.map(piece => (
         <div
           key={piece.id}
@@ -173,49 +173,51 @@ function LevelCompleteModal({
         />
       ))}
 
-      <div className="relative z-10 flex flex-col items-center px-6 max-w-md w-full">
+      <div
+        className="relative z-10 flex flex-col items-center mx-4 p-6 sm:p-8 rounded-2xl border border-[#2E2E2E] max-w-sm w-full"
+        style={{
+          background: 'linear-gradient(180deg, #1A1A1A 0%, #0E0E0E 100%)',
+          boxShadow: '0 0 40px rgba(177, 18, 38, 0.3), 0 0 80px rgba(0, 0, 0, 0.8)',
+        }}
+      >
         <div
-          className={`transition-all duration-700 ease-out ${
-            showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20'
+          className={`flex flex-col items-center transition-all duration-700 ease-out ${
+            showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
           }`}
-          style={{
-            transform: showContent ? 'translateY(0) scale(1)' : 'translateY(-100px) scale(1.2)',
-          }}
         >
           <img
-            src="https://api.combatcraft.co.uk/storage/v1/object/public/images/logo.png"
+            src="https://api.combatcraft.co.uk/storage/v1/object/public/images/xxlogo.JPG"
             alt="Combat Craft"
-            className="w-32 h-32 sm:w-40 sm:h-40 object-contain opacity-90 mb-6"
+            className="w-24 h-24 sm:w-28 sm:h-28 object-contain rounded-full mb-4"
           />
 
           <h2
-            className="text-4xl sm:text-5xl font-bold text-center mb-4"
+            className="text-2xl sm:text-3xl font-bold text-center mb-2"
             style={{
               fontFamily: 'Orbitron, sans-serif',
               color: '#B11226',
-              textShadow: '0 0 20px rgba(177, 18, 38, 0.8), 0 0 40px rgba(177, 18, 38, 0.4)',
+              textShadow: '0 0 20px rgba(177, 18, 38, 0.8)',
             }}
           >
             {userName.toUpperCase()}
           </h2>
 
-          <p className="text-[#A0A0A0] text-center text-lg mb-2">Completed</p>
+          <p className="text-[#A0A0A0] text-center text-sm mb-1">Completed</p>
 
           <h3
-            className="text-2xl sm:text-3xl font-bold text-center text-white mb-6"
+            className="text-lg sm:text-xl font-bold text-center text-white mb-4"
             style={{ fontFamily: 'Orbitron, sans-serif' }}
           >
             LEVEL {levelNumber}: {levelTitle.toUpperCase()}
           </h3>
 
           <p
-            className="text-3xl sm:text-4xl font-bold text-center"
+            className="text-2xl sm:text-3xl font-bold text-center mb-6"
             style={{
               fontFamily: 'Orbitron, sans-serif',
               background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              textShadow: '0 0 30px rgba(255, 215, 0, 0.5)',
             }}
           >
             {quote}
@@ -223,59 +225,61 @@ function LevelCompleteModal({
         </div>
 
         <div
-          className={`flex gap-4 mt-10 transition-all duration-500 ${
+          className={`flex flex-col items-center w-full transition-all duration-500 ${
             showShareButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <button
-            onClick={handleFacebookShare}
-            className="w-12 h-12 rounded-full bg-[#1877F2] flex items-center justify-center hover:scale-110 transition-transform"
-          >
-            <Facebook size={24} className="text-white" />
-          </button>
+          <p className="text-white text-sm font-medium mb-4 text-center">SHARE YOUR SUCCESS</p>
+
+          <div className="flex gap-3 mb-6">
+            <button
+              onClick={handleFacebookShare}
+              className="w-11 h-11 rounded-full bg-[#1877F2] flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <Facebook size={20} className="text-white" />
+            </button>
+
+            <button
+              onClick={handleInstagramShare}
+              className="w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+              style={{
+                background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+              }}
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-current">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </button>
+
+            <button
+              onClick={handleSnapchatShare}
+              className="w-11 h-11 rounded-full bg-[#FFFC00] flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current text-black">
+                <path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"/>
+              </svg>
+            </button>
+
+            <button
+              onClick={handleMessageShare}
+              className="w-11 h-11 rounded-full bg-[#25D366] flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <MessageCircle size={20} className="text-white" />
+            </button>
+          </div>
 
           <button
-            onClick={handleInstagramShare}
-            className="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+            onClick={onClose}
+            className="w-full py-3 rounded-xl font-bold text-white transition-all hover:scale-[1.02]"
             style={{
-              background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+              background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
+              boxShadow: '0 0 20px rgba(177, 18, 38, 0.5)',
+              fontFamily: 'Orbitron, sans-serif',
             }}
           >
-            <svg viewBox="0 0 24 24" className="w-6 h-6 text-white fill-current">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </button>
-
-          <button
-            onClick={handleSnapchatShare}
-            className="w-12 h-12 rounded-full bg-[#FFFC00] flex items-center justify-center hover:scale-110 transition-transform"
-          >
-            <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-black">
-              <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
-            </svg>
-          </button>
-
-          <button
-            onClick={handleMessageShare}
-            className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center hover:scale-110 transition-transform"
-          >
-            <MessageCircle size={24} className="text-white" />
+            CONTINUE
           </button>
         </div>
-
-        <button
-          onClick={onClose}
-          className={`mt-8 px-8 py-3 rounded-xl font-bold text-white transition-all hover:scale-105 ${
-            showShareButtons ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{
-            background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
-            boxShadow: '0 0 20px rgba(177, 18, 38, 0.5)',
-            fontFamily: 'Orbitron, sans-serif',
-          }}
-        >
-          CONTINUE
-        </button>
       </div>
     </div>
   );
