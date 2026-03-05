@@ -1,16 +1,309 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Lock, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useState, useRef, useCallback } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Lock, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight, Facebook, MessageCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { BOXING_FOUNDATIONS_LEVELS, FoundationLesson } from '../data/foundationsLessons';
 
+const VICTORY_QUOTES = [
+  "CHAMPION!",
+  "VICTORIOUS!",
+  "UNSTOPPABLE!",
+  "LEGENDARY!",
+  "DOMINANT!",
+];
+
+interface ConfettiPiece {
+  id: number;
+  x: number;
+  y: number;
+  rotation: number;
+  color: string;
+  size: number;
+  velocityX: number;
+  velocityY: number;
+  side: 'left' | 'right';
+}
+
+interface LevelCompleteState {
+  levelComplete: boolean;
+  levelNumber: number;
+  levelTitle: string;
+  userName: string;
+}
+
+function LevelCompleteModal({
+  levelNumber,
+  levelTitle,
+  userName,
+  onClose,
+}: {
+  levelNumber: number;
+  levelTitle: string;
+  userName: string;
+  onClose: () => void;
+}) {
+  const [showContent, setShowContent] = useState(false);
+  const [showShareButtons, setShowShareButtons] = useState(false);
+  const [confetti, setConfetti] = useState<ConfettiPiece[]>([]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const animationRef = useRef<number>();
+
+  const quote = VICTORY_QUOTES[Math.floor(Math.random() * VICTORY_QUOTES.length)];
+
+  const createConfetti = useCallback(() => {
+    const colors = ['#B11226', '#FFD700', '#FFFFFF', '#FF4444', '#FF6B6B'];
+    const pieces: ConfettiPiece[] = [];
+
+    for (let i = 0; i < 100; i++) {
+      const side = i < 50 ? 'left' : 'right';
+      pieces.push({
+        id: i,
+        x: side === 'left' ? -20 : window.innerWidth + 20,
+        y: Math.random() * window.innerHeight * 0.6,
+        rotation: Math.random() * 360,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: Math.random() * 10 + 5,
+        velocityX: side === 'left' ? Math.random() * 15 + 5 : -(Math.random() * 15 + 5),
+        velocityY: Math.random() * 5 - 2,
+        side,
+      });
+    }
+    setConfetti(pieces);
+  }, []);
+
+  useEffect(() => {
+    audioRef.current = new Audio('https://api.combatcraft.co.uk/storage/v1/object/public/audio/crowd-cheer.mp3');
+    audioRef.current.volume = 0.5;
+    audioRef.current.play().catch(() => {});
+
+    createConfetti();
+
+    const contentTimer = setTimeout(() => {
+      setShowContent(true);
+    }, 100);
+
+    const shareTimer = setTimeout(() => {
+      setShowShareButtons(true);
+    }, 1100);
+
+    return () => {
+      clearTimeout(contentTimer);
+      clearTimeout(shareTimer);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [createConfetti]);
+
+  useEffect(() => {
+    if (confetti.length === 0) return;
+
+    const animate = () => {
+      setConfetti(prev =>
+        prev.map(piece => ({
+          ...piece,
+          x: piece.x + piece.velocityX,
+          y: piece.y + piece.velocityY + 2,
+          rotation: piece.rotation + 5,
+          velocityX: piece.velocityX * 0.99,
+          velocityY: piece.velocityY + 0.1,
+        })).filter(piece => piece.y < window.innerHeight + 50)
+      );
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [confetti.length > 0]);
+
+  const shareText = `I just completed Level ${levelNumber}: ${levelTitle} on Combat Craft! Training like a champion.`;
+  const shareUrl = 'https://combatcraft.co.uk';
+
+  const handleFacebookShare = () => {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`, '_blank');
+  };
+
+  const handleInstagramShare = () => {
+    if (navigator.share) {
+      navigator.share({ title: 'Combat Craft', text: shareText, url: shareUrl });
+    } else {
+      navigator.clipboard.writeText(shareText);
+    }
+  };
+
+  const handleSnapchatShare = () => {
+    window.open(`https://www.snapchat.com/share?text=${encodeURIComponent(shareText)}`, '_blank');
+  };
+
+  const handleMessageShare = () => {
+    if (navigator.share) {
+      navigator.share({ title: 'Combat Craft', text: shareText, url: shareUrl });
+    } else {
+      window.open(`sms:?body=${encodeURIComponent(shareText + ' ' + shareUrl)}`, '_blank');
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-24 bg-black/90 overflow-hidden">
+      {confetti.map(piece => (
+        <div
+          key={piece.id}
+          className="absolute pointer-events-none"
+          style={{
+            left: piece.x,
+            top: piece.y,
+            width: piece.size,
+            height: piece.size,
+            backgroundColor: piece.color,
+            transform: `rotate(${piece.rotation}deg)`,
+            borderRadius: Math.random() > 0.5 ? '50%' : '0%',
+          }}
+        />
+      ))}
+
+      <div
+        className="relative z-10 flex flex-col items-center mx-4 p-6 sm:p-8 rounded-2xl border border-[#2E2E2E] max-w-sm w-full"
+        style={{
+          background: 'linear-gradient(180deg, #1A1A1A 0%, #0E0E0E 100%)',
+          boxShadow: '0 0 40px rgba(177, 18, 38, 0.3), 0 0 80px rgba(0, 0, 0, 0.8)',
+        }}
+      >
+        <div
+          className={`flex flex-col items-center transition-all duration-700 ease-out ${
+            showContent ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+          }`}
+        >
+          <img
+            src="https://api.combatcraft.co.uk/storage/v1/object/public/images/xxlogo.JPG"
+            alt="Combat Craft"
+            className="w-24 h-24 sm:w-28 sm:h-28 object-contain rounded-full mb-4"
+          />
+
+          <h2
+            className="text-2xl sm:text-3xl font-bold text-center mb-2"
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              color: '#B11226',
+              textShadow: '0 0 20px rgba(177, 18, 38, 0.8)',
+            }}
+          >
+            {userName.toUpperCase()}
+          </h2>
+
+          <p className="text-[#A0A0A0] text-center text-sm mb-1">Completed</p>
+
+          <h3
+            className="text-lg sm:text-xl font-bold text-center text-white mb-4"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            LEVEL {levelNumber}: {levelTitle.toUpperCase()}
+          </h3>
+
+          <p
+            className="text-2xl sm:text-3xl font-bold text-center mb-6"
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            {quote}
+          </p>
+        </div>
+
+        <div
+          className={`flex flex-col items-center w-full transition-all duration-500 ${
+            showShareButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <p className="text-white text-sm font-medium mb-4 text-center">SHARE YOUR SUCCESS</p>
+
+          <div className="flex gap-3 mb-6">
+            <button
+              onClick={handleFacebookShare}
+              className="w-11 h-11 rounded-full bg-[#1877F2] flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <Facebook size={20} className="text-white" />
+            </button>
+
+            <button
+              onClick={handleInstagramShare}
+              className="w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+              style={{
+                background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+              }}
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-current">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </button>
+
+            <button
+              onClick={handleSnapchatShare}
+              className="w-11 h-11 rounded-full bg-[#FFFC00] flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current text-black">
+                <path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"/>
+              </svg>
+            </button>
+
+            <button
+              onClick={handleMessageShare}
+              className="w-11 h-11 rounded-full bg-[#25D366] flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <MessageCircle size={20} className="text-white" />
+            </button>
+          </div>
+
+          <button
+            onClick={onClose}
+            className="w-full py-3 rounded-xl font-bold text-white transition-all hover:scale-[1.02]"
+            style={{
+              background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
+              boxShadow: '0 0 20px rgba(177, 18, 38, 0.5)',
+              fontFamily: 'Orbitron, sans-serif',
+            }}
+          >
+            CONTINUE
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function BoxingFoundations() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
   const [activeLevel, setActiveLevel] = useState(1);
   const [completedLessons, setCompletedLessons] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
+  const [showLevelComplete, setShowLevelComplete] = useState(false);
+  const [levelCompleteData, setLevelCompleteData] = useState<LevelCompleteState | null>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    const state = location.state as LevelCompleteState | null;
+    if (state?.levelComplete) {
+      setLevelCompleteData(state);
+      setShowLevelComplete(true);
+      setActiveLevel(state.levelNumber);
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   useEffect(() => {
     async function loadProgress() {
@@ -208,6 +501,15 @@ export default function BoxingFoundations() {
           )}
         </div>
       </div>
+
+      {showLevelComplete && levelCompleteData && (
+        <LevelCompleteModal
+          levelNumber={levelCompleteData.levelNumber}
+          levelTitle={levelCompleteData.levelTitle}
+          userName={levelCompleteData.userName}
+          onClose={() => setShowLevelComplete(false)}
+        />
+      )}
     </div>
   );
 }
