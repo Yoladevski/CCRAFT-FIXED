@@ -96,6 +96,27 @@ const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
                 <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
               </svg>
             </a>
+            <a
+              href="https://www.youtube.com/channel/UCbYhnlVk47dzAPlgs8j7HPg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#A0A0A0] hover:text-[#B11226] transition-colors"
+              aria-label="YouTube"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M2.5 17a24.12 24.12 0 0 1 0 -10a2 2 0 0 1 1.4 -1.4a49.56 49.56 0 0 1 16.2 0a2 2 0 0 1 1.4 1.4a24.12 24.12 0 0 1 0 10a2 2 0 0 1 -1.4 1.4a49.55 49.55 0 0 1 -16.2 0a2 2 0 0 1 -1.4 -1.4z" />
+                <path d="M10 15l5 -3l-5 -3z" />
+              </svg>
+            </a>
           </div>
 
           <div className="pt-4">
