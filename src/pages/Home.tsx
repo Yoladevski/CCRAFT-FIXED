@@ -246,7 +246,15 @@ export default function Home({ onNavigate }: HomeProps) {
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
               }}
             >
-              <h3 className="cc-section-heading text-center mb-4" data-text="EXPLORE DISCIPLINES" style={{ fontSize: '19.2px' }}>
+              <h3 className="text-center mb-4" style={{
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                fontSize: '19.2px',
+                letterSpacing: '5px',
+                color: '#FFFFFF',
+                WebkitTextStroke: '1px #000000',
+                textTransform: 'uppercase'
+              }}>
                 EXPLORE DISCIPLINES
               </h3>
               <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
