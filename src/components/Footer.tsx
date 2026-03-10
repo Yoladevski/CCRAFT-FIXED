@@ -47,7 +47,7 @@ const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
 
           <div className="flex justify-center items-center gap-6">
             <a
-              href="https://www.instagram.com/combatcraft1/"
+              href="https://www.instagram.com/combatcraftapp/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#A0A0A0] hover:text-[#B11226] transition-colors"
@@ -56,7 +56,7 @@ const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
               <Instagram size={24} />
             </a>
             <a
-              href="https://www.tiktok.com/@combat_craft"
+              href="https://www.tiktok.com/@combatcraftapp"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#A0A0A0] hover:text-[#B11226] transition-colors"
@@ -76,7 +76,7 @@ const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
               </svg>
             </a>
             <a
-              href="https://x.com/combatcraft_1"
+              href="https://x.com/CombatCraftapp"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#A0A0A0] hover:text-[#B11226] transition-colors"
@@ -97,7 +97,7 @@ const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
               </svg>
             </a>
             <a
-              href="https://www.youtube.com/channel/UCbYhnlVk47dzAPlgs8j7HPg"
+              href="https://www.youtube.com/@CombatCraftapp"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#A0A0A0] hover:text-[#B11226] transition-colors"
@@ -115,6 +115,26 @@ const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
               >
                 <path d="M2.5 17a24.12 24.12 0 0 1 0 -10a2 2 0 0 1 1.4 -1.4a49.56 49.56 0 0 1 16.2 0a2 2 0 0 1 1.4 1.4a24.12 24.12 0 0 1 0 10a2 2 0 0 1 -1.4 1.4a49.55 49.55 0 0 1 -16.2 0a2 2 0 0 1 -1.4 -1.4z" />
                 <path d="M10 15l5 -3l-5 -3z" />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/people/Combat-Craft/pfbid0Tvfr21RE4o7F5Pt5mnTFY1FvcyxGNt3ZzXw3z11Z3xtZdmk4ALzbimhnPD1qjjhXl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#A0A0A0] hover:text-[#B11226] transition-colors"
+              aria-label="Facebook"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
               </svg>
             </a>
           </div>
