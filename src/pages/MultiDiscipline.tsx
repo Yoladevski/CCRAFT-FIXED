@@ -80,7 +80,13 @@ export default function MultiDiscipline({ onBack, onNavigate }: MultiDisciplineP
       <div className="max-w-7xl mx-auto relative z-10">
         <BackButton onClick={handleBack} />
 
-        <h1 className="cc-red-shadow-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 mt-8">
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 mt-8 text-white"
+          style={{
+            fontFamily: 'Redhawk, sans-serif',
+            textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px 0 0 #000, 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000'
+          }}
+        >
           EXPLORE DISCIPLINES
         </h1>
 
