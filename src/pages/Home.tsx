@@ -250,7 +250,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 EXPLORE DISCIPLINES
               </h3>
               <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
-                Discover the martial arts disciplines we teach and find your path.
+                Boxing | Muay Thai | Brazilian Jiu-Jitsu | Wrestling | Karate
               </p>
             </button>
           </div>
