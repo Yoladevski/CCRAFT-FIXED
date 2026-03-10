@@ -270,9 +270,19 @@ export default function Auth({ onNavigate }: AuthProps) {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="button-text w-full py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full transition-transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  {loading ? 'LOADING...' : 'SIGN IN'}
+                  {loading ? (
+                    <div className="button-text w-full py-3 bg-[#B11226] text-white font-bold rounded">
+                      LOADING...
+                    </div>
+                  ) : (
+                    <img
+                      src="https://api.combatcraft.co.uk/storage/v1/object/public/images/SIGN%20IN.png"
+                      alt="Sign In"
+                      className="w-full h-auto"
+                    />
+                  )}
                 </button>
               </form>
 
