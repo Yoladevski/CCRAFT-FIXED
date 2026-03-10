@@ -62,22 +62,22 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
+                fontSize: 'clamp(2.6rem, 9vw, 5.4rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
-                letterSpacing: '0.15em',
+                height: 'clamp(3.2rem, 10.4vw, 6.4rem)',
+                letterSpacing: '0.1em',
               }}
             >
               LEARN MARTIAL ARTS
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
+                fontSize: 'clamp(2.6rem, 9vw, 5.4rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
-                letterSpacing: '0.15em',
+                height: 'clamp(3.2rem, 10.4vw, 6.4rem)',
+                letterSpacing: '0.1em',
               }}
             >
               STEP BY STEP
