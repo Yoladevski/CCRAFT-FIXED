@@ -341,7 +341,7 @@ export default function Account({ onBack }: AccountProps) {
     <div className="min-h-screen py-4 sm:py-12 px-3 sm:px-4 relative -mt-20 pt-16 sm:pt-24 overflow-x-hidden">
       <div className="max-w-4xl mx-auto relative z-10 w-full box-border">
         <div className="mb-3 sm:mb-6">
-          <BackButton onBack={onBack} />
+          <BackButton onClick={onBack} />
         </div>
         <h1 className="cc-outline-text text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-12">
           {isFirstTimeSetup ? 'COMPLETE YOUR PROFILE' : 'ACCOUNT'}

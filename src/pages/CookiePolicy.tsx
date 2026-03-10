@@ -9,7 +9,7 @@ export default function CookiePolicy({ onBack }: CookiePolicyProps) {
     <div className="min-h-screen py-6 sm:py-16 px-4 sm:px-6 lg:px-8 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="mb-4 sm:mb-6">
-          <BackButton onBack={onBack} />
+          <BackButton onClick={onBack} />
         </div>
         <h1 className="cc-outline-text text-4xl md:text-5xl font-bold text-white mb-12">
           COOKIE POLICY

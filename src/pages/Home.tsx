@@ -199,12 +199,12 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mt-[10px]">
             <button
               onClick={() => onNavigate('CombatCraft')}
-              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left flex flex-col justify-center"
+              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
               }}
             >
-              <h3 className="text-center mb-4" style={{
+              <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 fontSize: '19.2px',
@@ -215,7 +215,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}>
                 COMBAT CRAFT
               </h3>
-              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
+              <p className="leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
                 Structured martial arts training platform designed to teach real fighting techniques step-by-step.
               </p>
             </button>
