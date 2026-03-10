@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
-import { Database } from '../lib/supabase';
-import { useAuth } from '../contexts/AuthContext';
+import { supabase, Database } from '../lib/supabase';
 import BackButton from '../components/BackButton';
 
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
@@ -30,7 +28,6 @@ const cardImages: Record<string, string> = {
 };
 
 export default function MultiDiscipline({ onBack, onNavigate }: MultiDisciplineProps) {
-  const { user } = useAuth();
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -51,11 +48,6 @@ export default function MultiDiscipline({ onBack, onNavigate }: MultiDisciplineP
   }, []);
 
   const handleDisciplineClick = (discipline: Discipline) => {
-    if (!user) {
-      onNavigate('Auth');
-      return;
-    }
-
     if (discipline.name === 'Boxing') {
       onNavigate('BoxingOverview', discipline.id);
     }
