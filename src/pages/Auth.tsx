@@ -152,20 +152,13 @@ export default function Auth({ onNavigate }: AuthProps) {
 
   if (isForgotPassword) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 py-8 -mt-20 pt-20">
+      <div className="min-h-screen flex items-center justify-center px-4 py-2">
         <div className="w-full max-w-[420px]">
-          <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 pointer-events-none"
-              style={{
-                backgroundImage: 'url(https://i.postimg.cc/sx1hGTSM/backround-email.jpg)',
-                backgroundSize: '120%'
-              }}
-            />
+          <div className="bg-black rounded-lg border border-[#2E2E2E] p-4 sm:p-6 relative overflow-hidden">
             <div className="relative z-10">
-              <div className="flex justify-center mb-4 bg-black p-3 rounded-lg">
+              <div className="flex justify-center mb-4 bg-black rounded-lg">
                 <img
-                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png"
+                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/logo%20small.PNG"
                   alt="CombatCraft"
                   className="h-52 w-auto object-contain"
                 />
@@ -229,20 +222,13 @@ export default function Auth({ onNavigate }: AuthProps) {
 
   if (!isSignUp) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 py-8 -mt-20 pt-20">
+      <div className="min-h-screen flex items-center justify-center px-4 py-2">
         <div className="w-full max-w-[420px]">
-          <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 pointer-events-none"
-              style={{
-                backgroundImage: 'url(https://i.postimg.cc/sx1hGTSM/backround-email.jpg)',
-                backgroundSize: '120%'
-              }}
-            />
+          <div className="bg-black rounded-lg border border-[#2E2E2E] p-4 sm:p-6 relative overflow-hidden">
             <div className="relative z-10">
-              <div className="flex justify-center mb-4 bg-black p-3 rounded-lg">
+              <div className="flex justify-center mb-4 bg-black rounded-lg">
                 <img
-                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png"
+                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/logo%20small.PNG"
                   alt="CombatCraft"
                   className="h-52 w-auto object-contain"
                 />
@@ -321,7 +307,7 @@ export default function Auth({ onNavigate }: AuthProps) {
                   <div className="w-full border-t border-[#2E2E2E]"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-[#1A1A1A] text-[#A0A0A0]">OR</span>
+                  <span className="px-4 bg-black text-[#A0A0A0]">OR</span>
                 </div>
               </div>
 
@@ -357,7 +343,7 @@ export default function Auth({ onNavigate }: AuthProps) {
                   <div className="w-full border-t border-[#2E2E2E]"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-[#1A1A1A] text-[#A0A0A0]">OR</span>
+                  <span className="px-4 bg-black text-[#A0A0A0]">OR</span>
                 </div>
               </div>
 
@@ -369,7 +355,7 @@ export default function Auth({ onNavigate }: AuthProps) {
                 CREATE ACCOUNT
               </button>
 
-              <p className="text-[#606060] text-xs text-center mt-6">
+              <p className="text-[#606060] text-xs text-center mt-4">
                 Your data is protected.
               </p>
             </div>
@@ -380,20 +366,13 @@ export default function Auth({ onNavigate }: AuthProps) {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8 -mt-20 pt-20">
+    <div className="min-h-screen flex items-center justify-center px-4 py-2">
       <div className="w-full max-w-[420px]">
-        <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-8 relative overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 pointer-events-none"
-            style={{
-              backgroundImage: 'url(https://i.postimg.cc/sx1hGTSM/backround-email.jpg)',
-              backgroundSize: '120%'
-            }}
-          />
+        <div className="bg-black rounded-lg border border-[#2E2E2E] p-4 sm:p-6 relative overflow-hidden">
           <div className="relative z-10">
-            <div className="flex justify-center mb-4 bg-black p-3 rounded-lg">
+            <div className="flex justify-center mb-4 bg-black rounded-lg">
               <img
-                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png"
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/logo%20small.PNG"
                 alt="CombatCraft"
                 className="h-52 w-auto object-contain"
               />
@@ -544,7 +523,7 @@ export default function Auth({ onNavigate }: AuthProps) {
                 <div className="w-full border-t border-[#2E2E2E]"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-[#1A1A1A] text-[#A0A0A0]">OR</span>
+                <span className="px-4 bg-black text-[#A0A0A0]">OR</span>
               </div>
             </div>
 
@@ -556,7 +535,7 @@ export default function Auth({ onNavigate }: AuthProps) {
               SIGN IN
             </button>
 
-            <p className="text-[#606060] text-xs text-center mt-6">
+            <p className="text-[#606060] text-xs text-center mt-4">
               Your data is protected.
             </p>
           </div>
