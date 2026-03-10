@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase, Database } from '../lib/supabase';
 import BackButton from '../components/BackButton';
 
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
 
 interface MultiDisciplineProps {
-  onBack: () => void;
   onNavigate: (page: string, disciplineId?: string) => void;
 }
 
@@ -27,9 +27,14 @@ const cardImages: Record<string, string> = {
   'Judo': 'https://i.postimg.cc/JzQ751PX/judo.png',
 };
 
-export default function MultiDiscipline({ onBack, onNavigate }: MultiDisciplineProps) {
+export default function MultiDiscipline({ onNavigate }: MultiDisciplineProps) {
+  const navigate = useNavigate();
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const goToHome = () => {
+    navigate('/');
+  };
 
   useEffect(() => {
     async function loadDisciplines() {
@@ -64,7 +69,7 @@ export default function MultiDiscipline({ onBack, onNavigate }: MultiDisciplineP
   return (
     <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
       <div className="max-w-7xl mx-auto relative z-10">
-        <BackButton onClick={onBack} />
+        <BackButton onClick={goToHome} />
 
         <h1
           className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 mt-8 text-white"

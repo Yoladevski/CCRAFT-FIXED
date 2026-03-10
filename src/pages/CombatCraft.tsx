@@ -1,14 +1,17 @@
+import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 
-interface CombatCraftProps {
-  onBack: () => void;
-}
+export default function CombatCraft() {
+  const navigate = useNavigate();
 
-export default function CombatCraft({ onBack }: CombatCraftProps) {
+  const goToHome = () => {
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen py-8 px-4 relative">
       <div className="max-w-4xl mx-auto relative z-10">
-        <BackButton onClick={onBack} />
+        <BackButton onClick={goToHome} />
 
         <h1 className="cc-outline-text text-2xl sm:text-3xl font-bold mb-8 text-center mt-8">
           COMBAT CRAFT

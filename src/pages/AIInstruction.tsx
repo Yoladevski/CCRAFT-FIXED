@@ -1,10 +1,7 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import BackButton from '../components/BackButton';
-
-interface AIInstructionProps {
-  onBack: () => void;
-}
 
 const appScreenshots = [
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44.jpeg',
@@ -14,8 +11,13 @@ const appScreenshots = [
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44%20(1).jpeg',
 ];
 
-export default function AIInstruction({ onBack }: AIInstructionProps) {
+export default function AIInstruction() {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToHome = () => {
+    navigate('/');
+  };
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? appScreenshots.length - 1 : prev - 1));
@@ -28,7 +30,7 @@ export default function AIInstruction({ onBack }: AIInstructionProps) {
   return (
     <div className="min-h-screen py-8 px-4 relative">
       <div className="max-w-4xl mx-auto relative z-10">
-        <BackButton onClick={onBack} />
+        <BackButton onClick={goToHome} />
 
         <h1 className="cc-outline-text text-2xl sm:text-3xl font-bold mb-8 text-center mt-8">
           INSIDE THE APP
