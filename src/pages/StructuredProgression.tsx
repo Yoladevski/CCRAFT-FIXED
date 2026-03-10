@@ -1,17 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 
-interface StructuredProgressionProps {
-  onBack: () => void;
-}
-
-export default function StructuredProgression({ onBack }: StructuredProgressionProps) {
+export default function StructuredProgression() {
   const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate('/');
+  };
 
   return (
     <div className="min-h-screen py-8 px-4 relative">
       <div className="max-w-4xl mx-auto relative z-10">
-        <BackButton onClick={onBack} />
+        <BackButton onClick={goToHome} />
 
         <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-12 mt-8">
           <div className="mb-8 flex justify-center">
