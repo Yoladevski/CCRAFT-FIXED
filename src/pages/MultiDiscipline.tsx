@@ -1,108 +1,139 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
+import { Database } from '../lib/supabase';
+import { useAuth } from '../contexts/AuthContext';
 import BackButton from '../components/BackButton';
+
+type Discipline = Database['public']['Tables']['disciplines']['Row'];
 
 interface MultiDisciplineProps {
   onBack: () => void;
+  onNavigate: (page: string, disciplineId?: string) => void;
 }
 
-export default function MultiDiscipline({ onBack }: MultiDisciplineProps) {
+const buttonImages: Record<string, string> = {
+  'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/boxing.png',
+  'Muay Thai': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/mauythai.png',
+  'BJJ': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/bjj.png',
+  'Karate': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/karate.png',
+  'Taekwondo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/taekwondo.png',
+  'Judo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/judo.png',
+};
+
+const cardImages: Record<string, string> = {
+  'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/booxing.PNG',
+  'Muay Thai': 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg',
+  'BJJ': 'https://i.postimg.cc/MHT6KD7s/bjjjj.png',
+  'Karate': 'https://i.postimg.cc/3xZrFKnC/karate.png',
+  'Taekwondo': 'https://i.postimg.cc/MpntyTW0/tikwan.png',
+  'Judo': 'https://i.postimg.cc/JzQ751PX/judo.png',
+};
+
+export default function MultiDiscipline({ onBack, onNavigate }: MultiDisciplineProps) {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const [disciplines, setDisciplines] = useState<Discipline[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadDisciplines() {
+      const { data } = await supabase
+        .from('disciplines')
+        .select('*')
+        .order('order_index');
+
+      if (data) {
+        setDisciplines(data.filter(d => d.name !== 'Kickboxing'));
+      }
+      setLoading(false);
+    }
+
+    loadDisciplines();
+  }, []);
+
+  const handleDisciplineClick = (discipline: Discipline) => {
+    if (!user) {
+      onNavigate('Auth');
+      return;
+    }
+
+    if (discipline.name === 'Boxing') {
+      onNavigate('BoxingOverview', discipline.id);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-2xl text-[#A0A0A0]">LOADING...</div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen py-8 px-4 relative">
-      <div className="max-w-4xl mx-auto relative z-10">
+    <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
+      <div className="max-w-7xl mx-auto relative z-10">
         <BackButton onClick={onBack} />
 
-        <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-12 mt-8">
-          <div className="mb-8 flex justify-center">
-            <img
-              src="https://i.postimg.cc/zvD100cG/fightcraft3.jpg"
-              alt="Multi Discipline System"
-              className="w-32 h-32 object-cover rounded-lg border-2 border-[#B11226]"
-            />
-          </div>
+        <h1 className="cc-red-shadow-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 mt-8">
+          EXPLORE DISCIPLINES
+        </h1>
 
-          <h1 className="cc-outline-text text-3xl sm:text-4xl font-bold mb-6 text-center">
-            MULTI DISCIPLINE SYSTEM
-          </h1>
+        <p className="text-center text-[#A0A0A0] mb-12" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px' }}>
+          Discover the martial arts we teach and start your training journey.
+        </p>
 
-          <div className="space-y-6 text-[#E0E0E0] text-body leading-relaxed">
-            <p className="text-lg">
-              Train across Boxing, Muay Thai, BJJ, and more. Become a complete fighter.
-            </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {disciplines.map((discipline) => {
+            const isBoxing = discipline.name === 'Boxing';
+            const isClickable = isBoxing;
 
-            <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">What is the Multi Discipline System?</h2>
-              <p>
-                Modern combat sports demand versatility. COMBATCRAFT's Multi Discipline System gives you access to comprehensive training across multiple martial arts and combat sports disciplines, all within a single unified platform. Train like a complete mixed martial artist, not just a specialist.
-              </p>
-            </div>
+            return (
+              <div
+                key={discipline.id}
+                className="flex flex-col"
+              >
+                <div
+                  className={`relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#B11226] ${
+                    !isClickable ? 'opacity-60' : ''
+                  }`}
+                  style={{
+                    boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                  }}
+                >
+                  <div className="absolute inset-0 bg-[#1A1A1A]">
+                    <img
+                      src={cardImages[discipline.name] || cardImages['Boxing']}
+                      alt={discipline.name}
+                      className="w-full h-full object-cover object-center brightness-90 contrast-125"
+                    />
+                  </div>
+                </div>
 
-            <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">Available Disciplines</h2>
-              <div className="space-y-4">
-                <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded-lg p-4">
-                  <h3 className="cc-outline-text text-xl font-bold mb-2 text-white">Boxing</h3>
-                  <p>Master the sweet science with comprehensive striking techniques, footwork, defense, and combination work that builds elite hand skills.</p>
+                <div className="h-[2.5rem] flex items-center justify-center px-2 mt-1">
+                  {discipline.description && (
+                    <p className="text-sm text-[#A0A0A0] text-center line-clamp-2">
+                      {discipline.description}
+                    </p>
+                  )}
                 </div>
-                <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded-lg p-4">
-                  <h3 className="cc-outline-text text-xl font-bold mb-2 text-white">Muay Thai</h3>
-                  <p>Learn the art of eight limbs with detailed instruction on punches, kicks, elbows, knees, clinch work, and the devastating techniques that make Muay Thai so effective.</p>
-                </div>
-                <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded-lg p-4">
-                  <h3 className="cc-outline-text text-xl font-bold mb-2 text-white">Brazilian Jiu-Jitsu (Coming Soon)</h3>
-                  <p>Develop world-class grappling with positions, submissions, escapes, and the strategic ground game that defines modern MMA.</p>
-                </div>
-                <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded-lg p-4">
-                  <h3 className="cc-outline-text text-xl font-bold mb-2 text-white">More Disciplines Coming</h3>
-                  <p>We're constantly expanding our system with new disciplines including Wrestling, Kickboxing, Judo, and more.</p>
-                </div>
+
+                <button
+                  onClick={() => handleDisciplineClick(discipline)}
+                  className={`mt-1 focus:outline-none group w-full ${!isClickable ? 'cursor-not-allowed opacity-60' : ''}`}
+                >
+                  <div className="w-full h-[205px] sm:h-[256px] flex items-center justify-center">
+                    <img
+                      src={buttonImages[discipline.name] || buttonImages['Boxing']}
+                      alt={`${discipline.name} button`}
+                      className={`max-w-full max-h-full object-contain transition-transform duration-200 ${isClickable ? 'group-hover:scale-105' : ''}`}
+                    />
+                  </div>
+                </button>
               </div>
-            </div>
-
-            <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">Why Train Multiple Disciplines?</h2>
-              <ul className="space-y-3 list-disc list-inside ml-4">
-                <li>Develop a complete skill set for any combat situation</li>
-                <li>Understand how different styles complement each other</li>
-                <li>Identify and fix weaknesses in your game</li>
-                <li>Gain competitive advantages through versatility</li>
-                <li>Build a deeper understanding of combat sports</li>
-                <li>Stay motivated with diverse training options</li>
-              </ul>
-            </div>
-
-            <div className="border-t border-[#2E2E2E] pt-6">
-              <h2 className="cc-outline-text text-2xl font-bold mb-4 text-white">Integrated Training Approach</h2>
-              <p className="mb-4">
-                Our Multi Discipline System isn't just a collection of separate martial arts. We've designed it to help you:
-              </p>
-              <ul className="space-y-4 list-none">
-                <li className="flex items-start">
-                  <span className="text-[#B11226] font-bold mr-3">→</span>
-                  <div>
-                    <span className="font-bold text-white">Cross-Train Effectively:</span> Learn how techniques from one discipline enhance another (e.g., Boxing footwork improving your Muay Thai).
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#B11226] font-bold mr-3">→</span>
-                  <div>
-                    <span className="font-bold text-white">Build Rounded Skills:</span> Develop striking, clinching, and grappling abilities that work together seamlessly.
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#B11226] font-bold mr-3">→</span>
-                  <div>
-                    <span className="font-bold text-white">Progress Systematically:</span> Each discipline uses the same proven progression system, ensuring consistent growth across all areas.
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-[#B11226]/10 border border-[#B11226] rounded-lg p-6 mt-8">
-              <h3 className="cc-outline-text text-xl font-bold mb-3 text-white">Become a Complete Fighter</h3>
-              <p>
-                Whether you're training for MMA, looking to improve your overall martial arts skills, or simply want to experience different combat sports, our Multi Discipline System gives you everything you need in one place. Train at your own pace, track progress across all disciplines, and become the well-rounded fighter you've always wanted to be.
-              </p>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </div>

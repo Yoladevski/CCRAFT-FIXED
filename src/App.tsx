@@ -173,7 +173,7 @@ function AppContent() {
         <Route path="/affiliates" element={<S><Affiliates onBack={goBack} /></S>} />
         <Route path="/structured-progression" element={<S><StructuredProgression onBack={goBack} /></S>} />
         <Route path="/ai-instruction" element={<S><AIInstruction onBack={goBack} /></S>} />
-        <Route path="/multi-discipline" element={<S><MultiDiscipline onBack={goBack} /></S>} />
+        <Route path="/multi-discipline" element={<S><MultiDiscipline onBack={goBack} onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
         <Route path="/boxing/foundations/lesson/:lessonId" element={<S><FoundationLesson /></S>} />
         <Route path="/boxing/foundations" element={<S><BoxingFoundations /></S>} />
         <Route path="/boxing/:disciplineId" element={<S><BoxingOverview onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />

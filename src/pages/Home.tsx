@@ -241,28 +241,16 @@ export default function Home({ onNavigate }: HomeProps) {
 
             <button
               onClick={() => onNavigate('MultiDiscipline')}
-              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left flex flex-col justify-center"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
               }}
             >
-              <div className="mb-6 mx-auto flex items-center justify-center">
-                <img
-                  src="https://i.postimg.cc/zvD100cG/fightcraft3.jpg"
-                  alt="Multi Discipline System"
-                  className="w-24 h-24 object-cover rounded-full border-2 border-[#B11226]"
-                  width="96"
-                  height="96"
-                  style={{
-                    boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
-                  }}
-                />
-              </div>
-              <h3 className="cc-section-heading text-center mb-4" data-text="MULTI DISCIPLINE SYSTEM" style={{ fontSize: '19.2px' }}>
-                MULTI DISCIPLINE SYSTEM
+              <h3 className="cc-section-heading text-center mb-4" data-text="EXPLORE DISCIPLINES" style={{ fontSize: '19.2px' }}>
+                EXPLORE DISCIPLINES
               </h3>
               <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
-                Train across Boxing, Muay Thai, BJJ, and more. Become a complete fighter.
+                Discover the martial arts disciplines we teach and find your path.
               </p>
             </button>
           </div>
