@@ -444,44 +444,48 @@ export default function Auth({ onNavigate }: AuthProps) {
               </div>
 
               <div className="space-y-3 pt-2 flex flex-col items-center">
-                <label className="flex items-center space-x-3 cursor-pointer group">
-                  <input
-                    type="checkbox"
-                    checked={termsAccepted}
-                    onChange={(e) => setTermsAccepted(e.target.checked)}
-                    className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
-                    required
-                  />
-                  <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
-                    I agree to{' '}
-                    <button
-                      type="button"
-                      onClick={() => onNavigate('TermsOfService')}
-                      className="text-[#B11226] hover:underline font-bold"
-                    >
-                      Terms of Service
-                    </button>
-                  </span>
+                <label className="flex flex-col items-center cursor-pointer group">
+                  <div className="flex items-center space-x-3">
+                    <input
+                      type="checkbox"
+                      checked={termsAccepted}
+                      onChange={(e) => setTermsAccepted(e.target.checked)}
+                      className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                      required
+                    />
+                    <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
+                      I agree to
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('TermsOfService')}
+                    className="text-sm text-[#B11226] hover:underline font-bold mt-1"
+                  >
+                    Terms of Service
+                  </button>
                 </label>
 
-                <label className="flex items-center space-x-3 cursor-pointer group">
-                  <input
-                    type="checkbox"
-                    checked={disclaimerAccepted}
-                    onChange={(e) => setDisclaimerAccepted(e.target.checked)}
-                    className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
-                    required
-                  />
-                  <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
-                    I acknowledge the{' '}
-                    <button
-                      type="button"
-                      onClick={() => onNavigate('Disclaimer')}
-                      className="text-[#B11226] hover:underline font-bold"
-                    >
-                      Training Risk Disclaimer
-                    </button>
-                  </span>
+                <label className="flex flex-col items-center cursor-pointer group">
+                  <div className="flex items-center space-x-3">
+                    <input
+                      type="checkbox"
+                      checked={disclaimerAccepted}
+                      onChange={(e) => setDisclaimerAccepted(e.target.checked)}
+                      className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                      required
+                    />
+                    <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
+                      I acknowledge the
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('Disclaimer')}
+                    className="text-sm text-[#B11226] hover:underline font-bold mt-1"
+                  >
+                    Training Risk Disclaimer
+                  </button>
                 </label>
 
                 <label className="flex items-center space-x-3 cursor-pointer group">
