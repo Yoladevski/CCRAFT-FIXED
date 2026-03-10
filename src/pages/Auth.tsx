@@ -350,10 +350,13 @@ export default function Auth({ onNavigate }: AuthProps) {
 
               <button
                 onClick={toggleMode}
-                className="w-full py-3 border border-[#2E2E2E] text-white font-bold rounded hover:border-[#B11226] hover:bg-[#B11226]/10 transition-all"
-                style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: '0.05em' }}
+                className="w-full transition-transform hover:scale-105"
               >
-                CREATE ACCOUNT
+                <img
+                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/create%20account.png"
+                  alt="Create Account"
+                  className="w-full h-auto"
+                />
               </button>
 
               <p className="text-[#606060] text-xs text-center mt-4">

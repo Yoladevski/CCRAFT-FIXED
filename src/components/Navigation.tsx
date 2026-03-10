@@ -99,7 +99,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                   onClick={() => handleNavigate('Auth')}
                   className="nav-menu-item px-4 py-2 bg-[#B11226] rounded hover:bg-[#8B0E1C] transition-all whitespace-nowrap"
                 >
-                  SIGN IN
+                  SIGN UP
                 </button>
               )}
             </div>
@@ -353,7 +353,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 letterSpacing: '0.05em'
               }}
             >
-              SIGN IN
+              SIGN UP
             </button>
           )}
         </div>
