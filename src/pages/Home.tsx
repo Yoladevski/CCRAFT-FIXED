@@ -62,33 +62,66 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
+                fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
-                letterSpacing: '0.27em',
+                height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
+                letterSpacing: '0.15em',
+              }}
+            >
+              LEARN MARTIAL ARTS
+            </OutlinedText>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
+                letterSpacing: '0.15em',
+              }}
+            >
+              STEP BY STEP
+            </OutlinedText>
+          </div>
+
+          <div
+            className="hero-taglines"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.3rem',
+              width: '100%',
+            }}
+          >
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1.1rem, 3.6vw, 2rem)',
+                letterSpacing: '0.2em',
               }}
             >
               BUILT BY REAL COACHES
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
+                fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
-                letterSpacing: '0.27em',
+                height: 'clamp(1.1rem, 3.6vw, 2rem)',
+                letterSpacing: '0.2em',
               }}
             >
-              USED BY FIGHTERS
+              TRUSTED BY FIGHTERS
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(1.02rem, 3.6vw, 2.16rem)',
+                fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1.3rem, 4.2vw, 2.7rem)',
-                letterSpacing: '0.27em',
+                height: 'clamp(1.1rem, 3.6vw, 2rem)',
+                letterSpacing: '0.2em',
               }}
             >
               POWERED BY AI
@@ -120,31 +153,42 @@ export default function Home({ onNavigate }: HomeProps) {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '0.5rem',
+              gap: '0.4rem',
               width: '100%',
             }}
           >
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
+                fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1rem, 3.3vw, 2rem)',
-                letterSpacing: '0.27em',
+                height: 'clamp(1rem, 3.2vw, 1.9rem)',
+                letterSpacing: '0.2em',
               }}
             >
-              START FREE. TRAIN FREE. AD FREE
+              START FREE
             </OutlinedText>
             <OutlinedText
               style={{
-                fontSize: 'clamp(0.765rem, 2.7vw, 1.62rem)',
+                fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                height: 'clamp(1rem, 3.3vw, 2rem)',
-                letterSpacing: '0.27em',
+                height: 'clamp(1rem, 3.2vw, 1.9rem)',
+                letterSpacing: '0.2em',
               }}
             >
-              NO COMMITMENT. CANCEL ANYTIME
+              NO COMMITMENT
+            </OutlinedText>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1rem, 3.2vw, 1.9rem)',
+                letterSpacing: '0.2em',
+              }}
+            >
+              CANCEL ANYTIME
             </OutlinedText>
           </div>
         </div>

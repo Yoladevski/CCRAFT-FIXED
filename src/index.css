@@ -400,43 +400,55 @@ nav a {
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-rows: 1fr auto 1fr;
+  grid-template-rows: auto auto auto auto;
   justify-items: center;
-  align-items: center;
+  align-content: center;
   text-align: center;
   z-index: 30;
+  gap: 1.5rem;
+  padding-top: 5vh;
 }
 
 .hero-top-text,
+.hero-taglines,
 .hero-bottom-text {
   color: #FFFFFF;
 }
 
 .hero-top-text span,
+.hero-taglines span,
 .hero-bottom-text span {
   display: block;
 }
 
-@media (max-width: 767px) {
-  .hero-bottom-text span {
-    display: inline;
-  }
+.hero-taglines {
+  margin-top: 0.5rem;
+}
 
-  .hero-bottom-text span:first-child::after {
-    content: ' ';
-  }
+.hero-middle-button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 767px) {
-  .hero-top-text .outlined-text,
+  .hero-content-grid {
+    gap: 1rem;
+    padding-top: 12vh;
+  }
+
+  .hero-top-text .outlined-text {
+    letter-spacing: 0.1em !important;
+  }
+
+  .hero-taglines .outlined-text,
   .hero-bottom-text .outlined-text {
-    letter-spacing: 5px !important;
-    font-size: clamp(0.7rem, 3.2vw, 1.8rem) !important;
+    letter-spacing: 0.12em !important;
   }
 }
 
 @media (min-width: 768px) {
   .hero-content-grid {
-    transform: translateY(80px);
+    padding-top: 8vh;
+    gap: 1.5rem;
   }
 }
