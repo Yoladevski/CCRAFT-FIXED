@@ -17,16 +17,16 @@ export default function CombatCraft() {
           COMBAT CRAFT
         </h1>
 
-        <div className="space-y-6" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '12px', fontWeight: 500, color: '#A0A0A0', lineHeight: '1.8' }}>
+        <div className="space-y-6 text-center" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '12px', fontWeight: 500, color: '#A0A0A0', lineHeight: '1.8' }}>
           <p>CombatCraft is a structured martial arts learning platform designed to teach real fighting techniques step-by-step.</p>
 
           <p>Unlike random tutorials or unstructured training videos, CombatCraft follows a clear progression system similar to how techniques are taught in real gyms. Each discipline is organised into pathways that guide users through the fundamentals first, before unlocking more advanced skills.</p>
 
           <p>Every lesson focuses on a single technique and breaks it down into clear sections so users understand not only how to perform the movement, but also why it works and when it should be used.</p>
 
-          <div className="bg-[#1A1A1A] rounded-lg border border-[#B11226]/30 p-6 my-8">
-            <p className="mb-4" style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '14px' }}>Inside each lesson you will find:</p>
-            <ul className="space-y-2 pl-4">
+          <div className="bg-[#1A1A1A] rounded-lg border border-[#B11226]/30 p-6 my-8 text-left">
+            <p className="mb-4 text-center" style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '14px' }}>Inside each lesson you will find:</p>
+            <ul className="space-y-2 inline-block text-left mx-auto">
               <li>&#8226; A visual demonstration of the technique</li>
               <li>&#8226; Step-by-step coaching instructions</li>
               <li>&#8226; The tactical purpose of the move</li>
@@ -47,7 +47,7 @@ export default function CombatCraft() {
 
           <p>CombatCraft will continue expanding to include multiple martial arts disciplines, allowing users to develop a complete understanding of striking, grappling, and combat fundamentals within one learning platform.</p>
 
-          <div className="mt-10 text-center space-y-2" style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '14px' }}>
+          <div className="mt-10 space-y-2" style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '14px' }}>
             <p>Train consistently. Progress step-by-step. Build real skill.</p>
             <p>CombatCraft.</p>
             <p>Learn like a fighter.</p>
