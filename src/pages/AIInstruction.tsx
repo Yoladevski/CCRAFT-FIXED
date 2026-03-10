@@ -9,7 +9,6 @@ interface AIInstructionProps {
 const appScreenshots = [
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44.jpeg',
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/Capture.PNG',
-  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.11.47.jpeg',
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43%20(2).jpeg',
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43.jpeg',
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43%20(1).jpeg',
