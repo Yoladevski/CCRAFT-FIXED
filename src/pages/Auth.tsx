@@ -152,7 +152,7 @@ export default function Auth({ onNavigate }: AuthProps) {
 
   if (isForgotPassword) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 py-2">
+      <div className="min-h-screen flex items-start justify-center px-4 pt-0 pb-2">
         <div className="w-full max-w-[420px]">
           <div className="bg-black rounded-lg border border-[#2E2E2E] p-4 sm:p-6 relative overflow-hidden">
             <div className="relative z-10">
@@ -222,7 +222,7 @@ export default function Auth({ onNavigate }: AuthProps) {
 
   if (!isSignUp) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 py-2">
+      <div className="min-h-screen flex items-start justify-center px-4 pt-0 pb-2">
         <div className="w-full max-w-[420px]">
           <div className="bg-black rounded-lg border border-[#2E2E2E] p-4 sm:p-6 relative overflow-hidden">
             <div className="relative z-10">
@@ -366,7 +366,7 @@ export default function Auth({ onNavigate }: AuthProps) {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-2">
+    <div className="min-h-screen flex items-start justify-center px-4 pt-0 pb-2">
       <div className="w-full max-w-[420px]">
         <div className="bg-black rounded-lg border border-[#2E2E2E] p-4 sm:p-6 relative overflow-hidden">
           <div className="relative z-10">
