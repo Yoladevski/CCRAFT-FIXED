@@ -163,11 +163,11 @@ export default function Auth({ onNavigate }: AuthProps) {
               }}
             />
             <div className="relative z-10">
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-4 bg-black p-3 rounded-lg">
                 <img
-                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/xxlogo.JPG"
+                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png"
                   alt="CombatCraft"
-                  className="w-20 h-20 object-contain rounded-full"
+                  className="h-52 w-auto object-contain"
                 />
               </div>
 
@@ -240,11 +240,11 @@ export default function Auth({ onNavigate }: AuthProps) {
               }}
             />
             <div className="relative z-10">
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-4 bg-black p-3 rounded-lg">
                 <img
-                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/xxlogo.JPG"
+                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png"
                   alt="CombatCraft"
-                  className="w-20 h-20 object-contain rounded-full"
+                  className="h-52 w-auto object-contain"
                 />
               </div>
 
@@ -391,11 +391,11 @@ export default function Auth({ onNavigate }: AuthProps) {
             }}
           />
           <div className="relative z-10">
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-4 bg-black p-3 rounded-lg">
               <img
-                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/xxlogo.JPG"
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/new%202.png"
                 alt="CombatCraft"
-                className="w-20 h-20 object-contain rounded-full"
+                className="h-52 w-auto object-contain"
               />
             </div>
 
