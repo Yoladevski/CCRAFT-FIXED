@@ -33,7 +33,7 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
               className="flex-1 relative group rounded-2xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer min-h-[140px] sm:min-h-[180px] flex items-center justify-center bg-transparent border-0 p-0"
             >
               <img
-                src="/generated-1773160330076-ydl0p.png"
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/foundation%20buton.png"
                 alt="Foundation Pathway"
                 className="w-full h-full object-contain"
               />
