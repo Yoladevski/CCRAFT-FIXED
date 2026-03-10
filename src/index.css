@@ -433,7 +433,7 @@ nav a {
 @media (max-width: 767px) {
   .hero-content-grid {
     gap: 1rem;
-    padding-top: 12vh;
+    padding-top: 2vh;
   }
 
   .hero-top-text .outlined-text {
