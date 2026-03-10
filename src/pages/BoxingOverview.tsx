@@ -30,12 +30,12 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <button
               onClick={() => navigate('/boxing/foundations')}
-              className="flex-1 relative group rounded-2xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer min-h-[140px] sm:min-h-[180px] flex items-center justify-center bg-transparent border-0 p-0"
+              className="flex-1 relative group rounded-2xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer h-[205px] sm:h-[256px] flex items-center justify-center bg-transparent border-0 p-0"
             >
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/foundationtrans.png"
                 alt="Foundation Pathway"
-                className="w-full h-full object-contain"
+                className="max-w-full max-h-full object-contain"
               />
             </button>
 
@@ -67,12 +67,12 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
 
             <button
               onClick={() => onNavigate('Discipline', disciplineId)}
-              className="flex-1 relative group rounded-2xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer min-h-[140px] sm:min-h-[180px] flex items-center justify-center order-1 sm:order-2 bg-transparent border-0 p-0"
+              className="flex-1 relative group rounded-2xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer h-[205px] sm:h-[256px] flex items-center justify-center order-1 sm:order-2 bg-transparent border-0 p-0"
             >
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/technique%20librarytrans.png"
                 alt="Technique Library"
-                className="w-full h-full object-contain"
+                className="max-w-full max-h-full object-contain"
               />
             </button>
           </div>
