@@ -204,7 +204,15 @@ export default function Home({ onNavigate }: HomeProps) {
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
               }}
             >
-              <h3 className="cc-section-heading text-center mb-4" data-text="COMBAT CRAFT" style={{ fontSize: '19.2px' }}>
+              <h3 className="text-center mb-4" style={{
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                fontSize: '19.2px',
+                letterSpacing: '5px',
+                color: '#FFFFFF',
+                WebkitTextStroke: '1px #000000',
+                textTransform: 'uppercase'
+              }}>
                 COMBAT CRAFT
               </h3>
               <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
@@ -214,29 +222,27 @@ export default function Home({ onNavigate }: HomeProps) {
 
             <button
               onClick={() => onNavigate('AIInstruction')}
-              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left"
+              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left flex flex-col justify-center"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
               }}
             >
-              <div className="mb-6 mx-auto flex items-center justify-center">
-                <img
-                  src="https://i.postimg.cc/fyWhBBrT/fightcraft2.jpg"
-                  alt="AI Enhanced Instruction"
-                  className="w-24 h-24 object-cover rounded-full border-2 border-[#B11226]"
-                  width="96"
-                  height="96"
-                  style={{
-                    boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
-                  }}
-                />
-              </div>
-              <h3 className="cc-section-heading text-center mb-4" data-text="AI ENHANCED INSTRUCTION" style={{ fontSize: '19.2px' }}>
-                AI ENHANCED INSTRUCTION
+              <h3 className="text-center mb-4" style={{
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                fontSize: '19.2px',
+                letterSpacing: '5px',
+                color: '#FFFFFF',
+                WebkitTextStroke: '1px #000000',
+                textTransform: 'uppercase'
+              }}>
+                INSIDE THE APP
               </h3>
-              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
-                Detailed technique breakdowns with common mistakes and tactical applications.
-              </p>
+              <ul className="text-center space-y-2" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0', listStyle: 'none' }}>
+                <li>Progress Tracking</li>
+                <li>Structured Pathway</li>
+                <li>AI Generated Videos</li>
+              </ul>
             </button>
 
             <button
@@ -257,9 +263,13 @@ export default function Home({ onNavigate }: HomeProps) {
               }}>
                 EXPLORE DISCIPLINES
               </h3>
-              <p className="text-center leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
-                Boxing | Muay Thai | Brazilian Jiu-Jitsu | Wrestling | Karate
-              </p>
+              <ul className="text-center space-y-2" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0', listStyle: 'none' }}>
+                <li>Boxing</li>
+                <li>Muay Thai</li>
+                <li>Brazilian Jiu-Jitsu</li>
+                <li>Wrestling</li>
+                <li>Karate</li>
+              </ul>
             </button>
           </div>
         </div>
