@@ -30,16 +30,13 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <button
               onClick={() => navigate('/boxing/foundations')}
-              className="flex-1 relative group rounded-2xl overflow-hidden border-2 border-[#B11226] transition-all hover:scale-[1.02] cursor-pointer p-6 sm:p-8 min-h-[140px] sm:min-h-[180px] flex items-center justify-center"
-              style={{
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
-                background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)'
-              }}
+              className="flex-1 relative group rounded-2xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer min-h-[140px] sm:min-h-[180px] flex items-center justify-center bg-transparent border-0 p-0"
             >
-              <div className="absolute inset-0 bg-[#B11226]/0 group-hover:bg-[#B11226]/10 transition-colors" />
-              <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-center relative z-10 leading-tight">
-                FOUNDATION<br />PATHWAY
-              </h2>
+              <img
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/foundation%20buton.png"
+                alt="Foundation Pathway"
+                className="w-full h-full object-contain"
+              />
             </button>
 
             <div
@@ -70,16 +67,13 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
 
             <button
               onClick={() => onNavigate('Discipline', disciplineId)}
-              className="flex-1 relative group rounded-2xl overflow-hidden border-2 border-[#B11226] transition-all hover:scale-[1.02] cursor-pointer p-6 sm:p-8 min-h-[140px] sm:min-h-[180px] flex items-center justify-center order-1 sm:order-2"
-              style={{
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
-                background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)'
-              }}
+              className="flex-1 relative group rounded-2xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer min-h-[140px] sm:min-h-[180px] flex items-center justify-center order-1 sm:order-2 bg-transparent border-0 p-0"
             >
-              <div className="absolute inset-0 bg-[#B11226]/0 group-hover:bg-[#B11226]/10 transition-colors" />
-              <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-center relative z-10 leading-tight">
-                TECHNIQUE<br />LIBRARY
-              </h2>
+              <img
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/technique%20library.png"
+                alt="Technique Library"
+                className="w-full h-full object-contain"
+              />
             </button>
           </div>
         </div>
