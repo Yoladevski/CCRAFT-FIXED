@@ -97,7 +97,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
               ) : (
                 <button
                   onClick={() => handleNavigate('Auth')}
-                  className="px-5 py-2.5 bg-[#B11226] hover:bg-[#8B0E1C] transition-all whitespace-nowrap cursor-pointer text-white text-sm font-bold tracking-wider"
+                  className="px-5 py-2 bg-[#B11226] hover:bg-[#8B0E1C] transition-all whitespace-nowrap cursor-pointer text-white text-sm font-bold tracking-wider flex items-center justify-center"
                 >
                   SIGN UP
                 </button>
