@@ -444,6 +444,16 @@ nav a {
   .hero-bottom-text .outlined-text {
     letter-spacing: 0.12em !important;
   }
+
+  .hero-title-text {
+    font-size: 2.6rem !important;
+    height: 3.2rem !important;
+  }
+}
+
+.hero-title-text {
+  font-size: 2.7rem;
+  height: 3.2rem;
 }
 
 @media (min-width: 768px) {
