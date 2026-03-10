@@ -267,18 +267,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* CONTINUE BUTTON */}
         <div className="flex justify-center">
           <button
-            onClick={() => {
-              if (nextTechnique) {
-                navigate(`/technique/${nextTechnique.techniqueId}`);
-              } else {
-                onNavigate('Disciplines');
-              }
-            }}
+            onClick={() => navigate('/boxing/foundations')}
             className="w-full lg:w-3/5 transition-transform hover:scale-105"
           >
             <img
               src={continueButton}
-              alt={nextTechnique ? `Continue: ${nextTechnique.technique}` : 'View Disciplines'}
+              alt="Continue Foundation Pathway"
               className="w-full h-auto"
             />
           </button>

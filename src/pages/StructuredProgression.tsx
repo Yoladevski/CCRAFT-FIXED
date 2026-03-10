@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 
 interface StructuredProgressionProps {
@@ -5,6 +6,8 @@ interface StructuredProgressionProps {
 }
 
 export default function StructuredProgression({ onBack }: StructuredProgressionProps) {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen py-8 px-4 relative">
       <div className="max-w-4xl mx-auto relative z-10">
@@ -84,6 +87,16 @@ export default function StructuredProgression({ onBack }: StructuredProgressionP
               <p>
                 We don't just show you techniques—we guide you through a proven progression system used by professional fighters and coaches worldwide. Every step is purposeful, every technique is earned, and your foundation becomes unshakeable.
               </p>
+            </div>
+
+            <div className="mt-8 flex justify-center">
+              <button
+                onClick={() => navigate('/boxing/foundations')}
+                className="px-8 py-4 bg-[#B11226] text-white font-bold rounded-lg hover:bg-[#8B0E1C] transition-all transform hover:scale-105"
+                style={{ fontFamily: 'Orbitron, sans-serif' }}
+              >
+                START FOUNDATION PATHWAY
+              </button>
             </div>
           </div>
         </div>
