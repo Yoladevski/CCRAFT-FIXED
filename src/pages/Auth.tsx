@@ -443,13 +443,13 @@ export default function Auth({ onNavigate }: AuthProps) {
                 />
               </div>
 
-              <div className="space-y-3 pt-2">
-                <label className="flex items-start space-x-3 cursor-pointer group">
+              <div className="space-y-3 pt-2 flex flex-col items-center">
+                <label className="flex items-center space-x-3 cursor-pointer group">
                   <input
                     type="checkbox"
                     checked={termsAccepted}
                     onChange={(e) => setTermsAccepted(e.target.checked)}
-                    className="mt-0.5 w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                    className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
                     required
                   />
                   <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
@@ -464,12 +464,12 @@ export default function Auth({ onNavigate }: AuthProps) {
                   </span>
                 </label>
 
-                <label className="flex items-start space-x-3 cursor-pointer group">
+                <label className="flex items-center space-x-3 cursor-pointer group">
                   <input
                     type="checkbox"
                     checked={disclaimerAccepted}
                     onChange={(e) => setDisclaimerAccepted(e.target.checked)}
-                    className="mt-0.5 w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                    className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
                     required
                   />
                   <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
@@ -484,12 +484,12 @@ export default function Auth({ onNavigate }: AuthProps) {
                   </span>
                 </label>
 
-                <label className="flex items-start space-x-3 cursor-pointer group">
+                <label className="flex items-center space-x-3 cursor-pointer group">
                   <input
                     type="checkbox"
                     checked={ageConfirmed}
                     onChange={(e) => setAgeConfirmed(e.target.checked)}
-                    className="mt-0.5 w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                    className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
                     required
                   />
                   <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
