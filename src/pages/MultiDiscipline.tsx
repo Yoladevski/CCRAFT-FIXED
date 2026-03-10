@@ -33,6 +33,10 @@ const cardImages: Record<string, string> = {
 export default function MultiDiscipline({ onBack, onNavigate }: MultiDisciplineProps) {
   const navigate = useNavigate();
   const { user } = useAuth();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -74,7 +78,7 @@ export default function MultiDiscipline({ onBack, onNavigate }: MultiDisciplineP
   return (
     <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
       <div className="max-w-7xl mx-auto relative z-10">
-        <BackButton onClick={onBack} />
+        <BackButton onClick={handleBack} />
 
         <h1 className="cc-red-shadow-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 mt-8">
           EXPLORE DISCIPLINES
