@@ -450,17 +450,17 @@ export default function Auth({ onNavigate }: AuthProps) {
                       type="checkbox"
                       checked={termsAccepted}
                       onChange={(e) => setTermsAccepted(e.target.checked)}
-                      className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                      className="w-4 h-4 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
                       required
                     />
-                    <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
+                    <span className="text-xs text-[#A0A0A0] group-hover:text-white transition-colors">
                       I agree to
                     </span>
                   </div>
                   <button
                     type="button"
                     onClick={() => onNavigate('TermsOfService')}
-                    className="text-sm text-[#B11226] hover:underline font-bold mt-1"
+                    className="text-xs text-[#B11226] hover:underline font-bold mt-1"
                   >
                     Terms of Service
                   </button>
@@ -472,17 +472,17 @@ export default function Auth({ onNavigate }: AuthProps) {
                       type="checkbox"
                       checked={disclaimerAccepted}
                       onChange={(e) => setDisclaimerAccepted(e.target.checked)}
-                      className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                      className="w-4 h-4 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
                       required
                     />
-                    <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
+                    <span className="text-xs text-[#A0A0A0] group-hover:text-white transition-colors">
                       I acknowledge the
                     </span>
                   </div>
                   <button
                     type="button"
                     onClick={() => onNavigate('Disclaimer')}
-                    className="text-sm text-[#B11226] hover:underline font-bold mt-1"
+                    className="text-xs text-[#B11226] hover:underline font-bold mt-1"
                   >
                     Training Risk Disclaimer
                   </button>
@@ -493,10 +493,10 @@ export default function Auth({ onNavigate }: AuthProps) {
                     type="checkbox"
                     checked={ageConfirmed}
                     onChange={(e) => setAgeConfirmed(e.target.checked)}
-                    className="w-5 h-5 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                    className="w-4 h-4 rounded border-[#2E2E2E] bg-[#1A1A1A] text-[#B11226] focus:ring-[#B11226] focus:ring-offset-0 cursor-pointer flex-shrink-0"
                     required
                   />
-                  <span className="text-sm text-[#E0E0E0] group-hover:text-white transition-colors">
+                  <span className="text-xs text-[#A0A0A0] group-hover:text-white transition-colors">
                     I confirm I am 16 years or older
                   </span>
                 </label>
