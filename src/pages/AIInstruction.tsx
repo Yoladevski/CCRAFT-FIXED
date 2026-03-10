@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import BackButton from '../components/BackButton';
 
@@ -16,7 +17,12 @@ const appScreenshots = [
 ];
 
 export default function AIInstruction({ onBack }: AIInstructionProps) {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? appScreenshots.length - 1 : prev - 1));
@@ -29,7 +35,7 @@ export default function AIInstruction({ onBack }: AIInstructionProps) {
   return (
     <div className="min-h-screen py-8 px-4 relative">
       <div className="max-w-4xl mx-auto relative z-10">
-        <BackButton onClick={onBack} />
+        <BackButton onClick={handleBack} />
 
         <h1 className="cc-outline-text text-2xl sm:text-3xl font-bold mb-8 text-center mt-8">
           INSIDE THE APP
