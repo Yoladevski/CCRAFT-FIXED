@@ -235,7 +235,8 @@ export default function Auth({ onNavigate }: AuthProps) {
               </div>
 
               <p className="text-[#A0A0A0] text-sm text-center mb-4">
-                Train with purpose. Progress with structure.
+                Train with purpose.<br />
+                Progress with structure.
               </p>
 
               <h2 className="cc-outline-text text-2xl font-bold text-center mb-6">
@@ -379,7 +380,8 @@ export default function Auth({ onNavigate }: AuthProps) {
             </div>
 
             <p className="text-[#A0A0A0] text-sm text-center mb-4">
-              Train with purpose. Progress with structure.
+              Train with purpose.<br />
+              Progress with structure.
             </p>
 
             <h2 className="cc-outline-text text-2xl font-bold text-center mb-6">
