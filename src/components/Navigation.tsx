@@ -97,13 +97,9 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
               ) : (
                 <button
                   onClick={() => handleNavigate('Auth')}
-                  className="hover:opacity-80 transition-all cursor-pointer"
+                  className="px-5 py-2.5 bg-[#B11226] hover:bg-[#8B0E1C] transition-all whitespace-nowrap cursor-pointer text-white text-sm font-bold tracking-wider"
                 >
-                  <img
-                    src="https://api.combatcraft.co.uk/storage/v1/object/public/images/SIGN%20IN.png"
-                    alt="Sign In"
-                    className="h-8 w-auto pointer-events-none"
-                  />
+                  SIGN UP
                 </button>
               )}
             </div>
