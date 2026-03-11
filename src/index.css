@@ -436,6 +436,14 @@ nav a {
     padding-top: 2vh;
   }
 
+  .hero-top-text .hero-main-heading {
+    height: 2.2rem !important;
+  }
+
+  .hero-top-text .hero-main-heading text {
+    font-size: 1.65rem !important;
+  }
+
   .hero-top-text .outlined-text {
     letter-spacing: 0.1em !important;
   }

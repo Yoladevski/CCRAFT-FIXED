@@ -61,6 +61,7 @@ export default function Home({ onNavigate }: HomeProps) {
             }}
           >
             <OutlinedText
+              className="hero-main-heading"
               style={{
                 fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -72,6 +73,7 @@ export default function Home({ onNavigate }: HomeProps) {
               LEARN MARTIAL ARTS
             </OutlinedText>
             <OutlinedText
+              className="hero-main-heading"
               style={{
                 fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
                 fontFamily: 'Orbitron, sans-serif',
