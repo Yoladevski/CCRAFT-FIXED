@@ -449,6 +449,12 @@ nav a {
     letter-spacing: 0.1em !important;
   }
 
+  .hero-taglines,
+  .hero-middle-button,
+  .hero-bottom-text {
+    transform: translateY(200px);
+  }
+
   .hero-taglines .outlined-text,
   .hero-bottom-text .outlined-text {
     letter-spacing: 0.12em !important;
