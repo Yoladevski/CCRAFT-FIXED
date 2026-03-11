@@ -70,7 +70,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 letterSpacing: '0.15em',
               }}
             >
-              LEARN MARTIAL ARTS
+              MASTER MARTIAL ARTS
             </OutlinedText>
             <OutlinedText
               className="hero-main-heading"

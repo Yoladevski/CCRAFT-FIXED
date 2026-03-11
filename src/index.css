@@ -434,14 +434,15 @@ nav a {
   .hero-content-grid {
     gap: 1rem;
     padding-top: 2vh;
+    margin-top: -100px;
   }
 
   .hero-top-text .hero-main-heading {
-    height: 2.2rem !important;
+    height: 1.6rem !important;
   }
 
   .hero-top-text .hero-main-heading text {
-    font-size: 1.65rem !important;
+    font-size: 1.05rem !important;
   }
 
   .hero-top-text .outlined-text {
