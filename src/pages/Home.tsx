@@ -238,7 +238,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 WebkitTextStroke: '1px #B11226',
                 textTransform: 'uppercase'
               }}>
-                INSIDE THE APP
+                INSIDE COMBATCRAFT
               </h3>
               <ul className="text-center space-y-2" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0', listStyle: 'none' }}>
                 <li>&#8226; Progress Tracking</li>

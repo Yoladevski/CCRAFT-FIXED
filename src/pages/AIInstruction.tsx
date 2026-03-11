@@ -9,6 +9,8 @@ const appScreenshots = [
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43%20(2).jpeg',
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43.jpeg',
   'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44%20(1).jpeg',
+  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.11.47.jpeg',
+  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/vidss.JPG',
 ];
 
 export default function AIInstruction() {
@@ -33,7 +35,7 @@ export default function AIInstruction() {
         <BackButton onClick={goToHome} />
 
         <h1 className="cc-outline-text text-2xl sm:text-3xl font-bold mb-8 text-center mt-8">
-          INSIDE THE APP
+          INSIDE COMBATCRAFT
         </h1>
 
         <div className="relative">
