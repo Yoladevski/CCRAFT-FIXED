@@ -4,13 +4,30 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import BackButton from '../components/BackButton';
 
 const appScreenshots = [
-  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/Untitled%20image%20(4).jpeg',
-  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/Capture.PNG',
-  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43%20(2).jpeg',
-  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43.jpeg',
-  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44%20(1).jpeg',
-  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.11.47.jpeg',
-  'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/vidss.JPG',
+  {
+    url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/vidss.JPG',
+    description: 'AI-generated video demonstrations showing techniques in action',
+  },
+  {
+    url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44.jpeg',
+    description: 'Detailed technique breakdown with step-by-step coaching instructions',
+  },
+  {
+    url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.11.47.jpeg',
+    description: 'Structured progression pathways guiding your training journey',
+  },
+  {
+    url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43%20(2).jpeg',
+    description: 'Technique library with full access to all moves across disciplines',
+  },
+  {
+    url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43.jpeg',
+    description: 'Coach tips and common mistakes to accelerate your learning',
+  },
+  {
+    url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44%20(1).jpeg',
+    description: 'Track your progress and unlock new levels as you train',
+  },
 ];
 
 export default function AIInstruction() {
@@ -53,11 +70,20 @@ export default function AIInstruction() {
                 boxShadow: '0 0 20px rgba(177, 18, 38, 0.4), 0 0 40px rgba(177, 18, 38, 0.2)'
               }}>
                 <img
-                  src={appScreenshots[currentIndex]}
-                  alt={`App screenshot ${currentIndex + 1}`}
+                  src={appScreenshots[currentIndex].url}
+                  alt={appScreenshots[currentIndex].description}
                   className="w-full h-full object-cover"
                 />
               </div>
+              <p className="text-center mt-4 px-2" style={{
+                fontFamily: 'Orbitron, sans-serif',
+                fontSize: '11px',
+                fontWeight: 500,
+                color: '#A0A0A0',
+                lineHeight: '1.6',
+              }}>
+                {appScreenshots[currentIndex].description}
+              </p>
             </div>
 
             <button
@@ -70,7 +96,7 @@ export default function AIInstruction() {
           </div>
 
           <div className="flex justify-center gap-2 mt-6">
-            {appScreenshots.map((_, index) => (
+            {appScreenshots.map((_item, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
