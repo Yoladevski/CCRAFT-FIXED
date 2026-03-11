@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import continueButton from '../assets/continue.webp';
+import { BOXING_FOUNDATIONS_LEVELS } from '../data/foundationsLessons';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
@@ -44,9 +45,9 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [totalTechniques, setTotalTechniques] = useState(0);
-  const [completedTechniques, setCompletedTechniques] = useState(0);
-  const [nextTechnique, setNextTechnique] = useState<{ discipline: string; category: string; technique: string; techniqueId: number; disciplineId: number; categoryId: number } | null>(null);
+  const [totalLessons, setTotalLessons] = useState(0);
+  const [completedLessons, setCompletedLessons] = useState(0);
+  const [nextLesson, setNextLesson] = useState<{ level: number; levelTitle: string; lessonTitle: string; lessonId: string } | null>(null);
   const [loading, setLoading] = useState(true);
   const [dailyMotivation] = useState(getRandomMotivation());
 
@@ -60,79 +61,35 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         .eq('user_id', user.id)
         .single();
 
-      // Check if onboarding is complete
       if (profileData && (!profileData.onboarding_complete || !profileData.full_name)) {
         navigate('/create-profile', { replace: true });
         return;
       }
 
-      // Get Boxing discipline ID
-      const { data: boxingDiscipline } = await supabase
-        .from('disciplines')
-        .select('id')
-        .eq('name', 'Boxing')
-        .single();
-
-      if (!boxingDiscipline) {
-        setLoading(false);
-        return;
-      }
-
-      // Get Boxing categories
-      const { data: boxingCategories } = await supabase
-        .from('categories')
-        .select('id')
-        .eq('discipline_id', boxingDiscipline.id);
-
-      const boxingCategoryIds = boxingCategories?.map(c => c.id) || [];
-
-      // Get only Boxing techniques
-      const { data: techniquesData } = await supabase
-        .from('techniques')
-        .select('*')
-        .in('category_id', boxingCategoryIds);
-
-      const { data: progressData } = await supabase
-        .from('user_progress')
-        .select('technique_id')
-        .eq('user_id', user.id);
-
       if (profileData) setProfile(profileData);
-      if (techniquesData) setTotalTechniques(techniquesData.length);
-      if (progressData) {
-        setCompletedTechniques(progressData.length);
-      }
 
-      if (techniquesData && progressData) {
-        const completedIds = new Set(progressData.map(p => p.technique_id));
-        const nextIncomplete = techniquesData.find(t => !completedIds.has(t.id));
+      const allLessons = BOXING_FOUNDATIONS_LEVELS.flatMap(level => level.lessons);
+      setTotalLessons(allLessons.length);
 
-        if (nextIncomplete) {
-          const { data: categoryData } = await supabase
-            .from('categories')
-            .select('name, discipline_id')
-            .eq('id', nextIncomplete.category_id)
-            .single();
+      const { data: foundationsData } = await supabase
+        .from('foundations_progress')
+        .select('lesson_id')
+        .eq('user_id', user.id)
+        .eq('discipline', 'boxing')
+        .eq('completed', true);
 
-          if (categoryData) {
-            const { data: disciplineData } = await supabase
-              .from('disciplines')
-              .select('name')
-              .eq('id', categoryData.discipline_id)
-              .single();
+      const completedIds = new Set(foundationsData?.map(r => r.lesson_id) || []);
+      setCompletedLessons(completedIds.size);
 
-            if (disciplineData) {
-              setNextTechnique({
-                discipline: disciplineData.name,
-                category: categoryData.name,
-                technique: nextIncomplete.name,
-                techniqueId: nextIncomplete.id,
-                disciplineId: categoryData.discipline_id,
-                categoryId: nextIncomplete.category_id
-              });
-            }
-          }
-        }
+      const nextIncomplete = allLessons.find(l => !completedIds.has(l.id));
+      if (nextIncomplete) {
+        const levelData = BOXING_FOUNDATIONS_LEVELS.find(lv => lv.level === nextIncomplete.level);
+        setNextLesson({
+          level: nextIncomplete.level,
+          levelTitle: levelData?.title || '',
+          lessonTitle: nextIncomplete.title,
+          lessonId: nextIncomplete.id,
+        });
       }
 
       setLoading(false);
@@ -232,7 +189,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     );
   }
 
-  const completionPercentage = totalTechniques > 0 ? Math.round((completedTechniques / totalTechniques) * 100) : 0;
+  const completionPercentage = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
 
   return (
     <div className="min-h-screen py-4 px-4 relative -mt-20 pt-20">
@@ -294,39 +251,39 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               CURRENT TRAINING
             </h2>
 
-            {nextTechnique ? (
+            {nextLesson ? (
               <div className="space-y-6 md:space-y-8">
                 <div>
                   <p className="cc-card-label mb-2 md:mb-3 tracking-wider">
                     DISCIPLINE
                   </p>
                   <p className="cc-card-value">
-                    {nextTechnique.discipline}
+                    Boxing
                   </p>
                 </div>
 
                 <div>
                   <p className="cc-card-label mb-2 md:mb-3 tracking-wider">
-                    CATEGORY
+                    LEVEL {nextLesson.level}
                   </p>
                   <p className="cc-card-value">
-                    {nextTechnique.category}
+                    {nextLesson.levelTitle}
                   </p>
                 </div>
 
                 <div>
                   <p className="cc-card-label mb-2 md:mb-3 tracking-wider">
-                    NEXT TECHNIQUE
+                    NEXT LESSON
                   </p>
                   <p className="cc-card-value text-[#B11226]">
-                    {nextTechnique.technique}
+                    {nextLesson.lessonTitle}
                   </p>
                 </div>
               </div>
             ) : (
               <div>
                 <p className="cc-body">
-                  All techniques completed!
+                  All foundation lessons completed!
                 </p>
               </div>
             )}
@@ -388,14 +345,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <div className="w-full pt-3 border-t border-[#2E2E2E]">
               <div className="text-center">
                 <p className="cc-card-label mb-1">
-                  OVERALL PROGRESS
+                  FOUNDATION PROGRESS
                 </p>
                 <div className="flex items-center justify-center gap-2 flex-wrap">
                   <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'Inter' }}>
                     {completionPercentage}%
                   </span>
                   <span className="text-xs sm:text-sm md:text-base text-[#A0A0A0]" style={{ fontFamily: 'Inter' }}>
-                    ({completedTechniques}/{totalTechniques})
+                    ({completedLessons}/{totalLessons})
                   </span>
                 </div>
               </div>

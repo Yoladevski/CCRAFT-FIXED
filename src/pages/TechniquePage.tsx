@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, ChevronDown, Check, ChevronRight } from 'lucide-react';
+import { ArrowLeft, CheckCircle, ChevronDown, Check } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
@@ -68,9 +68,6 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
   const [technique, setTechnique] = useState<Technique | null>(null);
   const [isCompleted, setIsCompleted] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [showXPGain, setShowXPGain] = useState(false);
-  const [xpGained, setXpGained] = useState(0);
-  const [newRank, setNewRank] = useState<string | null>(null);
   const [nextTechnique, setNextTechnique] = useState<Technique | null>(null);
   const [progressId, setProgressId] = useState<string | null>(null);
   const videoRef = useRef<HTMLIFrameElement>(null);
@@ -179,43 +176,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
     if (!user || !technique || isCompleted) return;
 
     try {
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('power_level, rank')
-        .eq('user_id', user.id)
-        .single();
-
-      if (!profile) return;
-
-      const oldRank = profile.rank;
-      const newPowerLevel = profile.power_level + technique.xp_reward;
-
       await supabase
         .from('user_progress')
         .update({ completed: true })
         .eq('id', progressId || '');
 
-      const { data: updatedProfile } = await supabase
-        .from('profiles')
-        .update({ power_level: newPowerLevel })
-        .eq('user_id', user.id)
-        .select()
-        .single();
-
       setIsCompleted(true);
-      setXpGained(technique.xp_reward);
-      setShowXPGain(true);
-
-      if (updatedProfile && updatedProfile.rank !== oldRank) {
-        setNewRank(updatedProfile.rank);
-      }
-
-      setTimeout(() => {
-        setShowXPGain(false);
-        if (newRank) {
-          setTimeout(() => setNewRank(null), 3000);
-        }
-      }, 1500);
     } catch (error) {
       console.error('Error completing technique:', error);
     }
@@ -480,28 +446,6 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
         )}
       </div>
 
-      {showXPGain && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
-          <div className="xp-gain-card rounded-lg px-8 py-6 sm:px-12 sm:py-8">
-            <div className="xp-gain-text text-4xl sm:text-6xl text-center">+{xpGained} XP</div>
-          </div>
-        </div>
-      )}
-
-      {newRank && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/80">
-          <div className="text-center animate-scale-in">
-            <div className="text-2xl text-[#A0A0A0] mb-4">RANK UP!</div>
-            <div className="text-7xl font-bold text-[#B11226] mb-8">{newRank}</div>
-            <button
-              onClick={() => setNewRank(null)}
-              className="button-text px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
-            >
-              CONTINUE
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

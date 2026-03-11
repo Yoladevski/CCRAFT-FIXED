@@ -63,6 +63,8 @@ function formatText(text: string) {
   });
 }
 
+const XP_PER_LESSON = 50;
+
 export default function FoundationLesson() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const navigate = useNavigate();
@@ -72,6 +74,8 @@ export default function FoundationLesson() {
   const [technique, setTechnique] = useState<Technique | null>(null);
   const [loadingTechnique, setLoadingTechnique] = useState(true);
   const [userName, setUserName] = useState('Fighter');
+  const [showXPGain, setShowXPGain] = useState(false);
+  const [newRank, setNewRank] = useState<string | null>(null);
 
   const [openSections, setOpenSections] = useState({
     why: false,
@@ -186,6 +190,37 @@ export default function FoundationLesson() {
           completed_at: new Date().toISOString(),
         }, { onConflict: 'user_id,lesson_id' });
       setAlreadyDone(true);
+
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('power_level, rank')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      if (profile) {
+        const oldRank = profile.rank;
+        const newPowerLevel = profile.power_level + XP_PER_LESSON;
+
+        const { data: updatedProfile } = await supabase
+          .from('profiles')
+          .update({ power_level: newPowerLevel })
+          .eq('user_id', user.id)
+          .select()
+          .maybeSingle();
+
+        setShowXPGain(true);
+
+        if (updatedProfile && updatedProfile.rank !== oldRank) {
+          setNewRank(updatedProfile.rank);
+        }
+
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        setShowXPGain(false);
+
+        if (updatedProfile && updatedProfile.rank !== oldRank) {
+          await new Promise(resolve => setTimeout(resolve, 300));
+        }
+      }
     }
 
     if (isLast) {
@@ -495,6 +530,28 @@ export default function FoundationLesson() {
         </div>
       </div>
 
+      {showXPGain && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+          <div className="xp-gain-card rounded-lg px-8 py-6 sm:px-12 sm:py-8">
+            <div className="xp-gain-text text-4xl sm:text-6xl text-center">+{XP_PER_LESSON} XP</div>
+          </div>
+        </div>
+      )}
+
+      {newRank && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/80">
+          <div className="text-center animate-scale-in">
+            <div className="text-2xl text-[#A0A0A0] mb-4">RANK UP!</div>
+            <div className="text-7xl font-bold text-[#B11226] mb-8">{newRank}</div>
+            <button
+              onClick={() => setNewRank(null)}
+              className="button-text px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+            >
+              CONTINUE
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
