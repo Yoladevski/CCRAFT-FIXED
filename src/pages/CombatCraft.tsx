@@ -13,14 +13,8 @@ const cards = [
   {
     content: (
       <>
-        <p className="mb-4">Inside each lesson you will find:</p>
-        <ul className="space-y-3 inline-block text-left w-full">
-          <li>&#8226;&nbsp; A visual demonstration of the technique</li>
-          <li>&#8226;&nbsp; Step-by-step coaching instructions</li>
-          <li>&#8226;&nbsp; The tactical purpose of the move</li>
-          <li>&#8226;&nbsp; Common mistakes beginners make</li>
-          <li>&#8226;&nbsp; Simple drills to practise and improve the skill</li>
-        </ul>
+        <p className="mb-4" style={{ fontWeight: 900, fontSize: '15px', letterSpacing: '0.03em', lineHeight: '1.3' }}>2. Clear Lessons & Real Training</p>
+        <p>Each technique is demonstrated visually and explained through clear coaching instruction so users understand exactly how the movement works. Lessons are combined with structured training sessions using timed rounds, allowing users to practise techniques through shadowboxing, bag work or partner drills.</p>
       </>
     ),
   },
