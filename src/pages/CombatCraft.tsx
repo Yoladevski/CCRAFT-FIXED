@@ -21,10 +21,8 @@ const cards = [
   {
     content: (
       <>
-        <p className="mb-4">This approach allows users to develop real understanding rather than simply copying movements.</p>
-        <p className="mb-4">CombatCraft is designed for beginners and martial artists who want a structured way to build their skills. Techniques are introduced gradually, allowing users to develop strong foundations before progressing to combinations, defensive systems, and more advanced applications.</p>
-        <p className="mb-4">Progress through the platform is tracked through structured pathways, where techniques unlock in sequence as you train. As lessons are completed, users gain experience points, build rank, and unlock new areas of training.</p>
-        <p>The goal of CombatCraft is simple: to make learning martial arts accessible, structured, and engaging for anyone who wants to improve their skills.</p>
+        <p className="mb-4" style={{ fontWeight: 900, fontSize: '15px', letterSpacing: '0.03em', lineHeight: '1.3' }}>3. One Platform For Martial Arts Training</p>
+        <p>CombatCraft is designed to become a complete training platform for martial arts. Starting with boxing, the system will expand to include multiple disciplines so users can develop striking, grappling and movement skills all in one place.</p>
       </>
     ),
   },
