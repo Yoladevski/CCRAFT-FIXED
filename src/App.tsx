@@ -35,6 +35,7 @@ const BoxingOverview = lazy(() => import('./pages/BoxingOverview'));
 const BoxingFoundations = lazy(() => import('./pages/BoxingFoundations'));
 const FoundationLesson = lazy(() => import('./pages/FoundationLesson'));
 const CombatCraft = lazy(() => import('./pages/CombatCraft'));
+const ExploreDisciplines = lazy(() => import('./pages/ExploreDisciplines'));
 
 const PageFallback = () => (
   <div className="min-h-screen bg-[#0E0E0E] flex items-center justify-center">
@@ -46,7 +47,7 @@ const S = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<PageFallback />}>{children}</Suspense>
 );
 
-type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline' | 'BoxingOverview' | 'BoxingFoundations' | 'CombatCraft';
+type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline' | 'BoxingOverview' | 'BoxingFoundations' | 'CombatCraft' | 'ExploreDisciplines';
 
 interface NavSnapshot {
   page: Page;
@@ -92,6 +93,7 @@ function AppContent() {
       'MultiDiscipline': '/multi-discipline',
       'BoxingFoundations': '/boxing/foundations',
       'CombatCraft': '/combat-craft',
+      'ExploreDisciplines': '/explore-disciplines',
     };
 
     if (page === 'BoxingOverview' && id) {
@@ -176,6 +178,7 @@ function AppContent() {
         <Route path="/structured-progression" element={<S><StructuredProgression /></S>} />
         <Route path="/ai-instruction" element={<S><AIInstruction /></S>} />
         <Route path="/combat-craft" element={<S><CombatCraft /></S>} />
+        <Route path="/explore-disciplines" element={<S><ExploreDisciplines /></S>} />
         <Route path="/multi-discipline" element={<S><MultiDiscipline onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
         <Route path="/boxing/foundations/lesson/:lessonId" element={<S><FoundationLesson /></S>} />
         <Route path="/boxing/foundations" element={<S><BoxingFoundations /></S>} />

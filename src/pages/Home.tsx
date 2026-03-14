@@ -248,7 +248,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </button>
 
             <button
-              onClick={() => onNavigate('MultiDiscipline')}
+              onClick={() => onNavigate('ExploreDisciplines')}
               className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left flex flex-col justify-center"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
