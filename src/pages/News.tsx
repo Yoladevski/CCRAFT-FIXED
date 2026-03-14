@@ -26,8 +26,7 @@ export default function News({ onBack }: NewsProps) {
         <div className="mb-4 sm:mb-6">
           <BackButton onClick={onBack} />
         </div>
-        <h1 className="cc-outline-text text-4xl sm:text-5xl font-bold text-center mb-2">NEWS</h1>
-        <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-center mb-10 sm:mb-14">Choose Your Training</h2>
+        <h1 className="cc-outline-text text-4xl sm:text-5xl font-bold text-center mb-10 sm:mb-14">NEWS</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           {newsCards.map((card) => (
