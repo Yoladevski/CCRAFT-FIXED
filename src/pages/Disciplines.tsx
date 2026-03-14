@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
+import Auth from './Auth';
 
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
 
@@ -54,6 +55,10 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
         <div className="text-2xl text-[#A0A0A0]">LOADING...</div>
       </div>
     );
+  }
+
+  if (!user) {
+    return <Auth onNavigate={onNavigate} />;
   }
 
   return (
