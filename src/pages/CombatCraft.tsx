@@ -5,9 +5,8 @@ const cards = [
   {
     content: (
       <>
-        <p className="mb-4">CombatCraft is a structured martial arts learning platform designed to teach real fighting techniques step-by-step.</p>
-        <p className="mb-4">Unlike random tutorials or unstructured training videos, CombatCraft follows a clear progression system similar to how techniques are taught in real gyms. Each discipline is organised into pathways that guide users through the fundamentals first, before unlocking more advanced skills.</p>
-        <p>Every lesson focuses on a single technique and breaks it down into clear sections so users understand not only how to perform the movement, but also why it works and when it should be used.</p>
+        <p className="mb-4" style={{ fontWeight: 700, fontSize: '12px' }}>1. Learn Martial Arts The Right Way</p>
+        <p>CombatCraft teaches martial arts through structured training designed by real coaches. Instead of random videos or techniques, users follow a clear progression that builds skills step-by-step. This mirrors how fighters are trained in real gyms, helping beginners develop strong fundamentals before advancing to more complex techniques.</p>
       </>
     ),
   },
