@@ -124,7 +124,7 @@ export default function FoundationLesson() {
 
       if (!user) {
         if (lesson.level > 1) {
-          navigate('/boxing/foundations', { replace: true, state: { level: lesson.level } });
+          navigate(`/boxing/foundations/level/${lesson.level}`, { replace: true });
           return;
         }
         setAccessChecked(true);
@@ -165,7 +165,7 @@ export default function FoundationLesson() {
           const prevComplete = prevLevelLessons.every(l => prevDone.has(l.id));
 
           if (!prevComplete) {
-            navigate('/boxing/foundations', { replace: true, state: { level: lesson.level } });
+            navigate(`/boxing/foundations/level/${lesson.level}`, { replace: true });
             return;
           }
         }
@@ -320,7 +320,7 @@ export default function FoundationLesson() {
       <div className="max-w-2xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           <button
-            onClick={() => navigate('/boxing/foundations', { state: { level: currentLevel } })}
+            onClick={() => navigate(`/boxing/foundations/level/${currentLevel}`)}
             className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
           >
             <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />

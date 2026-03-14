@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { Lock, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight, Facebook, MessageCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
@@ -286,12 +286,30 @@ function LevelCompleteModal({
 export default function BoxingFoundations() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { levelNumber: levelParam } = useParams<{ levelNumber?: string }>();
   const { user } = useAuth();
-  const [activeLevel, setActiveLevel] = useState(1);
   const [completedLessons, setCompletedLessons] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [showLevelComplete, setShowLevelComplete] = useState(false);
   const [levelCompleteData, setLevelCompleteData] = useState<LevelCompleteState | null>(null);
+
+  const totalLevels = BOXING_FOUNDATIONS_LEVELS.length;
+
+  const activeLevel = (() => {
+    if (levelParam) {
+      const parsed = parseInt(levelParam, 10);
+      if (!isNaN(parsed) && parsed >= 1 && parsed <= totalLevels) return parsed;
+    }
+    const state = location.state as (LevelCompleteState & { level?: number }) | null;
+    if (state?.levelComplete) return state.levelNumber;
+    if (state?.level) return state.level;
+    if (state?.levelNumber) return state.levelNumber;
+    return 1;
+  })();
+
+  const setActiveLevel = (level: number) => {
+    navigate(`/boxing/foundations/level/${level}`, { replace: true });
+  };
 
   const loadProgress = useCallback(async () => {
     if (!user) { setLoading(false); return; }
@@ -317,11 +335,10 @@ export default function BoxingFoundations() {
     if (state?.levelComplete) {
       setLevelCompleteData(state);
       setShowLevelComplete(true);
-      setActiveLevel(state.levelNumber);
-      window.history.replaceState({}, document.title);
-    } else if (state?.level || state?.levelNumber) {
-      setActiveLevel(state.level ?? state.levelNumber);
-      window.history.replaceState({}, document.title);
+      navigate(`/boxing/foundations/level/${state.levelNumber}`, { replace: true, state: {} });
+    } else if ((state?.level || state?.levelNumber) && !levelParam) {
+      const lvl = state.level ?? state.levelNumber!;
+      navigate(`/boxing/foundations/level/${lvl}`, { replace: true, state: {} });
     }
   }, [location.pathname, loadProgress]);
 
@@ -372,7 +389,7 @@ export default function BoxingFoundations() {
       <div className="max-w-3xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/boxing/foundations')}
             className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
           >
             <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
@@ -425,10 +442,10 @@ export default function BoxingFoundations() {
           </div>
 
           <button
-            onClick={() => setActiveLevel(Math.min(5, activeLevel + 1))}
-            disabled={activeLevel === 5}
+            onClick={() => setActiveLevel(Math.min(totalLevels, activeLevel + 1))}
+            disabled={activeLevel === totalLevels}
             className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center transition-all ${
-              activeLevel === 5
+              activeLevel === totalLevels
                 ? 'border-[#2E2E2E] text-[#2E2E2E] cursor-not-allowed'
                 : 'border-[#B11226] text-[#B11226] hover:bg-[#B11226]/10'
             }`}
