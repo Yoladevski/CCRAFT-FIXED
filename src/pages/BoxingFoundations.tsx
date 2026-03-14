@@ -337,7 +337,7 @@ export default function BoxingFoundations() {
 
   function isLevelUnlocked(level: number): boolean {
     if (level === 1) return true;
-    if (loading) return true;
+    if (loading) return false;
     const previousLevel = BOXING_FOUNDATIONS_LEVELS.find(l => l.level === level - 1);
     if (!previousLevel) return false;
     return previousLevel.lessons.every(lesson => completedLessons.has(lesson.id));

@@ -103,6 +103,7 @@ export default function FoundationLesson() {
   const isLast = lessonId ? isLastLessonInLevel(lessonId) : false;
   const nextLesson = lessonId ? getNextLesson(lessonId) : null;
   const currentLevel = lessonId ? getLevelForLesson(lessonId) : 1;
+  const [accessChecked, setAccessChecked] = useState(false);
 
   const allSectionsRead = () => {
     if (!technique) return false;
@@ -119,7 +120,16 @@ export default function FoundationLesson() {
 
   useEffect(() => {
     async function checkCompletion() {
-      if (!user || !lessonId || !lesson) return;
+      if (!lessonId || !lesson) return;
+
+      if (!user) {
+        if (lesson.level > 1) {
+          navigate('/boxing/foundations', { replace: true, state: { level: lesson.level } });
+          return;
+        }
+        setAccessChecked(true);
+        return;
+      }
 
       const levelLessonIds = BOXING_FOUNDATIONS_LEVELS
         .find(l => l.level === lesson.level)
@@ -137,9 +147,34 @@ export default function FoundationLesson() {
         setCompletedInLevel(done);
         if (done.has(lessonId)) setAlreadyDone(true);
       }
+
+      if (lesson.level > 1) {
+        const prevLevelLessons = BOXING_FOUNDATIONS_LEVELS
+          .find(l => l.level === lesson.level - 1)
+          ?.lessons ?? [];
+
+        if (prevLevelLessons.length > 0) {
+          const { data: prevData } = await supabase
+            .from('foundations_progress')
+            .select('lesson_id')
+            .eq('user_id', user.id)
+            .eq('completed', true)
+            .in('lesson_id', prevLevelLessons.map(l => l.id));
+
+          const prevDone = new Set((prevData ?? []).map(r => r.lesson_id));
+          const prevComplete = prevLevelLessons.every(l => prevDone.has(l.id));
+
+          if (!prevComplete) {
+            navigate('/boxing/foundations', { replace: true, state: { level: lesson.level } });
+            return;
+          }
+        }
+      }
+
+      setAccessChecked(true);
     }
     checkCompletion();
-  }, [user, lessonId, lesson?.level]);
+  }, [user, lessonId, lesson?.level, navigate]);
 
   useEffect(() => {
     async function fetchUserName() {
@@ -266,6 +301,14 @@ export default function FoundationLesson() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-2xl text-[#A0A0A0]">Lesson not found</div>
+      </div>
+    );
+  }
+
+  if (lesson.level > 1 && !accessChecked) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-2xl text-[#A0A0A0]">LOADING...</div>
       </div>
     );
   }
