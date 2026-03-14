@@ -277,7 +277,7 @@ export default function FoundationLesson() {
       <div className="max-w-2xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/boxing/foundations', { state: { level: currentLevel } })}
             className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
           >
             <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />

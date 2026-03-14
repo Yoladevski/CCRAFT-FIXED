@@ -313,11 +313,14 @@ export default function BoxingFoundations() {
     window.scrollTo(0, 0);
     loadProgress();
 
-    const state = location.state as LevelCompleteState | null;
+    const state = location.state as (LevelCompleteState & { level?: number }) | null;
     if (state?.levelComplete) {
       setLevelCompleteData(state);
       setShowLevelComplete(true);
       setActiveLevel(state.levelNumber);
+      window.history.replaceState({}, document.title);
+    } else if (state?.level) {
+      setActiveLevel(state.level);
       window.history.replaceState({}, document.title);
     }
   }, [location.pathname, loadProgress]);
