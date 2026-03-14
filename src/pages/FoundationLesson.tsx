@@ -22,9 +22,14 @@ function formatHowSection(text: string) {
   for (const line of lines) {
     const trimmed = line.trim();
     if (!trimmed) continue;
-    if (trimmed.startsWith('•')) {
+    const isBullet = trimmed.startsWith('•');
+    const isNumbered = /^\d+\.\s/.test(trimmed);
+    if (isBullet || isNumbered) {
       if (current) items.push(current);
-      current = { heading: trimmed.replace(/^•\s*/, ''), body: [] };
+      const heading = isBullet
+        ? trimmed.replace(/^•\s*/, '')
+        : trimmed.replace(/^\d+\.\s*/, '');
+      current = { heading, body: [] };
     } else {
       if (current) {
         current.body.push(trimmed);
