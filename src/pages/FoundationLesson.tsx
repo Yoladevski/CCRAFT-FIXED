@@ -76,6 +76,7 @@ export default function FoundationLesson() {
   const { user } = useAuth();
   const [completing, setCompleting] = useState(false);
   const [alreadyDone, setAlreadyDone] = useState(false);
+  const [completedInLevel, setCompletedInLevel] = useState<Set<string>>(new Set());
   const [technique, setTechnique] = useState<Technique | null>(null);
   const [loadingTechnique, setLoadingTechnique] = useState(true);
   const [userName, setUserName] = useState('Fighter');
@@ -118,19 +119,27 @@ export default function FoundationLesson() {
 
   useEffect(() => {
     async function checkCompletion() {
-      if (!user || !lessonId) return;
+      if (!user || !lessonId || !lesson) return;
+
+      const levelLessonIds = BOXING_FOUNDATIONS_LEVELS
+        .find(l => l.level === lesson.level)
+        ?.lessons.map(l => l.id) ?? [];
+
       const { data } = await supabase
         .from('foundations_progress')
-        .select('id')
+        .select('lesson_id')
         .eq('user_id', user.id)
-        .eq('lesson_id', lessonId)
         .eq('completed', true)
-        .maybeSingle();
+        .in('lesson_id', levelLessonIds);
 
-      if (data) setAlreadyDone(true);
+      if (data) {
+        const done = new Set(data.map(r => r.lesson_id));
+        setCompletedInLevel(done);
+        if (done.has(lessonId)) setAlreadyDone(true);
+      }
     }
     checkCompletion();
-  }, [user, lessonId]);
+  }, [user, lessonId, lesson?.level]);
 
   useEffect(() => {
     async function fetchUserName() {
@@ -195,6 +204,7 @@ export default function FoundationLesson() {
           completed_at: new Date().toISOString(),
         }, { onConflict: 'user_id,lesson_id' });
       setAlreadyDone(true);
+      setCompletedInLevel(prev => new Set([...prev, lesson.id]));
 
       const { data: profile } = await supabase
         .from('profiles')
@@ -274,9 +284,19 @@ export default function FoundationLesson() {
           </p>
         </div>
 
-        <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-10">
+        <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4">
           {lesson.title.toUpperCase()}
         </h1>
+
+        {alreadyDone && (
+          <div className="flex justify-center mb-6 sm:mb-8">
+            <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold text-[#B11226] border border-[#B11226]/40 bg-[#B11226]/10">
+              <Check size={14} />
+              COMPLETED
+            </span>
+          </div>
+        )}
+        {!alreadyDone && <div className="mb-8 sm:mb-10" />}
 
         {technique?.video_url ? (
           <div className="flex justify-center mb-8 sm:mb-10">
@@ -469,9 +489,9 @@ export default function FoundationLesson() {
           <div className="mt-12 flex flex-col items-center">
             <button
               onClick={handleAction}
-              disabled={completing || !allSectionsRead()}
+              disabled={completing || (!alreadyDone && !allSectionsRead())}
               className={`transition-all transform ${
-                allSectionsRead() && !completing
+                (alreadyDone || allSectionsRead()) && !completing
                   ? 'hover:scale-105 opacity-100'
                   : 'opacity-40 cursor-not-allowed'
               }`}
@@ -482,7 +502,7 @@ export default function FoundationLesson() {
                 className="w-full max-w-[300px] sm:max-w-[400px] h-auto"
               />
             </button>
-            {!allSectionsRead() && (
+            {!alreadyDone && !allSectionsRead() && (
               <p className="text-center text-[#666666] mt-4 text-sm">
                 Read all sections to unlock the next round
               </p>
@@ -494,9 +514,9 @@ export default function FoundationLesson() {
           <div className="flex flex-col items-center mt-12">
             <button
               onClick={handleAction}
-              disabled={completing || !allSectionsRead()}
+              disabled={completing || (!alreadyDone && !allSectionsRead())}
               className={`w-full sm:w-auto px-10 sm:px-16 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg text-white transition-all hover:scale-[1.02] ${
-                allSectionsRead() && !completing
+                (alreadyDone || allSectionsRead()) && !completing
                   ? ''
                   : 'opacity-40 cursor-not-allowed'
               }`}
@@ -508,7 +528,7 @@ export default function FoundationLesson() {
             >
               {completing ? 'LOADING...' : 'COMPLETE LEVEL'}
             </button>
-            {!allSectionsRead() && (
+            {!alreadyDone && !allSectionsRead() && (
               <p className="text-center text-[#666666] mt-4 text-sm">
                 Read all sections to complete this level
               </p>
@@ -519,13 +539,14 @@ export default function FoundationLesson() {
         <div className="mt-6 sm:mt-8 flex justify-center gap-1.5 flex-wrap">
           {levelData?.lessons.map((l) => {
             const isCurrent = l.id === lesson.id;
+            const isDone = completedInLevel.has(l.id);
             return (
               <div
                 key={l.id}
                 className={`w-2 h-2 rounded-full transition-all ${
                   isCurrent
                     ? 'bg-[#B11226] scale-125'
-                    : alreadyDone && l.order <= lesson.order
+                    : isDone
                     ? 'bg-[#B11226]/50'
                     : 'bg-[#2E2E2E]'
                 }`}
