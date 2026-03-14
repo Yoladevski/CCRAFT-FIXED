@@ -29,11 +29,8 @@ const cards = [
   {
     content: (
       <>
-        <p className="mb-4">Users can train at their own pace, revisit techniques as often as needed, and follow a progression system designed to build real fighting fundamentals over time.</p>
-        <p className="mb-4">CombatCraft will continue expanding to include multiple martial arts disciplines, allowing users to develop a complete understanding of striking, grappling, and combat fundamentals within one learning platform.</p>
-        <p className="mb-4">Train consistently. Progress step-by-step. Build real skill.</p>
-        <p className="mb-1 font-bold">CombatCraft.</p>
-        <p className="font-bold">Learn like a fighter.</p>
+        <p className="mb-4" style={{ fontWeight: 900, fontSize: '15px', letterSpacing: '0.03em', lineHeight: '1.3' }}>4. Who CombatCraft Is For</p>
+        <p>CombatCraft is designed for beginners, martial arts enthusiasts and fighters who want structured training they can follow anywhere. Whether training at home, in the gym, or alongside regular classes, the system provides clear guidance to help users improve their skills step-by-step.</p>
       </>
     ),
   },
