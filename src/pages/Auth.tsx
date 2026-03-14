@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
 
@@ -23,6 +23,10 @@ export default function Auth({ onNavigate }: AuthProps) {
   const [ageConfirmed, setAgeConfirmed] = useState(false);
 
   const { signIn, signUp } = useAuth();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
