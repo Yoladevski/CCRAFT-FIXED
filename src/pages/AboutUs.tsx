@@ -13,11 +13,11 @@ export default function AboutUs({ onNavigate, onBack }: AboutUsProps) {
           <BackButton onClick={onBack} />
         </div>
 
-        <h1 className="cc-outline-text text-4xl md:text-5xl font-bold text-white mb-8">
+        <h1 className="cc-outline-text text-4xl md:text-5xl font-bold text-white mb-8 text-center">
           ABOUT COMBATCRAFT
         </h1>
 
-        <div className="space-y-10 text-[#E0E0E0] text-base sm:text-lg leading-relaxed">
+        <div className="space-y-10 text-[#E0E0E0] text-base sm:text-lg leading-relaxed text-center">
 
           <section className="space-y-4">
             <p>CombatCraft is a structured martial arts training platform designed to help anyone learn and develop real combat skills step-by-step.</p>
