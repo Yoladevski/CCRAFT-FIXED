@@ -22,9 +22,14 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
           </button>
         </div>
 
-        <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-10 sm:mb-14">
-          BOXING
-        </h1>
+        <div className="text-center mb-10 sm:mb-14">
+          <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold">
+            BOXING
+          </h1>
+          <h2 className="text-white text-lg sm:text-xl md:text-2xl font-semibold mt-2 tracking-wide">
+            Choose Your Training
+          </h2>
+        </div>
 
         <div className="flex flex-col gap-6 sm:gap-8">
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
