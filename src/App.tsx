@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import MainLayout from './components/MainLayout';
 import LoadingScreen from './components/LoadingScreen';
+import ScrollToTop from './components/ScrollToTop';
 
 const Home = lazy(() => import('./pages/Home'));
 const Auth = lazy(() => import('./pages/Auth'));
@@ -150,6 +151,8 @@ function AppContent() {
   }
 
   return (
+    <>
+    <ScrollToTop />
     <Routes>
       <Route path="/email-assets" element={<S><EmailAssets /></S>} />
       <Route path="/post-verify" element={<S><PostVerify /></S>} />
@@ -185,6 +188,7 @@ function AppContent() {
         <Route path="/boxing/:disciplineId" element={<S><BoxingOverview onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
       </Route>
     </Routes>
+    </>
   );
 }
 
