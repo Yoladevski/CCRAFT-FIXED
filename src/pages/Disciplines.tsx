@@ -87,6 +87,8 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                     <img
                       src="https://i.postimg.cc/Xq2XLnVk/coming-soon.png"
                       alt="Coming Soon"
+                      loading="lazy"
+                      decoding="async"
                       className="w-[300%] h-[300%] object-contain"
                       style={{
                         filter: 'drop-shadow(0 0 3px black) drop-shadow(0 0 3px black) drop-shadow(0 0 3px black)'
@@ -99,6 +101,8 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                   <img
                     src={cardImages[discipline.name] || cardImages['Boxing']}
                     alt={discipline.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center brightness-90 contrast-125"
                   />
                 </div>
@@ -128,6 +132,8 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                   <img
                     src={buttonImages[discipline.name] || buttonImages['Boxing']}
                     alt={`${discipline.name} button`}
+                    loading="lazy"
+                    decoding="async"
                     className="max-w-full max-h-full object-contain transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>
