@@ -17,9 +17,6 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
             MERCHANDISE
           </h1>
           <div className="w-24 h-1 bg-[#B11226] mx-auto mb-6" />
-          <p className="text-[#A0A0A0] text-base sm:text-lg max-w-3xl mx-auto leading-relaxed px-4">
-            Official COMBATCRAFT gear. Represent the grind.
-          </p>
         </div>
 
         <div
