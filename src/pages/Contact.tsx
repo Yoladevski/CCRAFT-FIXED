@@ -52,33 +52,6 @@ export default function Contact({ onBack }: ContactProps) {
           <p className="text-[#A0A0A0] mt-8">
             Response time: 1–3 business days.
           </p>
-
-          <div className="border-t border-[#2E2E2E] pt-12 mt-12">
-            <h2 className="cc-outline-text text-3xl md:text-4xl font-bold text-white mb-8">
-              AFFILIATES
-            </h2>
-
-            <p className="mb-4">
-              COMBATCRAFT partners with training facilities, equipment brands, and performance platforms.
-            </p>
-
-            <p className="mb-6">
-              Affiliate partnerships are structured around value, integrity, and performance alignment.
-            </p>
-
-            <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 rounded-lg flex items-center gap-4">
-              <Mail className="text-[#B11226] flex-shrink-0" size={32} />
-              <div>
-                <p className="text-[#A0A0A0] text-sm mb-1">Affiliate Opportunities</p>
-                <a
-                  href="mailto:affiliates@combatcraft.co.uk"
-                  className="text-white hover:text-[#B11226] transition-colors font-semibold"
-                >
-                  affiliates@combatcraft.co.uk
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
