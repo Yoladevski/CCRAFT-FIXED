@@ -319,8 +319,8 @@ export default function BoxingFoundations() {
       setShowLevelComplete(true);
       setActiveLevel(state.levelNumber);
       window.history.replaceState({}, document.title);
-    } else if (state?.level) {
-      setActiveLevel(state.level);
+    } else if (state?.level || state?.levelNumber) {
+      setActiveLevel(state.level ?? state.levelNumber);
       window.history.replaceState({}, document.title);
     }
   }, [location.pathname, loadProgress]);
