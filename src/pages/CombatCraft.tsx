@@ -15,7 +15,7 @@ const cards = [
     content: (
       <>
         <p className="mb-4">Inside each lesson you will find:</p>
-        <ul className="space-y-3">
+        <ul className="space-y-3 inline-block text-left w-full">
           <li>&#8226;&nbsp; A visual demonstration of the technique</li>
           <li>&#8226;&nbsp; Step-by-step coaching instructions</li>
           <li>&#8226;&nbsp; The tactical purpose of the move</li>
@@ -64,7 +64,7 @@ export default function CombatCraft() {
           {cards.map((card, i) => (
             <div
               key={i}
-              className="rounded-lg p-5"
+              className="rounded-lg p-5 text-center"
               style={{
                 backgroundColor: '#2a2a2a',
                 border: '1px solid #B11226',
