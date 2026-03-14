@@ -12,11 +12,11 @@ export default function HowItWorks({ onBack }: HowItWorksProps) {
           <BackButton onClick={onBack} />
         </div>
 
-        <h1 className="cc-outline-text text-4xl md:text-5xl font-bold text-white mb-8">
+        <h1 className="cc-outline-text text-4xl md:text-5xl font-bold text-white mb-8 text-center">
           HOW IT WORKS
         </h1>
 
-        <div className="space-y-10 text-[#E0E0E0] text-base sm:text-lg leading-relaxed">
+        <div className="space-y-10 text-[#E0E0E0] text-base sm:text-lg leading-relaxed text-center">
 
           <section className="space-y-4">
             <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-white">START WITH THE FOUNDATIONS</h2>
