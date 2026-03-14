@@ -34,19 +34,12 @@ export default function ExploreDisciplines() {
                 }}
               >
                 {discipline.comingSoon && (
-                  <div className="absolute top-3 left-0 right-0 z-20 flex justify-center">
-                    <span
-                      className="px-3 py-1 text-xs font-bold tracking-widest text-white"
-                      style={{
-                        fontFamily: 'Orbitron, sans-serif',
-                        background: 'rgba(177, 18, 38, 0.9)',
-                        border: '1px solid #B11226',
-                        boxShadow: '0 0 10px rgba(177, 18, 38, 0.8)',
-                        letterSpacing: '0.2em',
-                      }}
-                    >
-                      COMING SOON
-                    </span>
+                  <div className="absolute inset-0 z-20 flex items-center justify-center">
+                    <img
+                      src="https://api.combatcraft.co.uk/storage/v1/object/public/images/coming%20soon.png"
+                      alt="Coming Soon"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                 )}
 
