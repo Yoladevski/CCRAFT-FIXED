@@ -68,9 +68,10 @@ export const BOXING_FOUNDATIONS_LEVELS: FoundationLevel[] = [
     title: 'ADVANCED CONTROL',
     lessons: [
       { id: 'boxing-l5-1', discipline: 'boxing', level: 5, order: 1, title: 'Slip Pivot', techniqueId: 'ed057f56-e78f-4898-9e5c-c8ed4c62e9f4' },
-      { id: 'boxing-l5-2', discipline: 'boxing', level: 5, order: 2, title: 'Clinch', techniqueId: '310843db-de66-423d-8476-d3e8fa9b76ef' },
-      { id: 'boxing-l5-3', discipline: 'boxing', level: 5, order: 3, title: 'Jab Rear Uppercut Lead Hook Cross', techniqueId: '452a6b62-d6d9-4e46-addf-c94ab6ccb56d' },
-      { id: 'boxing-l5-4', discipline: 'boxing', level: 5, order: 4, title: 'Jab Cross Step Back Cross', techniqueId: '700fd0a5-861a-47cc-9ada-923900487b5e' },
+      { id: 'boxing-l5-2', discipline: 'boxing', level: 5, order: 2, title: '"L" Step', techniqueId: '9e69e7e3-8b60-423d-a71c-6785218539af' },
+      { id: 'boxing-l5-3', discipline: 'boxing', level: 5, order: 3, title: 'Clinch', techniqueId: '310843db-de66-423d-8476-d3e8fa9b76ef' },
+      { id: 'boxing-l5-4', discipline: 'boxing', level: 5, order: 4, title: 'Jab Rear Uppercut Lead Hook Cross', techniqueId: '452a6b62-d6d9-4e46-addf-c94ab6ccb56d' },
+      { id: 'boxing-l5-5', discipline: 'boxing', level: 5, order: 5, title: 'Jab Cross Step Back Cross', techniqueId: '700fd0a5-861a-47cc-9ada-923900487b5e' },
     ],
   },
 ];
