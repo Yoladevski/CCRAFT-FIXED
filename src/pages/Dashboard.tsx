@@ -224,7 +224,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         {/* CONTINUE BUTTON */}
         <div className="flex justify-center">
           <button
-            onClick={() => navigate('/boxing/foundations')}
+            onClick={() => {
+              if (nextLesson) {
+                navigate(`/boxing/foundations/lesson/${nextLesson.lessonId}`);
+              } else {
+                navigate('/boxing/foundations');
+              }
+            }}
             className="w-full lg:w-3/5 transition-transform hover:scale-105"
           >
             <img
