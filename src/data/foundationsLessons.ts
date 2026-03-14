@@ -61,7 +61,6 @@ export const BOXING_FOUNDATIONS_LEVELS: FoundationLevel[] = [
       { id: 'boxing-l4-2', discipline: 'boxing', level: 4, order: 2, title: 'Jab Cross Lead Hook Rear Uppercut', techniqueId: 'd15073a2-2ada-48dc-86f7-1d8f1a794f69' },
       { id: 'boxing-l4-3', discipline: 'boxing', level: 4, order: 3, title: 'Jab Cross Lead Hook Rear Hook', techniqueId: '427c22ba-7d3f-4742-addf-474a722406c7' },
       { id: 'boxing-l4-4', discipline: 'boxing', level: 4, order: 4, title: 'Jab Cross Step Back Cross', techniqueId: '700fd0a5-861a-47cc-9ada-923900487b5e' },
-      { id: 'boxing-l4-5', discipline: 'boxing', level: 4, order: 5, title: 'Advanced Combo Chain Drill' },
     ],
   },
   {
@@ -72,7 +71,6 @@ export const BOXING_FOUNDATIONS_LEVELS: FoundationLevel[] = [
       { id: 'boxing-l5-2', discipline: 'boxing', level: 5, order: 2, title: 'Clinch', techniqueId: '310843db-de66-423d-8476-d3e8fa9b76ef' },
       { id: 'boxing-l5-3', discipline: 'boxing', level: 5, order: 3, title: 'Jab Rear Uppercut Lead Hook Cross', techniqueId: '452a6b62-d6d9-4e46-addf-c94ab6ccb56d' },
       { id: 'boxing-l5-4', discipline: 'boxing', level: 5, order: 4, title: 'Jab Cross Step Back Cross', techniqueId: '700fd0a5-861a-47cc-9ada-923900487b5e' },
-      { id: 'boxing-l5-5', discipline: 'boxing', level: 5, order: 5, title: 'Advanced Combo Chain Drill' },
     ],
   },
 ];
