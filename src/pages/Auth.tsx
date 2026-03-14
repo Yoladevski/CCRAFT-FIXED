@@ -115,6 +115,7 @@ export default function Auth({ onNavigate }: AuthProps) {
   };
 
   const toggleMode = () => {
+    window.scrollTo(0, 0);
     setIsSignUp(!isSignUp);
     setIsForgotPassword(false);
     setError('');
