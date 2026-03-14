@@ -126,7 +126,7 @@ function LevelCompleteModal({
     };
   }, [confetti.length > 0]);
 
-  const shareText = `I just completed Level ${levelNumber}: ${levelTitle} on Combat Craft! Training like a champion.`;
+  const shareText = `I just completed Level ${levelNumber}: ${levelTitle} on CombatCraft! Training like a champion.`;
   const shareUrl = 'https://combatcraft.co.uk';
 
   const handleFacebookShare = () => {
@@ -135,7 +135,7 @@ function LevelCompleteModal({
 
   const handleInstagramShare = () => {
     if (navigator.share) {
-      navigator.share({ title: 'Combat Craft', text: shareText, url: shareUrl });
+      navigator.share({ title: 'CombatCraft', text: shareText, url: shareUrl });
     } else {
       navigator.clipboard.writeText(shareText);
     }
@@ -147,7 +147,7 @@ function LevelCompleteModal({
 
   const handleMessageShare = () => {
     if (navigator.share) {
-      navigator.share({ title: 'Combat Craft', text: shareText, url: shareUrl });
+      navigator.share({ title: 'CombatCraft', text: shareText, url: shareUrl });
     } else {
       window.open(`sms:?body=${encodeURIComponent(shareText + ' ' + shareUrl)}`, '_blank');
     }
@@ -185,7 +185,7 @@ function LevelCompleteModal({
         >
           <img
             src="https://api.combatcraft.co.uk/storage/v1/object/public/images/xxlogo.JPG"
-            alt="Combat Craft"
+            alt="CombatCraft"
             className="w-36 h-36 sm:w-44 sm:h-44 object-contain rounded-full mb-4"
           />
 
