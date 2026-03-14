@@ -293,8 +293,25 @@ export default function BoxingFoundations() {
   const [showLevelComplete, setShowLevelComplete] = useState(false);
   const [levelCompleteData, setLevelCompleteData] = useState<LevelCompleteState | null>(null);
 
+  const loadProgress = useCallback(async () => {
+    if (!user) { setLoading(false); return; }
+
+    const { data } = await supabase
+      .from('foundations_progress')
+      .select('lesson_id')
+      .eq('user_id', user.id)
+      .eq('discipline', 'boxing')
+      .eq('completed', true);
+
+    if (data) {
+      setCompletedLessons(new Set(data.map(r => r.lesson_id)));
+    }
+    setLoading(false);
+  }, [user]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    loadProgress();
 
     const state = location.state as LevelCompleteState | null;
     if (state?.levelComplete) {
@@ -303,27 +320,17 @@ export default function BoxingFoundations() {
       setActiveLevel(state.levelNumber);
       window.history.replaceState({}, document.title);
     }
-  }, [location.state]);
+  }, [location.pathname, loadProgress]);
 
   useEffect(() => {
-    async function loadProgress() {
-      if (!user) { setLoading(false); return; }
-
-      const { data } = await supabase
-        .from('foundations_progress')
-        .select('lesson_id')
-        .eq('user_id', user.id)
-        .eq('discipline', 'boxing')
-        .eq('completed', true);
-
-      if (data) {
-        setCompletedLessons(new Set(data.map(r => r.lesson_id)));
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        loadProgress();
       }
-      setLoading(false);
-    }
-
-    loadProgress();
-  }, [user]);
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [loadProgress]);
 
   function isLevelUnlocked(level: number): boolean {
     if (level === 1) return true;

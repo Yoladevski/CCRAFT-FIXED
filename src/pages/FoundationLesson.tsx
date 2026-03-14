@@ -188,55 +188,62 @@ export default function FoundationLesson() {
     }
   };
 
+  async function saveCompletion(): Promise<boolean> {
+    if (!user || !lesson || alreadyDone) return false;
+
+    await supabase
+      .from('foundations_progress')
+      .upsert({
+        user_id: user.id,
+        discipline: lesson.discipline,
+        level: lesson.level,
+        lesson_id: lesson.id,
+        completed: true,
+        completed_at: new Date().toISOString(),
+      }, { onConflict: 'user_id,lesson_id' });
+
+    setAlreadyDone(true);
+    setCompletedInLevel(prev => new Set([...prev, lesson.id]));
+
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('power_level, rank')
+      .eq('user_id', user.id)
+      .maybeSingle();
+
+    if (profile) {
+      const oldRank = profile.rank;
+      const newPowerLevel = profile.power_level + XP_PER_LESSON;
+
+      const { data: updatedProfile } = await supabase
+        .from('profiles')
+        .update({ power_level: newPowerLevel })
+        .eq('user_id', user.id)
+        .select()
+        .maybeSingle();
+
+      setShowXPGain(true);
+
+      if (updatedProfile && updatedProfile.rank !== oldRank) {
+        setNewRank(updatedProfile.rank);
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      setShowXPGain(false);
+
+      if (updatedProfile && updatedProfile.rank !== oldRank) {
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
+    }
+
+    return true;
+  }
+
   async function handleAction() {
     if (!user || !lesson || completing) return;
     setCompleting(true);
 
-    if (!alreadyDone) {
-      await supabase
-        .from('foundations_progress')
-        .upsert({
-          user_id: user.id,
-          discipline: lesson.discipline,
-          level: lesson.level,
-          lesson_id: lesson.id,
-          completed: true,
-          completed_at: new Date().toISOString(),
-        }, { onConflict: 'user_id,lesson_id' });
-      setAlreadyDone(true);
-      setCompletedInLevel(prev => new Set([...prev, lesson.id]));
-
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('power_level, rank')
-        .eq('user_id', user.id)
-        .maybeSingle();
-
-      if (profile) {
-        const oldRank = profile.rank;
-        const newPowerLevel = profile.power_level + XP_PER_LESSON;
-
-        const { data: updatedProfile } = await supabase
-          .from('profiles')
-          .update({ power_level: newPowerLevel })
-          .eq('user_id', user.id)
-          .select()
-          .maybeSingle();
-
-        setShowXPGain(true);
-
-        if (updatedProfile && updatedProfile.rank !== oldRank) {
-          setNewRank(updatedProfile.rank);
-        }
-
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setShowXPGain(false);
-
-        if (updatedProfile && updatedProfile.rank !== oldRank) {
-          await new Promise(resolve => setTimeout(resolve, 300));
-        }
-      }
-    }
+    await saveCompletion();
 
     if (isLast) {
       navigate('/boxing/foundations', {
