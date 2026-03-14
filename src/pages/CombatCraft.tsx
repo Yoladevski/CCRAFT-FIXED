@@ -5,7 +5,7 @@ const cards = [
   {
     content: (
       <>
-        <p className="mb-4" style={{ fontWeight: 700, fontSize: '12px' }}>1. Learn Martial Arts The Right Way</p>
+        <p className="mb-4" style={{ fontWeight: 900, fontSize: '15px', letterSpacing: '0.03em', lineHeight: '1.3' }}>1. Learn Martial Arts The Right Way</p>
         <p>CombatCraft teaches martial arts through structured training designed by real coaches. Instead of random videos or techniques, users follow a clear progression that builds skills step-by-step. This mirrors how fighters are trained in real gyms, helping beginners develop strong fundamentals before advancing to more complex techniques.</p>
       </>
     ),
