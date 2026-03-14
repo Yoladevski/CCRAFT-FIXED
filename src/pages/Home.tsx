@@ -198,10 +198,10 @@ export default function Home({ onNavigate }: HomeProps) {
 
       <section className="py-16 sm:py-24 px-4 bg-[#0E0E0E] relative">
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col md:grid md:grid-cols-3 gap-6 sm:gap-8 mt-[10px] items-stretch">
+          <div className="flex flex-col md:grid md:grid-cols-4 gap-6 sm:gap-8 mt-[10px] items-stretch">
             <button
               onClick={() => onNavigate('CombatCraft')}
-              className="w-full bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
+              className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                 minHeight: '160px',
@@ -210,15 +210,16 @@ export default function Home({ onNavigate }: HomeProps) {
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                fontSize: '19.2px',
-                letterSpacing: '5px',
+                fontSize: '14px',
+                letterSpacing: '3px',
                 color: '#FFFFFF',
                 WebkitTextStroke: '1px #B11226',
-                textTransform: 'uppercase'
+                textTransform: 'uppercase',
+                lineHeight: '1.3',
               }}>
-                COMBAT CRAFT
+                COMBAT<br />CRAFT
               </h3>
-              <p className="leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0' }}>
+              <p className="leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px', fontWeight: 500, color: '#A0A0A0' }}>
                 Structured martial arts training platform designed to teach real fighting techniques step-by-step.
               </p>
             </button>
@@ -280,6 +281,31 @@ export default function Home({ onNavigate }: HomeProps) {
                 </ul>
               </button>
             </div>
+
+            <button
+              onClick={() => onNavigate('HowItWorks')}
+              className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
+                minHeight: '160px',
+              }}
+            >
+              <h3 className="mb-4" style={{
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                fontSize: '14px',
+                letterSpacing: '3px',
+                color: '#FFFFFF',
+                WebkitTextStroke: '1px #B11226',
+                textTransform: 'uppercase',
+                lineHeight: '1.3',
+              }}>
+                HOW IT<br />WORKS
+              </h3>
+              <p className="leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px', fontWeight: 500, color: '#A0A0A0' }}>
+                Learn how the CombatCraft training system works and how techniques, lessons and workouts combine to build real martial arts skills through structured training.
+              </p>
+            </button>
           </div>
         </div>
       </section>
