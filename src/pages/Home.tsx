@@ -198,12 +198,13 @@ export default function Home({ onNavigate }: HomeProps) {
 
       <section className="py-16 sm:py-24 px-4 bg-[#0E0E0E] relative">
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mt-[10px]">
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-6 sm:gap-8 mt-[10px] items-stretch">
             <button
               onClick={() => onNavigate('CombatCraft')}
-              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
+              className="w-full bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
               style={{
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
+                minHeight: '160px',
               }}
             >
               <h3 className="mb-4" style={{
@@ -222,57 +223,63 @@ export default function Home({ onNavigate }: HomeProps) {
               </p>
             </button>
 
-            <button
-              onClick={() => onNavigate('AIInstruction')}
-              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left flex flex-col justify-center"
-              style={{
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
-              }}
-            >
-              <h3 className="text-center mb-4" style={{
-                fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                fontSize: '19.2px',
-                letterSpacing: '5px',
-                color: '#FFFFFF',
-                WebkitTextStroke: '1px #B11226',
-                textTransform: 'uppercase'
-              }}>
-                INSIDE COMBATCRAFT
-              </h3>
-              <ul className="text-center space-y-2" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0', listStyle: 'none' }}>
-                <li>&#8226; Progress Tracking</li>
-                <li>&#8226; Structured Pathway</li>
-                <li>&#8226; AI Generated Videos</li>
-              </ul>
-            </button>
+            <div className="grid grid-cols-2 gap-6 md:contents">
+              <button
+                onClick={() => onNavigate('AIInstruction')}
+                className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
+                style={{
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
+                  minHeight: '160px',
+                }}
+              >
+                <h3 className="mb-4" style={{
+                  fontFamily: 'Orbitron, sans-serif',
+                  fontWeight: 900,
+                  fontSize: '14px',
+                  letterSpacing: '3px',
+                  color: '#FFFFFF',
+                  WebkitTextStroke: '1px #B11226',
+                  textTransform: 'uppercase',
+                  lineHeight: '1.3',
+                }}>
+                  INSIDE<br />COMBATCRAFT
+                </h3>
+                <ul className="text-center space-y-1" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px', fontWeight: 500, color: '#A0A0A0', listStyle: 'none' }}>
+                  <li>&#8226; Progress Tracking</li>
+                  <li>&#8226; Structured Pathway</li>
+                  <li>&#8226; AI Generated Videos</li>
+                </ul>
+              </button>
 
-            <button
-              onClick={() => onNavigate('ExploreDisciplines')}
-              className="bg-[#1A1A1A] p-8 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer text-left flex flex-col justify-center"
-              style={{
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)'
-              }}
-            >
-              <h3 className="text-center mb-4" style={{
-                fontFamily: 'Orbitron, sans-serif',
-                fontWeight: 900,
-                fontSize: '19.2px',
-                letterSpacing: '5px',
-                color: '#FFFFFF',
-                WebkitTextStroke: '1px #B11226',
-                textTransform: 'uppercase'
-              }}>
-                EXPLORE DISCIPLINES
-              </h3>
-              <ul className="text-center space-y-2" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '11.2px', fontWeight: 500, color: '#A0A0A0', listStyle: 'none' }}>
-                <li>&#8226; Boxing</li>
-                <li>&#8226; Muay Thai</li>
-                <li>&#8226; Brazilian Jiu-Jitsu</li>
-                <li>&#8226; Judo</li>
-                <li>&#8226; Karate</li>
-              </ul>
-            </button>
+              <button
+                onClick={() => onNavigate('ExploreDisciplines')}
+                className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
+                style={{
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
+                  minHeight: '160px',
+                }}
+              >
+                <h3 className="mb-4" style={{
+                  fontFamily: 'Orbitron, sans-serif',
+                  fontWeight: 900,
+                  fontSize: '14px',
+                  letterSpacing: '3px',
+                  color: '#FFFFFF',
+                  WebkitTextStroke: '1px #B11226',
+                  textTransform: 'uppercase',
+                  lineHeight: '1.3',
+                }}>
+                  EXPLORE<br />DISCIPLINES
+                </h3>
+                <ul className="text-center space-y-1" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px', fontWeight: 500, color: '#A0A0A0', listStyle: 'none' }}>
+                  <li>&#8226; Boxing</li>
+                  <li>&#8226; Muay Thai</li>
+                  <li>&#8226; Brazilian Jiu-Jitsu</li>
+                  <li>&#8226; Judo</li>
+                  <li>&#8226; Karate</li>
+                </ul>
+              </button>
+            </div>
           </div>
         </div>
       </section>
