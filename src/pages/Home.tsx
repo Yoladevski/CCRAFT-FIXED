@@ -277,7 +277,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   <li>&#8226; Muay Thai</li>
                   <li>&#8226; Brazilian Jiu-Jitsu</li>
                   <li>&#8226; Judo</li>
-                  <li>&#8226; Karate</li>
+                  <li>&#8226; Taekwondo</li>
                 </ul>
               </button>
             </div>
