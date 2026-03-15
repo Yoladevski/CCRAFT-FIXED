@@ -26,7 +26,7 @@ const appScreenshots = [
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44%20(1).jpeg',
-    description: 'Track your progress and unlock new levels as you train',
+    description: "Progress through the Foundation Pathway is structured and sequential. New techniques and levels remain locked until earlier lessons are completed, ensuring users build the correct fundamentals first. This guided progression mirrors real coaching systems used in martial arts training.",
   },
 ];
 
