@@ -389,7 +389,7 @@ export default function BoxingFoundations() {
       <div className="max-w-3xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           <button
-            onClick={() => navigate('/boxing/foundations')}
+            onClick={() => navigate('/boxing/5c45a8e7-aa73-433a-8344-dd8aadf2eed2')}
             className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
           >
             <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
