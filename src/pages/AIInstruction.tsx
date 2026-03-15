@@ -14,7 +14,7 @@ const appScreenshots = [
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.11.47.jpeg',
-    description: 'Structured progression pathways guiding your training journey',
+    description: 'CombatCraft offers training across multiple martial arts disciplines within one platform. Users can explore systems such as boxing, Muay Thai, Brazilian Jiu-Jitsu and karate, with new disciplines continuously being added. Each discipline follows the same structured pathway approach to develop skills step-by-step.',
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43%20(2).jpeg',
