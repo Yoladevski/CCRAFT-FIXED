@@ -77,7 +77,7 @@ export default function AIInstruction() {
               </div>
               <p className="text-center mt-4 px-2" style={{
                 fontFamily: 'Orbitron, sans-serif',
-                fontSize: '11px',
+                fontSize: '16px',
                 fontWeight: 500,
                 color: '#A0A0A0',
                 lineHeight: '1.6',
