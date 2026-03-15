@@ -6,7 +6,7 @@ import BackButton from '../components/BackButton';
 const appScreenshots = [
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/vidss.JPG',
-    description: 'AI-generated video demonstrations showing techniques in action',
+    description: 'Each technique is demonstrated through AI-generated video designed to show movements clearly and consistently. The visuals focus on precision so users can study the mechanics of each technique in detail. Real coaches provide the voiceover explanations, combining advanced technology with authentic coaching instruction.',
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44.jpeg',
