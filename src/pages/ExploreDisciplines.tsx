@@ -3,7 +3,7 @@ const cardImages: Record<string, string> = {
   'Muay Thai': 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg',
   'Brazilian Jiu Jitsu': 'https://i.postimg.cc/MHT6KD7s/bjjjj.png',
   'Karate': 'https://i.postimg.cc/3xZrFKnC/karate.png',
-  'Taekwondo': 'https://images.pexels.com/photos/7045396/pexels-photo-7045396.jpeg?auto=compress&cs=tinysrgb&w=800',
+  'Taekwondo': 'https://images.pexels.com/photos/7045523/pexels-photo-7045523.jpeg?auto=compress&cs=tinysrgb&w=800',
   'Judo': 'https://i.postimg.cc/JzQ751PX/judo.png',
 };
 
