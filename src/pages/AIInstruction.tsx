@@ -22,7 +22,7 @@ const appScreenshots = [
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43.jpeg',
-    description: 'Coach tips and common mistakes to accelerate your learning',
+    description: "The Foundation Pathway is structured by experienced coaches to teach techniques in the correct order. Each level builds on the previous one, allowing users to develop skills step-by-step from the fundamentals to more advanced movements. Progress is tracked as techniques are completed, ensuring a clear and guided learning journey.",
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44%20(1).jpeg',
