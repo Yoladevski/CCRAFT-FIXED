@@ -18,7 +18,7 @@ const appScreenshots = [
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43%20(2).jpeg',
-    description: 'Technique library with full access to all moves across disciplines',
+    description: "Each lesson is broken down into clear sections to help users fully understand the technique being taught. Topics include why the technique works, how to perform it, common mistakes, simple drills and coaches' tips. This structured format helps users learn correctly and apply techniques effectively in training.",
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.43.jpeg',
