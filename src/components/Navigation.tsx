@@ -128,8 +128,19 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 </button>
               </div>
 
-              <div className="flex items-center justify-end scale-110">
-                <LanguageSelector compact />
+              <div className="flex items-center justify-end gap-2">
+                {!user && (
+                  <button
+                    onClick={() => handleNavigate('Auth')}
+                    className="px-3 py-1.5 bg-[#B11226] hover:bg-[#8B0E1C] transition-all text-white text-[10px] font-bold whitespace-nowrap"
+                    style={{ letterSpacing: '0.1em' }}
+                  >
+                    SIGN UP
+                  </button>
+                )}
+                <div className="scale-110">
+                  <LanguageSelector compact />
+                </div>
               </div>
             </div>
           </div>

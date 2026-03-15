@@ -407,6 +407,11 @@ nav a {
   z-index: 30;
   gap: 1.5rem;
   padding-top: 5vh;
+  pointer-events: none;
+}
+
+.hero-content-grid > * {
+  pointer-events: auto;
 }
 
 .hero-top-text,
