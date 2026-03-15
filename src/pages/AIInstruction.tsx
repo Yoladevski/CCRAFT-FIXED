@@ -10,7 +10,7 @@ const appScreenshots = [
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.10.44.jpeg',
-    description: 'Detailed technique breakdown with step-by-step coaching instructions',
+    description: 'CombatCraft includes a personal dashboard that tracks your training journey. Users can continue their current pathway, view completed techniques and monitor their overall progress. The system also displays rank, power level and completion percentage, giving a clear overview of development through the training program.',
   },
   {
     url: 'https://api.combatcraft.co.uk/storage/v1/object/public/images/ssc/WhatsApp%20Image%202026-03-10%20at%2016.11.47.jpeg',
