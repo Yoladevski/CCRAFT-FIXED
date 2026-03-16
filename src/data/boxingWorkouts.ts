@@ -1,9 +1,23 @@
+export interface WorkoutRound {
+  number: number;
+  title: string;
+  body: string;
+}
+
 export interface WorkoutSession {
   id: string;
   number: number;
   title: string;
   description: string;
   slug: string;
+  totalRounds?: number;
+  roundLength?: string;
+  rest?: string;
+  focus?: string;
+  suitableFor?: string;
+  coachsBrief?: string;
+  rounds?: WorkoutRound[];
+  closingNote?: string;
 }
 
 export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
@@ -13,6 +27,52 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
     title: 'Boxing Fundamentals',
     description: 'Basic punches and movement to build strong foundations.',
     slug: 'session-1',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Stance, balance, movement and basic jab mechanics',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "This session introduces the core principles of boxing training. Focus on maintaining a strong stance, controlled movement and clean punching technique. Do not rush the rounds. The aim is to build good habits and establish rhythm before increasing intensity in later sessions.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Stance & Movement)',
+        body: "Begin with relaxed shadowboxing while focusing on your boxing stance. Keep your feet shoulder-width apart with the lead foot slightly forward and knees lightly bent. Move around the space slowly while maintaining balance and keeping your guard high. Throw light punches occasionally but concentrate mainly on footwork and posture. The goal of this round is to warm up the body and establish good positioning.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Jab Introduction)',
+        body: "Continue shadowboxing while introducing the jab. Throw light jabs toward an imaginary opponent while maintaining balance and keeping the rear hand protecting your chin. Focus on snapping the jab straight out and returning it quickly to guard. Move around between punches and stay relaxed. This round helps reinforce the basic mechanics of the jab while keeping the body warm.",
+      },
+      {
+        number: 3,
+        title: 'Jab Technique Round',
+        body: "This round focuses entirely on clean jab technique. Work single jabs repeatedly while concentrating on accuracy and speed. Ensure the punch travels in a straight line and the lead shoulder rises slightly to protect the chin. If using a heavy bag or pads, aim for controlled, precise strikes rather than power. Return the hand quickly to guard after every jab.",
+      },
+      {
+        number: 4,
+        title: 'Double Jab Round',
+        body: "Build on the previous round by throwing double jabs. Extend the first jab to measure distance, then quickly fire the second jab before resetting your stance. Focus on maintaining balance and keeping your guard tight. If shadowboxing, imagine pushing your opponent back with repeated jabs. If using a bag or pads, maintain rhythm and control.",
+      },
+      {
+        number: 5,
+        title: 'Jab With Movement',
+        body: "Now begin combining the jab with footwork. Step forward as you throw the jab, then reset your stance before repeating. Mix forward steps with small lateral movements to simulate controlling distance against an opponent. The emphasis is on maintaining balance and keeping your feet underneath you while punching.",
+      },
+      {
+        number: 6,
+        title: 'Basic Combination Round',
+        body: "Introduce a simple two-punch combination: jab followed by cross. Throw the jab first to set up the cross, then rotate your hips and shoulders to deliver the rear hand with controlled power. Focus on returning both hands quickly to guard after the combination. Maintain good posture and avoid overreaching with your punches.",
+      },
+      {
+        number: 7,
+        title: 'Controlled Flow Round',
+        body: "In the final round, combine everything you have practised in this session. Move around freely while throwing jabs, double jabs and occasional jab–cross combinations. Focus on smooth movement, steady breathing and maintaining a strong guard position. The aim is to finish the session with fluid technique and controlled rhythm rather than maximum power.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 1. Continue focusing on strong fundamentals as these skills form the foundation for all future techniques. Consistent practice of stance, movement and the jab will improve every aspect of your boxing.",
   },
   {
     id: 'session-2',
