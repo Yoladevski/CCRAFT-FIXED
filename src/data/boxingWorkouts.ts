@@ -462,9 +462,55 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
   {
     id: 'session-11',
     number: 11,
-    title: 'Defence & Reaction',
-    description: 'Improve reactions and defensive awareness.',
+    title: 'Counter Punching',
+    description: 'Defensive reactions and immediate counters.',
     slug: 'session-11',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Defensive reactions and immediate counters',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "Counter punching is about reacting calmly after defending. Focus on small defensive movements such as slips and rolls before returning a clean punch. Do not rush the counters. The goal is to stay balanced, defend first and respond with controlled technique.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Movement & Rhythm)',
+        body: "Begin with relaxed shadowboxing while focusing on stance, movement and breathing. Move lightly around your training space while throwing occasional jabs and crosses. Keep your guard tight and shoulders relaxed. This round prepares the body and establishes rhythm.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Defence & Light Counters)',
+        body: "Continue shadowboxing while introducing defensive movements. Visualise an opponent attacking and practise slipping or rolling before returning a light jab. Focus on smooth transitions between defence and offence while maintaining balance.",
+      },
+      {
+        number: 3,
+        title: 'Slip and Jab Counter',
+        body: "This round focuses on slipping an incoming punch and immediately returning with a jab. Visualise a straight punch coming toward you. Slip slightly to the outside while keeping your guard tight, then fire a quick jab back at the target. Reset your stance before repeating.",
+      },
+      {
+        number: 4,
+        title: 'Slip Cross Counter',
+        body: "Work slipping an imaginary punch before delivering a cross. Move your head slightly off the centre line, then rotate your hips and shoulders to deliver a straight cross. Focus on balance and clean technique rather than power.",
+      },
+      {
+        number: 5,
+        title: 'Roll and Hook Counter',
+        body: "This round introduces rolling under a hook before countering with a lead hook of your own. Bend the knees slightly and roll under the punch, then rotate your body into the hook. Keep your guard tight and return to stance after each counter.",
+      },
+      {
+        number: 6,
+        title: 'Defence to Combination',
+        body: "Combine defensive movement with short combinations. Slip or roll an imaginary attack, then return with combinations such as jab–cross or jab–cross–hook. Focus on staying relaxed and maintaining strong guard position throughout the round.",
+      },
+      {
+        number: 7,
+        title: 'Counter Flow Round',
+        body: "In the final round combine all defensive and countering techniques practised during the session. Visualise reacting to an opponent's attacks while slipping, rolling and returning counters. Maintain balance, good breathing and controlled rhythm as you finish the workout.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 11. Counter punching allows you to turn defence into offence by reacting quickly after avoiding attacks.",
   },
   {
     id: 'session-12',
