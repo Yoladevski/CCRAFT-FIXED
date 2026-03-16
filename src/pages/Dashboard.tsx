@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import continueButton from '../assets/continue.webp';
+import LevelProgressIndicator from '../components/LevelProgressIndicator';
 import { BOXING_FOUNDATIONS_LEVELS } from '../data/foundationsLessons';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
@@ -48,6 +49,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   const [totalLessons, setTotalLessons] = useState(0);
   const [completedLessons, setCompletedLessons] = useState(0);
   const [nextLesson, setNextLesson] = useState<{ level: number; levelTitle: string; lessonTitle: string; lessonId: string } | null>(null);
+  const [currentLevelProgress, setCurrentLevelProgress] = useState<{ level: number; completed: number; total: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [dailyMotivation] = useState(getRandomMotivation());
 
@@ -90,6 +92,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           lessonTitle: nextIncomplete.title,
           lessonId: nextIncomplete.id,
         });
+        if (levelData) {
+          const levelCompleted = levelData.lessons.filter(l => completedIds.has(l.id)).length;
+          setCurrentLevelProgress({
+            level: nextIncomplete.level,
+            completed: levelCompleted,
+            total: levelData.lessons.length,
+          });
+        }
       }
 
       setLoading(false);
@@ -348,7 +358,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </div>
 
             {/* Progress Info */}
-            <div className="w-full pt-3 border-t border-[#2E2E2E]">
+            <div className="w-full pt-3 border-t border-[#2E2E2E] flex flex-col gap-3">
               <div className="text-center">
                 <p className="cc-card-label mb-1">
                   FOUNDATION PROGRESS
@@ -362,6 +372,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   </span>
                 </div>
               </div>
+              {currentLevelProgress && (
+                <LevelProgressIndicator
+                  level={currentLevelProgress.level}
+                  completed={currentLevelProgress.completed}
+                  total={currentLevelProgress.total}
+                  compact={true}
+                />
+              )}
             </div>
           </div>
         </div>

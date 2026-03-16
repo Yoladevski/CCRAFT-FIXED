@@ -4,6 +4,7 @@ import { ArrowLeft, ChevronDown, Check } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
+import LevelProgressIndicator from '../components/LevelProgressIndicator';
 import {
   getLessonById,
   getNextLesson,
@@ -624,6 +625,15 @@ export default function FoundationLesson() {
         {!isLast && nextLesson && (
           <div className="mt-12 flex flex-col items-center gap-4">
             {showNextRoundActive && (
+              <div className="w-full max-w-sm">
+                <LevelProgressIndicator
+                  level={currentLevel}
+                  completed={levelData ? levelData.lessons.filter(l => completedInLevel.has(l.id)).length : 0}
+                  total={levelData?.lessons.length ?? 0}
+                />
+              </div>
+            )}
+            {showNextRoundActive && (
               <p
                 className="text-center text-[#A0A0A0] text-sm tracking-wide"
                 style={{ fontFamily: 'Inter, sans-serif' }}
@@ -675,6 +685,15 @@ export default function FoundationLesson() {
 
         {isLast && (
           <div className="flex flex-col items-center mt-12 gap-4">
+            {showNextRoundActive && (
+              <div className="w-full max-w-sm">
+                <LevelProgressIndicator
+                  level={currentLevel}
+                  completed={levelData ? levelData.lessons.filter(l => completedInLevel.has(l.id)).length : 0}
+                  total={levelData?.lessons.length ?? 0}
+                />
+              </div>
+            )}
             {showNextRoundActive && (
               <p
                 className="text-center text-[#A0A0A0] text-sm tracking-wide"

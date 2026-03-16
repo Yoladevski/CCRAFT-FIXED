@@ -4,6 +4,7 @@ import { Lock, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight, Facebook, Mess
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { BOXING_FOUNDATIONS_LEVELS, FoundationLesson } from '../data/foundationsLessons';
+import LevelProgressIndicator from '../components/LevelProgressIndicator';
 
 const VICTORY_QUOTES = [
   "CHAMPION!",
@@ -469,12 +470,6 @@ export default function BoxingFoundations() {
               </h2>
               <p className="text-[#A0A0A0] text-sm mt-0.5">{activeData.title}</p>
             </div>
-            {unlocked && (
-              <div className="text-right">
-                <p className="text-[#A0A0A0] text-xs">PROGRESS</p>
-                <p className="text-white font-bold text-sm">{completed}/{total}</p>
-              </div>
-            )}
             {!unlocked && (
               <div className="flex items-center gap-2 text-[#A0A0A0]">
                 <Lock size={18} />
@@ -483,11 +478,12 @@ export default function BoxingFoundations() {
             )}
           </div>
 
-          {unlocked && total > 0 && (
-            <div className="w-full h-1.5 bg-[#2E2E2E] rounded-full mb-5">
-              <div
-                className="h-full bg-[#B11226] rounded-full transition-all duration-500"
-                style={{ width: `${(completed / total) * 100}%` }}
+          {unlocked && (
+            <div className="mb-5">
+              <LevelProgressIndicator
+                level={activeData.level}
+                completed={completed}
+                total={total}
               />
             </div>
           )}
