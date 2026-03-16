@@ -409,9 +409,55 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
   {
     id: 'session-10',
     number: 10,
-    title: 'Pressure & Pace',
-    description: 'Work at a higher tempo to simulate fight pressure.',
+    title: 'Pressure Fighting',
+    description: 'Forward pressure, controlled attacks and distance management.',
     slug: 'session-10',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Forward pressure, controlled attacks and distance management',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "Pressure fighting is not about rushing forward aggressively. Instead, focus on steady forward movement while maintaining balance and a strong guard. Use the jab to control distance and follow with combinations when opportunities appear. Stay composed and keep your feet underneath you while advancing.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Movement & Rhythm)',
+        body: "Begin with relaxed shadowboxing while focusing on stance, guard and movement. Move lightly around your training space while throwing occasional jabs. Concentrate on smooth footwork and balanced posture as you warm up.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Forward Movement)',
+        body: "Continue shadowboxing while gradually moving forward. Step forward in your stance while throwing light jabs and resetting your feet before repeating. Focus on maintaining balance and keeping your guard tight while advancing.",
+      },
+      {
+        number: 3,
+        title: 'Jab Pressure Round',
+        body: "This round focuses on using the jab to apply forward pressure. Step forward behind the jab while maintaining strong guard position. Reset your stance between attacks and focus on controlled, accurate punches rather than power.",
+      },
+      {
+        number: 4,
+        title: 'Jab–Cross Pressure',
+        body: "Work the jab–cross combination while moving forward. Step forward behind the jab, rotate into the cross, then reset before repeating. Maintain steady pressure and avoid rushing the punches.",
+      },
+      {
+        number: 5,
+        title: 'Combination Pressure',
+        body: "Introduce combinations such as jab–cross–hook while continuing to advance forward. Focus on balanced footwork and controlled punching as you apply pressure.",
+      },
+      {
+        number: 6,
+        title: 'Pressure With Angles',
+        body: "Now combine forward pressure with pivots and small directional changes. Step forward with punches, then pivot slightly to create a new attacking angle before continuing the pressure.",
+      },
+      {
+        number: 7,
+        title: 'Pressure Flow Round',
+        body: "In the final round move freely while applying controlled forward pressure. Use jabs, combinations and footwork to maintain offensive momentum while staying balanced and defensively aware.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 10. Pressure fighting allows you to control the pace of a fight and force your opponent into defensive reactions.",
   },
   {
     id: 'session-11',
