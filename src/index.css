@@ -271,6 +271,29 @@ nav a {
   border: 2px solid #B11226;
 }
 
+@keyframes lessonCompleteGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(177, 18, 38, 0.6),
+      0 0 40px rgba(177, 18, 38, 0.3),
+      0 0 80px rgba(177, 18, 38, 0.15),
+      inset 0 0 20px rgba(177, 18, 38, 0.05);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(177, 18, 38, 0.9),
+      0 0 60px rgba(177, 18, 38, 0.5),
+      0 0 100px rgba(177, 18, 38, 0.25),
+      inset 0 0 30px rgba(177, 18, 38, 0.1);
+  }
+}
+
+.lesson-complete-panel {
+  animation: lessonCompleteGlow 1.5s ease-in-out infinite, scaleIn 0.35s ease-out;
+  background: linear-gradient(160deg, #1c1c1c 0%, #111111 100%);
+  border: 2px solid #B11226;
+}
+
 .xp-gain-text {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;

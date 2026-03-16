@@ -70,17 +70,76 @@ function formatText(text: string) {
 
 const XP_PER_LESSON = 50;
 
+interface LessonCompletePopupProps {
+  onContinue: () => void;
+}
+
+function LessonCompletePopup({ onContinue }: LessonCompletePopupProps) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/75 px-4">
+      <div className="lesson-complete-panel flex flex-col items-center gap-4 rounded-2xl px-8 py-10 w-full max-w-xs sm:max-w-sm text-center">
+        <div
+          className="text-white font-black tracking-widest"
+          style={{
+            fontFamily: 'Orbitron, sans-serif',
+            fontSize: 'clamp(1.25rem, 5vw, 1.75rem)',
+            letterSpacing: '0.12em',
+            textShadow: '0 0 20px rgba(177,18,38,0.8), 2px 2px 0 #000',
+          }}
+        >
+          LESSON COMPLETE
+        </div>
+
+        <div
+          className="text-[#B11226] font-black"
+          style={{
+            fontFamily: 'Orbitron, sans-serif',
+            fontSize: 'clamp(1.5rem, 6vw, 2.25rem)',
+            letterSpacing: '0.08em',
+            textShadow: '0 0 30px rgba(177,18,38,1), 0 0 60px rgba(177,18,38,0.5)',
+          }}
+        >
+          +{XP_PER_LESSON} XP EARNED
+        </div>
+
+        <p
+          className="text-[#A0A0A0]"
+          style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem', letterSpacing: '0.05em' }}
+        >
+          Progress saved
+        </p>
+
+        <button
+          onClick={onContinue}
+          className="mt-2 px-10 py-3 text-white font-black tracking-widest transition-all hover:scale-105 active:scale-95"
+          style={{
+            fontFamily: 'Orbitron, sans-serif',
+            fontSize: '0.9rem',
+            letterSpacing: '0.15em',
+            background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
+            boxShadow: '0 0 20px rgba(177,18,38,0.7), 0 0 40px rgba(177,18,38,0.3)',
+            borderRadius: '9999px',
+          }}
+        >
+          CONTINUE
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function FoundationLesson() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
   const [completing, setCompleting] = useState(false);
   const [alreadyDone, setAlreadyDone] = useState(false);
+  const [lessonJustCompleted, setLessonJustCompleted] = useState(false);
+  const [showCompletionPopup, setShowCompletionPopup] = useState(false);
   const [completedInLevel, setCompletedInLevel] = useState<Set<string>>(new Set());
   const [technique, setTechnique] = useState<Technique | null>(null);
   const [loadingTechnique, setLoadingTechnique] = useState(true);
   const [userName, setUserName] = useState('Fighter');
-  const [showXPGain, setShowXPGain] = useState(false);
   const [newRank, setNewRank] = useState<string | null>(null);
 
   const [openSections, setOpenSections] = useState({
@@ -107,12 +166,13 @@ export default function FoundationLesson() {
 
   useEffect(() => {
     setAlreadyDone(false);
+    setLessonJustCompleted(false);
+    setShowCompletionPopup(false);
     setCompletedInLevel(new Set());
     setTechnique(null);
     setLoadingTechnique(true);
     setAccessChecked(false);
     setCompleting(false);
-    setShowXPGain(false);
     setNewRank(null);
     setOpenSections({ why: false, how: false, mistakes: false, drills: false, coachesTips: false });
     setSectionsRead({ why: false, how: false, mistakes: false, drills: false, coachesTips: false });
@@ -236,8 +296,8 @@ export default function FoundationLesson() {
     }
   };
 
-  async function saveCompletion(): Promise<boolean> {
-    if (!user || !lesson || alreadyDone) return false;
+  async function saveCompletion(): Promise<{ rankUp: string | null }> {
+    if (!user || !lesson || alreadyDone) return { rankUp: null };
 
     await supabase
       .from('foundations_progress')
@@ -251,6 +311,7 @@ export default function FoundationLesson() {
       }, { onConflict: 'user_id,lesson_id' });
 
     setAlreadyDone(true);
+    setLessonJustCompleted(true);
     setCompletedInLevel(prev => new Set([...prev, lesson.id]));
 
     const { data: profile } = await supabase
@@ -258,6 +319,8 @@ export default function FoundationLesson() {
       .select('power_level, rank')
       .eq('user_id', user.id)
       .maybeSingle();
+
+    let rankUp: string | null = null;
 
     if (profile) {
       const oldRank = profile.rank;
@@ -270,29 +333,34 @@ export default function FoundationLesson() {
         .select()
         .maybeSingle();
 
-      setShowXPGain(true);
-
       if (updatedProfile && updatedProfile.rank !== oldRank) {
-        setNewRank(updatedProfile.rank);
-      }
-
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setShowXPGain(false);
-
-      if (updatedProfile && updatedProfile.rank !== oldRank) {
-        await new Promise(resolve => setTimeout(resolve, 300));
+        rankUp = updatedProfile.rank;
       }
     }
 
-    return true;
+    return { rankUp };
   }
 
-  async function handleAction() {
-    if (!user || !lesson || completing) return;
+  async function handleCompleteLesson() {
+    if (!user || !lesson || completing || alreadyDone) return;
     setCompleting(true);
 
-    await saveCompletion();
+    const { rankUp } = await saveCompletion();
 
+    setCompleting(false);
+
+    if (rankUp) {
+      setNewRank(rankUp);
+    } else {
+      setShowCompletionPopup(true);
+    }
+  }
+
+  function handlePopupContinue() {
+    setShowCompletionPopup(false);
+  }
+
+  function handleNextRound() {
     if (isLast) {
       navigate('/boxing/foundations', {
         state: {
@@ -306,8 +374,11 @@ export default function FoundationLesson() {
       window.scrollTo(0, 0);
       navigate(`/boxing/foundations/lesson/${nextLesson.id}`);
     }
+  }
 
-    setCompleting(false);
+  function handleRankUpContinue() {
+    setNewRank(null);
+    setShowCompletionPopup(true);
   }
 
   if (!lesson) {
@@ -327,6 +398,8 @@ export default function FoundationLesson() {
   }
 
   const levelData = BOXING_FOUNDATIONS_LEVELS.find(l => l.level === currentLevel);
+  const isUnlocked = alreadyDone || lessonJustCompleted || allSectionsRead();
+  const showNextRoundActive = alreadyDone || lessonJustCompleted;
 
   return (
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
@@ -549,24 +622,51 @@ export default function FoundationLesson() {
         )}
 
         {!isLast && nextLesson && (
-          <div className="mt-12 flex flex-col items-center">
+          <div className="mt-12 flex flex-col items-center gap-4">
+            {showNextRoundActive && (
+              <p
+                className="text-center text-[#A0A0A0] text-sm tracking-wide"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                Next technique unlocked. Continue your training.
+              </p>
+            )}
+
+            {!alreadyDone && isUnlocked && !lessonJustCompleted && (
+              <button
+                onClick={handleCompleteLesson}
+                disabled={completing}
+                className="px-10 py-3 text-white font-black tracking-widest transition-all hover:scale-105 active:scale-95"
+                style={{
+                  fontFamily: 'Orbitron, sans-serif',
+                  fontSize: '0.85rem',
+                  letterSpacing: '0.15em',
+                  background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
+                  boxShadow: '0 0 20px rgba(177,18,38,0.6), 0 0 40px rgba(177,18,38,0.2)',
+                  borderRadius: '9999px',
+                }}
+              >
+                {completing ? 'SAVING...' : 'COMPLETE LESSON'}
+              </button>
+            )}
+
             <button
-              onClick={handleAction}
-              disabled={completing || (!alreadyDone && !allSectionsRead())}
-              className={`transition-all transform ${
-                (alreadyDone || allSectionsRead()) && !completing
-                  ? 'hover:scale-105 opacity-100'
-                  : 'opacity-40 cursor-not-allowed'
-              }`}
+              onClick={handleNextRound}
+              disabled={!showNextRoundActive}
+              className={`transition-all transform ${showNextRoundActive ? 'hover:scale-105 active:scale-95 opacity-100' : 'opacity-30 cursor-not-allowed'}`}
             >
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/nr.png"
                 alt="Next Round"
                 className="w-full max-w-[300px] sm:max-w-[400px] h-auto"
+                style={showNextRoundActive ? {
+                  filter: 'drop-shadow(0 0 12px rgba(177,18,38,0.8)) drop-shadow(0 0 24px rgba(177,18,38,0.4))',
+                } : {}}
               />
             </button>
-            {!alreadyDone && !allSectionsRead() && (
-              <p className="text-center text-[#666666] mt-4 text-sm">
+
+            {!isUnlocked && (
+              <p className="text-center text-[#666666] text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Read all sections to unlock the next round
               </p>
             )}
@@ -574,25 +674,56 @@ export default function FoundationLesson() {
         )}
 
         {isLast && (
-          <div className="flex flex-col items-center mt-12">
+          <div className="flex flex-col items-center mt-12 gap-4">
+            {showNextRoundActive && (
+              <p
+                className="text-center text-[#A0A0A0] text-sm tracking-wide"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                Level complete. Continue your training.
+              </p>
+            )}
+
+            {!alreadyDone && isUnlocked && !lessonJustCompleted && (
+              <button
+                onClick={handleCompleteLesson}
+                disabled={completing}
+                className="px-10 py-3 text-white font-black tracking-widest transition-all hover:scale-105 active:scale-95"
+                style={{
+                  fontFamily: 'Orbitron, sans-serif',
+                  fontSize: '0.85rem',
+                  letterSpacing: '0.15em',
+                  background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
+                  boxShadow: '0 0 20px rgba(177,18,38,0.6), 0 0 40px rgba(177,18,38,0.2)',
+                  borderRadius: '9999px',
+                }}
+              >
+                {completing ? 'SAVING...' : 'COMPLETE LESSON'}
+              </button>
+            )}
+
             <button
-              onClick={handleAction}
-              disabled={completing || (!alreadyDone && !allSectionsRead())}
-              className={`w-full sm:w-auto px-10 sm:px-16 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg text-white transition-all hover:scale-[1.02] ${
-                (alreadyDone || allSectionsRead()) && !completing
-                  ? ''
-                  : 'opacity-40 cursor-not-allowed'
+              onClick={handleNextRound}
+              disabled={!showNextRoundActive}
+              className={`w-full sm:w-auto px-10 sm:px-16 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg text-white transition-all ${
+                showNextRoundActive
+                  ? 'hover:scale-[1.02] active:scale-95'
+                  : 'opacity-30 cursor-not-allowed'
               }`}
-              style={{
+              style={showNextRoundActive ? {
                 background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
                 boxShadow: '0 0 20px rgba(177, 18, 38, 0.5), 0 0 40px rgba(177, 18, 38, 0.2)',
                 letterSpacing: '0.1em',
+              } : {
+                background: 'linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%)',
+                letterSpacing: '0.1em',
               }}
             >
-              {completing ? 'LOADING...' : 'COMPLETE LEVEL'}
+              COMPLETE LEVEL
             </button>
-            {!alreadyDone && !allSectionsRead() && (
-              <p className="text-center text-[#666666] mt-4 text-sm">
+
+            {!isUnlocked && (
+              <p className="text-center text-[#666666] text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Read all sections to complete this level
               </p>
             )}
@@ -619,12 +750,8 @@ export default function FoundationLesson() {
         </div>
       </div>
 
-      {showXPGain && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
-          <div className="xp-gain-card rounded-lg px-8 py-6 sm:px-12 sm:py-8">
-            <div className="xp-gain-text text-4xl sm:text-6xl text-center">+{XP_PER_LESSON} XP</div>
-          </div>
-        </div>
+      {showCompletionPopup && (
+        <LessonCompletePopup onContinue={handlePopupContinue} />
       )}
 
       {newRank && (
@@ -633,7 +760,7 @@ export default function FoundationLesson() {
             <div className="text-2xl text-[#A0A0A0] mb-4">RANK UP!</div>
             <div className="text-7xl font-bold text-[#B11226] mb-8">{newRank}</div>
             <button
-              onClick={() => setNewRank(null)}
+              onClick={handleRankUpContinue}
               className="button-text px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
             >
               CONTINUE
