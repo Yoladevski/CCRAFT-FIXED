@@ -105,6 +105,19 @@ export default function FoundationLesson() {
   const currentLevel = lessonId ? getLevelForLesson(lessonId) : 1;
   const [accessChecked, setAccessChecked] = useState(false);
 
+  useEffect(() => {
+    setAlreadyDone(false);
+    setCompletedInLevel(new Set());
+    setTechnique(null);
+    setLoadingTechnique(true);
+    setAccessChecked(false);
+    setCompleting(false);
+    setShowXPGain(false);
+    setNewRank(null);
+    setOpenSections({ why: false, how: false, mistakes: false, drills: false, coachesTips: false });
+    setSectionsRead({ why: false, how: false, mistakes: false, drills: false, coachesTips: false });
+  }, [lessonId]);
+
   const allSectionsRead = () => {
     if (!technique) return false;
     const availableSections = [
@@ -290,8 +303,8 @@ export default function FoundationLesson() {
         },
       });
     } else if (nextLesson) {
-      navigate(`/boxing/foundations/lesson/${nextLesson.id}`);
       window.scrollTo(0, 0);
+      navigate(`/boxing/foundations/lesson/${nextLesson.id}`);
     }
 
     setCompleting(false);
