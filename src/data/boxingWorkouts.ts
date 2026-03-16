@@ -80,6 +80,52 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
     title: 'Jab Development',
     description: 'Improve speed, accuracy and control of the jab.',
     slug: 'session-2',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Jab speed, distance control and rhythm',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "This session is designed to sharpen the jab and develop control over distance. Focus on speed, accuracy and snapping the hand back quickly after every punch. The jab should feel light, fast and repeatable rather than heavy and forced. Work at a steady pace and maintain good stance and balance throughout each round.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Movement & Rhythm)',
+        body: "Begin with relaxed shadowboxing to warm the body and establish rhythm. Move around lightly on your feet while maintaining your boxing stance and guard position. Throw occasional light jabs while focusing on staying balanced and relaxed. The goal of this round is to prepare the body for training and reinforce good movement.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Jab Repetition)',
+        body: "Continue shadowboxing while increasing the number of jabs you throw. Focus on clean, straight punches that travel directly from guard to target. Snap the hand back quickly to your face after each jab. Move around the space between punches and visualise an opponent in front of you. Keep the shoulders relaxed and breathing steady.",
+      },
+      {
+        number: 3,
+        title: 'Single Jab Control',
+        body: "This round focuses on precise single jabs. Throw one jab at a time with strong technique and full extension before resetting your stance. Concentrate on accuracy and timing rather than power. If working on a heavy bag or pads, aim for clean, sharp contact. If shadowboxing, imagine touching your opponent from just outside their range.",
+      },
+      {
+        number: 4,
+        title: 'Double Jab Round',
+        body: "Work the double jab throughout this round. Use the first jab to measure distance and the second jab to reinforce control. Maintain balance and keep your rear hand tight to your chin for defence. Focus on rhythm and quick hand recovery rather than forcing the punches.",
+      },
+      {
+        number: 5,
+        title: 'Jab With Movement',
+        body: "Now combine the jab with forward movement. Step forward lightly as you throw the jab, then reset your stance before repeating. Occasionally add lateral movement to simulate controlling distance against an opponent. Focus on keeping your feet under you and maintaining good posture while punching.",
+      },
+      {
+        number: 6,
+        title: 'Jab Cross Combination',
+        body: "Introduce the jab–cross combination again, but continue emphasising the jab as the setup punch. Fire the jab first, then rotate the hips and shoulders to deliver a clean cross. Focus on smooth technique and returning both hands quickly to guard. Avoid overcommitting to power and prioritise control.",
+      },
+      {
+        number: 7,
+        title: 'Jab Flow Round',
+        body: "In the final round combine everything you have practised in this session. Move around freely while throwing single jabs, double jabs and occasional jab–cross combinations. Focus on fluid movement, good breathing and maintaining strong guard position. Imagine controlling the distance against an opponent using your jab.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 2. Continue developing your jab as it is the foundation for most boxing attacks and combinations. A fast, accurate jab allows you to control distance and set up stronger punches.",
   },
   {
     id: 'session-3',
