@@ -130,9 +130,55 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
   {
     id: 'session-3',
     number: 3,
-    title: 'Footwork & Jab Control',
-    description: 'Combine movement with jab timing.',
+    title: 'Jab & Cross Fundamentals',
+    description: 'Jab–cross coordination, rhythm and body rotation.',
     slug: 'session-3',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Jab–cross coordination, rhythm and body rotation',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "This session introduces the most fundamental combination in boxing: the jab followed by the cross. Focus on using the jab to set up the cross while maintaining strong stance and balance. The cross should rotate through the hips and shoulders rather than relying only on the arm. Prioritise clean technique and controlled movement over power.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Movement & Light Punching)',
+        body: "Begin with relaxed shadowboxing while focusing on stance, guard and movement. Throw light punches such as the jab and occasional cross while moving around your training space. Keep the shoulders relaxed and concentrate on maintaining good balance. The goal of this round is to warm up the body and establish rhythm.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Jab–Cross Introduction)',
+        body: "Continue shadowboxing while introducing the jab–cross combination. Throw the jab first, then follow immediately with the cross while rotating the hips and shoulders. Return both hands quickly to guard after the combination. Move around between combinations and stay relaxed.",
+      },
+      {
+        number: 3,
+        title: 'Jab–Cross Technique Round',
+        body: "This round focuses on clean jab–cross mechanics. Throw the combination repeatedly while concentrating on proper rotation when delivering the cross. Ensure the jab travels straight to the target and the cross follows immediately behind it. Maintain balance after every combination and reset your stance before throwing again.",
+      },
+      {
+        number: 4,
+        title: 'Jab–Cross Rhythm Round',
+        body: "Work the jab–cross combination at a steady rhythm throughout this round. Focus on smooth transitions between punches rather than forcing power. Keep your guard tight and your chin protected by the lead shoulder when throwing the jab. If using a heavy bag or pads, aim for accuracy and controlled impact.",
+      },
+      {
+        number: 5,
+        title: 'Jab–Cross With Movement',
+        body: "Now combine the jab–cross combination with footwork. Step forward as you throw the jab, then rotate into the cross while maintaining balance. Reset your stance before repeating. Occasionally move laterally or pivot after the combination to simulate striking and moving away from an opponent.",
+      },
+      {
+        number: 6,
+        title: 'Double Jab–Cross Combination',
+        body: "Introduce a variation by throwing a double jab before the cross. The first jab measures distance, the second jab reinforces control, and the cross delivers the finishing punch. Focus on quick hand recovery and maintaining a strong defensive guard.",
+      },
+      {
+        number: 7,
+        title: 'Combination Flow Round',
+        body: "In the final round move freely while using the jab, double jab and jab–cross combinations. Visualise a live opponent and focus on controlling distance while maintaining smooth technique. Combine movement, punching and defensive awareness as you finish the session.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 3. The jab–cross combination is one of the most effective attacks in boxing, and mastering this combination will form the foundation for many advanced combinations.",
   },
   {
     id: 'session-4',
