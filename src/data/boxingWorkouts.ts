@@ -303,9 +303,55 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
   {
     id: 'session-8',
     number: 8,
-    title: 'Movement & Angles',
-    description: 'Create openings using footwork and angles.',
+    title: 'Angle & Pivot Training',
+    description: 'Pivoting, angles and repositioning after punches.',
     slug: 'session-8',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Pivoting, angles and repositioning after punches',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "Good fighters rarely remain stationary after attacking. Pivoting allows you to change angle while maintaining balance and defensive positioning. Focus on small controlled pivots using the lead foot as the anchor. Stay relaxed and keep your guard tight as you move.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Movement & Balance)',
+        body: "Begin with relaxed shadowboxing while focusing on stance and movement. Step forward, step back and move laterally while maintaining your guard. Throw occasional jabs to establish rhythm. The goal is to warm up the body and reinforce balanced movement.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Pivot Introduction)',
+        body: "Continue shadowboxing while introducing pivoting. Throw a jab or jab–cross combination and then pivot on the lead foot to change your angle. Focus on small, controlled pivots while keeping your balance and guard position strong.",
+      },
+      {
+        number: 3,
+        title: 'Jab and Pivot',
+        body: "This round focuses on throwing a jab followed immediately by a pivot to create a new angle. After pivoting, reset your stance before repeating. Maintain balance and avoid spinning too quickly. The movement should feel controlled and smooth.",
+      },
+      {
+        number: 4,
+        title: 'Jab–Cross and Pivot',
+        body: "Work the jab–cross combination followed by a pivot to the outside. The pivot should move you slightly off the centre line as if avoiding a counter attack. Focus on maintaining balance and returning to guard quickly after each combination.",
+      },
+      {
+        number: 5,
+        title: 'Combination With Pivot Exit',
+        body: "Throw combinations such as jab–cross–hook, then pivot out to create space. This teaches the habit of exiting at an angle after attacking rather than remaining in front of an opponent.",
+      },
+      {
+        number: 6,
+        title: 'Angle Creation Round',
+        body: "Move around your training space while throwing jabs and combinations before pivoting to create new angles. Focus on keeping your feet underneath you and maintaining a strong defensive posture while repositioning.",
+      },
+      {
+        number: 7,
+        title: 'Angle Flow Round',
+        body: "In the final round combine movement, punching and pivoting freely. Visualise an opponent and focus on attacking from different angles while maintaining balance and good guard position.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 10. Creating angles through pivots allows you to attack more effectively while staying safer from counters.",
   },
   {
     id: 'session-9',
