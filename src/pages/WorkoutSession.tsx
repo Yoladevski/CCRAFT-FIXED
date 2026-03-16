@@ -112,15 +112,15 @@ export default function WorkoutSession() {
                   { label: 'Suitable For', value: session.suitableFor ?? '' },
                 ].map(({ label, value }) => (
                   <div key={label} className="flex flex-col gap-1">
-                    <span className="text-[#B11226] uppercase tracking-widest" style={{ fontSize: '9px' }}>{label}</span>
-                    <span className="text-white" style={{ fontSize: '11px' }}>{value}</span>
+                    <span className="text-[#B11226] uppercase tracking-widest" style={{ fontSize: '13px' }}>{label}</span>
+                    <span className="text-white" style={{ fontSize: '13px' }}>{value}</span>
                   </div>
                 ))}
               </div>
               {session.focus && (
                 <div className="border-t border-[#3a3a3a] pt-3 mt-1 text-left">
-                  <span className="text-[#B11226] uppercase tracking-widest" style={{ fontSize: '9px' }}>Focus</span>
-                  <p className="text-white mt-1" style={{ fontSize: '11px' }}>{session.focus}</p>
+                  <span className="text-[#B11226] uppercase tracking-widest" style={{ fontSize: '13px' }}>Focus</span>
+                  <p className="text-white mt-1" style={{ fontSize: '13px' }}>{session.focus}</p>
                 </div>
               )}
             </AccordionCard>
