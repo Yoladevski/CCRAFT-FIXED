@@ -423,8 +423,54 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
   {
     id: 'session-12',
     number: 12,
-    title: 'Complete Boxing Session',
-    description: 'Combine all skills into a full training workout.',
+    title: 'Reaction Training',
+    description: 'Reaction speed, defence-to-attack transitions and awareness.',
     slug: 'session-12',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Reaction speed, defence-to-attack transitions and awareness',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "Reaction training develops the ability to respond instinctively during exchanges. Focus on visualising an opponent attacking and practise responding with defensive movement followed by a clean counter. Keep your movements small, controlled and balanced while maintaining strong guard position.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Movement & Awareness)',
+        body: "Begin with relaxed shadowboxing while focusing on movement and guard position. Move around lightly while throwing occasional jabs and crosses. Stay relaxed and visualise an opponent in front of you. The goal is to warm up the body while preparing your mind for reaction-based training.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Defence & Response)',
+        body: "Continue shadowboxing while introducing defensive reactions. Visualise incoming punches and practise slipping or rolling before returning a light jab. Focus on smooth transitions between defence and attack while maintaining balance.",
+      },
+      {
+        number: 3,
+        title: 'Slip and Counter Jab',
+        body: "This round focuses on reacting to an imaginary straight punch. Slip slightly to the outside and immediately return a jab. Reset your stance before repeating the movement. Focus on quick reactions and controlled technique.",
+      },
+      {
+        number: 4,
+        title: 'Roll and Hook Counter',
+        body: "Practise rolling under an imaginary hook before countering with a lead hook. Bend the knees slightly to roll under the punch and rotate the hips when delivering the hook. Maintain strong guard position and balance throughout the movement.",
+      },
+      {
+        number: 5,
+        title: 'Defensive Reaction With Combination',
+        body: "React to an imaginary attack by slipping or rolling, then return with a short combination such as jab–cross. Focus on reacting smoothly rather than rushing the punches.",
+      },
+      {
+        number: 6,
+        title: 'Unpredictable Reaction Round',
+        body: "During this round vary your defensive movements and counters. Slip and jab, roll and hook, or step back and return a jab–cross combination. The aim is to practise reacting to different situations rather than repeating the same movement each time.",
+      },
+      {
+        number: 7,
+        title: 'Reaction Flow Round',
+        body: "In the final round combine all reaction movements practised during the session. Visualise an opponent attacking while you defend and respond with controlled counters and combinations. Focus on staying relaxed and balanced while reacting quickly.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 12. Reaction training improves awareness and timing, helping you respond effectively to your opponent's actions.",
   },
 ];
