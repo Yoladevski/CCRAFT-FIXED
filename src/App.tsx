@@ -35,6 +35,7 @@ const AuthCallback = lazy(() => import('./pages/AuthCallback'));
 const BoxingOverview = lazy(() => import('./pages/BoxingOverview'));
 const BoxingFoundations = lazy(() => import('./pages/BoxingFoundations'));
 const BoxingWorkouts = lazy(() => import('./pages/BoxingWorkouts'));
+const WorkoutSession = lazy(() => import('./pages/WorkoutSession'));
 const FoundationLesson = lazy(() => import('./pages/FoundationLesson'));
 const CombatCraft = lazy(() => import('./pages/CombatCraft'));
 const ExploreDisciplines = lazy(() => import('./pages/ExploreDisciplines'));
@@ -191,6 +192,7 @@ function AppContent() {
         <Route path="/boxing/foundations/level/:levelNumber" element={<S><BoxingFoundations /></S>} />
         <Route path="/boxing/foundations" element={<S><BoxingFoundations /></S>} />
         <Route path="/boxing-workouts" element={<S><BoxingWorkouts /></S>} />
+        <Route path="/boxing-workouts/:sessionSlug" element={<S><WorkoutSession /></S>} />
         <Route path="/boxing/:disciplineId" element={<S><BoxingOverview onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
       </Route>
     </Routes>

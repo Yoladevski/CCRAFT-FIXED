@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
 
 export default function BoxingWorkouts() {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-3xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           <button
             onClick={() => navigate(-1)}
@@ -17,29 +18,83 @@ export default function BoxingWorkouts() {
           </button>
         </div>
 
-        <div className="text-center mb-10 sm:mb-14">
+        <div className="text-center mb-6 sm:mb-8">
           <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold">
-            WORK OUTS
+            WORK OUT SESSIONS
           </h1>
-          <h2 className="text-white text-lg sm:text-xl md:text-2xl font-semibold mt-2 tracking-wide">
-            Boxing Training Sessions
-          </h2>
+          <p className="text-[#A0A0A0] text-sm sm:text-base mt-3 leading-relaxed max-w-xl mx-auto">
+            Structured training sessions designed to apply techniques through timed rounds and drills.
+          </p>
         </div>
 
         <div
-          className="rounded-2xl border-2 border-[#B11226] p-8 sm:p-12 text-center"
+          className="rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 mb-6 sm:mb-8"
           style={{
             background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
-            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2), inset 0 0 10px rgba(177, 18, 38, 0.05)',
           }}
         >
-          <p
-            className="text-[#A0A0A0] text-base sm:text-lg leading-relaxed"
-            style={{ fontFamily: 'Inter, sans-serif' }}
+          <h2
+            className="text-white font-bold text-base sm:text-lg mb-3 tracking-wide"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
           >
-            Structured training sessions are coming soon. This section will feature timed rounds, drills, and
-            workout programs designed to apply your techniques in a real training environment.
-          </p>
+            Workout Format
+          </h2>
+          <ul className="space-y-2">
+            {[
+              '3 minute rounds',
+              '1 minute rest',
+              '6–7 rounds per session',
+              'Suitable for shadow boxing, heavy bag or pad work',
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2 text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
+                <span className="text-[#B11226] font-bold mt-0.5 flex-shrink-0">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div
+          className="rounded-2xl border-2 p-4 sm:p-6"
+          style={{
+            borderColor: '#B11226',
+            background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.3)',
+          }}
+        >
+          <div className="flex flex-col gap-2 sm:gap-3">
+            {BOXING_WORKOUT_SESSIONS.map((session) => (
+              <button
+                key={session.id}
+                onClick={() => navigate(`/boxing-workouts/${session.slug}`)}
+                className="w-full flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#2E2E2E] transition-all hover:scale-[1.01] hover:border-[#B11226] hover:bg-[rgba(177,18,38,0.06)] cursor-pointer text-left"
+                style={{ background: '#1A1A1A' }}
+              >
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-white font-bold text-sm sm:text-base">
+                    Session {session.number} – {session.title}
+                  </span>
+                  <span className="text-[#A0A0A0] text-xs sm:text-sm leading-relaxed">
+                    {session.description}
+                  </span>
+                </div>
+                <svg
+                  className="text-[#B11226] flex-shrink-0 ml-3"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>
