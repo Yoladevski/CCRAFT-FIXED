@@ -183,9 +183,55 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
   {
     id: 'session-4',
     number: 4,
-    title: 'Defence & Countering',
-    description: 'Practice slipping, blocking and counter attacks.',
+    title: 'Footwork & Movement',
+    description: 'Movement, balance and controlling distance.',
     slug: 'session-4',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Movement, balance and controlling distance',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "This session emphasises movement and positioning. Focus on keeping your stance stable while moving in all directions. Your feet should stay underneath you at all times so you remain balanced and ready to strike or defend. Avoid crossing your feet or standing too tall. Smooth, controlled movement is more important than speed.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Stance & Movement)',
+        body: "Begin with relaxed shadowboxing while focusing on your stance and basic movement. Move lightly around your training space while maintaining your guard position. Step forward, step back and move laterally while staying balanced. Throw occasional light jabs to keep your rhythm flowing. The goal is to warm up the body and reinforce good movement habits.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Movement With Light Punching)',
+        body: "Continue shadowboxing while combining movement with simple punches. Step forward with a jab, move back into stance and reset before repeating. Focus on staying balanced while moving and punching. Keep your guard tight and shoulders relaxed as you move around your imaginary opponent.",
+      },
+      {
+        number: 3,
+        title: 'Forward & Backward Movement',
+        body: "This round focuses on stepping forward and backward while maintaining your boxing stance. Step forward with the lead foot first, then bring the rear foot with it to maintain balance. When stepping back, move the rear foot first before bringing the lead foot back into position. Occasionally throw a jab as you move forward to simulate closing distance on an opponent.",
+      },
+      {
+        number: 4,
+        title: 'Lateral Movement',
+        body: "Work on side-to-side movement during this round. Step to the left or right while maintaining your stance and keeping your feet underneath you. Avoid crossing your feet and focus on smooth, controlled movement. Add occasional jabs while moving to practise punching without losing balance.",
+      },
+      {
+        number: 5,
+        title: 'Pivot Round',
+        body: "This round introduces pivoting. Throw a jab or jab–cross combination, then pivot on the lead foot to change your angle before resetting your stance. Pivoting helps create new attacking angles and prevents you from standing directly in front of an opponent. Focus on small, controlled pivots rather than large spins.",
+      },
+      {
+        number: 6,
+        title: 'Movement With Combinations',
+        body: "Now combine movement with simple combinations such as jab–cross or double jab–cross. Move forward, attack, then step away or pivot before attacking again. This round should feel like controlling space against an opponent rather than standing still and punching.",
+      },
+      {
+        number: 7,
+        title: 'Movement Flow Round',
+        body: "In the final round combine all movement patterns practised in the session. Move forward, backward and laterally while throwing jabs and basic combinations. Use pivots to change angle and keep your guard strong at all times. Focus on staying relaxed and maintaining balance even as fatigue builds.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 4. Good footwork is essential for controlling distance and positioning in boxing. Continue practising smooth movement and balanced positioning as these skills will improve every aspect of your boxing.",
   },
   {
     id: 'session-5',
