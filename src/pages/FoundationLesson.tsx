@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import LevelProgressIndicator from '../components/LevelProgressIndicator';
+import { useStreakContext } from '../contexts/StreakContext';
 import {
   getLessonById,
   getNextLesson,
@@ -133,6 +134,7 @@ export default function FoundationLesson() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { recordTraining } = useStreakContext();
   const [completing, setCompleting] = useState(false);
   const [alreadyDone, setAlreadyDone] = useState(false);
   const [lessonJustCompleted, setLessonJustCompleted] = useState(false);
@@ -347,6 +349,7 @@ export default function FoundationLesson() {
     setCompleting(true);
 
     const { rankUp } = await saveCompletion();
+    await recordTraining();
 
     setCompleting(false);
 

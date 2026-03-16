@@ -4,6 +4,7 @@ import { CheckCircle } from 'lucide-react';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
+import { useStreakContext } from '../contexts/StreakContext';
 
 function getTodayWorkout() {
   const epoch = new Date('2024-01-01').getTime();
@@ -20,6 +21,7 @@ function getTodayDateString() {
 
 export default function WorkoutOfTheDay() {
   const { user } = useAuth();
+  const { recordTraining } = useStreakContext();
   const navigate = useNavigate();
   const [completed, setCompleted] = useState(false);
   const [marking, setMarking] = useState(false);
@@ -52,6 +54,7 @@ export default function WorkoutOfTheDay() {
       { user_id: user.id, session_slug: workout.slug, completed_date: todayStr },
       { onConflict: 'user_id,completed_date,session_slug' }
     );
+    await recordTraining();
     setCompleted(true);
     setMarking(false);
     navigate(`/boxing-workouts/${workout.slug}`);
@@ -67,7 +70,6 @@ export default function WorkoutOfTheDay() {
           '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
       }}
     >
-      {/* Title */}
       <div className="flex items-center gap-2">
         <span className="text-base sm:text-lg leading-none">🔥</span>
         <h3
@@ -78,7 +80,6 @@ export default function WorkoutOfTheDay() {
         </h3>
       </div>
 
-      {/* Session info */}
       <div className="space-y-1">
         <p
           className="text-[10px] tracking-widest text-[#A0A0A0] uppercase"
@@ -100,7 +101,6 @@ export default function WorkoutOfTheDay() {
         </p>
       </div>
 
-      {/* Indicators */}
       <div className="flex flex-wrap gap-2">
         {workout.roundLength && (
           <span
@@ -122,7 +122,6 @@ export default function WorkoutOfTheDay() {
         )}
       </div>
 
-      {/* CTA */}
       {completed ? (
         <div
           className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded border border-[#2E7D32] bg-[#1B2B1B] text-[#4CAF50]"
@@ -141,8 +140,7 @@ export default function WorkoutOfTheDay() {
           style={{
             fontFamily: 'Orbitron, sans-serif',
             background: '#B11226',
-            boxShadow:
-              '0 0 12px rgba(177, 18, 38, 0.7), 0 0 24px rgba(177, 18, 38, 0.35)',
+            boxShadow: '0 0 12px rgba(177, 18, 38, 0.7), 0 0 24px rgba(177, 18, 38, 0.35)',
           }}
           onMouseEnter={e => {
             (e.currentTarget as HTMLButtonElement).style.boxShadow =

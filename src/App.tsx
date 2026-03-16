@@ -2,6 +2,7 @@ import React, { useState, useCallback, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { StreakProvider } from './contexts/StreakContext';
 import MainLayout from './components/MainLayout';
 import LoadingScreen from './components/LoadingScreen';
 import ScrollToTop from './components/ScrollToTop';
@@ -212,10 +213,12 @@ function App() {
     <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
-          <AppContent />
-          {showLoading && (
-            <LoadingScreen onComplete={handleLoadingComplete} />
-          )}
+          <StreakProvider>
+            <AppContent />
+            {showLoading && (
+              <LoadingScreen onComplete={handleLoadingComplete} />
+            )}
+          </StreakProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
