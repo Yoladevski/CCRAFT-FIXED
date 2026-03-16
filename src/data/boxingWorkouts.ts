@@ -250,9 +250,55 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
   {
     id: 'session-7',
     number: 7,
-    title: 'Body Shot Training',
-    description: 'Develop power and accuracy to the body.',
+    title: 'Body Shot Development',
+    description: 'Body shots, level changes and combination control.',
     slug: 'session-7',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Body shots, level changes and combination control',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "Body punches require controlled level changes and strong rotation through the hips. Keep your guard tight and bend your knees slightly when attacking the body rather than leaning forward. Focus on clean technique and returning quickly to guard after each punch.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Movement & Light Punching)',
+        body: "Begin with relaxed shadowboxing while focusing on stance and movement. Move around lightly while throwing occasional jabs and crosses. Keep your shoulders relaxed and guard tight. The goal of this round is to warm up the body and establish rhythm before introducing body attacks.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Level Changes)',
+        body: "Continue shadowboxing while introducing small level changes. Bend the knees slightly as if attacking the body before returning to your normal stance. Combine light jabs with these movements while visualising an opponent in front of you. This prepares the body for controlled body punching.",
+      },
+      {
+        number: 3,
+        title: 'Lead Hook to the Body',
+        body: "Focus on the lead hook to the body during this round. Rotate your hips and shoulders while bending your knees slightly to lower your level. Aim for controlled body mechanics rather than power. Return quickly to guard after every punch.",
+      },
+      {
+        number: 4,
+        title: 'Jab–Body Hook Combination',
+        body: "Work the jab followed by a lead hook to the body. Use the jab to establish distance and draw your opponent's attention upward before dropping the hook toward the body. Maintain good balance and avoid leaning too far forward.",
+      },
+      {
+        number: 5,
+        title: 'Head–Body Combination Round',
+        body: "Introduce combinations that move from the head to the body. Examples include jab–cross–body hook or jab–body hook–cross. Focus on changing levels smoothly while maintaining strong guard position.",
+      },
+      {
+        number: 6,
+        title: 'Body Shot With Movement',
+        body: "Combine body punches with footwork during this round. Step forward with a jab or jab–cross, then finish with a body hook before stepping away or pivoting. This builds the habit of attacking the body while staying mobile.",
+      },
+      {
+        number: 7,
+        title: 'Body Attack Flow Round',
+        body: "In the final round move freely while mixing punches to the head and body. Use jabs, crosses and hooks while occasionally dropping a body shot into your combinations. Focus on smooth movement, controlled breathing and maintaining strong defensive posture.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 6. Body punches are an important part of boxing strategy and can break down an opponent over time. Continue practising controlled level changes and balanced technique.",
   },
   {
     id: 'session-8',
