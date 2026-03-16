@@ -35,7 +35,7 @@ export default function BoxingWorkouts() {
           }}
         >
           <h2
-            className="text-white font-bold text-base sm:text-lg mb-3 tracking-wide"
+            className="text-white font-bold text-base sm:text-lg mb-3 tracking-wide text-center"
             style={{ fontFamily: 'Orbitron, sans-serif' }}
           >
             Workout Format
@@ -47,7 +47,7 @@ export default function BoxingWorkouts() {
               '6–7 rounds per session',
               'Suitable for shadow boxing, heavy bag or pad work',
             ].map((item) => (
-              <li key={item} className="flex items-start gap-2 text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
+              <li key={item} className="flex items-start justify-center gap-2 text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
                 <span className="text-[#B11226] font-bold mt-0.5 flex-shrink-0">•</span>
                 <span>{item}</span>
               </li>
@@ -68,10 +68,10 @@ export default function BoxingWorkouts() {
               <button
                 key={session.id}
                 onClick={() => navigate(`/boxing-workouts/${session.slug}`)}
-                className="w-full flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#2E2E2E] transition-all hover:scale-[1.01] hover:border-[#B11226] hover:bg-[rgba(177,18,38,0.06)] cursor-pointer text-left"
+                className="w-full flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#2E2E2E] transition-all hover:scale-[1.01] hover:border-[#B11226] hover:bg-[rgba(177,18,38,0.06)] cursor-pointer text-center"
                 style={{ background: '#1A1A1A' }}
               >
-                <div className="flex flex-col gap-0.5">
+                <div className="flex flex-col gap-0.5 flex-1 text-center">
                   <span className="text-white font-bold text-sm sm:text-base">
                     Session {session.number} – {session.title}
                   </span>
