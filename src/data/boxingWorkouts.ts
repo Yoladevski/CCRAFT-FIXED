@@ -311,8 +311,54 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
     id: 'session-9',
     number: 9,
     title: 'Combination Flow',
-    description: 'Link combinations smoothly during rounds.',
+    description: 'Punch combinations, rhythm and fluid movement.',
     slug: 'session-9',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Punch combinations, rhythm and fluid movement',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "Strong boxing combinations are built through rhythm and balance. Focus on letting punches flow naturally from one to the next rather than forcing power. Keep your feet underneath you and return your hands quickly to guard after each combination. Smooth transitions between punches are more important than speed or strength.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadowboxing Warm Up (Movement & Light Punching)',
+        body: "Begin with relaxed shadowboxing while focusing on movement and stance. Throw light punches such as jabs and jab–cross combinations while moving around your training space. Keep the shoulders relaxed and concentrate on maintaining balance. The goal is to warm up the body and establish rhythm before working longer combinations.",
+      },
+      {
+        number: 2,
+        title: 'Shadowboxing Warm Up (Short Combinations)',
+        body: "Continue shadowboxing while throwing short combinations such as jab–cross or double jab–cross. Focus on smooth transitions between punches and returning to guard after each combination. Move around between combinations while maintaining a strong stance.",
+      },
+      {
+        number: 3,
+        title: 'Three Punch Combination',
+        body: "This round focuses on a simple three-punch combination such as jab–cross–lead hook. Throw the punches in a controlled rhythm while maintaining balance and proper body rotation. Reset your stance after each combination before repeating.",
+      },
+      {
+        number: 4,
+        title: 'Combination Repetition Round',
+        body: "Work the same combination repeatedly during this round to build rhythm and muscle memory. Focus on clean technique and smooth transitions between punches. If using a heavy bag or pads, aim for consistent accuracy rather than maximum power.",
+      },
+      {
+        number: 5,
+        title: 'Combination With Movement',
+        body: "Now combine movement with your combinations. Step forward with the jab, follow with the rest of the combination, then step away or pivot before repeating. This encourages the habit of striking and repositioning rather than standing still.",
+      },
+      {
+        number: 6,
+        title: 'Mixed Combinations',
+        body: "Introduce variety by mixing different combinations such as jab–cross–hook or double jab–cross–hook. Focus on maintaining balance and rhythm as you change combinations. Keep your guard tight and breathing steady.",
+      },
+      {
+        number: 7,
+        title: 'Free Combination Flow',
+        body: "In the final round move freely while throwing combinations of three to four punches. Visualise an opponent and focus on flowing from one combination to the next while maintaining strong guard position and good movement.",
+      },
+    ],
+    closingNote:
+      "Well done. You have completed CombatCraft Session 9. Developing combination flow will allow you to apply pressure, create openings and build effective offensive sequences.",
   },
   {
     id: 'session-10',
