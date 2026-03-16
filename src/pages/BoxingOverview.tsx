@@ -103,7 +103,7 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
               }}
             >
               <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
-                Structured training sessions designed to apply techniques through timed rounds and drills.
+                The Work Outs section provides structured boxing training sessions designed to apply the techniques learned throughout CombatCraft. Each session follows timed rounds similar to real boxing training and can be completed through shadowboxing, bag work or pad drills. These sessions help build conditioning, rhythm and practical fighting ability while reinforcing the skills learned in the CombatCraft system.
               </p>
             </div>
           </div>
