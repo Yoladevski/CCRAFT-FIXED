@@ -253,11 +253,11 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           </button>
         </div>
 
-        {/* WORKOUT OF THE DAY */}
-        <WorkoutOfTheDay />
-
-        {/* TRAINING STREAK */}
-        <TrainingStreak />
+        {/* WORKOUT OF THE DAY + TRAINING STREAK */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+          <WorkoutOfTheDay />
+          <TrainingStreak />
+        </div>
 
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
