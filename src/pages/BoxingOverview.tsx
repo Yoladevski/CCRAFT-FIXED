@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import workoutsImg from '../assets/file_0000000072dc7246919b2e83c454badf.png';
 
 interface BoxingOverviewProps {
   onNavigate: (page: string, id?: string) => void;
@@ -85,17 +86,13 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <button
               onClick={() => navigate('/boxing-workouts')}
-              className="flex-1 relative group rounded-2xl border-2 border-[#B11226] overflow-hidden transition-all hover:scale-[1.02] cursor-pointer min-h-[140px] sm:min-h-[180px] flex items-center justify-center"
-              style={{
-                background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
-              }}
+              className="flex-1 relative group rounded-2xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer min-h-[140px] sm:min-h-[180px] flex items-center justify-center bg-transparent border-0 p-0"
             >
-              <span
-                className="cc-outline-text text-2xl sm:text-3xl font-bold tracking-widest px-4 text-center"
-              >
-                WORK OUTS
-              </span>
+              <img
+                src={workoutsImg}
+                alt="Work Outs"
+                className="w-full h-full object-contain"
+              />
             </button>
 
             <div
