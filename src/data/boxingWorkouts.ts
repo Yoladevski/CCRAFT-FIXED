@@ -292,6 +292,52 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
     title: 'Punch Volume & Conditioning',
     description: 'High output rounds to improve stamina.',
     slug: 'session-6',
+    totalRounds: 7,
+    roundLength: '3 minutes',
+    rest: '1 minute between rounds',
+    focus: 'Punch volume, endurance and combination rhythm',
+    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
+    coachsBrief:
+      "This session focuses on increasing your punch output while maintaining good technique and stamina. The aim is to develop endurance and rhythm so you can sustain combinations and pressure throughout longer rounds. Work consistently and focus on maintaining clean punches even as fatigue builds.",
+    rounds: [
+      {
+        number: 1,
+        title: 'Shadow Boxing Warm Up',
+        body: "Begin with light shadow boxing focusing on smooth movement and relaxed punching. Move around your space while throwing single jabs and occasional jab–cross combinations. Stay light on your feet and keep your guard returning to position after every punch.",
+      },
+      {
+        number: 2,
+        title: 'Shadow Boxing Combinations',
+        body: "Continue shadow boxing while increasing the number of punches in your combinations. Work combinations such as jab–cross, double jab–cross and jab–cross–jab while maintaining steady movement. Focus on rhythm and fluid transitions between punches.",
+      },
+      {
+        number: 3,
+        title: 'Continuous Jab Round',
+        body: "Work your jab continuously throughout the round. If using a bag or pads, focus on snapping the jab out quickly and returning it to guard. Maintain a steady pace and aim for consistent output without sacrificing technique.",
+      },
+      {
+        number: 4,
+        title: 'High Output Combinations',
+        body: "Work repeated combinations such as jab–cross–jab or jab–cross–hook. Focus on throwing combinations in quick bursts while maintaining balance and guard. Reset between combinations and keep your breathing controlled.",
+      },
+      {
+        number: 5,
+        title: 'Punch Volume Round',
+        body: "Increase your punch output by throwing longer combinations. Work combinations of four to six punches, keeping them sharp and controlled. Focus on maintaining rhythm and technique even as your arms begin to fatigue.",
+      },
+      {
+        number: 6,
+        title: 'Pressure Round',
+        body: "Step forward with your punches and maintain constant pressure. Work behind the jab and follow with combinations to simulate pushing an opponent backwards. Focus on controlled aggression and maintaining a steady pace.",
+      },
+      {
+        number: 7,
+        title: 'Conditioning Flow Round',
+        body: "Finish the session by maintaining continuous punching and movement. Mix jabs, crosses and combinations while moving around your space. Focus on maintaining output and composure as fatigue builds.",
+      },
+    ],
+    closingNote:
+      "Great work. This session has pushed your punch volume and endurance while maintaining solid technique. Continue training consistently to improve both stamina and punching rhythm.",
   },
   {
     id: 'session-7',
