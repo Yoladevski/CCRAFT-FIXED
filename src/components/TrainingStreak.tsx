@@ -22,7 +22,7 @@ export default function TrainingStreak() {
           '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
       }}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-center gap-2">
         <span className="text-base sm:text-lg leading-none">🔥</span>
         <h3
           className="text-[10px] sm:text-xs tracking-[0.2em] font-bold text-[#B11226] uppercase"
@@ -32,7 +32,7 @@ export default function TrainingStreak() {
         </h3>
       </div>
 
-      <div className="flex items-end gap-3">
+      <div className="flex items-end gap-3 justify-center">
         <span
           className="text-4xl sm:text-5xl font-black text-white leading-none"
           style={{
@@ -52,7 +52,7 @@ export default function TrainingStreak() {
         </span>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 justify-center">
         <span
           className={`w-2 h-2 rounded-full shrink-0 ${trainedToday ? 'bg-[#4CAF50]' : 'bg-[#B11226]'}`}
         />
@@ -67,7 +67,7 @@ export default function TrainingStreak() {
       </div>
 
       {currentStreak >= 3 && (
-        <div className="flex gap-1 flex-wrap pt-1">
+        <div className="flex gap-1 flex-wrap pt-1 justify-center">
           {Array.from({ length: Math.min(currentStreak, 10) }).map((_, i) => (
             <div
               key={i}

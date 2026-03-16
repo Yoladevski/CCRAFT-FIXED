@@ -70,7 +70,7 @@ export default function WorkoutOfTheDay() {
           '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
       }}
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-center gap-2">
         <span className="text-base sm:text-lg leading-none">🔥</span>
         <h3
           className="text-[10px] sm:text-xs tracking-[0.2em] font-bold text-[#B11226] uppercase"
@@ -80,7 +80,7 @@ export default function WorkoutOfTheDay() {
         </h3>
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-1 text-center">
         <p
           className="text-[10px] tracking-widest text-[#A0A0A0] uppercase"
           style={{ fontFamily: 'Orbitron, sans-serif' }}
@@ -101,7 +101,7 @@ export default function WorkoutOfTheDay() {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 justify-center">
         {workout.roundLength && (
           <span
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] sm:text-[10px] tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
