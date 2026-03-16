@@ -236,55 +236,9 @@ export const BOXING_WORKOUT_SESSIONS: WorkoutSession[] = [
   {
     id: 'session-5',
     number: 5,
-    title: 'Hook Mechanics',
-    description: 'Lead hook mechanics, rotation and combination integration.',
+    title: 'Combination Fundamentals',
+    description: 'Build simple combinations with rhythm.',
     slug: 'session-5',
-    totalRounds: 7,
-    roundLength: '3 minutes',
-    rest: '1 minute between rounds',
-    focus: 'Lead hook mechanics, rotation and combination integration',
-    suitableFor: 'Shadowboxing / Heavy Bag / Pads',
-    coachsBrief:
-      "The lead hook is generated through rotation of the hips and shoulders rather than just the arm. In this session focus on turning the body while keeping the elbow in line with the punch. Stay balanced and return the hand quickly to guard after each hook. Controlled technique and good rotation are more important than throwing with maximum power.",
-    rounds: [
-      {
-        number: 1,
-        title: 'Shadowboxing Warm Up (Movement & Light Punching)',
-        body: "Begin with relaxed shadowboxing to warm the body and establish rhythm. Move lightly around your training space while maintaining your boxing stance and guard position. Throw light jabs and occasional jab–cross combinations to prepare the body for more technical punching. Focus on smooth movement and steady breathing.",
-      },
-      {
-        number: 2,
-        title: 'Shadowboxing Warm Up (Hook Introduction)',
-        body: "Continue shadowboxing while introducing the lead hook. Throw the hook slowly at first while focusing on rotating the hips and shoulders. Keep the elbow level with the punch and return the hand quickly to guard. Combine occasional jabs with the hook to begin building combination rhythm.",
-      },
-      {
-        number: 3,
-        title: 'Lead Hook Technique Round',
-        body: "This round focuses on the lead hook itself. Work repeated lead hooks while concentrating on body rotation and maintaining balance. If using a bag or pads, aim for controlled, accurate contact rather than maximum power. If shadowboxing, imagine striking the side of your opponent's head while keeping your guard tight.",
-      },
-      {
-        number: 4,
-        title: 'Jab–Hook Combination',
-        body: "Begin combining the jab with the lead hook. Throw the jab to establish distance, then rotate into the hook. Focus on smooth transitions between punches and maintaining balance throughout the combination. Return both hands to guard quickly after punching.",
-      },
-      {
-        number: 5,
-        title: 'Jab–Cross–Hook Combination',
-        body: "Introduce the jab–cross–hook combination in this round. Use the jab to measure distance, rotate through the cross, then finish with the lead hook. Concentrate on flowing from one punch into the next while keeping your feet underneath you and your stance balanced.",
-      },
-      {
-        number: 6,
-        title: 'Hook With Movement',
-        body: "Now combine hooks with footwork. Step forward with a jab, follow with a cross and hook, then pivot or step away before repeating. This helps develop the habit of striking and moving rather than standing still after throwing combinations.",
-      },
-      {
-        number: 7,
-        title: 'Hook Flow Round',
-        body: "In the final round combine everything you have practised during the session. Move freely while throwing jabs, crosses and hooks in different combinations. Focus on smooth rotation, balanced movement and maintaining strong defensive guard. Imagine reacting to an opponent while finishing combinations with the hook.",
-      },
-    ],
-    closingNote:
-      "Well done. You have completed CombatCraft Session 5. The lead hook is a powerful punch when delivered with proper body rotation and balance. Continue practising smooth technique and controlled combinations as you build your striking skills.",
   },
   {
     id: 'session-6',
