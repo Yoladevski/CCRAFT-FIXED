@@ -1,0 +1,161 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CheckCircle } from 'lucide-react';
+import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
+import { supabase } from '../lib/supabase';
+import { useAuth } from '../contexts/AuthContext';
+
+function getTodayWorkout() {
+  const epoch = new Date('2024-01-01').getTime();
+  const today = new Date();
+  const todayUtc = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  const dayIndex = Math.floor((todayUtc - epoch) / 86400000);
+  return BOXING_WORKOUT_SESSIONS[dayIndex % BOXING_WORKOUT_SESSIONS.length];
+}
+
+function getTodayDateString() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+export default function WorkoutOfTheDay() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const [completed, setCompleted] = useState(false);
+  const [marking, setMarking] = useState(false);
+
+  const workout = getTodayWorkout();
+  const todayStr = getTodayDateString();
+
+  useEffect(() => {
+    if (!user || !workout) return;
+    async function checkCompletion() {
+      const { data } = await supabase
+        .from('workout_completions')
+        .select('id')
+        .eq('user_id', user!.id)
+        .eq('session_slug', workout.slug)
+        .eq('completed_date', todayStr)
+        .maybeSingle();
+      if (data) setCompleted(true);
+    }
+    checkCompletion();
+  }, [user, workout, todayStr]);
+
+  async function handleStart() {
+    if (!user) {
+      navigate(`/boxing-workouts/${workout.slug}`);
+      return;
+    }
+    setMarking(true);
+    await supabase.from('workout_completions').upsert(
+      { user_id: user.id, session_slug: workout.slug, completed_date: todayStr },
+      { onConflict: 'user_id,completed_date,session_slug' }
+    );
+    setCompleted(true);
+    setMarking(false);
+    navigate(`/boxing-workouts/${workout.slug}`);
+  }
+
+  if (!workout) return null;
+
+  return (
+    <div
+      className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-5 sm:p-6 flex flex-col gap-4"
+      style={{
+        boxShadow:
+          '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+      }}
+    >
+      {/* Title */}
+      <div className="flex items-center gap-2">
+        <span className="text-base sm:text-lg leading-none">🔥</span>
+        <h3
+          className="text-[10px] sm:text-xs tracking-[0.2em] font-bold text-[#B11226] uppercase"
+          style={{ fontFamily: 'Orbitron, sans-serif' }}
+        >
+          Workout of the Day
+        </h3>
+      </div>
+
+      {/* Session info */}
+      <div className="space-y-1">
+        <p
+          className="text-[10px] tracking-widest text-[#A0A0A0] uppercase"
+          style={{ fontFamily: 'Orbitron, sans-serif' }}
+        >
+          Session {workout.number}
+        </p>
+        <h4
+          className="text-sm sm:text-base font-bold text-white leading-tight uppercase tracking-wide"
+          style={{ fontFamily: 'Orbitron, sans-serif' }}
+        >
+          {workout.title}
+        </h4>
+        <p
+          className="text-[11px] sm:text-xs text-[#A0A0A0] leading-relaxed pt-1"
+          style={{ fontFamily: 'Orbitron, sans-serif' }}
+        >
+          {workout.description}
+        </p>
+      </div>
+
+      {/* Indicators */}
+      <div className="flex flex-wrap gap-2">
+        {workout.roundLength && (
+          <span
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] sm:text-[10px] tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B11226] inline-block shrink-0" />
+            {workout.roundLength} rounds
+          </span>
+        )}
+        {workout.totalRounds && (
+          <span
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] sm:text-[10px] tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B11226] inline-block shrink-0" />
+            {workout.totalRounds} rounds total
+          </span>
+        )}
+      </div>
+
+      {/* CTA */}
+      {completed ? (
+        <div
+          className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded border border-[#2E7D32] bg-[#1B2B1B] text-[#4CAF50]"
+          style={{ fontFamily: 'Orbitron, sans-serif' }}
+        >
+          <CheckCircle size={14} className="shrink-0" />
+          <span className="text-[9px] sm:text-[10px] tracking-[0.18em] font-bold uppercase">
+            Workout Completed Today
+          </span>
+        </div>
+      ) : (
+        <button
+          onClick={handleStart}
+          disabled={marking}
+          className="w-full py-3 px-4 rounded font-bold text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60"
+          style={{
+            fontFamily: 'Orbitron, sans-serif',
+            background: '#B11226',
+            boxShadow:
+              '0 0 12px rgba(177, 18, 38, 0.7), 0 0 24px rgba(177, 18, 38, 0.35)',
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLButtonElement).style.boxShadow =
+              '0 0 18px rgba(177, 18, 38, 0.9), 0 0 36px rgba(177, 18, 38, 0.5)';
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLButtonElement).style.boxShadow =
+              '0 0 12px rgba(177, 18, 38, 0.7), 0 0 24px rgba(177, 18, 38, 0.35)';
+          }}
+        >
+          {marking ? 'Loading...' : 'Start Workout'}
+        </button>
+      )}
+    </div>
+  );
+}

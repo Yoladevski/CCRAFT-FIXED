@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import continueButton from '../assets/continue.webp';
 import LevelProgressIndicator from '../components/LevelProgressIndicator';
+import WorkoutOfTheDay from '../components/WorkoutOfTheDay';
 import { BOXING_FOUNDATIONS_LEVELS } from '../data/foundationsLessons';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
@@ -250,6 +251,9 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             />
           </button>
         </div>
+
+        {/* WORKOUT OF THE DAY */}
+        <WorkoutOfTheDay />
 
         {/* CURRENT TRAINING AND RANK - Mobile: Stacked, Desktop: Side by Side */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
