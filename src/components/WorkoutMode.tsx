@@ -8,6 +8,7 @@ type Phase = 'round' | 'rest' | 'complete';
 interface WorkoutModeProps {
   session: WorkoutSession;
   onExit: () => void;
+  skipFirstVoiceCue?: boolean;
 }
 
 const ROUND_DURATION = 3 * 60;
@@ -108,7 +109,7 @@ function TransitionOverlay({ visible, label, sublabel }: TransitionOverlayProps)
   );
 }
 
-export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
+export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false }: WorkoutModeProps) {
   const rounds = session.rounds ?? [];
   const totalRounds = rounds.length;
 
@@ -215,11 +216,13 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     if (phase === 'round' && !voicePlayedRef.current) {
       voicePlayedRef.current = true;
       if (roundIndex === 0) {
-        setTimeout(() => speak('Round 1. Begin.', voiceEnabledRef.current), 600);
         showOverlay('ROUND 1');
+        if (!skipFirstVoiceCue) {
+          setTimeout(() => speak('Round 1. Begin.', voiceEnabledRef.current), 600);
+        }
       }
     }
-  }, [mounted, phase, roundIndex, totalRounds, showOverlay]);
+  }, [mounted, phase, roundIndex, totalRounds, showOverlay, skipFirstVoiceCue]);
 
   const handleRestart = () => {
     setRoundIndex(0);

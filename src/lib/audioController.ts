@@ -1,5 +1,4 @@
 let audioCtx: AudioContext | null = null;
-let unlocked = false;
 
 function getAudioContext(): AudioContext {
   if (!audioCtx) {
@@ -8,33 +7,18 @@ function getAudioContext(): AudioContext {
   return audioCtx;
 }
 
-export async function unlockAudio(): Promise<void> {
-  if (unlocked) return;
-
+export function unlockAudioContext(): void {
   try {
     const ctx = getAudioContext();
     if (ctx.state === 'suspended') {
-      await ctx.resume();
+      ctx.resume();
     }
-
     const buf = ctx.createBuffer(1, 1, 22050);
     const src = ctx.createBufferSource();
     src.buffer = buf;
     src.connect(ctx.destination);
     src.start(0);
     src.stop(0.001);
-
-    unlocked = true;
-  } catch {
-    // best effort
-  }
-
-  try {
-    if ('speechSynthesis' in window) {
-      const u = new SpeechSynthesisUtterance('');
-      u.volume = 0;
-      window.speechSynthesis.speak(u);
-    }
   } catch {
     // best effort
   }
