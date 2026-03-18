@@ -289,56 +289,9 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     ? 'FINAL ROUND'
     : `ROUND ${(currentRound?.number ?? roundIndex + 1)} • WORK`;
 
-  const gridShell: React.CSSProperties = {
-    position: 'relative',
-    width: '100%',
-    height: '100dvh',
-    background: bgColor,
-    transition: 'background 0.4s',
-    display: 'grid',
-    gridTemplateRows: 'auto auto 1fr auto',
-    overflow: 'hidden',
-    paddingTop: 'env(safe-area-inset-top, 0px)',
-    paddingBottom: 'env(safe-area-inset-bottom, 0px)',
-  };
-
-  const navBar = (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: '14px 16px 6px',
-    }}>
-      <button onClick={onExit} style={{
-        display: 'flex', alignItems: 'center', gap: '4px',
-        color: '#444', background: 'none', border: 'none', cursor: 'pointer',
-        fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
-      }}>
-        <ChevronLeft size={13} />EXIT
-      </button>
-      <span style={{
-        fontFamily: 'Orbitron, sans-serif', color: '#2e2e2e',
-        fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
-      }}>
-        {session.title}
-      </span>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <button
-          onClick={() => setVoiceEnabled(v => !v)}
-          title={voiceEnabled ? 'Voice ON' : 'Voice OFF'}
-          style={{ color: voiceEnabled ? '#B11226' : '#3a3a3a', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', transition: 'color 0.2s' }}
-        >
-          {voiceEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
-        </button>
-        <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
-          <RotateCcw size={13} />
-        </button>
-      </div>
-    </div>
-  );
-
   const timerBlock = (
     <div style={{
+      flexShrink: 0,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -400,23 +353,100 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     </button>
   );
 
+  const navBar = (
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingTop: 'calc(14px + env(safe-area-inset-top, 0px))',
+      paddingBottom: '6px',
+      paddingLeft: '16px',
+      paddingRight: '16px',
+      flexShrink: 0,
+    }}>
+      <button onClick={onExit} style={{
+        display: 'flex', alignItems: 'center', gap: '4px',
+        color: '#444', background: 'none', border: 'none', cursor: 'pointer',
+        fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
+      }}>
+        <ChevronLeft size={13} />EXIT
+      </button>
+      <span style={{
+        fontFamily: 'Orbitron, sans-serif', color: '#2e2e2e',
+        fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
+      }}>
+        {session.title}
+      </span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <button
+          onClick={() => setVoiceEnabled(v => !v)}
+          title={voiceEnabled ? 'Voice ON' : 'Voice OFF'}
+          style={{ color: voiceEnabled ? '#B11226' : '#3a3a3a', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', transition: 'color 0.2s' }}
+        >
+          {voiceEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
+        </button>
+        <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
+          <RotateCcw size={13} />
+        </button>
+      </div>
+    </div>
+  );
+
+  const progressBar = (
+    <div style={{
+      flexShrink: 0,
+      borderTop: '1px solid #181818',
+      background: '#080808',
+      paddingTop: '12px',
+      paddingBottom: 'calc(14px + env(safe-area-inset-bottom, 0px))',
+      paddingLeft: '24px',
+      paddingRight: '24px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '8px',
+    }}>
+      <RoundDots rounds={rounds} roundIndex={roundIndex} phase={phase} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <span style={{
+          fontFamily: 'Orbitron, sans-serif',
+          color: '#3a3a3a',
+          fontSize: '9px',
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+        }}>
+          {phase === 'rest' ? 'REST' : phase === 'complete' ? 'DONE' : `ROUND ${roundIndex + 1}`}
+        </span>
+        <span style={{ color: '#282828', fontSize: '9px' }}>/</span>
+        <span style={{
+          fontFamily: 'Orbitron, sans-serif',
+          color: '#3a3a3a',
+          fontSize: '9px',
+          letterSpacing: '0.12em',
+        }}>
+          {totalRounds}
+        </span>
+      </div>
+    </div>
+  );
+
+  const shellStyle: React.CSSProperties = {
+    position: 'relative',
+    width: '100%',
+    minHeight: '100svh',
+    background: bgColor,
+    transition: 'background 0.4s',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    overflow: 'hidden',
+  };
+
   if (phase === 'complete') {
     return (
       <>
         <style>{keyframes}</style>
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          height: '100dvh',
-          background: bgColor,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '0 24px',
-          paddingTop: 'env(safe-area-inset-top, 0px)',
-          paddingBottom: 'env(safe-area-inset-bottom, 0px)',
-          overflow: 'hidden',
-        }}>
+        <div style={{ ...shellStyle, alignItems: 'center', justifyContent: 'center', padding: '0 24px' }}>
           <div style={{ textAlign: 'center', width: '100%', maxWidth: '320px' }}>
             <p style={{
               fontFamily: 'Orbitron, sans-serif', color: '#B11226',
@@ -462,19 +492,19 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     return (
       <>
         <style>{keyframes}</style>
-        <div style={gridShell}>
+        <div style={shellStyle}>
           <TransitionOverlay visible={overlay.visible} label={overlay.label} sublabel={overlay.sublabel} />
-
-          {/* Row 1 — Header */}
           {navBar}
 
-          {/* Row 2 — Round content */}
           <div style={{
+            flex: 1,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'flex-start',
-            padding: '12px 28px 8px',
+            justifyContent: 'center',
+            padding: '8px 28px 16px',
+            minHeight: 0,
+            overflow: 'hidden',
             textAlign: 'center',
           }}>
             <p style={{
@@ -486,30 +516,26 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
             <h2 style={{
               fontFamily: 'Orbitron, sans-serif', color: '#fff',
               fontSize: 'clamp(22px, 5.5vw, 28px)', fontWeight: 900,
-              margin: '0 0 10px', letterSpacing: '0.06em',
+              margin: '0 0 12px', letterSpacing: '0.06em',
             }}>REST</h2>
             <p style={{
               fontFamily: 'Orbitron, sans-serif', color: '#444',
               fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
-              textAlign: 'center', maxWidth: '85%', margin: 0,
+              textAlign: 'center', maxWidth: '260px', margin: 0,
             }}>
               Recover, breathe and prepare for the next round.
             </p>
           </div>
 
-          {/* Row 3 — Timer */}
           {timerBlock}
 
-          {/* Row 4 — Lower controls */}
           <div style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
             gap: '10px',
-            padding: '12px 24px 16px',
-            borderTop: '1px solid #181818',
-            background: '#080808',
+            padding: '14px 24px 0',
+            flexShrink: 0,
           }}>
             {pauseButton}
             {nextRound && (
@@ -521,28 +547,9 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
                 Next: Round {nextRound.number} – {nextRound.title}
               </p>
             )}
-            <RoundDots rounds={rounds} roundIndex={roundIndex} phase={phase} />
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{
-                fontFamily: 'Orbitron, sans-serif',
-                color: '#3a3a3a',
-                fontSize: '9px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-              }}>
-                REST
-              </span>
-              <span style={{ color: '#282828', fontSize: '9px' }}>/</span>
-              <span style={{
-                fontFamily: 'Orbitron, sans-serif',
-                color: '#3a3a3a',
-                fontSize: '9px',
-                letterSpacing: '0.12em',
-              }}>
-                {totalRounds}
-              </span>
-            </div>
           </div>
+
+          {progressBar}
         </div>
       </>
     );
@@ -551,21 +558,20 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
   return (
     <>
       <style>{keyframes}</style>
-      <div style={gridShell}>
+      <div style={shellStyle}>
         <TransitionOverlay visible={overlay.visible} label={overlay.label} sublabel={overlay.sublabel} />
-
-        {/* Row 1 — Header */}
         {navBar}
 
-        {/* Row 2 — Round content */}
         <div style={{
+          flex: 1,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'flex-start',
-          padding: '12px 28px 8px',
-          textAlign: 'center',
+          justifyContent: 'flex-end',
+          padding: '8px 28px 12px',
+          minHeight: 0,
           overflow: 'hidden',
+          textAlign: 'center',
         }}>
           <p style={{
             fontFamily: 'Orbitron, sans-serif',
@@ -577,7 +583,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           <h2 style={{
             fontFamily: 'Orbitron, sans-serif', color: '#fff',
             fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
-            lineHeight: 1.25, margin: '0 0 10px',
+            lineHeight: 1.25, margin: '0 0 12px',
             textShadow: '0 0 16px rgba(177,18,38,0.35)',
             letterSpacing: '0.04em',
           }}>{currentRound.title.toUpperCase()}</h2>
@@ -585,7 +591,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
             fontFamily: 'Orbitron, sans-serif', color: '#5a5a5a',
             fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
             textAlign: 'center', margin: 0,
-            maxWidth: '85%',
+            maxWidth: '280px',
             overflow: 'hidden',
             display: '-webkit-box',
             WebkitLineClamp: 3,
@@ -595,19 +601,15 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           }}>{currentRound.body}</p>
         </div>
 
-        {/* Row 3 — Timer */}
         {timerBlock}
 
-        {/* Row 4 — Lower controls */}
         <div style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center',
           gap: '10px',
-          padding: '12px 24px 16px',
-          borderTop: '1px solid #181818',
-          background: '#080808',
+          padding: '14px 24px 0',
+          flexShrink: 0,
         }}>
           {pauseButton}
           <p style={{
@@ -619,28 +621,9 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
               ? `Next: Round ${nextRound.number} – ${nextRound.title}`
               : roundIndex < totalRounds - 1 ? 'Next: Rest' : 'Final Round'}
           </p>
-          <RoundDots rounds={rounds} roundIndex={roundIndex} phase={phase} />
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{
-              fontFamily: 'Orbitron, sans-serif',
-              color: '#3a3a3a',
-              fontSize: '9px',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-            }}>
-              {phase === 'complete' ? 'DONE' : `ROUND ${roundIndex + 1}`}
-            </span>
-            <span style={{ color: '#282828', fontSize: '9px' }}>/</span>
-            <span style={{
-              fontFamily: 'Orbitron, sans-serif',
-              color: '#3a3a3a',
-              fontSize: '9px',
-              letterSpacing: '0.12em',
-            }}>
-              {totalRounds}
-            </span>
-          </div>
         </div>
+
+        {progressBar}
       </div>
     </>
   );
