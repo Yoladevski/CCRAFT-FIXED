@@ -398,36 +398,39 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           </h2>
         </div>
 
-        {/* ── MIDDLE: description + timer ──────────────────────── */}
+        {/* ── SCROLLABLE BODY: description → timer → next → pause ── */}
         <div style={{
-          flex: 1, display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'center',
-          padding: '4px 24px 0', minHeight: 0,
+          flex: 1,
+          overflowY: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '20px 24px 16px',
+          gap: 0,
         }}>
-          {/* Description — full text, subtle fade at bottom */}
-          <div style={{ position: 'relative', width: '100%', maxWidth: '300px', marginBottom: '10px', flexShrink: 0 }}>
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif',
-              color: '#666',
-              fontSize: '9.5px',
-              lineHeight: 1.65,
-              textAlign: 'center',
-              margin: 0,
-              maxHeight: '72px',
-              overflow: 'hidden',
-            }}>
-              {currentRound.body}
-            </p>
-            <div style={{
-              position: 'absolute', bottom: 0, left: 0, right: 0,
-              height: '24px',
-              background: `linear-gradient(to bottom, transparent, ${bg})`,
-              pointerEvents: 'none',
-            }} />
-          </div>
+          {/* Description — full text, no clipping */}
+          <p style={{
+            fontFamily: 'Orbitron, sans-serif',
+            color: '#777',
+            fontSize: '11px',
+            lineHeight: 1.75,
+            textAlign: 'center',
+            maxWidth: '300px',
+            margin: '0 0 28px',
+            flexShrink: 0,
+          }}>
+            {currentRound.body}
+          </p>
 
           {/* Timer — centrepiece */}
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <div style={{
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            marginBottom: '20px',
+          }}>
             <svg width="216" height="216" style={{ transform: 'rotate(-90deg)', maxWidth: '56vw', maxHeight: '56vw' }}>
               <circle cx="108" cy="108" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="7" />
               <circle cx="108" cy="108" r={radius} fill="none" stroke="#B11226" strokeWidth="7" strokeLinecap="round"
@@ -454,15 +457,16 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
               </p>
             </div>
           </div>
-        </div>
 
-        {/* ── BOTTOM SECTION: next + pause + progress ──────────── */}
-        <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px 24px 0' }}>
           {/* Next round preview */}
           <p style={{
-            fontFamily: 'Orbitron, sans-serif', color: '#3d3d3d',
-            fontSize: '9px', letterSpacing: '0.08em', textAlign: 'center',
-            margin: '0 0 10px',
+            fontFamily: 'Orbitron, sans-serif',
+            color: '#555',
+            fontSize: '10.5px',
+            letterSpacing: '0.06em',
+            textAlign: 'center',
+            margin: '0 0 16px',
+            flexShrink: 0,
           }}>
             {nextRound
               ? `Next: Round ${nextRound.number} – ${nextRound.title}`
@@ -481,7 +485,8 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
               background: paused ? 'linear-gradient(135deg, #B11226, #8a0d1c)' : 'transparent',
               border: paused ? 'none' : '1px solid #2a2a2a',
               boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
-              cursor: 'pointer', marginBottom: '14px',
+              cursor: 'pointer',
+              flexShrink: 0,
             }}
           >
             {paused ? <Play size={13} /> : <Pause size={13} />}
