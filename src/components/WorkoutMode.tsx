@@ -226,76 +226,114 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
         }}
       >
         {/* TOP NAV */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 16px 8px', flexShrink: 0 }}>
-          <button onClick={onExit} style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#555', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Orbitron, sans-serif', fontSize: '10px', letterSpacing: '0.08em' }}>
-            <ChevronLeft size={14} />
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '14px 16px 6px', flexShrink: 0,
+        }}>
+          <button onClick={onExit} style={{
+            display: 'flex', alignItems: 'center', gap: '4px',
+            color: '#444', background: 'none', border: 'none', cursor: 'pointer',
+            fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
+          }}>
+            <ChevronLeft size={13} />
             EXIT
           </button>
-          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '11px', letterSpacing: '0.1em' }}>
-            {paused ? 'PAUSED' : 'REST'}
+          <span style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#3a3a3a',
+            fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
+          }}>
+            {session.title}
           </span>
-          <button onClick={handleRestart} style={{ color: '#555', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
-            <RotateCcw size={14} />
+          <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
+            <RotateCcw size={13} />
           </button>
         </div>
 
-        {/* MIDDLE — flex-1 centered */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 24px', minHeight: 0 }}>
-          <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-            <h2 style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '28px', fontWeight: 900, margin: 0 }}>REST</h2>
-            <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#666', fontSize: '10px', marginTop: '6px', lineHeight: 1.6 }}>
-              Recover, breathe and prepare for the next round.
-            </p>
-          </div>
+        {/* TOP SECTION */}
+        <div style={{ textAlign: 'center', padding: '8px 20px 0', flexShrink: 0 }}>
+          <h2 style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#fff',
+            fontSize: '22px', fontWeight: 900, margin: '0 0 4px', letterSpacing: '0.06em',
+          }}>REST</h2>
+          <p style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#555',
+            fontSize: '9.5px', lineHeight: 1.5, margin: 0,
+          }}>
+            Recover, breathe and prepare for the next round.
+          </p>
+        </div>
 
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px' }}>
-            <svg width="200" height="200" style={{ transform: 'rotate(-90deg)', maxWidth: '52vw', maxHeight: '52vw' }}>
-              <circle cx="100" cy="100" r={radius} fill="none" stroke="#1a1a1a" strokeWidth="6" />
-              <circle cx="100" cy="100" r={radius} fill="none" stroke="#555" strokeWidth="6" strokeLinecap="round"
+        {/* MIDDLE — timer centrepiece */}
+        <div style={{
+          flex: 1, display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center',
+          padding: '0 24px', minHeight: 0,
+        }}>
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="216" height="216" style={{ transform: 'rotate(-90deg)', maxWidth: '56vw', maxHeight: '56vw' }}>
+              <circle cx="108" cy="108" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="7" />
+              <circle cx="108" cy="108" r={radius} fill="none" stroke="#3a3a3a" strokeWidth="7" strokeLinecap="round"
                 strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
                 style={{ transition: 'stroke-dashoffset 1s linear' }} />
             </svg>
             <div style={{ position: 'absolute', textAlign: 'center' }}>
-              <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '38px', fontWeight: 900, fontVariantNumeric: 'tabular-nums' }}>
+              <span style={{
+                fontFamily: 'Orbitron, sans-serif', color: '#ffffff',
+                fontSize: '42px', fontWeight: 900, fontVariantNumeric: 'tabular-nums',
+                letterSpacing: '-0.02em',
+              }}>
                 {formatTime(timeLeft)}
               </span>
-              <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', marginTop: '2px', letterSpacing: '0.1em' }}>
+              <p style={{
+                fontFamily: 'Orbitron, sans-serif',
+                color: paused ? '#B11226' : '#3a3a3a',
+                fontSize: '9px', marginTop: '3px', letterSpacing: '0.12em', textTransform: 'uppercase',
+              }}>
                 {paused ? 'PAUSED' : 'REMAINING'}
               </p>
             </div>
           </div>
+        </div>
 
+        {/* BOTTOM SECTION */}
+        <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px 24px 0' }}>
           {nextRound && (
-            <div style={{ border: '1px solid #2a2a2a', borderRadius: '8px', padding: '10px 16px', textAlign: 'center', width: '100%', maxWidth: '280px', marginBottom: '12px' }}>
-              <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', margin: 0 }}>Up Next</p>
-              <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '11px', fontWeight: 900, marginTop: '4px', margin: '4px 0 0' }}>
-                Round {nextRound.number} – {nextRound.title.toUpperCase()}
-              </p>
-            </div>
+            <p style={{
+              fontFamily: 'Orbitron, sans-serif', color: '#3d3d3d',
+              fontSize: '9px', letterSpacing: '0.08em', textAlign: 'center',
+              margin: '0 0 10px',
+            }}>
+              Next: Round {nextRound.number} – {nextRound.title}
+            </p>
           )}
-
           <button
             onClick={() => setPaused(p => !p)}
             style={{
               fontFamily: 'Orbitron, sans-serif',
               display: 'flex', alignItems: 'center', gap: '8px',
-              padding: '12px 32px', borderRadius: '8px',
-              color: '#fff', fontSize: '11px', fontWeight: 900,
+              padding: '11px 36px', borderRadius: '8px',
+              color: paused ? '#fff' : '#888', fontSize: '10px', fontWeight: 900,
               letterSpacing: '0.1em', textTransform: 'uppercase',
-              background: 'transparent', border: '1px solid #3a3a3a',
-              cursor: 'pointer',
+              background: paused ? 'linear-gradient(135deg, #B11226, #8a0d1c)' : 'transparent',
+              border: paused ? 'none' : '1px solid #2a2a2a',
+              boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
+              cursor: 'pointer', marginBottom: '14px',
             }}
           >
-            {paused ? <Play size={14} /> : <Pause size={14} />}
+            {paused ? <Play size={13} /> : <Pause size={13} />}
             {paused ? 'RESUME' : 'PAUSE'}
           </button>
         </div>
 
-        {/* BOTTOM */}
-        <div style={{ flexShrink: 0, borderTop: '1px solid #1a1a1a', background: '#0a0a0a', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', letterSpacing: '0.1em' }}>REST</span>
+        {/* PROGRESS BAR */}
+        <div style={{
+          flexShrink: 0, borderTop: '1px solid #181818',
+          background: '#080808', padding: '10px 24px 12px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+        }}>
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#3a3a3a', fontSize: '9px', letterSpacing: '0.1em' }}>Rest</span>
           <RoundDots rounds={rounds} roundIndex={roundIndex} />
-          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#A0A0A0', fontSize: '11px', fontWeight: 900, letterSpacing: '0.1em' }}>
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#666', fontSize: '10px', fontWeight: 900, letterSpacing: '0.1em' }}>
             {roundIndex + 1} / {totalRounds}
           </span>
         </div>
@@ -317,102 +355,149 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           overflow: 'hidden',
         }}
       >
-        {/* TOP NAV */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 16px 8px', flexShrink: 0 }}>
-          <button onClick={onExit} style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#555', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Orbitron, sans-serif', fontSize: '10px', letterSpacing: '0.08em' }}>
-            <ChevronLeft size={14} />
+        {/* ── TOP NAV ─────────────────────────────────────────── */}
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '14px 16px 6px', flexShrink: 0,
+        }}>
+          <button onClick={onExit} style={{
+            display: 'flex', alignItems: 'center', gap: '4px',
+            color: '#444', background: 'none', border: 'none', cursor: 'pointer',
+            fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
+          }}>
+            <ChevronLeft size={13} />
             EXIT
           </button>
-          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '11px', letterSpacing: '0.1em' }}>
-            {paused ? 'PAUSED' : session.title.toUpperCase()}
+          <span style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#3a3a3a',
+            fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
+          }}>
+            {session.title}
           </span>
-          <button onClick={handleRestart} style={{ color: '#555', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
-            <RotateCcw size={14} />
+          <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
+            <RotateCcw size={13} />
           </button>
         </div>
 
-        {/* MIDDLE */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 20px', minHeight: 0 }}>
-          {/* Round label + title */}
-          <div style={{ textAlign: 'center', marginBottom: '10px', flexShrink: 0 }}>
-            <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#B11226', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', margin: '0 0 4px' }}>
-              Round {currentRound.number}
+        {/* ── TOP SECTION: round label + title ────────────────── */}
+        <div style={{ textAlign: 'center', padding: '8px 20px 0', flexShrink: 0 }}>
+          <p style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#B11226',
+            fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase',
+            margin: '0 0 5px',
+          }}>
+            Round {currentRound.number}
+          </p>
+          <h2 style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#fff',
+            fontSize: '15px', fontWeight: 900, lineHeight: 1.25, margin: 0,
+            textShadow: '0 0 16px rgba(177,18,38,0.35)',
+            letterSpacing: '0.04em',
+          }}>
+            {currentRound.title.toUpperCase()}
+          </h2>
+        </div>
+
+        {/* ── MIDDLE: description + timer ──────────────────────── */}
+        <div style={{
+          flex: 1, display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center',
+          padding: '4px 24px 0', minHeight: 0,
+        }}>
+          {/* Description — full text, subtle fade at bottom */}
+          <div style={{ position: 'relative', width: '100%', maxWidth: '300px', marginBottom: '10px', flexShrink: 0 }}>
+            <p style={{
+              fontFamily: 'Orbitron, sans-serif',
+              color: '#666',
+              fontSize: '9.5px',
+              lineHeight: 1.65,
+              textAlign: 'center',
+              margin: 0,
+              maxHeight: '72px',
+              overflow: 'hidden',
+            }}>
+              {currentRound.body}
             </p>
-            <h2 style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '18px', fontWeight: 900, margin: 0, textShadow: '0 0 20px rgba(177,18,38,0.3)' }}>
-              {currentRound.title.toUpperCase()}
-            </h2>
+            <div style={{
+              position: 'absolute', bottom: 0, left: 0, right: 0,
+              height: '24px',
+              background: `linear-gradient(to bottom, transparent, ${bg})`,
+              pointerEvents: 'none',
+            }} />
           </div>
 
-          {/* Description — hard clamped */}
-          <p style={{
-            fontFamily: 'Orbitron, sans-serif',
-            color: '#777',
-            fontSize: '10px',
-            lineHeight: 1.6,
-            textAlign: 'center',
-            maxWidth: '280px',
-            marginBottom: '12px',
-            flexShrink: 0,
-            display: '-webkit-box',
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }}>
-            {currentRound.body}
-          </p>
-
-          {/* Timer */}
+          {/* Timer — centrepiece */}
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <svg width="200" height="200" style={{ transform: 'rotate(-90deg)', maxWidth: '52vw', maxHeight: '52vw' }}>
-              <circle cx="100" cy="100" r={radius} fill="none" stroke="#1a1a1a" strokeWidth="6" />
-              <circle cx="100" cy="100" r={radius} fill="none" stroke="#B11226" strokeWidth="6" strokeLinecap="round"
+            <svg width="216" height="216" style={{ transform: 'rotate(-90deg)', maxWidth: '56vw', maxHeight: '56vw' }}>
+              <circle cx="108" cy="108" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="7" />
+              <circle cx="108" cy="108" r={radius} fill="none" stroke="#B11226" strokeWidth="7" strokeLinecap="round"
                 strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
-                style={{ transition: 'stroke-dashoffset 1s linear', filter: 'drop-shadow(0 0 6px rgba(177,18,38,0.6))' }} />
+                style={{
+                  transition: 'stroke-dashoffset 1s linear',
+                  filter: 'drop-shadow(0 0 8px rgba(177,18,38,0.7)) drop-shadow(0 0 16px rgba(177,18,38,0.3))',
+                }} />
             </svg>
             <div style={{ position: 'absolute', textAlign: 'center' }}>
-              <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '38px', fontWeight: 900, fontVariantNumeric: 'tabular-nums' }}>
+              <span style={{
+                fontFamily: 'Orbitron, sans-serif', color: '#ffffff',
+                fontSize: '42px', fontWeight: 900, fontVariantNumeric: 'tabular-nums',
+                textShadow: '0 0 20px rgba(255,255,255,0.15)',
+                letterSpacing: '-0.02em',
+              }}>
                 {formatTime(timeLeft)}
               </span>
-              <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', marginTop: '2px', letterSpacing: '0.1em' }}>
+              <p style={{
+                fontFamily: 'Orbitron, sans-serif', color: paused ? '#B11226' : '#3a3a3a',
+                fontSize: '9px', marginTop: '3px', letterSpacing: '0.12em', textTransform: 'uppercase',
+              }}>
                 {paused ? 'PAUSED' : 'REMAINING'}
               </p>
             </div>
           </div>
+        </div>
 
-          {/* Up next */}
-          <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', letterSpacing: '0.08em', marginTop: '8px', flexShrink: 0 }}>
+        {/* ── BOTTOM SECTION: next + pause + progress ──────────── */}
+        <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px 24px 0' }}>
+          {/* Next round preview */}
+          <p style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#3d3d3d',
+            fontSize: '9px', letterSpacing: '0.08em', textAlign: 'center',
+            margin: '0 0 10px',
+          }}>
             {nextRound
-              ? `NEXT: Round ${nextRound.number} – ${nextRound.title.toUpperCase()}`
-              : roundIndex < totalRounds - 1 ? 'NEXT: REST' : 'FINAL ROUND'}
+              ? `Next: Round ${nextRound.number} – ${nextRound.title}`
+              : roundIndex < totalRounds - 1 ? 'Next: Rest' : 'Final Round'}
           </p>
 
-          {/* Pause */}
+          {/* Pause / Resume button */}
           <button
             onClick={() => setPaused(p => !p)}
             style={{
               fontFamily: 'Orbitron, sans-serif',
               display: 'flex', alignItems: 'center', gap: '8px',
-              marginTop: '16px',
-              padding: '12px 32px', borderRadius: '8px',
-              color: '#fff', fontSize: '11px', fontWeight: 900,
+              padding: '11px 36px', borderRadius: '8px',
+              color: paused ? '#fff' : '#888', fontSize: '10px', fontWeight: 900,
               letterSpacing: '0.1em', textTransform: 'uppercase',
               background: paused ? 'linear-gradient(135deg, #B11226, #8a0d1c)' : 'transparent',
-              border: paused ? 'none' : '1px solid #3a3a3a',
+              border: paused ? 'none' : '1px solid #2a2a2a',
               boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
-              cursor: 'pointer',
-              flexShrink: 0,
+              cursor: 'pointer', marginBottom: '14px',
             }}
           >
-            {paused ? <Play size={14} /> : <Pause size={14} />}
+            {paused ? <Play size={13} /> : <Pause size={13} />}
             {paused ? 'RESUME' : 'PAUSE'}
           </button>
         </div>
 
-        {/* BOTTOM */}
-        <div style={{ flexShrink: 0, borderTop: '1px solid #1a1a1a', background: '#0a0a0a', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', letterSpacing: '0.1em' }}>Round</span>
+        {/* ── PROGRESS BAR ─────────────────────────────────────── */}
+        <div style={{
+          flexShrink: 0, borderTop: '1px solid #181818',
+          background: '#080808', padding: '10px 24px 12px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+        }}>
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#3a3a3a', fontSize: '9px', letterSpacing: '0.1em' }}>Round</span>
           <RoundDots rounds={rounds} roundIndex={roundIndex} />
-          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#A0A0A0', fontSize: '11px', fontWeight: 900, letterSpacing: '0.1em' }}>
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#666', fontSize: '10px', fontWeight: 900, letterSpacing: '0.1em' }}>
             {roundIndex + 1} / {totalRounds}
           </span>
         </div>
