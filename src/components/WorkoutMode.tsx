@@ -494,21 +494,15 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
             </div>
           </div>
 
-        </div>
-
-        {/* BOTTOM: pause + next + progress — anchored to bottom */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '10px',
-          paddingBottom: 'calc(12px + env(safe-area-inset-bottom, 0px))',
-          zIndex: 2,
-        }}>
+          {/* pause + next + progress directly below timer */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+            gap: '8px',
+            paddingTop: '16px',
+          }}>
           <button
             onClick={() => setPaused(p => !p)}
             style={{
@@ -571,6 +565,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
                 {totalRounds}
               </span>
             </div>
+          </div>
           </div>
         </div>
       </div>
