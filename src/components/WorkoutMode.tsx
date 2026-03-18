@@ -66,8 +66,12 @@ interface RoundDotsProps {
 }
 
 function RoundDots({ rounds, roundIndex, phase }: RoundDotsProps) {
+  const totalDots = rounds.length;
+  const dotSize = totalDots > 10 ? 7 : totalDots > 7 ? 8 : 10;
+  const gap = totalDots > 10 ? 5 : 7;
+
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: `${gap}px` }}>
       {rounds.map((_, i) => {
         const isActive = i === roundIndex && phase !== 'complete';
         const isCompleted = i < roundIndex || phase === 'complete';
@@ -76,16 +80,17 @@ function RoundDots({ rounds, roundIndex, phase }: RoundDotsProps) {
             key={i}
             style={{
               borderRadius: '9999px',
-              transition: 'all 0.4s ease',
-              width: isActive ? '20px' : '6px',
-              height: '6px',
+              transition: 'all 0.35s ease',
+              width: isActive ? `${dotSize * 2.2}px` : `${dotSize}px`,
+              height: `${dotSize}px`,
               background: isCompleted
-                ? '#4a0a12'
+                ? '#5a1520'
                 : isActive
                 ? '#B11226'
-                : '#1e1e1e',
+                : '#2a2a2a',
+              border: isCompleted ? '1px solid #7a1a28' : isActive ? 'none' : '1px solid #3a3a3a',
               boxShadow: isActive
-                ? '0 0 8px rgba(177,18,38,0.9), 0 0 16px rgba(177,18,38,0.4)'
+                ? '0 0 10px rgba(177,18,38,1), 0 0 20px rgba(177,18,38,0.5)'
                 : 'none',
               animation: isActive ? 'dotPulse 1.8s ease-in-out infinite' : 'none',
             }}
@@ -334,20 +339,36 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
       flexShrink: 0,
       borderTop: '1px solid #181818',
       background: '#080808',
-      padding: '10px 24px',
+      paddingTop: '12px',
       paddingBottom: 'calc(14px + env(safe-area-inset-bottom, 0px))',
+      paddingLeft: '24px',
+      paddingRight: '24px',
       display: 'flex',
+      flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
-      gap: '10px',
+      gap: '8px',
     }}>
-      <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#3a3a3a', fontSize: '9px', letterSpacing: '0.1em' }}>
-        {roundTypeLabel}
-      </span>
       <RoundDots rounds={rounds} roundIndex={roundIndex} phase={phase} />
-      <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#666', fontSize: '10px', fontWeight: 900, letterSpacing: '0.1em' }}>
-        {roundIndex + 1} / {totalRounds}
-      </span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <span style={{
+          fontFamily: 'Orbitron, sans-serif',
+          color: '#3a3a3a',
+          fontSize: '9px',
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+        }}>
+          {phase === 'rest' ? 'REST' : phase === 'complete' ? 'DONE' : `ROUND ${roundIndex + 1}`}
+        </span>
+        <span style={{ color: '#282828', fontSize: '9px' }}>/</span>
+        <span style={{
+          fontFamily: 'Orbitron, sans-serif',
+          color: '#3a3a3a',
+          fontSize: '9px',
+          letterSpacing: '0.12em',
+        }}>
+          {totalRounds}
+        </span>
+      </div>
     </div>
   );
 
