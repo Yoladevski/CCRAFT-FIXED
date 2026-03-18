@@ -326,44 +326,52 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
       <div style={shell}>
         {nav}
 
+        {/* ── TOP: Round label + title + description ── */}
         <div style={{
           flex: 1,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'space-evenly',
-          padding: '4px 24px 12px',
+          justifyContent: 'center',
+          padding: '8px 28px 16px',
           minHeight: 0,
           overflow: 'hidden',
+          textAlign: 'center',
         }}>
-          {/* Round header */}
-          <div style={{ textAlign: 'center', maxWidth: '320px' }}>
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#B11226',
-              fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase',
-              margin: '0 0 6px',
-            }}>Round {currentRound.number}</p>
-            <h2 style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#fff',
-              fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
-              lineHeight: 1.25, margin: '0 0 10px',
-              textShadow: '0 0 16px rgba(177,18,38,0.35)',
-              letterSpacing: '0.04em',
-            }}>{currentRound.title.toUpperCase()}</h2>
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#5a5a5a',
-              fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
-              textAlign: 'center', margin: 0,
-              overflow: 'hidden',
-              display: '-webkit-box',
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: 'vertical',
-            }}>{currentRound.body}</p>
-          </div>
+          <p style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#B11226',
+            fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase',
+            margin: '0 0 6px',
+          }}>Round {currentRound.number}</p>
+          <h2 style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#fff',
+            fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
+            lineHeight: 1.25, margin: '0 0 12px',
+            textShadow: '0 0 16px rgba(177,18,38,0.35)',
+            letterSpacing: '0.04em',
+          }}>{currentRound.title.toUpperCase()}</h2>
+          <p style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#5a5a5a',
+            fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
+            textAlign: 'center', margin: 0,
+            maxWidth: '280px',
+            overflow: 'hidden',
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical',
+          }}>{currentRound.body}</p>
+        </div>
 
-          {/* Timer */}
+        {/* ── MIDDLE: Timer ── */}
+        <div style={{
+          flexShrink: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '0 24px',
+        }}>
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <svg style={{ transform: 'rotate(-90deg)', width: 'clamp(190px, 58vw, 230px)', height: 'clamp(190px, 58vw, 230px)' }}
+            <svg style={{ transform: 'rotate(-90deg)', width: 'clamp(190px, 52vw, 220px)', height: 'clamp(190px, 52vw, 220px)' }}
               viewBox="0 0 240 240">
               <circle cx="120" cy="120" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="8" />
               <circle cx="120" cy="120" r={radius} fill="none" stroke="#B11226" strokeWidth="8" strokeLinecap="round"
@@ -388,11 +396,20 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
               }}>{paused ? 'PAUSED' : 'REMAINING'}</p>
             </div>
           </div>
+        </div>
 
-          {/* Pause button */}
+        {/* ── BOTTOM: Pause + next round ── */}
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '14px',
+          padding: '16px 24px 8px',
+          minHeight: 0,
+        }}>
           {pauseButton}
-
-          {/* Next round */}
           <p style={{
             fontFamily: 'Orbitron, sans-serif', color: '#4a4a4a',
             fontSize: 'clamp(9.5px, 2.3vw, 11px)', letterSpacing: '0.06em',
