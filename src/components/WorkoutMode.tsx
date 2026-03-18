@@ -289,154 +289,13 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     ? 'FINAL ROUND'
     : `ROUND ${(currentRound?.number ?? roundIndex + 1)} • WORK`;
 
-  const timerBlock = (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
-      <div style={{
-        position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        animation: isUrgent ? 'timerPulse 0.6s ease-in-out infinite' : 'none',
-      }}>
-        <svg
-          style={{ transform: 'rotate(-90deg)', width: 'clamp(190px, 52vw, 220px)', height: 'clamp(190px, 52vw, 220px)' }}
-          viewBox="0 0 240 240"
-        >
-          <circle cx="120" cy="120" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="8" />
-          <circle cx="120" cy="120" r={radius} fill="none" stroke={timerColor} strokeWidth="8" strokeLinecap="round"
-            strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
-            style={{ transition: 'stroke-dashoffset 1s linear, stroke 0.4s ease', filter: isUrgent ? timerGlow : 'none' }} />
-        </svg>
-        <div style={{ position: 'absolute', textAlign: 'center' }}>
-          <span style={{
-            fontFamily: 'Orbitron, sans-serif',
-            color: isUrgent ? '#FF1A33' : '#fff',
-            fontSize: 'clamp(42px, 11vw, 52px)', fontWeight: 900,
-            fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em',
-            transition: 'color 0.3s ease',
-            textShadow: isUrgent ? '0 0 24px rgba(255,26,51,0.4)' : '0 0 24px rgba(255,255,255,0.08)',
-          }}>{formatTime(timeLeft)}</span>
-          <p style={{
-            fontFamily: 'Orbitron, sans-serif',
-            color: paused ? '#B11226' : isUrgent ? '#FF1A33' : '#3a3a3a',
-            fontSize: '9px', marginTop: '4px', letterSpacing: '0.12em', textTransform: 'uppercase',
-            transition: 'color 0.3s ease',
-          }}>{paused ? 'PAUSED' : 'REMAINING'}</p>
-        </div>
-      </div>
-    </div>
-  );
-
-  const pauseButton = (
-    <button
-      onClick={() => setPaused(p => !p)}
-      style={{
-        fontFamily: 'Orbitron, sans-serif',
-        display: 'flex', alignItems: 'center', gap: '8px',
-        padding: '12px 38px', borderRadius: '8px',
-        color: paused ? '#fff' : '#888',
-        fontSize: '11px', fontWeight: 900,
-        letterSpacing: '0.1em', textTransform: 'uppercase',
-        background: paused ? 'linear-gradient(135deg, #B11226, #8a0d1c)' : 'transparent',
-        border: paused ? 'none' : '1px solid #2a2a2a',
-        boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
-        cursor: 'pointer',
-        flexShrink: 0,
-        transition: 'all 0.2s ease',
-      }}
-    >
-      {paused ? <Play size={14} /> : <Pause size={14} />}
-      {paused ? 'RESUME' : 'PAUSE'}
-    </button>
-  );
-
-  const navBar = (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      paddingTop: 'calc(10px + env(safe-area-inset-top, 0px))',
-      paddingBottom: '4px',
-      paddingLeft: '16px',
-      paddingRight: '16px',
-      flexShrink: 0,
-    }}>
-      <button onClick={onExit} style={{
-        display: 'flex', alignItems: 'center', gap: '4px',
-        color: '#444', background: 'none', border: 'none', cursor: 'pointer',
-        fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
-      }}>
-        <ChevronLeft size={13} />EXIT
-      </button>
-      <span style={{
-        fontFamily: 'Orbitron, sans-serif', color: '#2e2e2e',
-        fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
-      }}>
-        {session.title}
-      </span>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <button
-          onClick={() => setVoiceEnabled(v => !v)}
-          title={voiceEnabled ? 'Voice ON' : 'Voice OFF'}
-          style={{ color: voiceEnabled ? '#B11226' : '#3a3a3a', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', transition: 'color 0.2s' }}
-        >
-          {voiceEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
-        </button>
-        <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
-          <RotateCcw size={13} />
-        </button>
-      </div>
-    </div>
-  );
-
-  const progressBar = (
-    <div style={{
-      flexShrink: 0,
-      borderTop: '1px solid #181818',
-      background: '#080808',
-      paddingTop: '10px',
-      paddingBottom: 'calc(10px + env(safe-area-inset-bottom, 0px))',
-      paddingLeft: '24px',
-      paddingRight: '24px',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: '6px',
-    }}>
-      <RoundDots rounds={rounds} roundIndex={roundIndex} phase={phase} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <span style={{
-          fontFamily: 'Orbitron, sans-serif',
-          color: '#3a3a3a',
-          fontSize: '9px',
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-        }}>
-          {phase === 'rest' ? 'REST' : phase === 'complete' ? 'DONE' : `ROUND ${roundIndex + 1}`}
-        </span>
-        <span style={{ color: '#282828', fontSize: '9px' }}>/</span>
-        <span style={{
-          fontFamily: 'Orbitron, sans-serif',
-          color: '#3a3a3a',
-          fontSize: '9px',
-          letterSpacing: '0.12em',
-        }}>
-          {totalRounds}
-        </span>
-      </div>
-    </div>
-  );
-
-  const shellStyle: React.CSSProperties = {
+  const shell: React.CSSProperties = {
     position: 'relative',
     width: '100%',
     height: '100dvh',
     maxHeight: '100dvh',
     background: bgColor,
     transition: 'background 0.4s',
-    display: 'flex',
-    flexDirection: 'column',
     overflow: 'hidden',
   };
 
@@ -444,7 +303,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     return (
       <>
         <style>{keyframes}</style>
-        <div style={{ ...shellStyle, alignItems: 'center', justifyContent: 'center', padding: '0 24px', height: '100dvh', maxHeight: '100dvh' }}>
+        <div style={{ ...shell, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 24px' }}>
           <div style={{ textAlign: 'center', width: '100%', maxWidth: '320px' }}>
             <p style={{
               fontFamily: 'Orbitron, sans-serif', color: '#B11226',
@@ -486,99 +345,84 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     );
   }
 
-  if (phase === 'rest') {
-    return (
-      <>
-        <style>{keyframes}</style>
-        <div style={shellStyle}>
-          <TransitionOverlay visible={overlay.visible} label={overlay.label} sublabel={overlay.sublabel} />
+  const isRest = phase === 'rest';
+  const titleText = isRest ? 'REST' : currentRound.title.toUpperCase();
+  const bodyText = isRest
+    ? 'Recover, breathe and prepare for the next round.'
+    : currentRound.body;
+  const labelColor = isRest ? '#3a8a5a' : isFinalRound ? '#e8a020' : '#B11226';
 
-          {navBar}
-
-          <div style={{
-            flexShrink: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: '6px 28px 8px',
-            textAlign: 'center',
-          }}>
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif',
-              color: '#3a8a5a',
-              fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase',
-              margin: '0 0 5px',
-            }}>REST • RECOVER</p>
-            <h2 style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#fff',
-              fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
-              margin: '0 0 8px', letterSpacing: '0.06em',
-            }}>REST</h2>
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#444',
-              fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
-              textAlign: 'center', maxWidth: '260px', margin: 0,
-            }}>
-              Recover, breathe and prepare for the next round.
-            </p>
-          </div>
-
-          <div style={{
-            flex: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: 0,
-            overflow: 'hidden',
-          }}>
-            {timerBlock}
-          </div>
-
-          <div style={{
-            flexShrink: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '8px 24px 8px',
-          }}>
-            {pauseButton}
-            {nextRound && (
-              <p style={{
-                fontFamily: 'Orbitron, sans-serif', color: '#4a4a4a',
-                fontSize: 'clamp(9.5px, 2.3vw, 11px)', letterSpacing: '0.06em',
-                textAlign: 'center', margin: 0,
-              }}>
-                Next: Round {nextRound.number} – {nextRound.title}
-              </p>
-            )}
-          </div>
-
-          {progressBar}
-        </div>
-      </>
-    );
-  }
+  const nextText = isRest && nextRound
+    ? `Next: Round ${nextRound.number} – ${nextRound.title}`
+    : !isRest && nextRound
+    ? `Next: Round ${nextRound.number} – ${nextRound.title}`
+    : !isRest && roundIndex < totalRounds - 1
+    ? 'Next: Rest'
+    : !isRest
+    ? 'Final Round'
+    : undefined;
 
   return (
     <>
       <style>{keyframes}</style>
-      <div style={shellStyle}>
+      <div style={shell}>
         <TransitionOverlay visible={overlay.visible} label={overlay.label} sublabel={overlay.sublabel} />
 
-        {navBar}
-
+        {/* TOP: header nav — locked to top */}
         <div style={{
-          flexShrink: 0,
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          paddingTop: 'calc(10px + env(safe-area-inset-top, 0px))',
+          paddingBottom: '8px',
+          paddingLeft: '16px',
+          paddingRight: '16px',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
-          padding: '6px 28px 8px',
+          justifyContent: 'space-between',
+          zIndex: 2,
+        }}>
+          <button onClick={onExit} style={{
+            display: 'flex', alignItems: 'center', gap: '4px',
+            color: '#444', background: 'none', border: 'none', cursor: 'pointer',
+            fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
+          }}>
+            <ChevronLeft size={13} />EXIT
+          </button>
+          <span style={{
+            fontFamily: 'Orbitron, sans-serif', color: '#2e2e2e',
+            fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
+          }}>
+            {session.title}
+          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <button
+              onClick={() => setVoiceEnabled(v => !v)}
+              title={voiceEnabled ? 'Voice ON' : 'Voice OFF'}
+              style={{ color: voiceEnabled ? '#B11226' : '#3a3a3a', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', transition: 'color 0.2s' }}
+            >
+              {voiceEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
+            </button>
+            <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
+              <RotateCcw size={13} />
+            </button>
+          </div>
+        </div>
+
+        {/* TOP: round info — locked just below nav */}
+        <div style={{
+          position: 'absolute',
+          top: 'calc(44px + env(safe-area-inset-top, 0px))',
+          left: 0,
+          right: 0,
           textAlign: 'center',
+          padding: '0 28px',
+          zIndex: 2,
         }}>
           <p style={{
             fontFamily: 'Orbitron, sans-serif',
-            color: isFinalRound ? '#e8a020' : '#B11226',
+            color: labelColor,
             fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase',
             margin: '0 0 5px',
             transition: 'color 0.3s',
@@ -589,53 +433,141 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
             lineHeight: 1.25, margin: '0 0 8px',
             textShadow: '0 0 16px rgba(177,18,38,0.35)',
             letterSpacing: '0.04em',
-          }}>{currentRound.title.toUpperCase()}</h2>
+          }}>{titleText}</h2>
           <p style={{
-            fontFamily: 'Orbitron, sans-serif', color: '#5a5a5a',
+            fontFamily: 'Orbitron, sans-serif',
+            color: isRest ? '#444' : '#5a5a5a',
             fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
             textAlign: 'center', margin: 0,
             maxWidth: '280px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             overflow: 'hidden',
             display: '-webkit-box',
             WebkitLineClamp: 3,
             WebkitBoxOrient: 'vertical',
             opacity: isUrgent ? 0.3 : 1,
             transition: 'opacity 0.5s ease',
-          }}>{currentRound.body}</p>
+          }}>{bodyText}</p>
         </div>
 
+        {/* CENTER: timer — absolutely centered */}
         <div style={{
-          flex: 1,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: 0,
-          overflow: 'hidden',
+          position: 'absolute',
+          top: '46%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 1,
         }}>
-          {timerBlock}
+          <div style={{
+            position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            animation: isUrgent ? 'timerPulse 0.6s ease-in-out infinite' : 'none',
+          }}>
+            <svg
+              style={{ transform: 'rotate(-90deg)', width: 'clamp(190px, 52vw, 220px)', height: 'clamp(190px, 52vw, 220px)' }}
+              viewBox="0 0 240 240"
+            >
+              <circle cx="120" cy="120" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="8" />
+              <circle cx="120" cy="120" r={radius} fill="none" stroke={timerColor} strokeWidth="8" strokeLinecap="round"
+                strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
+                style={{ transition: 'stroke-dashoffset 1s linear, stroke 0.4s ease', filter: isUrgent ? timerGlow : 'none' }} />
+            </svg>
+            <div style={{ position: 'absolute', textAlign: 'center' }}>
+              <span style={{
+                fontFamily: 'Orbitron, sans-serif',
+                color: isUrgent ? '#FF1A33' : '#fff',
+                fontSize: 'clamp(42px, 11vw, 52px)', fontWeight: 900,
+                fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em',
+                transition: 'color 0.3s ease',
+                textShadow: isUrgent ? '0 0 24px rgba(255,26,51,0.4)' : '0 0 24px rgba(255,255,255,0.08)',
+              }}>{formatTime(timeLeft)}</span>
+              <p style={{
+                fontFamily: 'Orbitron, sans-serif',
+                color: paused ? '#B11226' : isUrgent ? '#FF1A33' : '#3a3a3a',
+                fontSize: '9px', marginTop: '4px', letterSpacing: '0.12em', textTransform: 'uppercase',
+                transition: 'color 0.3s ease',
+              }}>{paused ? 'PAUSED' : 'REMAINING'}</p>
+            </div>
+          </div>
         </div>
 
+        {/* BOTTOM: pause + next + progress — locked to bottom */}
         <div style={{
-          flexShrink: 0,
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          paddingBottom: 'calc(12px + env(safe-area-inset-bottom, 0px))',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           gap: '8px',
-          padding: '8px 24px 8px',
+          zIndex: 2,
         }}>
-          {pauseButton}
-          <p style={{
-            fontFamily: 'Orbitron, sans-serif', color: '#4a4a4a',
-            fontSize: 'clamp(9.5px, 2.3vw, 11px)', letterSpacing: '0.06em',
-            textAlign: 'center', margin: 0,
-          }}>
-            {nextRound
-              ? `Next: Round ${nextRound.number} – ${nextRound.title}`
-              : roundIndex < totalRounds - 1 ? 'Next: Rest' : 'Final Round'}
-          </p>
-        </div>
+          <button
+            onClick={() => setPaused(p => !p)}
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              display: 'flex', alignItems: 'center', gap: '8px',
+              padding: '12px 38px', borderRadius: '8px',
+              color: paused ? '#fff' : '#888',
+              fontSize: '11px', fontWeight: 900,
+              letterSpacing: '0.1em', textTransform: 'uppercase',
+              background: paused ? 'linear-gradient(135deg, #B11226, #8a0d1c)' : 'transparent',
+              border: paused ? 'none' : '1px solid #2a2a2a',
+              boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            {paused ? <Play size={14} /> : <Pause size={14} />}
+            {paused ? 'RESUME' : 'PAUSE'}
+          </button>
 
-        {progressBar}
+          {nextText && (
+            <p style={{
+              fontFamily: 'Orbitron, sans-serif', color: '#4a4a4a',
+              fontSize: 'clamp(9.5px, 2.3vw, 11px)', letterSpacing: '0.06em',
+              textAlign: 'center', margin: 0,
+            }}>
+              {nextText}
+            </p>
+          )}
+
+          <div style={{
+            borderTop: '1px solid #181818',
+            width: '100%',
+            background: '#080808',
+            paddingTop: '10px',
+            paddingBottom: '2px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '6px',
+          }}>
+            <RoundDots rounds={rounds} roundIndex={roundIndex} phase={phase} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{
+                fontFamily: 'Orbitron, sans-serif',
+                color: '#3a3a3a',
+                fontSize: '9px',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+              }}>
+                {phase === 'rest' ? 'REST' : phase === 'complete' ? 'DONE' : `ROUND ${roundIndex + 1}`}
+              </span>
+              <span style={{ color: '#282828', fontSize: '9px' }}>/</span>
+              <span style={{
+                fontFamily: 'Orbitron, sans-serif',
+                color: '#3a3a3a',
+                fontSize: '9px',
+                letterSpacing: '0.12em',
+              }}>
+                {totalRounds}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
