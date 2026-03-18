@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
-import WorkoutMode from '../components/WorkoutMode';
+import ActiveWorkout from '../components/WorkoutMode';
 
 function AccordionCard({ title, children, defaultOpen = false }: { title: React.ReactNode; children: React.ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -42,10 +42,12 @@ function AccordionCard({ title, children, defaultOpen = false }: { title: React.
   );
 }
 
+type WorkoutMode = 'preview' | 'active';
+
 export default function WorkoutSession() {
   const navigate = useNavigate();
   const { sessionSlug } = useParams<{ sessionSlug: string }>();
-  const [workoutActive, setWorkoutActive] = useState(false);
+  const [workoutMode, setWorkoutMode] = useState<WorkoutMode>('preview');
 
   const session = BOXING_WORKOUT_SESSIONS.find(s => s.slug === sessionSlug);
 
@@ -69,8 +71,19 @@ export default function WorkoutSession() {
   const hasFullContent = session.rounds && session.rounds.length > 0;
   const canStartWorkout = hasFullContent && (session.rounds?.length ?? 0) > 0;
 
+  if (workoutMode === 'active' && canStartWorkout) {
+    return (
+      <ActiveWorkout
+        session={session}
+        onExit={() => {
+          setWorkoutMode('preview');
+          navigate('/boxing-workouts');
+        }}
+      />
+    );
+  }
+
   return (
-    <>
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-3xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
@@ -143,7 +156,7 @@ export default function WorkoutSession() {
 
             {canStartWorkout && (
               <button
-                onClick={() => setWorkoutActive(true)}
+                onClick={() => setWorkoutMode('active')}
                 className="w-full py-4 rounded-lg text-white text-sm font-black tracking-widest uppercase transition-all active:scale-95 hover:brightness-110"
                 style={{
                   fontFamily: 'Orbitron, sans-serif',
@@ -203,16 +216,5 @@ export default function WorkoutSession() {
         )}
       </div>
     </div>
-
-    {workoutActive && canStartWorkout && (
-      <WorkoutMode
-        session={session}
-        onExit={() => {
-          setWorkoutActive(false);
-          navigate('/boxing-workouts');
-        }}
-      />
-    )}
-    </>
   );
 }

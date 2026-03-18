@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { createPortal } from 'react-dom';
 import { Pause, Play, RotateCcw, ChevronLeft, Volume2, VolumeX } from 'lucide-react';
 import type { WorkoutSession } from '../data/boxingWorkouts';
 
@@ -632,7 +631,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     );
   }
 
-  return createPortal(
+  return (
     <>
       <style>{`
         @keyframes timerPulse {
@@ -650,7 +649,6 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
         }
       `}</style>
       {content}
-    </>,
-    document.body
+    </>
   );
 }
