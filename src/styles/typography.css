@@ -1,33 +1,21 @@
 .cc-hero-heading {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 48px;
   line-height: 1.2;
-  letter-spacing: 5px;
-  position: relative;
-  color: #EDEDED;
-  -webkit-text-stroke: 8px #000000;
-  text-stroke: 8px #000000;
-  paint-order: stroke fill;
-}
-
-.cc-hero-heading::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 12px #B11226;
-  text-stroke: 12px #B11226;
-  color: transparent;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  -webkit-text-stroke: unset;
+  text-stroke: unset;
+  paint-order: unset;
 }
 
 .cc-hero-sub {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 36px;
   line-height: 1.2;
-  letter-spacing: 5px;
+  letter-spacing: 0.06em;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 6px #000000;
@@ -47,44 +35,32 @@
 }
 
 .cc-primary-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 48px;
   line-height: 1.2;
-  letter-spacing: 5px;
-  position: relative;
-  color: #EDEDED;
-  -webkit-text-stroke: 8px #000000;
-  text-stroke: 8px #000000;
-  paint-order: stroke fill;
-}
-
-.cc-primary-title::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 12px #B11226;
-  text-stroke: 12px #B11226;
-  color: transparent;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  -webkit-text-stroke: unset;
+  text-stroke: unset;
+  paint-order: unset;
 }
 
 .cc-quote {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 1.2;
-  letter-spacing: 5px;
+  letter-spacing: 0.06em;
   color: #EDEDED;
 }
 
 .cc-section-heading {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 1.2;
-  letter-spacing: 5px;
+  letter-spacing: 0.06em;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 6px #000000;
@@ -104,38 +80,53 @@
 }
 
 .cc-tertiary-heading {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 18px;
   line-height: 1.2;
-  letter-spacing: 5px;
-  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 4px #000000;
+  text-stroke: 4px #000000;
+  paint-order: stroke fill;
+}
+
+.cc-tertiary-heading::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 8px #B11226;
+  text-stroke: 8px #B11226;
+  color: transparent;
 }
 
 .cc-card-label {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 12px;
   line-height: 1.2;
-  letter-spacing: 5px;
+  letter-spacing: 0.05em;
   color: #A0A0A0;
 }
 
 .cc-card-value {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 18px;
   line-height: 1.2;
-  letter-spacing: 5px;
+  letter-spacing: 0.05em;
   color: #FFFFFF;
 }
 
 .cc-button {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 18px;
   line-height: 1.2;
-  letter-spacing: 5px;
+  letter-spacing: 0.08em;
   color: #FFFFFF;
 }
 
@@ -148,9 +139,9 @@
 }
 
 .cc-outline-text {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 6px #000000;
@@ -170,28 +161,28 @@
 }
 
 .cc-red-shadow-text {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   color: #EDEDED;
   text-shadow: 1px 1px 0 #B11226;
 }
 
 .button-text {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 18px;
   line-height: 1.2;
-  letter-spacing: 5px;
+  letter-spacing: 0.08em;
   color: #FFFFFF;
 }
 
 .heading-text {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 1.2;
-  letter-spacing: 5px;
+  letter-spacing: 0.06em;
   position: relative;
   color: #EDEDED;
   -webkit-text-stroke: 6px #000000;
@@ -211,25 +202,13 @@
 }
 
 .display-text {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 48px;
   line-height: 1.2;
-  letter-spacing: 5px;
-  position: relative;
-  color: #EDEDED;
-  -webkit-text-stroke: 8px #000000;
-  text-stroke: 8px #000000;
-  paint-order: stroke fill;
-}
-
-.display-text::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 12px #B11226;
-  text-stroke: 12px #B11226;
-  color: transparent;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  -webkit-text-stroke: unset;
+  text-stroke: unset;
+  paint-order: unset;
 }

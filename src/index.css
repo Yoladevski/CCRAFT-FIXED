@@ -21,8 +21,16 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Beantown';
+  src: url('/src/assets/fonts/Beantown.ttf') format('truetype');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --font-heading: 'Orbitron', sans-serif;
+  --font-heading: 'Beantown', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -82,28 +90,60 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 0.08em;
   line-height: 1.2;
   color: #FFFFFF;
-  -webkit-text-stroke: 2px #B11226;
-  text-stroke: 2px #B11226;
-  paint-order: stroke fill;
 }
 
 h1 {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   line-height: 1.1;
+  -webkit-text-stroke: unset;
+  text-stroke: unset;
+  paint-order: unset;
 }
 
 h2 {
   line-height: 1.1;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 5px #000000;
+  text-stroke: 5px #000000;
+  paint-order: stroke fill;
+}
+
+h2::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 9px #B11226;
+  text-stroke: 9px #B11226;
+  color: transparent;
 }
 
 h3, h4, h5, h6 {
   letter-spacing: 0.05em;
+  position: relative;
+  color: #EDEDED;
+  -webkit-text-stroke: 4px #000000;
+  text-stroke: 4px #000000;
+  paint-order: stroke fill;
+}
+
+h3::before, h4::before, h5::before, h6::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 8px #B11226;
+  text-stroke: 8px #B11226;
+  color: transparent;
 }
 
 button {
@@ -148,32 +188,32 @@ button[class*="rounded"] {
 
 nav button,
 nav a {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 0.1em;
   color: #FFFFFF;
 }
 
 .nav-menu-item {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   font-size: 16.8px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #EDEDED;
-  -webkit-text-stroke: 1px #000000;
-  text-stroke: 1px #000000;
-  paint-order: stroke fill;
-  text-shadow: 1px 1px 0 #B11226;
-  transition: text-shadow 0.3s ease, filter 0.3s ease;
+  -webkit-text-stroke: unset;
+  text-stroke: unset;
+  paint-order: unset;
+  text-shadow: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .nav-menu-item:hover {
+  color: #FFFFFF;
   text-shadow:
-    1px 1px 0 #B11226,
-    0 0 10px #B11226,
-    0 0 20px #B11226;
+    0 0 10px rgba(177, 18, 38, 0.6),
+    0 0 20px rgba(177, 18, 38, 0.3);
 }
 
 .cc-stroke-heading {
@@ -191,7 +231,7 @@ nav a {
 
 .outlined-text {
   display: block;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Beantown', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.15em;

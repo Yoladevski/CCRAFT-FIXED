@@ -183,12 +183,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
             style={{
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
+              fontFamily: 'Beantown, sans-serif',
+              fontWeight: 900,
               textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              WebkitTextStroke: '1px #B11226',
-              textStroke: '1px #B11226'
+              letterSpacing: '0.08em'
             }}
             onMouseEnter={(e) => {
               if (currentPage !== 'Home') {
@@ -243,12 +241,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
             style={{
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
+              fontFamily: 'Beantown, sans-serif',
+              fontWeight: 900,
               textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              WebkitTextStroke: '1px #B11226',
-              textStroke: '1px #B11226'
+              letterSpacing: '0.08em'
             }}
             onMouseEnter={(e) => {
               const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
@@ -274,12 +270,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
             style={{
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
+              fontFamily: 'Beantown, sans-serif',
+              fontWeight: 900,
               textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              WebkitTextStroke: '1px #B11226',
-              textStroke: '1px #B11226'
+              letterSpacing: '0.08em'
             }}
             onMouseEnter={(e) => {
               if (currentPage !== 'News') {
@@ -303,12 +297,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
             style={{
-              fontFamily: 'Redhawk, sans-serif',
-              fontWeight: 700,
+              fontFamily: 'Beantown, sans-serif',
+              fontWeight: 900,
               textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              WebkitTextStroke: '1px #B11226',
-              textStroke: '1px #B11226'
+              letterSpacing: '0.08em'
             }}
             onMouseEnter={(e) => {
               if (currentPage !== 'Merchandise') {
@@ -358,10 +350,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
               onClick={() => handleNavigate('Auth')}
               className="w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
               style={{
-                fontFamily: 'Redhawk, sans-serif',
-                fontWeight: 700,
+                fontFamily: 'Beantown, sans-serif',
+                fontWeight: 900,
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em'
+                letterSpacing: '0.08em'
               }}
             >
               SIGN UP
