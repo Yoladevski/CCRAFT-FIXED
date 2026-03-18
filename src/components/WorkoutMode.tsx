@@ -451,12 +451,16 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           }}>{bodyText}</p>
         </div>
 
-        {/* CENTER: timer — absolutely centered */}
+        {/* CENTER + BOTTOM: timer and all bottom elements grouped together */}
         <div style={{
           position: 'absolute',
-          top: '46%',
+          top: '50%',
           left: '50%',
-          transform: 'translate(-50%, -50%)',
+          transform: 'translate(-50%, -38%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '100%',
           zIndex: 1,
         }}>
           <div style={{
@@ -489,21 +493,16 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
               }}>{paused ? 'PAUSED' : 'REMAINING'}</p>
             </div>
           </div>
-        </div>
 
-        {/* BOTTOM: pause + next + progress — locked to bottom */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          paddingBottom: 'calc(12px + env(safe-area-inset-bottom, 0px))',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '8px',
-          zIndex: 2,
-        }}>
+          {/* pause + next + progress directly below timer */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+            gap: '8px',
+            paddingTop: '16px',
+          }}>
           <button
             onClick={() => setPaused(p => !p)}
             style={{
@@ -566,6 +565,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
                 {totalRounds}
               </span>
             </div>
+          </div>
           </div>
         </div>
       </div>
