@@ -450,7 +450,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           <p style={{
             fontFamily: 'Orbitron, sans-serif',
             color: isRest ? '#444' : '#5a5a5a',
-            fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
+            fontSize: 'clamp(14.25px, 3.45vw, 16.5px)', lineHeight: 1.7,
             textAlign: 'center', margin: 0,
             maxWidth: '300px',
             marginLeft: 'auto',
