@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
+import WorkoutMode from '../components/WorkoutMode';
 
 function AccordionCard({ title, children, defaultOpen = false }: { title: React.ReactNode; children: React.ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -44,6 +45,7 @@ function AccordionCard({ title, children, defaultOpen = false }: { title: React.
 export default function WorkoutSession() {
   const navigate = useNavigate();
   const { sessionSlug } = useParams<{ sessionSlug: string }>();
+  const [workoutActive, setWorkoutActive] = useState(false);
 
   const session = BOXING_WORKOUT_SESSIONS.find(s => s.slug === sessionSlug);
 
@@ -65,6 +67,19 @@ export default function WorkoutSession() {
   }
 
   const hasFullContent = session.rounds && session.rounds.length > 0;
+  const canStartWorkout = hasFullContent && (session.rounds?.length ?? 0) > 0;
+
+  if (workoutActive && canStartWorkout) {
+    return (
+      <WorkoutMode
+        session={session}
+        onExit={() => {
+          setWorkoutActive(false);
+          navigate('/boxing-workouts');
+        }}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
@@ -135,6 +150,20 @@ export default function WorkoutSession() {
               >
                 <p>{session.coachsBrief}</p>
               </AccordionCard>
+            )}
+
+            {canStartWorkout && (
+              <button
+                onClick={() => setWorkoutActive(true)}
+                className="w-full py-4 rounded-lg text-white text-sm font-black tracking-widest uppercase transition-all active:scale-95 hover:brightness-110"
+                style={{
+                  fontFamily: 'Orbitron, sans-serif',
+                  background: 'linear-gradient(135deg, #B11226, #8a0d1c)',
+                  boxShadow: '0 0 20px rgba(177,18,38,0.4), 0 0 40px rgba(177,18,38,0.15)',
+                }}
+              >
+                Start Workout
+              </button>
             )}
 
             {session.rounds?.map((round) => (
