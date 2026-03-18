@@ -439,7 +439,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
         {/* MIDDLE: description — halfway between title and clock */}
         <div style={{
           position: 'absolute',
-          top: '25%',
+          top: '20%',
           left: 0,
           right: 0,
           textAlign: 'center',
