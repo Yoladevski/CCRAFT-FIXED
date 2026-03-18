@@ -291,11 +291,9 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
 
   const timerBlock = (
     <div style={{
-      flexShrink: 0,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '0 24px',
     }}>
       <div style={{
         position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -358,8 +356,8 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      paddingTop: 'calc(14px + env(safe-area-inset-top, 0px))',
-      paddingBottom: '6px',
+      paddingTop: 'calc(10px + env(safe-area-inset-top, 0px))',
+      paddingBottom: '4px',
       paddingLeft: '16px',
       paddingRight: '16px',
       flexShrink: 0,
@@ -397,14 +395,14 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
       flexShrink: 0,
       borderTop: '1px solid #181818',
       background: '#080808',
-      paddingTop: '12px',
-      paddingBottom: 'calc(14px + env(safe-area-inset-bottom, 0px))',
+      paddingTop: '10px',
+      paddingBottom: 'calc(10px + env(safe-area-inset-bottom, 0px))',
       paddingLeft: '24px',
       paddingRight: '24px',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: '8px',
+      gap: '6px',
     }}>
       <RoundDots rounds={rounds} roundIndex={roundIndex} phase={phase} />
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -433,12 +431,12 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
   const shellStyle: React.CSSProperties = {
     position: 'relative',
     width: '100%',
-    minHeight: '100svh',
+    height: '100dvh',
+    maxHeight: '100dvh',
     background: bgColor,
     transition: 'background 0.4s',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
     overflow: 'hidden',
   };
 
@@ -446,7 +444,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     return (
       <>
         <style>{keyframes}</style>
-        <div style={{ ...shellStyle, alignItems: 'center', justifyContent: 'center', padding: '0 24px' }}>
+        <div style={{ ...shellStyle, alignItems: 'center', justifyContent: 'center', padding: '0 24px', height: '100dvh', maxHeight: '100dvh' }}>
           <div style={{ textAlign: 'center', width: '100%', maxWidth: '320px' }}>
             <p style={{
               fontFamily: 'Orbitron, sans-serif', color: '#B11226',
@@ -494,29 +492,27 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
         <style>{keyframes}</style>
         <div style={shellStyle}>
           <TransitionOverlay visible={overlay.visible} label={overlay.label} sublabel={overlay.sublabel} />
+
           {navBar}
 
           <div style={{
-            flex: 1,
+            flexShrink: 0,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
-            padding: '8px 28px 16px',
-            minHeight: 0,
-            overflow: 'hidden',
+            padding: '6px 28px 8px',
             textAlign: 'center',
           }}>
             <p style={{
               fontFamily: 'Orbitron, sans-serif',
               color: '#3a8a5a',
               fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase',
-              margin: '0 0 8px',
+              margin: '0 0 5px',
             }}>REST • RECOVER</p>
             <h2 style={{
               fontFamily: 'Orbitron, sans-serif', color: '#fff',
-              fontSize: 'clamp(22px, 5.5vw, 28px)', fontWeight: 900,
-              margin: '0 0 12px', letterSpacing: '0.06em',
+              fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
+              margin: '0 0 8px', letterSpacing: '0.06em',
             }}>REST</h2>
             <p style={{
               fontFamily: 'Orbitron, sans-serif', color: '#444',
@@ -527,15 +523,24 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
             </p>
           </div>
 
-          {timerBlock}
+          <div style={{
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: 0,
+            overflow: 'hidden',
+          }}>
+            {timerBlock}
+          </div>
 
           <div style={{
+            flexShrink: 0,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '10px',
-            padding: '14px 24px 0',
-            flexShrink: 0,
+            gap: '8px',
+            padding: '8px 24px 8px',
           }}>
             {pauseButton}
             {nextRound && (
@@ -560,30 +565,28 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
       <style>{keyframes}</style>
       <div style={shellStyle}>
         <TransitionOverlay visible={overlay.visible} label={overlay.label} sublabel={overlay.sublabel} />
+
         {navBar}
 
         <div style={{
-          flex: 1,
+          flexShrink: 0,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'flex-end',
-          padding: '8px 28px 12px',
-          minHeight: 0,
-          overflow: 'hidden',
+          padding: '6px 28px 8px',
           textAlign: 'center',
         }}>
           <p style={{
             fontFamily: 'Orbitron, sans-serif',
             color: isFinalRound ? '#e8a020' : '#B11226',
             fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase',
-            margin: '0 0 6px',
+            margin: '0 0 5px',
             transition: 'color 0.3s',
           }}>{roundTypeLabel}</p>
           <h2 style={{
             fontFamily: 'Orbitron, sans-serif', color: '#fff',
             fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
-            lineHeight: 1.25, margin: '0 0 12px',
+            lineHeight: 1.25, margin: '0 0 8px',
             textShadow: '0 0 16px rgba(177,18,38,0.35)',
             letterSpacing: '0.04em',
           }}>{currentRound.title.toUpperCase()}</h2>
@@ -601,15 +604,24 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           }}>{currentRound.body}</p>
         </div>
 
-        {timerBlock}
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: 0,
+          overflow: 'hidden',
+        }}>
+          {timerBlock}
+        </div>
 
         <div style={{
+          flexShrink: 0,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '10px',
-          padding: '14px 24px 0',
-          flexShrink: 0,
+          gap: '8px',
+          padding: '8px 24px 8px',
         }}>
           {pauseButton}
           <p style={{
