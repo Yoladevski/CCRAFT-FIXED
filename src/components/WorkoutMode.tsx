@@ -146,6 +146,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
   const rounds = session.rounds ?? [];
   const totalRounds = rounds.length;
 
+  const [mounted, setMounted] = useState(false);
   const [roundIndex, setRoundIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>('round');
   const [timeLeft, setTimeLeft] = useState(ROUND_DURATION);
@@ -159,6 +160,13 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
   const voiceEnabledRef = useRef(true);
 
   useEffect(() => { voiceEnabledRef.current = voiceEnabled; }, [voiceEnabled]);
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   const currentRound = rounds[roundIndex];
   const nextRound = rounds[roundIndex + 1];
@@ -208,7 +216,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
   }, [phase, roundIndex, totalRounds, showOverlay]);
 
   useEffect(() => {
-    if (phase === 'complete' || paused) return;
+    if (!mounted || phase === 'complete' || paused) return;
     if (timeLeft <= 0) { handleTransition(); return; }
     if (timeLeft === URGENCY_THRESHOLD && !urgencySpokenRef.current) {
       urgencySpokenRef.current = true;
@@ -216,27 +224,26 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     }
     const id = setTimeout(() => setTimeLeft(t => t - 1), 1000);
     return () => clearTimeout(id);
-  }, [timeLeft, paused, phase, handleTransition]);
+  }, [mounted, timeLeft, paused, phase, handleTransition]);
 
   useEffect(() => {
+    if (!mounted) return;
     if (!bellPlayedRef.current && phase !== 'complete') {
       bellPlayedRef.current = true;
       playBell();
     }
-  }, [phase, roundIndex]);
+  }, [mounted, phase, roundIndex]);
 
   useEffect(() => {
+    if (!mounted) return;
     if (phase === 'round' && !voicePlayedRef.current) {
       voicePlayedRef.current = true;
-      const isFinal = roundIndex === totalRounds - 1;
       if (roundIndex === 0) {
         setTimeout(() => speak('Round 1. Begin.', voiceEnabledRef.current), 600);
         showOverlay('ROUND 1');
-      } else if (isFinal) {
-        // handled in transition
       }
     }
-  }, [phase, roundIndex, totalRounds, showOverlay]);
+  }, [mounted, phase, roundIndex, totalRounds, showOverlay]);
 
   useEffect(() => {
     const prev = document.body.style.overflow;
