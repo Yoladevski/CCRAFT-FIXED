@@ -430,10 +430,23 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           <h2 style={{
             fontFamily: 'Orbitron, sans-serif', color: '#fff',
             fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
-            lineHeight: 1.25, margin: '0 0 8px',
+            lineHeight: 1.25, margin: 0,
             textShadow: '0 0 16px rgba(177,18,38,0.35)',
             letterSpacing: '0.04em',
           }}>{titleText}</h2>
+        </div>
+
+        {/* MIDDLE: description — halfway between title and clock */}
+        <div style={{
+          position: 'absolute',
+          top: '28%',
+          left: 0,
+          right: 0,
+          textAlign: 'center',
+          padding: '0 28px',
+          zIndex: 2,
+          transform: 'translateY(-50%)',
+        }}>
           <p style={{
             fontFamily: 'Orbitron, sans-serif',
             color: isRest ? '#444' : '#5a5a5a',
