@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { Pause, Play, RotateCcw, ChevronLeft } from 'lucide-react';
 import type { WorkoutSession } from '../data/boxingWorkouts';
 
@@ -111,6 +112,14 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     }
   }, [phase, roundIndex]);
 
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, []);
+
   const handleRestart = () => {
     setRoundIndex(0);
     setPhase('round');
@@ -124,47 +133,75 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
   const radius = 90;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
-
   const bg = paused ? '#070707' : '#0a0a0a';
 
+  let content: React.ReactNode;
+
   if (phase === 'complete') {
-    return (
+    content = (
       <div
-        className="fixed inset-0 z-50 flex flex-col items-center justify-center px-6"
-        style={{ height: '100dvh', background: '#0a0a0a' }}
+        style={{
+          position: 'fixed',
+          inset: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 9999,
+          background: '#0a0a0a',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '0 24px',
+          overflowY: 'hidden',
+        }}
       >
-        <div className="text-center w-full max-w-xs">
-          <p
-            className="text-[#B11226] text-xs tracking-widest uppercase mb-3"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
-          >
+        <div style={{ textAlign: 'center', width: '100%', maxWidth: '320px' }}>
+          <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#B11226', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}>
             Session Complete
           </p>
-          <h1
-            className="text-4xl font-black text-white mb-4 leading-tight"
-            style={{ fontFamily: 'Orbitron, sans-serif', textShadow: '0 0 30px rgba(177,18,38,0.5)' }}
-          >
+          <h1 style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '36px', fontWeight: 900, lineHeight: 1.2, marginBottom: '16px', textShadow: '0 0 30px rgba(177,18,38,0.5)' }}>
             WORKOUT<br />COMPLETE
           </h1>
-          <p className="text-[#A0A0A0] text-xs leading-relaxed mb-8" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+          <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#A0A0A0', fontSize: '11px', lineHeight: 1.7, marginBottom: '32px' }}>
             Great work. You've completed this CombatCraft session.
           </p>
-          <div className="flex flex-col gap-3">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <button
               onClick={onExit}
-              className="w-full py-4 rounded-lg text-white text-xs font-black tracking-widest uppercase transition-all active:scale-95"
               style={{
                 fontFamily: 'Orbitron, sans-serif',
+                width: '100%',
+                padding: '16px',
+                borderRadius: '8px',
+                color: '#fff',
+                fontSize: '11px',
+                fontWeight: 900,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
                 background: 'linear-gradient(135deg, #B11226, #8a0d1c)',
                 boxShadow: '0 0 20px rgba(177,18,38,0.4)',
+                border: 'none',
+                cursor: 'pointer',
               }}
             >
               Return to Workouts
             </button>
             <button
               onClick={handleRestart}
-              className="w-full py-4 rounded-lg text-[#A0A0A0] text-xs font-black tracking-widest uppercase border border-[#3a3a3a] transition-all active:scale-95 hover:border-[#B11226] hover:text-white"
-              style={{ fontFamily: 'Orbitron, sans-serif' }}
+              style={{
+                fontFamily: 'Orbitron, sans-serif',
+                width: '100%',
+                padding: '16px',
+                borderRadius: '8px',
+                color: '#A0A0A0',
+                fontSize: '11px',
+                fontWeight: 900,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                background: 'transparent',
+                border: '1px solid #3a3a3a',
+                cursor: 'pointer',
+              }}
             >
               Restart Session
             </button>
@@ -172,116 +209,210 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
         </div>
       </div>
     );
-  }
-
-  if (phase === 'rest') {
-    return (
+  } else if (phase === 'rest') {
+    content = (
       <div
-        className="fixed inset-0 z-50 flex flex-col"
-        style={{ height: '100dvh', background: bg, transition: 'background 0.3s' }}
+        style={{
+          position: 'fixed',
+          inset: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 9999,
+          background: bg,
+          transition: 'background 0.3s',
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'hidden',
+        }}
       >
         {/* TOP NAV */}
-        <div className="flex items-center justify-between px-4 pt-4 pb-2 shrink-0">
-          <button
-            onClick={onExit}
-            className="flex items-center gap-1 text-[#555] hover:text-[#A0A0A0] transition-colors active:scale-95"
-            style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px' }}
-          >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 16px 8px', flexShrink: 0 }}>
+          <button onClick={onExit} style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#555', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Orbitron, sans-serif', fontSize: '10px', letterSpacing: '0.08em' }}>
             <ChevronLeft size={14} />
             EXIT
           </button>
-          <span className="text-[#555] text-xs tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '11px', letterSpacing: '0.1em' }}>
             {paused ? 'PAUSED' : 'REST'}
           </span>
-          <button
-            onClick={handleRestart}
-            className="text-[#555] hover:text-[#A0A0A0] transition-colors active:scale-95 p-1"
-          >
+          <button onClick={handleRestart} style={{ color: '#555', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
             <RotateCcw size={14} />
           </button>
         </div>
 
-        {/* MAIN CONTENT */}
-        <div className="flex-1 flex flex-col items-center justify-center px-6 min-h-0">
-          {/* TOP: heading */}
-          <div className="text-center mb-4">
-            <h2
-              className="text-3xl font-black text-white leading-tight"
-              style={{ fontFamily: 'Orbitron, sans-serif' }}
-            >
-              REST
-            </h2>
-            <p className="text-[#666] text-xs mt-1 leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+        {/* MIDDLE — flex-1 centered */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 24px', minHeight: 0 }}>
+          <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+            <h2 style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '28px', fontWeight: 900, margin: 0 }}>REST</h2>
+            <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#666', fontSize: '10px', marginTop: '6px', lineHeight: 1.6 }}>
               Recover, breathe and prepare for the next round.
             </p>
           </div>
 
-          {/* MIDDLE: timer */}
-          <div className="relative flex items-center justify-center my-2">
-            <svg
-              width="220"
-              height="220"
-              className="transform -rotate-90"
-              style={{ maxWidth: '55vw', maxHeight: '55vw' }}
-            >
-              <circle cx="110" cy="110" r={radius} fill="none" stroke="#1a1a1a" strokeWidth="6" />
-              <circle
-                cx="110" cy="110" r={radius}
-                fill="none"
-                stroke="#555555"
-                strokeWidth="6"
-                strokeLinecap="round"
-                strokeDasharray={circumference}
-                strokeDashoffset={strokeDashoffset}
-                style={{ transition: 'stroke-dashoffset 1s linear' }}
-              />
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px' }}>
+            <svg width="200" height="200" style={{ transform: 'rotate(-90deg)', maxWidth: '52vw', maxHeight: '52vw' }}>
+              <circle cx="100" cy="100" r={radius} fill="none" stroke="#1a1a1a" strokeWidth="6" />
+              <circle cx="100" cy="100" r={radius} fill="none" stroke="#555" strokeWidth="6" strokeLinecap="round"
+                strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
+                style={{ transition: 'stroke-dashoffset 1s linear' }} />
             </svg>
-            <div className="absolute text-center">
-              <span
-                className="text-4xl font-black text-white tabular-nums"
-                style={{ fontFamily: 'Orbitron, sans-serif' }}
-              >
+            <div style={{ position: 'absolute', textAlign: 'center' }}>
+              <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '38px', fontWeight: 900, fontVariantNumeric: 'tabular-nums' }}>
                 {formatTime(timeLeft)}
               </span>
-              <p className="text-[#555] text-xs mt-0.5 tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+              <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', marginTop: '2px', letterSpacing: '0.1em' }}>
                 {paused ? 'PAUSED' : 'REMAINING'}
               </p>
             </div>
           </div>
 
-          {/* UP NEXT */}
           {nextRound && (
-            <div className="mt-3 py-2.5 px-4 rounded-lg border border-[#2a2a2a] text-center w-full max-w-xs">
-              <p className="text-[#555] text-xs tracking-widest uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                Up Next
-              </p>
-              <p className="text-white text-xs font-black tracking-wide mt-0.5" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+            <div style={{ border: '1px solid #2a2a2a', borderRadius: '8px', padding: '10px 16px', textAlign: 'center', width: '100%', maxWidth: '280px', marginBottom: '12px' }}>
+              <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', margin: 0 }}>Up Next</p>
+              <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '11px', fontWeight: 900, marginTop: '4px', margin: '4px 0 0' }}>
                 Round {nextRound.number} – {nextRound.title.toUpperCase()}
               </p>
             </div>
           )}
 
-          {/* PAUSE BUTTON */}
           <button
             onClick={() => setPaused(p => !p)}
-            className="flex items-center gap-2 mt-4 py-3 px-8 rounded-lg text-white text-xs font-black tracking-widest uppercase border border-[#3a3a3a] hover:border-[#555] transition-all active:scale-95"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              display: 'flex', alignItems: 'center', gap: '8px',
+              padding: '12px 32px', borderRadius: '8px',
+              color: '#fff', fontSize: '11px', fontWeight: 900,
+              letterSpacing: '0.1em', textTransform: 'uppercase',
+              background: 'transparent', border: '1px solid #3a3a3a',
+              cursor: 'pointer',
+            }}
           >
             {paused ? <Play size={14} /> : <Pause size={14} />}
             {paused ? 'RESUME' : 'PAUSE'}
           </button>
         </div>
 
-        {/* BOTTOM: progress */}
-        <div
-          className="shrink-0 py-3 px-6 flex items-center justify-center gap-3 border-t border-[#1a1a1a]"
-          style={{ background: '#0a0a0a' }}
-        >
-          <span className="text-[#555] text-xs tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-            REST
-          </span>
+        {/* BOTTOM */}
+        <div style={{ flexShrink: 0, borderTop: '1px solid #1a1a1a', background: '#0a0a0a', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', letterSpacing: '0.1em' }}>REST</span>
           <RoundDots rounds={rounds} roundIndex={roundIndex} />
-          <span className="text-[#A0A0A0] text-xs font-black tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#A0A0A0', fontSize: '11px', fontWeight: 900, letterSpacing: '0.1em' }}>
+            {roundIndex + 1} / {totalRounds}
+          </span>
+        </div>
+      </div>
+    );
+  } else {
+    content = (
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 9999,
+          background: bg,
+          transition: 'background 0.3s',
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'hidden',
+        }}
+      >
+        {/* TOP NAV */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 16px 8px', flexShrink: 0 }}>
+          <button onClick={onExit} style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#555', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Orbitron, sans-serif', fontSize: '10px', letterSpacing: '0.08em' }}>
+            <ChevronLeft size={14} />
+            EXIT
+          </button>
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '11px', letterSpacing: '0.1em' }}>
+            {paused ? 'PAUSED' : session.title.toUpperCase()}
+          </span>
+          <button onClick={handleRestart} style={{ color: '#555', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
+            <RotateCcw size={14} />
+          </button>
+        </div>
+
+        {/* MIDDLE */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 20px', minHeight: 0 }}>
+          {/* Round label + title */}
+          <div style={{ textAlign: 'center', marginBottom: '10px', flexShrink: 0 }}>
+            <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#B11226', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', margin: '0 0 4px' }}>
+              Round {currentRound.number}
+            </p>
+            <h2 style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '18px', fontWeight: 900, margin: 0, textShadow: '0 0 20px rgba(177,18,38,0.3)' }}>
+              {currentRound.title.toUpperCase()}
+            </h2>
+          </div>
+
+          {/* Description — hard clamped */}
+          <p style={{
+            fontFamily: 'Orbitron, sans-serif',
+            color: '#777',
+            fontSize: '10px',
+            lineHeight: 1.6,
+            textAlign: 'center',
+            maxWidth: '280px',
+            marginBottom: '12px',
+            flexShrink: 0,
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}>
+            {currentRound.body}
+          </p>
+
+          {/* Timer */}
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <svg width="200" height="200" style={{ transform: 'rotate(-90deg)', maxWidth: '52vw', maxHeight: '52vw' }}>
+              <circle cx="100" cy="100" r={radius} fill="none" stroke="#1a1a1a" strokeWidth="6" />
+              <circle cx="100" cy="100" r={radius} fill="none" stroke="#B11226" strokeWidth="6" strokeLinecap="round"
+                strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
+                style={{ transition: 'stroke-dashoffset 1s linear', filter: 'drop-shadow(0 0 6px rgba(177,18,38,0.6))' }} />
+            </svg>
+            <div style={{ position: 'absolute', textAlign: 'center' }}>
+              <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#fff', fontSize: '38px', fontWeight: 900, fontVariantNumeric: 'tabular-nums' }}>
+                {formatTime(timeLeft)}
+              </span>
+              <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', marginTop: '2px', letterSpacing: '0.1em' }}>
+                {paused ? 'PAUSED' : 'REMAINING'}
+              </p>
+            </div>
+          </div>
+
+          {/* Up next */}
+          <p style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', letterSpacing: '0.08em', marginTop: '8px', flexShrink: 0 }}>
+            {nextRound
+              ? `NEXT: Round ${nextRound.number} – ${nextRound.title.toUpperCase()}`
+              : roundIndex < totalRounds - 1 ? 'NEXT: REST' : 'FINAL ROUND'}
+          </p>
+
+          {/* Pause */}
+          <button
+            onClick={() => setPaused(p => !p)}
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              display: 'flex', alignItems: 'center', gap: '8px',
+              marginTop: '16px',
+              padding: '12px 32px', borderRadius: '8px',
+              color: '#fff', fontSize: '11px', fontWeight: 900,
+              letterSpacing: '0.1em', textTransform: 'uppercase',
+              background: paused ? 'linear-gradient(135deg, #B11226, #8a0d1c)' : 'transparent',
+              border: paused ? 'none' : '1px solid #3a3a3a',
+              boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
+              cursor: 'pointer',
+              flexShrink: 0,
+            }}
+          >
+            {paused ? <Play size={14} /> : <Pause size={14} />}
+            {paused ? 'RESUME' : 'PAUSE'}
+          </button>
+        </div>
+
+        {/* BOTTOM */}
+        <div style={{ flexShrink: 0, borderTop: '1px solid #1a1a1a', background: '#0a0a0a', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#555', fontSize: '10px', letterSpacing: '0.1em' }}>Round</span>
+          <RoundDots rounds={rounds} roundIndex={roundIndex} />
+          <span style={{ fontFamily: 'Orbitron, sans-serif', color: '#A0A0A0', fontSize: '11px', fontWeight: 900, letterSpacing: '0.1em' }}>
             {roundIndex + 1} / {totalRounds}
           </span>
         </div>
@@ -289,141 +420,5 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
     );
   }
 
-  // ROUND PHASE
-  return (
-    <div
-      className="fixed inset-0 z-50 flex flex-col"
-      style={{ height: '100dvh', background: bg, transition: 'background 0.3s' }}
-    >
-      {/* TOP NAV */}
-      <div className="flex items-center justify-between px-4 pt-4 pb-2 shrink-0">
-        <button
-          onClick={onExit}
-          className="flex items-center gap-1 text-[#555] hover:text-[#A0A0A0] transition-colors active:scale-95"
-          style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px' }}
-        >
-          <ChevronLeft size={14} />
-          EXIT
-        </button>
-        <span className="text-[#555] text-xs tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-          {paused ? 'PAUSED' : session.title.toUpperCase()}
-        </span>
-        <button
-          onClick={handleRestart}
-          className="text-[#555] hover:text-[#A0A0A0] transition-colors active:scale-95 p-1"
-        >
-          <RotateCcw size={14} />
-        </button>
-      </div>
-
-      {/* MAIN CONTENT */}
-      <div className="flex-1 flex flex-col items-center justify-center px-5 min-h-0">
-        {/* TOP: round label + title */}
-        <div className="text-center mb-3 shrink-0">
-          <p
-            className="text-[#B11226] text-xs tracking-widest uppercase mb-1"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
-          >
-            Round {currentRound.number}
-          </p>
-          <h2
-            className="text-xl sm:text-2xl font-black text-white leading-tight"
-            style={{
-              fontFamily: 'Orbitron, sans-serif',
-              textShadow: '0 0 20px rgba(177,18,38,0.3)',
-            }}
-          >
-            {currentRound.title.toUpperCase()}
-          </h2>
-        </div>
-
-        {/* DESCRIPTION — clamped so it never pushes timer off */}
-        <p
-          className="text-[#777] text-xs leading-relaxed text-center mb-3 shrink-0"
-          style={{
-            fontFamily: 'Orbitron, sans-serif',
-            maxWidth: '300px',
-            display: '-webkit-box',
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }}
-        >
-          {currentRound.body}
-        </p>
-
-        {/* TIMER — always visible */}
-        <div className="relative flex items-center justify-center shrink-0">
-          <svg
-            width="220"
-            height="220"
-            className="transform -rotate-90"
-            style={{ maxWidth: '55vw', maxHeight: '55vw' }}
-          >
-            <circle cx="110" cy="110" r={radius} fill="none" stroke="#1a1a1a" strokeWidth="6" />
-            <circle
-              cx="110" cy="110" r={radius}
-              fill="none"
-              stroke="#B11226"
-              strokeWidth="6"
-              strokeLinecap="round"
-              strokeDasharray={circumference}
-              strokeDashoffset={strokeDashoffset}
-              style={{
-                transition: 'stroke-dashoffset 1s linear',
-                filter: 'drop-shadow(0 0 6px rgba(177,18,38,0.6))',
-              }}
-            />
-          </svg>
-          <div className="absolute text-center">
-            <span
-              className="text-4xl font-black text-white tabular-nums"
-              style={{ fontFamily: 'Orbitron, sans-serif' }}
-            >
-              {formatTime(timeLeft)}
-            </span>
-            <p className="text-[#555] text-xs mt-0.5 tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-              {paused ? 'PAUSED' : 'REMAINING'}
-            </p>
-          </div>
-        </div>
-
-        {/* UP NEXT */}
-        <p className="text-[#555] text-xs tracking-widest mt-2 shrink-0" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-          {nextRound
-            ? `NEXT: Round ${nextRound.number} – ${nextRound.title.toUpperCase()}`
-            : 'NEXT: REST THEN FINISH'}
-        </p>
-
-        {/* PAUSE BUTTON */}
-        <button
-          onClick={() => setPaused(p => !p)}
-          className="flex items-center gap-2 mt-4 py-3 px-8 rounded-lg text-white text-xs font-black tracking-widest uppercase transition-all active:scale-95 shrink-0"
-          style={{
-            fontFamily: 'Orbitron, sans-serif',
-            background: paused ? 'linear-gradient(135deg, #B11226, #8a0d1c)' : 'transparent',
-            border: paused ? 'none' : '1px solid #3a3a3a',
-            boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
-          }}
-        >
-          {paused ? <Play size={14} /> : <Pause size={14} />}
-          {paused ? 'RESUME' : 'PAUSE'}
-        </button>
-      </div>
-
-      {/* BOTTOM: round progress */}
-      <div
-        className="shrink-0 py-3 px-6 flex items-center justify-center gap-3 border-t border-[#1a1a1a]"
-        style={{ background: '#0a0a0a' }}
-      >
-        <span className="text-[#555] text-xs tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-          Round
-        </span>
-        <RoundDots rounds={rounds} roundIndex={roundIndex} />
-        <span className="text-[#A0A0A0] text-xs font-black tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-          {roundIndex + 1} / {totalRounds}
-        </span>
-      </div>
-    </div>
-  );
+  return createPortal(content, document.body);
 }
