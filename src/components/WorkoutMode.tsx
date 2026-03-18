@@ -500,7 +500,7 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
             flexDirection: 'column',
             alignItems: 'center',
             width: '100%',
-            gap: '8px',
+            gap: '24px',
             paddingTop: '16px',
           }}>
           <button
