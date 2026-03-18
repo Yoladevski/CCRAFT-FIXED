@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
 import ActiveWorkout from '../components/WorkoutMode';
+import { unlockAudio } from '../lib/audioController';
 
 function AccordionCard({ title, children, defaultOpen = false }: { title: React.ReactNode; children: React.ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -156,7 +157,7 @@ export default function WorkoutSession() {
 
             {canStartWorkout && (
               <button
-                onClick={() => setWorkoutMode('active')}
+                onClick={async () => { await unlockAudio(); setWorkoutMode('active'); }}
                 className="w-full py-4 rounded-lg text-white text-sm font-black tracking-widest uppercase transition-all active:scale-95 hover:brightness-110"
                 style={{
                   fontFamily: 'Orbitron, sans-serif',

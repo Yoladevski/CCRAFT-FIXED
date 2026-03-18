@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Pause, Play, RotateCcw, ChevronLeft, Volume2, VolumeX } from 'lucide-react';
 import type { WorkoutSession } from '../data/boxingWorkouts';
+import { playBell, speak } from '../lib/audioController';
 
 type Phase = 'round' | 'rest' | 'complete';
 
@@ -19,45 +20,6 @@ function formatTime(seconds: number): string {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
-function playBell() {
-  try {
-    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
-    const createTone = (freq: number, startTime: number, duration: number, gainVal: number) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, startTime);
-      gain.gain.setValueAtTime(0, startTime);
-      gain.gain.linearRampToValueAtTime(gainVal, startTime + 0.01);
-      gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-      osc.start(startTime);
-      osc.stop(startTime + duration);
-    };
-    const now = ctx.currentTime;
-    createTone(880, now, 1.2, 0.6);
-    createTone(1100, now + 0.05, 1.0, 0.4);
-    createTone(660, now + 0.1, 0.8, 0.3);
-  } catch {
-    // audio not supported
-  }
-}
-
-function speak(text: string, voiceEnabled: boolean) {
-  if (!voiceEnabled) return;
-  if (!('speechSynthesis' in window)) return;
-  try {
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.9;
-    utterance.pitch = 0.85;
-    utterance.volume = 1;
-    window.speechSynthesis.speak(utterance);
-  } catch {
-    // speech not supported
-  }
-}
 
 interface RoundDotsProps {
   rounds: unknown[];
