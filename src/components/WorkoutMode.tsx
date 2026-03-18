@@ -530,14 +530,12 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           {timerBlock}
 
           <div style={{
-            flex: 1,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
-            gap: '14px',
-            padding: '16px 24px 8px',
-            minHeight: 0,
+            gap: '10px',
+            padding: '14px 24px 0',
+            flexShrink: 0,
           }}>
             {pauseButton}
             {nextRound && (
@@ -569,8 +567,8 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center',
-          padding: '8px 28px 16px',
+          justifyContent: 'flex-end',
+          padding: '8px 28px 12px',
           minHeight: 0,
           overflow: 'hidden',
           textAlign: 'center',
@@ -606,14 +604,12 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
         {timerBlock}
 
         <div style={{
-          flex: 1,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center',
-          gap: '14px',
-          padding: '16px 24px 8px',
-          minHeight: 0,
+          gap: '10px',
+          padding: '14px 24px 0',
+          flexShrink: 0,
         }}>
           {pauseButton}
           <p style={{
