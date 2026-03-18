@@ -106,7 +106,7 @@ export default function WorkoutSession() {
           <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold">
             {session.title.toUpperCase()}
           </h1>
-          <p className="text-[#A0A0A0] text-base sm:text-lg mt-3 leading-relaxed">
+          <p className="text-[#A0A0A0] text-lg sm:text-xl mt-3 leading-relaxed">
             {session.description}
           </p>
         </div>
