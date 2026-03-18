@@ -54,6 +54,12 @@
   --stroke-color: #FFFFFF;
 }
 
+body.workout-active footer,
+body.workout-active nav,
+body.workout-active header {
+  display: none !important;
+}
+
 * {
   margin: 0;
   padding: 0;
