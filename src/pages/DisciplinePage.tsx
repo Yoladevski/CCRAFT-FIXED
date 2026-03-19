@@ -103,7 +103,7 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
               } : undefined}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0E0E0E]" />
-              <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
+              <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
 
               {!category.is_active && (
                 <div className="absolute inset-0 bg-black/80 z-20 flex items-center justify-center">

@@ -464,7 +464,7 @@ export default function BoxingFoundations() {
             boxShadow: unlocked ? '0 0 15px rgba(177, 18, 38, 0.3)' : 'none',
           }}
         >
-          <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
+          <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="cc-outline-text text-xl sm:text-2xl font-bold">

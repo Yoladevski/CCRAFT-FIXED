@@ -135,7 +135,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
       <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20 flex items-center justify-center">
         <div className="max-w-2xl mx-auto relative z-10">
           <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center relative overflow-hidden">
-            <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
+            <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
             <div className="mb-6">
               <Lock size={64} className="mx-auto text-[#B11226]" />
             </div>
@@ -216,7 +216,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
           }}
         >
-          <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
+          <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
           <h2
             className="mb-2 hidden sm:block"
             style={{
@@ -295,7 +295,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
             }}
           >
-            <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
+            <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
             <h2 className="cc-section-heading mb-6 md:mb-8 hidden sm:block" data-text="CURRENT TRAINING">
               CURRENT TRAINING
             </h2>
@@ -363,7 +363,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
             }}
           >
-            <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
+            <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
             <h2 className="cc-section-heading mb-3 md:mb-4 hidden sm:block" data-text="CURRENT RANK">
               CURRENT RANK
             </h2>
