@@ -236,7 +236,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                fontSize: '14px',
+                fontSize: '18px',
                 letterSpacing: '3px',
                 color: '#FFFFFF',
                 textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
@@ -245,7 +245,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}>
                 COMBAT<br />CRAFT
               </h3>
-              <p className="leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
+              <p className="leading-relaxed text-body" style={{ color: '#FFFFFF' }}>
                 Structured martial arts training platform designed to teach real fighting techniques step-by-step.
               </p>
               </div>
@@ -265,7 +265,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                fontSize: '14px',
+                fontSize: '18px',
                 letterSpacing: '3px',
                 color: '#FFFFFF',
                 textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
@@ -274,7 +274,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}>
                 INSIDE<br />COMBATCRAFT
               </h3>
-              <ul className="text-center space-y-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', listStyle: 'none', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
+              <ul className="text-center space-y-1 text-body" style={{ color: '#FFFFFF', listStyle: 'none' }}>
                 <li>&#8226; Progress Tracking</li>
                 <li>&#8226; Structured Pathway</li>
                 <li>&#8226; AI Generated Videos</li>
@@ -296,7 +296,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                fontSize: '14px',
+                fontSize: '18px',
                 letterSpacing: '3px',
                 color: '#FFFFFF',
                 textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
@@ -305,7 +305,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}>
                 EXPLORE<br />DISCIPLINES
               </h3>
-              <ul className="text-center space-y-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', listStyle: 'none', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
+              <ul className="text-center space-y-1 text-body" style={{ color: '#FFFFFF', listStyle: 'none' }}>
                 <li>&#8226; Boxing</li>
                 <li>&#8226; Muay Thai</li>
                 <li>&#8226; Brazilian Jiu-Jitsu</li>
@@ -329,7 +329,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                fontSize: '14px',
+                fontSize: '18px',
                 letterSpacing: '3px',
                 color: '#FFFFFF',
                 textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
@@ -338,7 +338,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}>
                 HOW IT<br />WORKS
               </h3>
-              <p className="leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
+              <p className="leading-relaxed text-body" style={{ color: '#FFFFFF' }}>
                 Learn how the CombatCraft training system works and how techniques, lessons and workouts combine to build real martial arts skills through structured training.
               </p>
               </div>
