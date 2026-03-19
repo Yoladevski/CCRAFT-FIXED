@@ -74,7 +74,10 @@ export default function WorkoutOfTheDay() {
         <span className="text-base sm:text-lg leading-none">🔥</span>
         <h3
           className="text-[10px] sm:text-xs tracking-[0.2em] font-bold text-[#B11226] uppercase"
-          style={{ fontFamily: 'Orbitron, sans-serif' }}
+          style={{
+            fontFamily: 'Beantown, sans-serif',
+            textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000',
+          }}
         >
           Workout of the Day
         </h3>
@@ -89,7 +92,10 @@ export default function WorkoutOfTheDay() {
         </p>
         <h4
           className="text-sm sm:text-base font-bold text-white leading-tight uppercase tracking-wide"
-          style={{ fontFamily: 'Orbitron, sans-serif' }}
+          style={{
+            fontFamily: 'Beantown, sans-serif',
+            textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000',
+          }}
         >
           {workout.title}
         </h4>

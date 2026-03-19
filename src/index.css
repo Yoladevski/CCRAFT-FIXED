@@ -98,6 +98,11 @@ h1 {
   line-height: 1.1;
   letter-spacing: 0.06em;
   color: #FFFFFF;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 h2 {
@@ -198,11 +203,10 @@ nav a {
   text-transform: uppercase;
   color: #FFFFFF;
   text-shadow:
-    2px 2px 0 #B11226,
-    -2px -2px 0 #000000,
-    2px -2px 0 #000000,
-    -2px 2px 0 #000000,
-    2px 2px 0 #000000;
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 .outlined-text {
@@ -315,14 +319,10 @@ nav a {
   font-weight: 900;
   color: #FFFFFF;
   text-shadow:
-    2px 2px 0 #B11226,
-    -2px -2px 0 #000000,
-    2px -2px 0 #000000,
-    -2px 2px 0 #000000,
-    -1px -1px 0 #000000,
-    1px -1px 0 #000000,
-    -1px 1px 0 #000000,
-    1px 1px 0 #000000;
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 @keyframes powerLevelTick {

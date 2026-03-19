@@ -7,6 +7,11 @@
   color: #FFFFFF;
   word-break: break-word;
   overflow-wrap: break-word;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 .cc-hero-sub {
@@ -15,24 +20,14 @@
   font-size: clamp(22px, 3.8vw, 40px);
   line-height: 1.2;
   letter-spacing: 0.06em;
-  position: relative;
   color: #EDEDED;
-  -webkit-text-stroke: 6px #000000;
-  text-stroke: 6px #000000;
-  paint-order: stroke fill;
   word-break: break-word;
   overflow-wrap: break-word;
-}
-
-.cc-hero-sub::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 10px #B11226;
-  text-stroke: 10px #B11226;
-  color: transparent;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 .cc-primary-title {
@@ -44,6 +39,11 @@
   color: #FFFFFF;
   word-break: break-word;
   overflow-wrap: break-word;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 .cc-quote {
@@ -63,21 +63,14 @@
   font-size: clamp(16px, 2.5vw, 26px);
   line-height: 1.2;
   letter-spacing: 0.06em;
-  position: relative;
   color: #EDEDED;
   word-break: break-word;
   overflow-wrap: break-word;
-}
-
-.cc-section-heading::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 10px #B11226;
-  text-stroke: 10px #B11226;
-  color: transparent;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 .cc-tertiary-heading {
@@ -86,21 +79,9 @@
   font-size: clamp(14px, 2vw, 20px);
   line-height: 1.3;
   letter-spacing: 0.04em;
-  position: relative;
   color: #EDEDED;
   word-break: break-word;
   overflow-wrap: break-word;
-}
-
-.cc-tertiary-heading::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 8px #B11226;
-  text-stroke: 8px #B11226;
-  color: transparent;
 }
 
 .cc-card-label {
@@ -144,34 +125,28 @@
   font-family: 'Beantown', sans-serif;
   font-weight: 900;
   letter-spacing: 0.12em;
-  position: relative;
   color: #EDEDED;
-  -webkit-text-stroke: 6px #000000;
-  text-stroke: 6px #000000;
-  paint-order: stroke fill;
   word-break: break-word;
   overflow-wrap: break-word;
-}
-
-.cc-outline-text::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 10px #B11226;
-  text-stroke: 10px #B11226;
-  color: transparent;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 .cc-red-shadow-text {
   font-family: 'Beantown', sans-serif;
   font-weight: 900;
   letter-spacing: 0.12em;
-  color: #EDEDED;
-  text-shadow: 1px 1px 0 #B11226;
+  color: #B11226;
   word-break: break-word;
   overflow-wrap: break-word;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 .button-text {
@@ -189,21 +164,14 @@
   font-size: clamp(16px, 2.5vw, 26px);
   line-height: 1.2;
   letter-spacing: 0.06em;
-  position: relative;
   color: #EDEDED;
   word-break: break-word;
   overflow-wrap: break-word;
-}
-
-.heading-text::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 10px #B11226;
-  text-stroke: 10px #B11226;
-  color: transparent;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }
 
 .display-text {
@@ -215,4 +183,9 @@
   color: #FFFFFF;
   word-break: break-word;
   overflow-wrap: break-word;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000;
 }

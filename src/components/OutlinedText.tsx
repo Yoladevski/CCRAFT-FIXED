@@ -31,25 +31,7 @@ export function OutlinedText({ children, className = '', style = {} }: OutlinedT
         </style>
       </defs>
 
-      {/* Layer 1: Red outline (bottom) */}
-      <text
-        x="50%"
-        y="50%"
-        textAnchor="middle"
-        dominantBaseline="middle"
-        stroke="#B11226"
-        strokeWidth="9"
-        fill="none"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-        paintOrder="stroke fill"
-        shapeRendering="geometricPrecision"
-        textRendering="optimizeLegibility"
-      >
-        {children}
-      </text>
-
-      {/* Layer 2: Black outline (middle) */}
+      {/* Layer 1: Black outline (bottom) */}
       <text
         x="50%"
         y="50%"
