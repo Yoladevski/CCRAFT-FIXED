@@ -120,6 +120,7 @@
   color: #A0A0A0;
   word-break: break-word;
   overflow-wrap: break-word;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
 }
 
 .cc-outline-text {

@@ -219,7 +219,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}>
                 COMBAT<br />CRAFT
               </h3>
-              <p className="leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px', fontWeight: 500, color: '#A0A0A0' }}>
+              <p className="leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
                 Structured martial arts training platform designed to teach real fighting techniques step-by-step.
               </p>
             </button>
@@ -245,7 +245,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 }}>
                   INSIDE<br />COMBATCRAFT
                 </h3>
-                <ul className="text-center space-y-1" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px', fontWeight: 500, color: '#A0A0A0', listStyle: 'none' }}>
+                <ul className="text-center space-y-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', listStyle: 'none', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
                   <li>&#8226; Progress Tracking</li>
                   <li>&#8226; Structured Pathway</li>
                   <li>&#8226; AI Generated Videos</li>
@@ -272,7 +272,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 }}>
                   EXPLORE<br />DISCIPLINES
                 </h3>
-                <ul className="text-center space-y-1" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px', fontWeight: 500, color: '#A0A0A0', listStyle: 'none' }}>
+                <ul className="text-center space-y-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', listStyle: 'none', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
                   <li>&#8226; Boxing</li>
                   <li>&#8226; Muay Thai</li>
                   <li>&#8226; Brazilian Jiu-Jitsu</li>
@@ -302,7 +302,7 @@ export default function Home({ onNavigate }: HomeProps) {
               }}>
                 HOW IT<br />WORKS
               </h3>
-              <p className="leading-relaxed" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '10px', fontWeight: 500, color: '#A0A0A0' }}>
+              <p className="leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
                 Learn how the CombatCraft training system works and how techniques, lessons and workouts combine to build real martial arts skills through structured training.
               </p>
             </button>
