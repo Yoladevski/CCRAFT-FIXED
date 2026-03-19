@@ -1,6 +1,5 @@
 import { useAuth } from '../contexts/AuthContext';
 import { OutlinedText } from '../components/OutlinedText';
-import { GradientDots } from '../components/ui/gradient-dots';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -12,15 +11,6 @@ export default function Home({ onNavigate }: HomeProps) {
   return (
     <div>
       <section className="relative w-full overflow-hidden -mt-20" style={{ height: '100vh' }}>
-        <GradientDots
-          duration={25}
-          colorCycleDuration={8}
-          dotSize={6}
-          spacing={14}
-          backgroundColor="#0E0E0E"
-          style={{ opacity: 0.45 }}
-        />
-
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0E0E0E] z-10" />
 
         <div className="absolute inset-0 overflow-hidden">
