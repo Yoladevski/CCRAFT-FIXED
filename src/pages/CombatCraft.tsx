@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 const cards = [
   {
@@ -52,7 +53,7 @@ export default function CombatCraft() {
           {cards.map((card, i) => (
             <div
               key={i}
-              className="rounded-lg p-5 text-center"
+              className="rounded-lg p-5 text-center relative overflow-hidden"
               style={{
                 backgroundColor: '#2a2a2a',
                 border: '1px solid #B11226',
@@ -63,6 +64,7 @@ export default function CombatCraft() {
                 lineHeight: '1.9',
               }}
             >
+              <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
               {card.content}
             </div>
           ))}

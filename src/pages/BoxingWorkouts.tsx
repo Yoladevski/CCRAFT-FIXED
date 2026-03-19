@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 export default function BoxingWorkouts() {
   const navigate = useNavigate();
@@ -28,12 +29,13 @@ export default function BoxingWorkouts() {
         </div>
 
         <div
-          className="rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 mb-6 sm:mb-8"
+          className="rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 mb-6 sm:mb-8 relative overflow-hidden"
           style={{
             background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2), inset 0 0 10px rgba(177, 18, 38, 0.05)',
           }}
         >
+          <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
           <h2
             className="text-white font-bold text-base sm:text-lg mb-3 tracking-wide text-center"
             style={{ fontFamily: 'Orbitron, sans-serif', textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000' }}
@@ -56,13 +58,14 @@ export default function BoxingWorkouts() {
         </div>
 
         <div
-          className="rounded-2xl border-2 p-4 sm:p-6"
+          className="rounded-2xl border-2 p-4 sm:p-6 relative overflow-hidden"
           style={{
             borderColor: '#B11226',
             background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.3)',
           }}
         >
+          <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
           <div className="flex flex-col gap-2 sm:gap-3">
             {BOXING_WORKOUT_SESSIONS.map((session) => (
               <button

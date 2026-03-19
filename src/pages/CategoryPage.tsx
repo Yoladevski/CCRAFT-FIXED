@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Lock, ArrowLeft, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
+import { BGPattern } from '../components/ui/bg-pattern';
 import { Database } from '../lib/supabase';
 
 type Category = Database['public']['Tables']['categories']['Row'];
@@ -183,7 +184,7 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
                 key={technique.id}
                 onClick={() => unlocked && onNavigate('Technique', technique.id)}
                 disabled={!unlocked}
-                className={`w-full p-6 rounded-lg border-2 transition-all transform ${
+                className={`w-full p-6 rounded-lg border-2 transition-all transform relative overflow-hidden ${
                   completed
                     ? 'border-[#B11226] bg-[#B11226]/10'
                     : unlocked
@@ -194,6 +195,7 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 } : undefined}
               >
+                <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="text-3xl font-bold text-[#2E2E2E]">

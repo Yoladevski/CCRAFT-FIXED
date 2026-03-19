@@ -55,7 +55,7 @@ const BGPattern = ({
 	variant = 'grid',
 	mask = 'none',
 	size = 24,
-	fill = '#252525',
+	fill = '#333333',
 	className,
 	style,
 	...props

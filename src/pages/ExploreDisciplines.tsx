@@ -1,3 +1,5 @@
+import { BGPattern } from '../components/ui/bg-pattern';
+
 const cardImages: Record<string, string> = {
   'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/booxing.PNG',
   'Muay Thai': 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg',
@@ -33,6 +35,7 @@ export default function ExploreDisciplines() {
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
               >
+                <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
                 {discipline.comingSoon && (
                   <div className="absolute inset-0 z-20 flex items-center justify-center">
                     <img

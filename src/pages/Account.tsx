@@ -375,7 +375,7 @@ export default function Account({ onBack }: AccountProps) {
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
           }}
         >
-          <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
+          <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
           {/* Mobile Tab Navigation with Arrows */}
           <div className="flex sm:hidden border-b border-[#2E2E2E] items-center">
             <button
