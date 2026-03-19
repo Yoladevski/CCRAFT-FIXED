@@ -100,8 +100,6 @@ export default function Home({ onNavigate }: HomeProps) {
             <OutlinedText
               strokeWidth={3}
               redOutline
-              glowColor="rgba(255,0,0,0.45)"
-              glowStdDeviation={1.5}
               style={{
                 fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -115,8 +113,6 @@ export default function Home({ onNavigate }: HomeProps) {
             <OutlinedText
               strokeWidth={3}
               redOutline
-              glowColor="rgba(255,0,0,0.45)"
-              glowStdDeviation={1.5}
               style={{
                 fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -130,8 +126,6 @@ export default function Home({ onNavigate }: HomeProps) {
             <OutlinedText
               strokeWidth={3}
               redOutline
-              glowColor="rgba(255,0,0,0.45)"
-              glowStdDeviation={1.5}
               style={{
                 fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',

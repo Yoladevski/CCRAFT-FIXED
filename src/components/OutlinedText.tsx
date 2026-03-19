@@ -62,7 +62,7 @@ export function OutlinedText({
           textAnchor="middle"
           dominantBaseline="middle"
           stroke="#cc0000"
-          strokeWidth={strokeWidth + 3}
+          strokeWidth={strokeWidth + 1}
           fill="none"
           strokeLinejoin="round"
           vectorEffect="non-scaling-stroke"
