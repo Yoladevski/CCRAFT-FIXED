@@ -123,7 +123,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>LOADING...</div>
+        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'Orbitron, sans-serif' }}>LOADING...</div>
       </div>
     );
   }
@@ -167,7 +167,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#0E0E0E]">
         <div className="text-center max-w-md px-4">
-          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>PROFILE NOT FOUND</div>
+          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>PROFILE NOT FOUND</div>
           <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
             Please complete your profile setup to access the dashboard.
           </p>
@@ -186,7 +186,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#0E0E0E]">
         <div className="text-center max-w-md px-4">
-          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>COMPLETE YOUR PROFILE</div>
+          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>COMPLETE YOUR PROFILE</div>
           <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
             Welcome! Let's set up your profile to get started with your training journey.
           </p>
@@ -217,7 +217,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           <h2
             className="mb-2 hidden sm:block"
             style={{
-              fontFamily: 'BeanTown, sans-serif',
+              fontFamily: 'Beantown, sans-serif',
               fontWeight: 900,
               color: '#FFFFFF',
               textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 2px 2px 0 #cc0000, -2px 2px 0 #cc0000, 2px -2px 0 #cc0000, -2px -2px 0 #cc0000',
@@ -228,7 +228,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           <div className="sm:hidden mb-2">
             <h2
               style={{
-                fontFamily: 'BeanTown, sans-serif',
+                fontFamily: 'Beantown, sans-serif',
                 fontWeight: 900,
                 fontSize: '0.85rem',
                 color: '#FFFFFF',
@@ -239,7 +239,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </h2>
             <h2
               style={{
-                fontFamily: 'BeanTown, sans-serif',
+                fontFamily: 'Beantown, sans-serif',
                 fontWeight: 900,
                 fontSize: '0.85rem',
                 color: '#FFFFFF',

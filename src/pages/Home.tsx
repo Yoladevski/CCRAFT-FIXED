@@ -65,7 +65,7 @@ export default function Home({ onNavigate }: HomeProps) {
               strokeWidth={3}
               style={{
                 fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
-                fontFamily: 'BeanTown, sans-serif',
+                fontFamily: 'Beantown, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
                 letterSpacing: '0.15em',
@@ -78,7 +78,7 @@ export default function Home({ onNavigate }: HomeProps) {
               strokeWidth={3}
               style={{
                 fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
-                fontFamily: 'BeanTown, sans-serif',
+                fontFamily: 'Beantown, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
                 letterSpacing: '0.15em',

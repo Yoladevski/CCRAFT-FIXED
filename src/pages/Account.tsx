@@ -332,7 +332,7 @@ export default function Account({ onBack }: AccountProps) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>LOADING...</div>
+        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'Orbitron, sans-serif' }}>LOADING...</div>
       </div>
     );
   }

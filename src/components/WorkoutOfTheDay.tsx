@@ -75,7 +75,7 @@ export default function WorkoutOfTheDay() {
         <h1
           className="text-[10px] sm:text-xs tracking-[0.2em] font-bold text-[#B11226] uppercase"
           style={{
-            fontFamily: 'BeanTown, sans-serif',
+            fontFamily: 'Beantown, sans-serif',
             textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
           }}
         >
@@ -97,7 +97,7 @@ export default function WorkoutOfTheDay() {
         <h2
           className="text-sm sm:text-base font-bold text-white leading-tight uppercase tracking-wide"
           style={{
-            fontFamily: 'BeanTown, sans-serif',
+            fontFamily: 'Beantown, sans-serif',
             textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
           }}
         >
