@@ -24,22 +24,22 @@ const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
             </button>
           </div>
 
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex justify-center items-center gap-6">
             <button
               onClick={() => onNavigate('Legal')}
-              className="text-[#A0A0A0] hover:text-white transition-colors text-body font-medium uppercase"
+              className="text-[#A0A0A0] hover:text-white transition-colors text-xs font-medium uppercase tracking-wide"
             >
               Legal
             </button>
             <button
               onClick={() => onNavigate('AboutUs')}
-              className="text-[#A0A0A0] hover:text-white transition-colors text-body font-medium uppercase"
+              className="text-[#A0A0A0] hover:text-white transition-colors text-xs font-medium uppercase tracking-wide"
             >
               About Us
             </button>
             <button
               onClick={() => onNavigate('Contact')}
-              className="text-[#A0A0A0] hover:text-white transition-colors text-body font-medium uppercase"
+              className="text-[#A0A0A0] hover:text-white transition-colors text-xs font-medium uppercase tracking-wide"
             >
               Contact
             </button>
