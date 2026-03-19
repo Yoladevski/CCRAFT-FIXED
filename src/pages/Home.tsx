@@ -99,6 +99,7 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               strokeWidth={3}
+              redOutline
               glowColor="rgba(255,0,0,0.45)"
               glowStdDeviation={1.5}
               style={{
@@ -113,6 +114,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               strokeWidth={3}
+              redOutline
               glowColor="rgba(255,0,0,0.45)"
               glowStdDeviation={1.5}
               style={{
@@ -127,6 +129,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               strokeWidth={3}
+              redOutline
               glowColor="rgba(255,0,0,0.45)"
               glowStdDeviation={1.5}
               style={{

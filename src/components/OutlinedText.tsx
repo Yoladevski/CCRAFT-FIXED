@@ -3,6 +3,7 @@ interface OutlinedTextProps {
   className?: string;
   style?: React.CSSProperties;
   strokeWidth?: number;
+  redOutline?: boolean;
   glowColor?: string;
   glowStdDeviation?: number;
   fillColor?: string;
@@ -13,6 +14,7 @@ export function OutlinedText({
   className = '',
   style = {},
   strokeWidth = 8,
+  redOutline = false,
   glowColor,
   glowStdDeviation = 2,
   fillColor = '#EDEDED',
@@ -52,6 +54,25 @@ export function OutlinedText({
           </filter>
         )}
       </defs>
+
+      {redOutline && strokeWidth > 0 && (
+        <text
+          x="50%"
+          y="50%"
+          textAnchor="middle"
+          dominantBaseline="middle"
+          stroke="#cc0000"
+          strokeWidth={strokeWidth + 3}
+          fill="none"
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+          paintOrder="stroke fill"
+          shapeRendering="geometricPrecision"
+          textRendering="optimizeLegibility"
+        >
+          {children}
+        </text>
+      )}
 
       <text
         x="50%"
