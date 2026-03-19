@@ -31,7 +31,7 @@ export default function BoxingWorkouts() {
           className="rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 mb-6 sm:mb-8"
           style={{
             background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
-            boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2), inset 0 0 10px rgba(177, 18, 38, 0.05)',
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
           }}
         >
           <h2
@@ -60,7 +60,7 @@ export default function BoxingWorkouts() {
           style={{
             borderColor: '#B11226',
             background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
-            boxShadow: '0 0 15px rgba(177, 18, 38, 0.3)',
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
           }}
         >
           <div className="flex flex-col gap-2 sm:gap-3">

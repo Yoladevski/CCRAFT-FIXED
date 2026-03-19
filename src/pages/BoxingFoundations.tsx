@@ -461,10 +461,12 @@ export default function BoxingFoundations() {
           style={{
             borderColor: unlocked ? '#B11226' : '#2E2E2E',
             background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
-            boxShadow: unlocked ? '0 0 15px rgba(177, 18, 38, 0.3)' : 'none',
+            boxShadow: unlocked ? '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' : 'none',
+            isolation: 'isolate',
           }}
         >
           <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+          <div className="relative z-10">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="cc-outline-text text-xl sm:text-2xl font-bold">
@@ -525,6 +527,7 @@ export default function BoxingFoundations() {
               })}
             </div>
           )}
+          </div>
         </div>
       </div>
 

@@ -349,7 +349,7 @@ export default function Account({ onBack }: AccountProps) {
         </h1>
 
         {isFirstTimeSetup && (
-          <div className="mb-6 p-4 sm:p-6 bg-[#B11226]/10 border-2 border-[#B11226] rounded-lg text-center">
+          <div className="mb-6 p-4 sm:p-6 bg-[#B11226]/10 border-2 border-[#B11226] rounded-lg text-center" style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}>
             <h2 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226] mb-2">
               WELCOME TO COMBATCRAFT!
             </h2>
@@ -886,7 +886,7 @@ export default function Account({ onBack }: AccountProps) {
                         DELETE ACCOUNT
                       </button>
                     ) : (
-                      <div className="bg-[#B11226]/10 border-2 border-[#B11226] rounded p-3 sm:p-4">
+                      <div className="bg-[#B11226]/10 border-2 border-[#B11226] rounded p-3 sm:p-4" style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}>
                         <p className="text-xs sm:text-sm text-[#B11226] mb-3 sm:mb-4 font-bold" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                           WARNING: This action cannot be undone. All your data will be permanently deleted.
                         </p>

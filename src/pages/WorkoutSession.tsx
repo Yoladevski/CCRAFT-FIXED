@@ -14,6 +14,7 @@ function AccordionCard({ title, children, defaultOpen = false }: { title: React.
       style={{
         backgroundColor: '#2a2a2a',
         border: '1px solid #B11226',
+        boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
         fontFamily: 'Orbitron, sans-serif',
         fontSize: '11px',
         fontWeight: 400,

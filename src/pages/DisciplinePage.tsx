@@ -99,8 +99,9 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
                   : 'border-[#2E2E2E] opacity-60 cursor-not-allowed'
               }`}
               style={category.is_active ? {
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
-              } : undefined}
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+                isolation: 'isolate',
+              } : { isolation: 'isolate' }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0E0E0E]" />
               <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />

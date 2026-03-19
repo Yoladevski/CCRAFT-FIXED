@@ -221,7 +221,7 @@ export default function Home({ onNavigate }: HomeProps) {
               onClick={() => onNavigate('CombatCraft')}
               className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
                 minHeight: '160px',
                 isolation: 'isolate',
               }}
@@ -251,7 +251,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 onClick={() => onNavigate('AIInstruction')}
                 className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
                 style={{
-                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
                   minHeight: '160px',
                   isolation: 'isolate',
                 }}
@@ -282,7 +282,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 onClick={() => onNavigate('ExploreDisciplines')}
                 className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
                 style={{
-                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
                   minHeight: '160px',
                   isolation: 'isolate',
                 }}
@@ -316,7 +316,7 @@ export default function Home({ onNavigate }: HomeProps) {
               onClick={() => onNavigate('HowItWorks')}
               className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
                 minHeight: '160px',
                 isolation: 'isolate',
               }}
