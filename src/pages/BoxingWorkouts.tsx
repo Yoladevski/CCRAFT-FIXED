@@ -20,7 +20,7 @@ export default function BoxingWorkouts() {
 
         <div className="text-center mb-6 sm:mb-8">
           <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold">
-            WORK OUT SESSIONS
+            WORKOUT SESSIONS
           </h1>
           <p className="text-[#A0A0A0] text-sm sm:text-base mt-3 leading-relaxed max-w-xl mx-auto">
             Structured training sessions designed to apply techniques through timed rounds and drills.
@@ -40,16 +40,16 @@ export default function BoxingWorkouts() {
           >
             Workout Format
           </h2>
-          <ul className="space-y-2">
+          <ul className="space-y-2 flex flex-col items-center">
             {[
               '3 minute rounds',
               '1 minute rest',
               '6–7 rounds per session',
               'Suitable for shadow boxing, heavy bag or pad work',
             ].map((item) => (
-              <li key={item} className="flex items-start justify-center gap-2 text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
+              <li key={item} className="flex items-start gap-2 text-[#A0A0A0] text-sm sm:text-base leading-relaxed text-center">
                 <span className="text-[#B11226] font-bold mt-0.5 flex-shrink-0">•</span>
-                <span>{item}</span>
+                <span className="text-center">{item}</span>
               </li>
             ))}
           </ul>
@@ -71,11 +71,17 @@ export default function BoxingWorkouts() {
                 className="w-full flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#2E2E2E] transition-all hover:scale-[1.01] hover:border-[#B11226] hover:bg-[rgba(177,18,38,0.06)] cursor-pointer text-center"
                 style={{ background: '#1A1A1A' }}
               >
-                <div className="flex flex-col gap-0.5 flex-1 text-center">
-                  <span className="text-white font-bold text-sm sm:text-base">
-                    Session {session.number} – {session.title}
+                <div className="flex flex-col gap-1.5 flex-1 text-center min-w-0">
+                  <span
+                    className="text-[#B11226] text-xs font-semibold tracking-widest uppercase block"
+                    style={{ fontFamily: 'Orbitron, sans-serif' }}
+                  >
+                    Session {session.number}
                   </span>
-                  <span className="text-[#A0A0A0] text-xs sm:text-sm leading-relaxed">
+                  <span className="text-white font-bold text-sm sm:text-base tracking-wide block">
+                    {session.title}
+                  </span>
+                  <span className="text-[#A0A0A0] text-xs leading-relaxed block break-words">
                     {session.description}
                   </span>
                 </div>
