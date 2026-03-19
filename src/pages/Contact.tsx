@@ -1,5 +1,6 @@
 import { Mail } from 'lucide-react';
 import BackButton from '../components/BackButton';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface ContactProps {
   onBack: () => void;
@@ -22,7 +23,8 @@ export default function Contact({ onBack }: ContactProps) {
           </p>
 
           <div className="space-y-6 mt-8">
-            <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 rounded-lg flex items-center gap-4">
+            <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 rounded-lg flex items-center gap-4 relative overflow-hidden">
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <Mail className="text-[#B11226] flex-shrink-0" size={32} />
               <div>
                 <p className="text-[#A0A0A0] text-sm mb-1">Email</p>
@@ -35,7 +37,8 @@ export default function Contact({ onBack }: ContactProps) {
               </div>
             </div>
 
-            <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 rounded-lg flex items-center gap-4">
+            <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 rounded-lg flex items-center gap-4 relative overflow-hidden">
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <Mail className="text-[#B11226] flex-shrink-0" size={32} />
               <div>
                 <p className="text-[#A0A0A0] text-sm mb-1">Business Inquiries</p>

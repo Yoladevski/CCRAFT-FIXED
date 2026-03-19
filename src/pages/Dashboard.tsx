@@ -9,6 +9,7 @@ import LevelProgressIndicator from '../components/LevelProgressIndicator';
 import WorkoutOfTheDay from '../components/WorkoutOfTheDay';
 import TrainingStreak from '../components/TrainingStreak';
 import { BOXING_FOUNDATIONS_LEVELS } from '../data/foundationsLessons';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
@@ -133,7 +134,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     return (
       <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20 flex items-center justify-center">
         <div className="max-w-2xl mx-auto relative z-10">
-          <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center">
+          <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center relative overflow-hidden">
+            <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
             <div className="mb-6">
               <Lock size={64} className="mx-auto text-[#B11226]" />
             </div>
@@ -209,11 +211,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* WELCOME MESSAGE */}
         <div
-          className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center"
+          className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center relative overflow-hidden"
           style={{
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
           }}
         >
+          <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
           <h2
             className="mb-2 hidden sm:block"
             style={{
@@ -287,11 +290,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           {/* CURRENT TRAINING PANEL */}
           <div
-            className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 md:p-10 text-center flex flex-col justify-center"
+            className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 md:p-10 text-center flex flex-col justify-center relative overflow-hidden"
             style={{
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
             }}
           >
+            <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
             <h2 className="cc-section-heading mb-6 md:mb-8 hidden sm:block" data-text="CURRENT TRAINING">
               CURRENT TRAINING
             </h2>
@@ -354,11 +358,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
           {/* CURRENT RANK CARD */}
           <div
-            className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center"
+            className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden"
             style={{
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
             }}
           >
+            <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
             <h2 className="cc-section-heading mb-3 md:mb-4 hidden sm:block" data-text="CURRENT RANK">
               CURRENT RANK
             </h2>

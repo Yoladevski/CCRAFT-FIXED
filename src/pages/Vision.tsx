@@ -1,4 +1,5 @@
 import BackButton from '../components/BackButton';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface VisionProps {
   onBack: () => void;
@@ -30,7 +31,8 @@ export default function Vision({ onBack }: VisionProps) {
             </ul>
           </section>
 
-          <div className="bg-[#1A1A1A] border-l-4 border-[#B11226] p-8 mt-8">
+          <div className="bg-[#1A1A1A] border-l-4 border-[#B11226] p-8 mt-8 relative overflow-hidden">
+            <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
             <p className="text-white font-bold text-xl text-center">
               COMBATCRAFT is built around progression, not shortcuts.
             </p>

@@ -4,6 +4,7 @@ import { ArrowLeft, CheckCircle, ChevronDown, Check } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 type Technique = Database['public']['Tables']['techniques']['Row'];
 
@@ -274,11 +275,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
         <div className="space-y-8">
           {technique.why && (
             <div
-              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <button
                 onClick={() => toggleSection('why')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -304,11 +306,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
 
           {technique.how && (
             <div
-              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <button
                 onClick={() => toggleSection('how')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -334,11 +337,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
 
           {technique.common_mistakes && (
             <div
-              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <button
                 onClick={() => toggleSection('mistakes')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -364,11 +368,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
 
           {technique.simple_drills && (
             <div
-              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <button
                 onClick={() => toggleSection('drills')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -396,11 +401,12 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
 
           {technique.coaches_tips && (
             <div
-              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden"
+              className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <button
                 onClick={() => toggleSection('coachesTips')}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"

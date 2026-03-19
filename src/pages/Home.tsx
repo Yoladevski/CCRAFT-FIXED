@@ -1,5 +1,6 @@
 import { useAuth } from '../contexts/AuthContext';
 import { OutlinedText } from '../components/OutlinedText';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
@@ -218,12 +219,13 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="flex flex-col md:grid md:grid-cols-4 gap-6 sm:gap-8 mt-[10px] items-stretch">
             <button
               onClick={() => onNavigate('CombatCraft')}
-              className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
+              className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                 minHeight: '160px',
               }}
             >
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
@@ -244,12 +246,13 @@ export default function Home({ onNavigate }: HomeProps) {
             <div className="grid grid-cols-2 gap-6 md:contents">
               <button
                 onClick={() => onNavigate('AIInstruction')}
-                className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
+                className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                   minHeight: '160px',
                 }}
               >
+                <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
                 <h3 className="mb-4" style={{
                   fontFamily: 'Orbitron, sans-serif',
                   fontWeight: 900,
@@ -271,12 +274,13 @@ export default function Home({ onNavigate }: HomeProps) {
 
               <button
                 onClick={() => onNavigate('ExploreDisciplines')}
-                className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
+                className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                   minHeight: '160px',
                 }}
               >
+                <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
                 <h3 className="mb-4" style={{
                   fontFamily: 'Orbitron, sans-serif',
                   fontWeight: 900,
@@ -301,12 +305,13 @@ export default function Home({ onNavigate }: HomeProps) {
 
             <button
               onClick={() => onNavigate('HowItWorks')}
-              className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center"
+              className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                 minHeight: '160px',
               }}
             >
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,

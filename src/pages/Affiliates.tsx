@@ -1,5 +1,6 @@
 import { Mail } from 'lucide-react';
 import BackButton from '../components/BackButton';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface AffiliatesProps {
   onBack: () => void;
@@ -25,7 +26,8 @@ export default function Affiliates({ onBack }: AffiliatesProps) {
             Affiliate partnerships are structured around value, integrity, and performance alignment.
           </p>
 
-          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-8 rounded-lg mt-8">
+          <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-8 rounded-lg mt-8 relative overflow-hidden">
+            <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
             <h2 className="cc-outline-text text-white font-bold text-xl mb-4">Apply for Affiliate Opportunities</h2>
             <div className="flex items-center gap-4">
               <Mail className="text-[#B11226] flex-shrink-0" size={32} />

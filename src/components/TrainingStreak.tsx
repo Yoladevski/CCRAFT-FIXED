@@ -1,4 +1,5 @@
 import { useStreakContext } from '../contexts/StreakContext';
+import { BGPattern } from './ui/bg-pattern';
 
 export default function TrainingStreak() {
   const { currentStreak, trainedToday, justIncreased, loading } = useStreakContext();
@@ -16,12 +17,13 @@ export default function TrainingStreak() {
 
   return (
     <div
-      className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-5 sm:p-6 flex flex-col gap-3"
+      className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-5 sm:p-6 flex flex-col gap-3 relative overflow-hidden"
       style={{
         boxShadow:
           '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
       }}
     >
+      <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
       <div className="flex items-center justify-center gap-2">
         <span className="text-base sm:text-lg leading-none">🔥</span>
         <h3

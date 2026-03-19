@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 export default function StructuredProgression() {
   const navigate = useNavigate();
@@ -13,7 +14,8 @@ export default function StructuredProgression() {
       <div className="max-w-4xl mx-auto relative z-10">
         <BackButton onClick={goToHome} />
 
-        <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-12 mt-8">
+        <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-12 mt-8 relative overflow-hidden">
+          <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
           <div className="mb-8 flex justify-center">
             <img
               src="https://i.postimg.cc/D0fKBBM2/fightcraft1.jpg"

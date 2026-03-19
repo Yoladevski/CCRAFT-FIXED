@@ -1,4 +1,5 @@
 import BackButton from '../components/BackButton';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface NewsProps {
   onBack: () => void;
@@ -32,12 +33,13 @@ export default function News({ onBack }: NewsProps) {
           {newsCards.map((card) => (
             <div
               key={card.id}
-              className="rounded-lg overflow-hidden border-2 border-[#B11226]"
+              className="rounded-lg overflow-hidden border-2 border-[#B11226] relative"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
-              <div className="h-56 sm:h-64 bg-[#1A1A1A] overflow-hidden">
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
+              <div className="h-56 sm:h-64 bg-[#1A1A1A] overflow-hidden relative z-10">
                 <img
                   src={card.image}
                   alt={card.title}
@@ -46,7 +48,7 @@ export default function News({ onBack }: NewsProps) {
                   className="w-full h-full object-cover object-center brightness-90 contrast-125"
                 />
               </div>
-              <div className="bg-[#2E2E2E] px-5 py-4">
+              <div className="bg-[#2E2E2E] px-5 py-4 relative z-10">
                 <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-2">{card.title}</h2>
                 <p className="text-[#A0A0A0] text-sm leading-relaxed">{card.description}</p>
               </div>
