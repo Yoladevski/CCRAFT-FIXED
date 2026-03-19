@@ -18,18 +18,19 @@ type BGPatternProps = React.ComponentProps<'div'> & {
 	mask?: BGMaskType;
 	size?: number;
 	fill?: string;
+	opacity?: number;
 };
 
-const maskClasses: Record<BGMaskType, string> = {
-	'fade-edges': '[mask-image:radial-gradient(ellipse_at_center,var(--background),transparent)]',
-	'fade-center': '[mask-image:radial-gradient(ellipse_at_center,transparent,var(--background))]',
-	'fade-top': '[mask-image:linear-gradient(to_bottom,transparent,var(--background))]',
-	'fade-bottom': '[mask-image:linear-gradient(to_bottom,var(--background),transparent)]',
-	'fade-left': '[mask-image:linear-gradient(to_right,transparent,var(--background))]',
-	'fade-right': '[mask-image:linear-gradient(to_right,var(--background),transparent)]',
-	'fade-x': '[mask-image:linear-gradient(to_right,transparent,var(--background),transparent)]',
-	'fade-y': '[mask-image:linear-gradient(to_bottom,transparent,var(--background),transparent)]',
-	none: '',
+const maskStyles: Record<BGMaskType, React.CSSProperties> = {
+	'fade-edges': { maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 100%)' },
+	'fade-center': { maskImage: 'radial-gradient(ellipse at center, transparent 30%, black 100%)' },
+	'fade-top': { maskImage: 'linear-gradient(to bottom, transparent, black)' },
+	'fade-bottom': { maskImage: 'linear-gradient(to bottom, black, transparent)' },
+	'fade-left': { maskImage: 'linear-gradient(to right, transparent, black)' },
+	'fade-right': { maskImage: 'linear-gradient(to right, black, transparent)' },
+	'fade-x': { maskImage: 'linear-gradient(to right, transparent, black, transparent)' },
+	'fade-y': { maskImage: 'linear-gradient(to bottom, transparent, black, transparent)' },
+	none: {},
 };
 
 function geBgImage(variant: BGVariantType, fill: string, size: number) {
@@ -55,7 +56,8 @@ const BGPattern = ({
 	variant = 'grid',
 	mask = 'none',
 	size = 24,
-	fill = '#2a2a2a',
+	fill = '#3a3a3a',
+	opacity = 0.4,
 	className,
 	style,
 	...props
@@ -65,10 +67,12 @@ const BGPattern = ({
 
 	return (
 		<div
-			className={cn('absolute inset-0 z-[-10] size-full', maskClasses[mask], className)}
+			className={cn('absolute inset-0 z-[-10] size-full', className)}
 			style={{
 				backgroundImage,
 				backgroundSize: bgSize,
+				opacity,
+				...maskStyles[mask],
 				...style,
 			}}
 			{...props}
