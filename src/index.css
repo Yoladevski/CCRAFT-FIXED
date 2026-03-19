@@ -1,17 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: 'Redhawk';
-  src: url('/src/assets/fonts/Redhawk.otf') format('opentype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
 
 @font-face {
   font-family: 'Orbitron';
@@ -30,8 +19,9 @@
 }
 
 :root {
-  --font-heading: 'Beantown', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-h1: 'Beantown', sans-serif;
+  --font-h2: 'Orbitron', sans-serif;
+  --font-body: system-ui, -apple-system, Arial, sans-serif;
 }
 
 [data-theme="dark"] {
@@ -67,7 +57,7 @@ body.workout-active header {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
   letter-spacing: 0.01em;
   background-color: var(--color-bg-primary, #0f0f0f);
@@ -96,7 +86,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Beantown', sans-serif;
+  font-family: var(--font-h1);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -105,51 +95,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-family: var(--font-h1);
   letter-spacing: 0.06em;
   line-height: 1.1;
-  -webkit-text-stroke: unset;
-  text-stroke: unset;
-  paint-order: unset;
 }
 
 h2 {
+  font-family: var(--font-h2);
   line-height: 1.1;
-  position: relative;
   color: #EDEDED;
-  -webkit-text-stroke: 5px #000000;
-  text-stroke: 5px #000000;
-  paint-order: stroke fill;
-}
-
-h2::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 9px #B11226;
-  text-stroke: 9px #B11226;
-  color: transparent;
+  letter-spacing: 0.06em;
 }
 
 h3, h4, h5, h6 {
+  font-family: var(--font-h2);
   letter-spacing: 0.05em;
-  position: relative;
   color: #EDEDED;
-  -webkit-text-stroke: 4px #000000;
-  text-stroke: 4px #000000;
-  paint-order: stroke fill;
-}
-
-h3::before, h4::before, h5::before, h6::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 8px #B11226;
-  text-stroke: 8px #B11226;
-  color: transparent;
 }
 
 button {
@@ -161,14 +122,13 @@ button {
 }
 
 label, input, select, textarea {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
 }
 
-p, span, div, li, small {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
+p, li, small {
+  font-family: var(--font-body);
+  font-weight: 400;
 }
 
 .bg-\[\#1A1A1A\]:not(button),
@@ -187,30 +147,27 @@ button[class*="rounded"] {
 
 .numeric-display,
 [data-numeric="true"] {
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-body) !important;
   font-feature-settings: 'tnum' 1;
   font-weight: 700;
 }
 
 nav button,
 nav a {
-  font-family: 'Beantown', sans-serif;
-  font-weight: 900;
+  font-family: var(--font-body);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #FFFFFF;
 }
 
 .nav-menu-item {
-  font-family: 'Beantown', sans-serif;
-  font-weight: 900;
-  font-size: 16.8px;
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(15px, 3.5vw, 18px);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #EDEDED;
-  -webkit-text-stroke: unset;
-  text-stroke: unset;
-  paint-order: unset;
   text-shadow: none;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
@@ -223,7 +180,7 @@ nav a {
 }
 
 .cc-stroke-heading {
-  font-family: 'Orbitron', sans-serif;
+  font-family: var(--font-h2);
   font-weight: 900;
   text-transform: uppercase;
   color: #FFFFFF;
@@ -237,14 +194,14 @@ nav a {
 
 .outlined-text {
   display: block;
-  font-family: 'Beantown', sans-serif;
+  font-family: var(--font-h1);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.15em;
 }
 
 .text-body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.5;
 }
 

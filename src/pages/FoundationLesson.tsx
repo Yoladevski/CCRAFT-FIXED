@@ -106,7 +106,7 @@ function LessonCompletePopup({ onContinue }: LessonCompletePopupProps) {
 
         <p
           className="text-[#A0A0A0]"
-          style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem', letterSpacing: '0.05em' }}
+          style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '0.875rem', letterSpacing: '0.05em' }}
         >
           Progress saved
         </p>
@@ -639,7 +639,7 @@ export default function FoundationLesson() {
             {showNextRoundActive && (
               <p
                 className="text-center text-[#A0A0A0] text-sm tracking-wide"
-                style={{ fontFamily: 'Inter, sans-serif' }}
+                style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
               >
                 Next technique unlocked. Continue your training.
               </p>
@@ -679,7 +679,7 @@ export default function FoundationLesson() {
             </button>
 
             {!isUnlocked && (
-              <p className="text-center text-[#666666] text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-center text-[#666666] text-sm" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                 Read all sections to unlock the next round
               </p>
             )}
@@ -700,7 +700,7 @@ export default function FoundationLesson() {
             {showNextRoundActive && (
               <p
                 className="text-center text-[#A0A0A0] text-sm tracking-wide"
-                style={{ fontFamily: 'Inter, sans-serif' }}
+                style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
               >
                 Level complete. Continue your training.
               </p>
@@ -745,7 +745,7 @@ export default function FoundationLesson() {
             </button>
 
             {!isUnlocked && (
-              <p className="text-center text-[#666666] text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-center text-[#666666] text-sm" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                 Read all sections to complete this level
               </p>
             )}

@@ -76,7 +76,7 @@ export default function CreateProfile() {
       <div className="max-w-md w-full bg-[#1A1A1A] rounded-lg p-6 sm:p-8 border border-[#B11226]/30">
         <h1
           className="text-3xl sm:text-4xl font-bold text-white text-center mb-2"
-          style={{ fontFamily: 'Redhawk' }}
+          style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
         >
           COMPLETE YOUR PROFILE
         </h1>
@@ -89,7 +89,7 @@ export default function CreateProfile() {
             <label
               htmlFor="fullName"
               className="block text-sm font-medium text-[#A0A0A0] mb-2"
-              style={{ fontFamily: 'Redhawk' }}
+              style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
             >
               FULL NAME
             </label>
@@ -114,7 +114,7 @@ export default function CreateProfile() {
             type="submit"
             disabled={loading}
             className="w-full py-3 px-6 bg-[#B11226] hover:bg-[#8B0E1C] text-white font-bold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ fontFamily: 'Redhawk' }}
+            style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
           >
             {loading ? 'SAVING...' : 'CONTINUE TO DASHBOARD'}
           </button>

@@ -211,12 +211,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                   : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
               style={{
-                fontFamily: 'Redhawk, sans-serif',
+                fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
                 fontWeight: 700,
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                WebkitTextStroke: '1px #B11226',
-                textStroke: '1px #B11226'
+                letterSpacing: '0.05em'
               }}
               onMouseEnter={(e) => {
                 if (currentPage !== 'Dashboard') {
@@ -325,12 +323,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                   : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
               style={{
-                fontFamily: 'Redhawk, sans-serif',
+                fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
                 fontWeight: 700,
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                WebkitTextStroke: '1px #B11226',
-                textStroke: '1px #B11226'
+                letterSpacing: '0.05em'
               }}
               onMouseEnter={(e) => {
                 if (currentPage !== 'Account') {

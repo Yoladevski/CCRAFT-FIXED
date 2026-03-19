@@ -12,8 +12,9 @@ export default {
         'text-secondary': '#A0A0A0',
       },
       fontFamily: {
-        heading: ['Redhawk', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['Beantown', 'sans-serif'],
+        subheading: ['Orbitron', 'sans-serif'],
+        body: ['system-ui', '-apple-system', 'Arial', 'sans-serif'],
       },
     },
   },

@@ -74,14 +74,14 @@ export default function MultiDiscipline({ onNavigate }: MultiDisciplineProps) {
         <h1
           className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 mt-8 text-white"
           style={{
-            fontFamily: 'Redhawk, sans-serif',
+            fontFamily: 'Beantown, sans-serif',
             textShadow: '-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px 0 0 #000, 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000'
           }}
         >
           EXPLORE DISCIPLINES
         </h1>
 
-        <p className="text-center text-[#A0A0A0] mb-12" style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px' }}>
+        <p className="text-center text-[#A0A0A0] mb-12">
           Discover the martial arts we teach and start your training journey.
         </p>
 

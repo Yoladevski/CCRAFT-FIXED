@@ -332,7 +332,7 @@ export default function Account({ onBack }: AccountProps) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'Redhawk' }}>LOADING...</div>
+        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>LOADING...</div>
       </div>
     );
   }
@@ -352,7 +352,7 @@ export default function Account({ onBack }: AccountProps) {
             <h2 className="cc-outline-text text-xl sm:text-2xl font-bold text-[#B11226] mb-2">
               WELCOME TO COMBATCRAFT!
             </h2>
-            <p className="text-[#E0E0E0] text-sm sm:text-base" style={{ fontFamily: 'Redhawk' }}>
+            <p className="text-[#E0E0E0] text-sm sm:text-base" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
               Please fill in your name to complete your profile setup and start your training journey.
             </p>
           </div>
@@ -363,7 +363,7 @@ export default function Account({ onBack }: AccountProps) {
             message.includes('success') || message.includes('initiated') || message.includes('check your')
               ? 'bg-green-500/20 border border-green-500 text-green-500'
               : 'bg-[#B11226]/20 border border-[#B11226] text-[#B11226]'
-          }`} style={{ fontFamily: 'Redhawk' }}>
+          }`} style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
             {message}
           </div>
         )}
@@ -479,18 +479,18 @@ export default function Account({ onBack }: AccountProps) {
                     />
                   </div>
                   {uploadingPicture && (
-                    <p className="text-sm text-[#A0A0A0]" style={{ fontFamily: 'Redhawk' }}>
+                    <p className="text-sm text-[#A0A0A0]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       UPLOADING...
                     </p>
                   )}
-                  <p className="text-xs text-[#A0A0A0] text-center max-w-sm" style={{ fontFamily: 'Redhawk' }}>
+                  <p className="text-xs text-[#A0A0A0] text-center max-w-sm" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                     Click the camera icon to upload a profile picture (max 5MB)
                   </p>
                 </div>
 
                 <form onSubmit={handleProfileSave} className="space-y-4 sm:space-y-6">
                   <div>
-                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       FULL NAME {isFirstTimeSetup && <span className="text-[#B11226]">*</span>}
                     </label>
                     <input
@@ -502,12 +502,12 @@ export default function Account({ onBack }: AccountProps) {
                           ? 'border-[#B11226] focus:border-[#B11226]'
                           : 'border-[#2E2E2E] focus:border-[#B11226]'
                       }`}
-                      style={{ fontFamily: 'Redhawk' }}
+                      style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                       placeholder="John Doe"
                       required={isFirstTimeSetup}
                     />
                     {isFirstTimeSetup && (
-                      <p className="text-xs text-[#B11226] mt-1" style={{ fontFamily: 'Redhawk' }}>
+                      <p className="text-xs text-[#B11226] mt-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                         Required to continue
                       </p>
                     )}
@@ -515,7 +515,7 @@ export default function Account({ onBack }: AccountProps) {
 
                   <div className="grid grid-cols-2 gap-3 sm:gap-6">
                     <div>
-                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'Redhawk' }}>
+                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                         WEIGHT (LBS)
                       </label>
                       <input
@@ -523,13 +523,13 @@ export default function Account({ onBack }: AccountProps) {
                         value={weight}
                         onChange={(e) => setWeight(e.target.value)}
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                        style={{ fontFamily: 'Redhawk' }}
+                        style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="185"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'Redhawk' }}>
+                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                         HEIGHT (IN)
                       </label>
                       <input
@@ -537,21 +537,21 @@ export default function Account({ onBack }: AccountProps) {
                         value={height}
                         onChange={(e) => setHeight(e.target.value)}
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                        style={{ fontFamily: 'Redhawk' }}
+                        style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="72"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       EXPERIENCE LEVEL
                     </label>
                     <select
                       value={experienceLevel}
                       onChange={(e) => setExperienceLevel(e.target.value)}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'Redhawk' }}
+                      style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                     >
                       <option value="Beginner">BEGINNER</option>
                       <option value="Intermediate">INTERMEDIATE</option>
@@ -561,14 +561,14 @@ export default function Account({ onBack }: AccountProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       PREFERRED DISCIPLINE
                     </label>
                     <select
                       value={preferredDiscipline}
                       onChange={(e) => setPreferredDiscipline(e.target.value)}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'Redhawk' }}
+                      style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                     >
                       <option value="">SELECT...</option>
                       <option value="Boxing">BOXING</option>
@@ -599,18 +599,18 @@ export default function Account({ onBack }: AccountProps) {
                     ACCOUNT INFO
                   </h2>
                   <div className="mt-4">
-                    <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'Redhawk' }}>CURRENT EMAIL</div>
-                    <div className="text-sm sm:text-base break-all" style={{ fontFamily: 'Redhawk' }}>{user?.email}</div>
+                    <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>CURRENT EMAIL</div>
+                    <div className="text-sm sm:text-base break-all" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{user?.email}</div>
                   </div>
                   {profile && (
                     <div className="grid grid-cols-2 gap-3 sm:gap-6 mt-6">
                       <div>
-                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'Redhawk' }}>RANK</div>
-                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'Redhawk' }}>{profile.rank}</div>
+                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>RANK</div>
+                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{profile.rank}</div>
                       </div>
                       <div>
-                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'Redhawk' }}>POWER LEVEL</div>
-                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'Inter' }}>{profile.power_level}</div>
+                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>POWER LEVEL</div>
+                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{profile.power_level}</div>
                       </div>
                     </div>
                   )}
@@ -621,7 +621,7 @@ export default function Account({ onBack }: AccountProps) {
                     CHANGE EMAIL
                   </h2>
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       NEW EMAIL ADDRESS
                     </label>
                     <input
@@ -629,7 +629,7 @@ export default function Account({ onBack }: AccountProps) {
                       value={newEmail}
                       onChange={(e) => setNewEmail(e.target.value)}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'Redhawk' }}
+                      style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                       placeholder="newemail@example.com"
                     />
                   </div>
@@ -647,7 +647,7 @@ export default function Account({ onBack }: AccountProps) {
                     PHONE NUMBER
                   </h2>
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       PHONE NUMBER
                     </label>
                     <div className="flex gap-2">
@@ -655,7 +655,7 @@ export default function Account({ onBack }: AccountProps) {
                         value={countryCode}
                         onChange={(e) => setCountryCode(e.target.value)}
                         className="w-28 sm:w-32 shrink-0 px-2 sm:px-3 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-xs sm:text-sm focus:outline-none focus:border-[#B11226] transition-colors"
-                        style={{ fontFamily: 'Inter' }}
+                        style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                       >
                         <option value="+1">🇺🇸 +1</option>
                         <option value="+44">🇬🇧 +44</option>
@@ -717,7 +717,7 @@ export default function Account({ onBack }: AccountProps) {
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
                         className="flex-1 min-w-0 px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                        style={{ fontFamily: 'Inter' }}
+                        style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="7911 123456"
                       />
                     </div>
@@ -737,7 +737,7 @@ export default function Account({ onBack }: AccountProps) {
                   </h2>
 
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       CURRENT PASSWORD
                     </label>
                     <div className="relative">
@@ -746,7 +746,7 @@ export default function Account({ onBack }: AccountProps) {
                         value={currentPassword}
                         onChange={(e) => setCurrentPassword(e.target.value)}
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
-                        style={{ fontFamily: 'Redhawk' }}
+                        style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="••••••••"
                       />
                       <button
@@ -760,7 +760,7 @@ export default function Account({ onBack }: AccountProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       NEW PASSWORD
                     </label>
                     <div className="relative">
@@ -769,7 +769,7 @@ export default function Account({ onBack }: AccountProps) {
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
-                        style={{ fontFamily: 'Redhawk' }}
+                        style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="••••••••"
                       />
                       <button
@@ -783,7 +783,7 @@ export default function Account({ onBack }: AccountProps) {
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       CONFIRM NEW PASSWORD
                     </label>
                     <div className="relative">
@@ -792,7 +792,7 @@ export default function Account({ onBack }: AccountProps) {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
-                        style={{ fontFamily: 'Redhawk' }}
+                        style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="••••••••"
                       />
                       <button
@@ -822,18 +822,18 @@ export default function Account({ onBack }: AccountProps) {
                   <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
                     REFERRAL PROGRAM
                   </h2>
-                  <p className="text-sm sm:text-base text-[#A0A0A0] mb-4 sm:mb-6" style={{ fontFamily: 'Redhawk' }}>
+                  <p className="text-sm sm:text-base text-[#A0A0A0] mb-4 sm:mb-6" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                     Share your unique referral link with friends and earn rewards when they join!
                   </p>
 
                   {profile?.referral_code && (
                     <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded p-3 sm:p-4">
-                      <div className="text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'Redhawk' }}>
+                      <div className="text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                         YOUR REFERRAL CODE
                       </div>
                       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
                         <div className="flex-1 bg-[#1A1A1A] border border-[#2E2E2E] rounded px-3 sm:px-4 py-2 sm:py-3 overflow-x-auto">
-                          <code className="text-[#B11226] font-bold text-sm sm:text-lg whitespace-nowrap" style={{ fontFamily: 'Redhawk' }}>
+                          <code className="text-[#B11226] font-bold text-sm sm:text-lg whitespace-nowrap" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                             {profile.referral_code}
                           </code>
                         </div>
@@ -853,7 +853,7 @@ export default function Account({ onBack }: AccountProps) {
                           )}
                         </button>
                       </div>
-                      <div className="mt-2 sm:mt-3 text-[10px] sm:text-xs text-[#A0A0A0] break-all" style={{ fontFamily: 'Redhawk' }}>
+                      <div className="mt-2 sm:mt-3 text-[10px] sm:text-xs text-[#A0A0A0] break-all" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                         {window.location.origin}?ref={profile.referral_code}
                       </div>
                     </div>
@@ -883,7 +883,7 @@ export default function Account({ onBack }: AccountProps) {
                       </button>
                     ) : (
                       <div className="bg-[#B11226]/10 border-2 border-[#B11226] rounded p-3 sm:p-4">
-                        <p className="text-xs sm:text-sm text-[#B11226] mb-3 sm:mb-4 font-bold" style={{ fontFamily: 'Redhawk' }}>
+                        <p className="text-xs sm:text-sm text-[#B11226] mb-3 sm:mb-4 font-bold" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                           WARNING: This action cannot be undone. All your data will be permanently deleted.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">

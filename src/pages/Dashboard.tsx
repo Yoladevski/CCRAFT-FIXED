@@ -123,7 +123,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'Redhawk' }}>LOADING...</div>
+        <div className="text-2xl text-[#A0A0A0]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>LOADING...</div>
       </div>
     );
   }
@@ -167,8 +167,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#0E0E0E]">
         <div className="text-center max-w-md px-4">
-          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'Redhawk' }}>PROFILE NOT FOUND</div>
-          <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'Redhawk' }}>
+          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>PROFILE NOT FOUND</div>
+          <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
             Please complete your profile setup to access the dashboard.
           </p>
           <button
@@ -186,8 +186,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#0E0E0E]">
         <div className="text-center max-w-md px-4">
-          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'Redhawk' }}>COMPLETE YOUR PROFILE</div>
-          <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'Redhawk' }}>
+          <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>COMPLETE YOUR PROFILE</div>
+          <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
             Welcome! Let's set up your profile to get started with your training journey.
           </p>
           <button
@@ -358,7 +358,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 </p>
                 <div
                   className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#B11226]"
-                  style={{ fontFamily: 'Inter' }}
+                  style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                 >
                   {profile.power_level}
                 </div>
@@ -372,10 +372,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   FOUNDATION PROGRESS
                 </p>
                 <div className="flex items-center justify-center gap-2 flex-wrap">
-                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'Inter' }}>
+                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                     {completionPercentage}%
                   </span>
-                  <span className="text-xs sm:text-sm md:text-base text-[#A0A0A0]" style={{ fontFamily: 'Inter' }}>
+                  <span className="text-xs sm:text-sm md:text-base text-[#A0A0A0]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                     ({completedLessons}/{totalLessons})
                   </span>
                 </div>

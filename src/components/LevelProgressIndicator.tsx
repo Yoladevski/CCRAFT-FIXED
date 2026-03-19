@@ -81,7 +81,7 @@ export default function LevelProgressIndicator({
 
         <p
           style={{
-            fontFamily: 'Inter, sans-serif',
+            fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
             fontWeight: 600,
             fontSize: compact ? '0.65rem' : '0.7rem',
             color: isComplete ? '#B11226' : '#666666',
