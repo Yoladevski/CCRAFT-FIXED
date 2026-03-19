@@ -149,10 +149,15 @@ export default function Home({ onNavigate }: HomeProps) {
               }}
             >
               <img
-                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/BUTTON.png"
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20start%20training.png"
                 alt="Start Training"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto"
                 style={{
+                  width: '100%',
+                  objectFit: 'contain',
+                  display: 'block',
                   filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
                 }}
               />
