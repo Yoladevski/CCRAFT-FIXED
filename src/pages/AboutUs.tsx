@@ -1,5 +1,4 @@
 import BackButton from '../components/BackButton';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 interface AboutUsProps {
   onNavigate: (page: string) => void;
@@ -53,8 +52,7 @@ export default function AboutUs({ onNavigate, onBack }: AboutUsProps) {
             <p>Future disciplines will expand the platform to include additional striking and grappling arts, allowing users to develop a wide range of combat skills within a single structured learning system.</p>
           </section>
 
-          <div className="bg-[#1A1A1A] border-l-4 border-[#B11226] p-6 sm:p-8 space-y-4 relative overflow-hidden">
-            <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
+          <div className="bg-[#1A1A1A] border-l-4 border-[#B11226] p-6 sm:p-8 space-y-4">
             <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-white">TRAIN ANYWHERE. PROGRESS STEP BY STEP.</h2>
             <p>CombatCraft is built for anyone who wants to improve their martial arts skills through clear instruction, structured training, and consistent practice.</p>
             <ul className="space-y-1 mt-2">

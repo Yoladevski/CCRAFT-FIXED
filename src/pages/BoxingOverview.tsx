@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import workoutsImg from '../assets/file_0000000072dc7246919b2e83c454badf.png';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 interface BoxingOverviewProps {
   onNavigate: (page: string, id?: string) => void;
@@ -47,13 +46,12 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
             </button>
 
             <div
-              className="flex-1 rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 min-h-[140px] sm:min-h-[180px] flex items-center relative overflow-hidden"
+              className="flex-1 rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 min-h-[140px] sm:min-h-[180px] flex items-center"
               style={{
                 background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
-              <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
               <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
                 The Foundation Pathway is a structured beginner progression that builds boxing fundamentals step by step. Each level introduces movement, control and combinations. Users must complete each level before unlocking the next stage.
               </p>
@@ -62,13 +60,12 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <div
-              className="flex-1 rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 min-h-[140px] sm:min-h-[180px] flex items-center order-2 sm:order-1 relative overflow-hidden"
+              className="flex-1 rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 min-h-[140px] sm:min-h-[180px] flex items-center order-2 sm:order-1"
               style={{
                 background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
-              <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
               <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
                 The Technique Library contains the full boxing technique database where users can explore punches, defence, footwork and combinations individually.
               </p>
@@ -99,13 +96,12 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
             </button>
 
             <div
-              className="flex-1 rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 min-h-[140px] sm:min-h-[180px] flex items-center relative overflow-hidden"
+              className="flex-1 rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 min-h-[140px] sm:min-h-[180px] flex items-center"
               style={{
                 background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
               }}
             >
-              <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
               <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
                 The Work Outs section provides structured boxing training sessions designed to apply the techniques learned throughout CombatCraft. Each session follows timed rounds similar to real boxing training and can be completed through shadowboxing, bag work or pad drills. These sessions help build conditioning, rhythm and practical fighting ability while reinforcing the skills learned in the CombatCraft system.
               </p>

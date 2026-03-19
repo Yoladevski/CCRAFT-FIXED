@@ -3,7 +3,6 @@ import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import Auth from './Auth';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
 
@@ -98,7 +97,6 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                   </div>
                 )}
 
-                <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
                 <div className="absolute inset-0 bg-[#1A1A1A]">
                   <img
                     src={cardImages[discipline.name] || cardImages['Boxing']}

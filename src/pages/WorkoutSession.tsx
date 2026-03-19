@@ -4,14 +4,13 @@ import { ArrowLeft, ChevronDown } from 'lucide-react';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
 import ActiveWorkout from '../components/WorkoutMode';
 import { unlockAudioContext, speak } from '../lib/audioController';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 function AccordionCard({ title, children, defaultOpen = false }: { title: React.ReactNode; children: React.ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
     <div
-      className="rounded-lg overflow-hidden relative"
+      className="rounded-lg overflow-hidden"
       style={{
         backgroundColor: '#2a2a2a',
         border: '1px solid #B11226',
@@ -22,7 +21,6 @@ function AccordionCard({ title, children, defaultOpen = false }: { title: React.
         lineHeight: '1.9',
       }}
     >
-      <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
       <button
         onClick={() => setOpen(o => !o)}
         className="w-full flex items-center justify-between px-5 py-4 text-left"
@@ -209,13 +207,12 @@ export default function WorkoutSession() {
           </div>
         ) : (
           <div
-            className="rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 text-center relative overflow-hidden"
+            className="rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 text-center"
             style={{
               background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
             }}
           >
-            <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
             <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
               Session content coming soon. This workout will include detailed round-by-round instructions, drill breakdowns and technique cues.
             </p>

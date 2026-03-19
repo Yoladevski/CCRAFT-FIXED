@@ -15,7 +15,7 @@ export default function StructuredProgression() {
         <BackButton onClick={goToHome} />
 
         <div className="bg-[#1A1A1A] rounded-lg border border-[#2E2E2E] p-6 sm:p-12 mt-8 relative overflow-hidden">
-          <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
+          <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
           <div className="mb-8 flex justify-center">
             <img
               src="https://i.postimg.cc/D0fKBBM2/fightcraft1.jpg"

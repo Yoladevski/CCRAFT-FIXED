@@ -225,7 +225,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 minHeight: '160px',
               }}
             >
-              <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
@@ -252,7 +252,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   minHeight: '160px',
                 }}
               >
-                <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
+                <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
                 <h3 className="mb-4" style={{
                   fontFamily: 'Orbitron, sans-serif',
                   fontWeight: 900,
@@ -280,7 +280,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   minHeight: '160px',
                 }}
               >
-                <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
+                <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
                 <h3 className="mb-4" style={{
                   fontFamily: 'Orbitron, sans-serif',
                   fontWeight: 900,
@@ -311,7 +311,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 minHeight: '160px',
               }}
             >
-              <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
+              <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,

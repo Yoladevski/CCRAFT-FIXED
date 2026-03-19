@@ -134,7 +134,7 @@ export default function Auth({ onNavigate }: AuthProps) {
       <div className="min-h-screen flex items-start justify-center px-4 pt-0 pb-2">
         <div className="w-full max-w-[420px]">
           <div className="bg-black rounded-lg border border-[#2E2E2E] p-4 sm:p-6 relative overflow-hidden">
-            <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
+            <BGPattern variant="grid" fill="#1a1a1a" size={20} mask="fade-edges" />
             <div className="relative z-10">
               <div className="flex justify-center mb-4 bg-black rounded-lg">
                 <img
@@ -205,7 +205,7 @@ export default function Auth({ onNavigate }: AuthProps) {
       <div className="min-h-screen flex items-start justify-center px-4 pt-0 pb-2">
         <div className="w-full max-w-[420px]">
           <div className="bg-black rounded-lg border border-[#2E2E2E] p-4 sm:p-6 relative overflow-hidden">
-            <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
+            <BGPattern variant="grid" fill="#1a1a1a" size={20} mask="fade-edges" />
             <div className="relative z-10">
               <div className="flex justify-center mb-4 bg-black rounded-lg">
                 <img

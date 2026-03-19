@@ -5,7 +5,6 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { BOXING_FOUNDATIONS_LEVELS, FoundationLesson } from '../data/foundationsLessons';
 import LevelProgressIndicator from '../components/LevelProgressIndicator';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 const VICTORY_QUOTES = [
   "CHAMPION!",
@@ -457,14 +456,13 @@ export default function BoxingFoundations() {
         </div>
 
         <div
-          className="rounded-2xl border-2 p-4 sm:p-6 mb-6 relative overflow-hidden"
+          className="rounded-2xl border-2 p-4 sm:p-6 mb-6"
           style={{
             borderColor: unlocked ? '#B11226' : '#2E2E2E',
             background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
             boxShadow: unlocked ? '0 0 15px rgba(177, 18, 38, 0.3)' : 'none',
           }}
         >
-          <BGPattern variant="grid" fill="#333333" size={20} mask="fade-edges" />
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="cc-outline-text text-xl sm:text-2xl font-bold">
