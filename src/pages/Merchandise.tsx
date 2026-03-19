@@ -1,4 +1,5 @@
 import BackButton from '../components/BackButton';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 interface MerchandiseProps {
   onBack: () => void;
@@ -20,34 +21,38 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
         </div>
 
         <div
-          className="mt-12 sm:mt-16 bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 max-w-3xl mx-auto text-center"
+          className="mt-12 sm:mt-16 bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 max-w-3xl mx-auto text-center relative overflow-hidden"
           style={{
-            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+            isolation: 'isolate',
           }}
         >
-          <div className="w-16 h-16 mx-auto bg-[#B11226]/20 rounded-full flex items-center justify-center mb-4">
-            <svg
-              className="w-8 h-8 text-[#B11226]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+          <div className="relative z-10">
+            <div className="w-16 h-16 mx-auto bg-[#B11226]/20 rounded-full flex items-center justify-center mb-4">
+              <svg
+                className="w-8 h-8 text-[#B11226]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                />
+              </svg>
+            </div>
+            <h2
+              className="cc-outline-text text-xl sm:text-2xl font-bold mb-3"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-              />
-            </svg>
+              STORE OPENING SOON
+            </h2>
+            <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
+              We're finalizing our store setup. Products will be available for purchase soon. Sign up to get notified when we launch.
+            </p>
           </div>
-          <h2
-            className="cc-outline-text text-xl sm:text-2xl font-bold mb-3"
-          >
-            STORE OPENING SOON
-          </h2>
-          <p className="text-[#A0A0A0] text-sm sm:text-base leading-relaxed">
-            We're finalizing our store setup. Products will be available for purchase soon. Sign up to get notified when we launch.
-          </p>
         </div>
       </div>
     </div>

@@ -213,10 +213,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div
           className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center relative overflow-hidden"
           style={{
-            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+            isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+          <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+          <div className="relative z-10">
           <h2
             className="mb-2 hidden sm:block"
             style={{
@@ -258,6 +260,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           <p className="cc-quote sm:hidden" style={{ fontSize: '0.6rem', textShadow: 'none' }}>
             {dailyMotivation}
           </p>
+          </div>
         </div>
 
         {/* CONTINUE BUTTON */}
@@ -292,10 +295,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           <div
             className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 md:p-10 text-center flex flex-col justify-center relative overflow-hidden"
             style={{
-              boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+              isolation: 'isolate',
             }}
           >
-            <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+            <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+            <div className="relative z-10">
             <h2 className="cc-section-heading mb-6 md:mb-8 hidden sm:block" data-text="CURRENT TRAINING">
               CURRENT TRAINING
             </h2>
@@ -354,16 +359,19 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 </p>
               </div>
             )}
+            </div>
           </div>
 
           {/* CURRENT RANK CARD */}
           <div
             className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden"
             style={{
-              boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+              boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+              isolation: 'isolate',
             }}
           >
-            <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+            <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+            <div className="relative z-10 w-full flex flex-col items-center">
             <h2 className="cc-section-heading mb-3 md:mb-4 hidden sm:block" data-text="CURRENT RANK">
               CURRENT RANK
             </h2>
@@ -432,6 +440,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   compact={true}
                 />
               )}
+            </div>
             </div>
           </div>
         </div>

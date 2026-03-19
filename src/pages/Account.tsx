@@ -372,10 +372,12 @@ export default function Account({ onBack }: AccountProps) {
         <div
           className="bg-[#1A1A1A] border-2 border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg mt-[65px] relative"
           style={{
-            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+            isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+          <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+          <div className="relative z-10">
           {/* Mobile Tab Navigation with Arrows */}
           <div className="flex sm:hidden border-b border-[#2E2E2E] items-center">
             <button
@@ -910,6 +912,7 @@ export default function Account({ onBack }: AccountProps) {
                 </div>
               </div>
             )}
+          </div>
           </div>
         </div>
       </div>

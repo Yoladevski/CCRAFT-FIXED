@@ -223,9 +223,11 @@ export default function Home({ onNavigate }: HomeProps) {
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                 minHeight: '160px',
+                isolation: 'isolate',
               }}
             >
-              <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+              <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+              <div className="relative z-10 flex flex-col items-center">
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
@@ -241,6 +243,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <p className="leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
                 Structured martial arts training platform designed to teach real fighting techniques step-by-step.
               </p>
+              </div>
             </button>
 
             <div className="grid grid-cols-2 gap-6 md:contents">
@@ -250,9 +253,11 @@ export default function Home({ onNavigate }: HomeProps) {
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                   minHeight: '160px',
+                  isolation: 'isolate',
                 }}
               >
-                <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+                <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+                <div className="relative z-10 flex flex-col items-center">
                 <h3 className="mb-4" style={{
                   fontFamily: 'Orbitron, sans-serif',
                   fontWeight: 900,
@@ -270,6 +275,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   <li>&#8226; Structured Pathway</li>
                   <li>&#8226; AI Generated Videos</li>
                 </ul>
+                </div>
               </button>
 
               <button
@@ -278,9 +284,11 @@ export default function Home({ onNavigate }: HomeProps) {
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                   minHeight: '160px',
+                  isolation: 'isolate',
                 }}
               >
-                <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+                <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+                <div className="relative z-10 flex flex-col items-center">
                 <h3 className="mb-4" style={{
                   fontFamily: 'Orbitron, sans-serif',
                   fontWeight: 900,
@@ -300,6 +308,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   <li>&#8226; Judo</li>
                   <li>&#8226; Taekwondo</li>
                 </ul>
+                </div>
               </button>
             </div>
 
@@ -309,9 +318,11 @@ export default function Home({ onNavigate }: HomeProps) {
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                 minHeight: '160px',
+                isolation: 'isolate',
               }}
             >
-              <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+              <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+              <div className="relative z-10 flex flex-col items-center">
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
@@ -327,6 +338,7 @@ export default function Home({ onNavigate }: HomeProps) {
               <p className="leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
                 Learn how the CombatCraft training system works and how techniques, lessons and workouts combine to build real martial arts skills through structured training.
               </p>
+              </div>
             </button>
           </div>
         </div>
