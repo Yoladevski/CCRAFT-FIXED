@@ -214,21 +214,45 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
           }}
         >
-          <h2 className="cc-primary-title mb-2 hidden sm:block" data-text={`WELCOME BACK ${(profile.full_name || 'FIGHTER').toUpperCase()}`}>
+          <h2
+            className="mb-2 hidden sm:block"
+            style={{
+              fontFamily: 'BeanTown, sans-serif',
+              fontWeight: 900,
+              color: '#FFFFFF',
+              textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 2px 2px 0 #cc0000, -2px 2px 0 #cc0000, 2px -2px 0 #cc0000, -2px -2px 0 #cc0000',
+            }}
+          >
             WELCOME BACK {(profile.full_name || 'FIGHTER').toUpperCase()}
           </h2>
           <div className="sm:hidden mb-2">
-            <h2 className="cc-primary-title text-[0.7rem]" style={{ fontSize: '0.7rem' }} data-text="WELCOME BACK">
+            <h2
+              style={{
+                fontFamily: 'BeanTown, sans-serif',
+                fontWeight: 900,
+                fontSize: '0.85rem',
+                color: '#FFFFFF',
+                textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 2px 2px 0 #cc0000, -2px 2px 0 #cc0000, 2px -2px 0 #cc0000, -2px -2px 0 #cc0000',
+              }}
+            >
               WELCOME BACK
             </h2>
-            <h2 className="cc-primary-title text-[0.7rem]" style={{ fontSize: '0.7rem' }} data-text={(profile.full_name || 'FIGHTER').toUpperCase()}>
+            <h2
+              style={{
+                fontFamily: 'BeanTown, sans-serif',
+                fontWeight: 900,
+                fontSize: '0.85rem',
+                color: '#FFFFFF',
+                textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 2px 2px 0 #cc0000, -2px 2px 0 #cc0000, 2px -2px 0 #cc0000, -2px -2px 0 #cc0000',
+              }}
+            >
               {(profile.full_name || 'FIGHTER').toUpperCase()}
             </h2>
           </div>
-          <p className="cc-quote hidden sm:block">
+          <p className="cc-quote hidden sm:block" style={{ textShadow: 'none' }}>
             {dailyMotivation}
           </p>
-          <p className="cc-quote sm:hidden" style={{ fontSize: '0.6rem' }}>
+          <p className="cc-quote sm:hidden" style={{ fontSize: '0.6rem', textShadow: 'none' }}>
             {dailyMotivation}
           </p>
         </div>
@@ -278,30 +302,45 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             {nextLesson ? (
               <div className="space-y-6 md:space-y-8">
                 <div>
-                  <p className="cc-card-label mb-2 md:mb-3 tracking-wider">
+                  <h2
+                    className="mb-2 md:mb-3 tracking-wider uppercase"
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.6rem', color: '#A0A0A0' }}
+                  >
                     DISCIPLINE
-                  </p>
-                  <p className="cc-card-value">
-                    Boxing
-                  </p>
+                  </h2>
+                  <h2
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.75rem', color: '#FFFFFF' }}
+                  >
+                    BOXING
+                  </h2>
                 </div>
 
                 <div>
-                  <p className="cc-card-label mb-2 md:mb-3 tracking-wider">
+                  <h2
+                    className="mb-2 md:mb-3 tracking-wider uppercase"
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.6rem', color: '#A0A0A0' }}
+                  >
                     LEVEL {nextLesson.level}
-                  </p>
-                  <p className="cc-card-value">
-                    {nextLesson.levelTitle}
-                  </p>
+                  </h2>
+                  <h2
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.75rem', color: '#FFFFFF' }}
+                  >
+                    {nextLesson.levelTitle.toUpperCase()}
+                  </h2>
                 </div>
 
                 <div>
-                  <p className="cc-card-label mb-2 md:mb-3 tracking-wider">
+                  <h2
+                    className="mb-2 md:mb-3 tracking-wider uppercase"
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.6rem', color: '#A0A0A0' }}
+                  >
                     NEXT LESSON
-                  </p>
-                  <p className="cc-card-value text-[#B11226]">
-                    {nextLesson.lessonTitle}
-                  </p>
+                  </h2>
+                  <h2
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.75rem', color: '#B11226' }}
+                  >
+                    {nextLesson.lessonTitle.toUpperCase()}
+                  </h2>
                 </div>
               </div>
             ) : (

@@ -72,33 +72,37 @@ export default function WorkoutOfTheDay() {
     >
       <div className="flex items-center justify-center gap-2">
         <span className="text-base sm:text-lg leading-none">🔥</span>
-        <h3
+        <h1
           className="text-[10px] sm:text-xs tracking-[0.2em] font-bold text-[#B11226] uppercase"
           style={{
-            fontFamily: 'Beantown, sans-serif',
-            textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000',
+            fontFamily: 'BeanTown, sans-serif',
+            textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
           }}
         >
           Workout of the Day
-        </h3>
+        </h1>
       </div>
 
       <div className="space-y-1 text-center">
-        <p
+        <h2
           className="text-[10px] tracking-widest text-[#A0A0A0] uppercase"
-          style={{ fontFamily: 'Orbitron, sans-serif' }}
+          style={{
+            fontFamily: 'Orbitron, sans-serif',
+            fontWeight: 700,
+            fontSize: '0.6rem',
+          }}
         >
           Session {workout.number}
-        </p>
-        <h4
+        </h2>
+        <h2
           className="text-sm sm:text-base font-bold text-white leading-tight uppercase tracking-wide"
           style={{
-            fontFamily: 'Beantown, sans-serif',
-            textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000',
+            fontFamily: 'BeanTown, sans-serif',
+            textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
           }}
         >
           {workout.title}
-        </h4>
+        </h2>
         <p
           className="text-[11px] sm:text-xs text-[#A0A0A0] leading-relaxed pt-1"
           style={{ fontFamily: 'Orbitron, sans-serif' }}
@@ -109,22 +113,22 @@ export default function WorkoutOfTheDay() {
 
       <div className="flex flex-wrap gap-2 justify-center">
         {workout.roundLength && (
-          <span
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] sm:text-[10px] tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          <h2
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
+            style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.55rem' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#B11226] inline-block shrink-0" />
             {workout.roundLength} rounds
-          </span>
+          </h2>
         )}
         {workout.totalRounds && (
-          <span
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] sm:text-[10px] tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          <h2
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
+            style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.55rem' }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#B11226] inline-block shrink-0" />
             {workout.totalRounds} rounds total
-          </span>
+          </h2>
         )}
       </div>
 
