@@ -2,10 +2,23 @@ interface OutlinedTextProps {
   children: string;
   className?: string;
   style?: React.CSSProperties;
+  strokeWidth?: number;
+  glowColor?: string;
+  glowStdDeviation?: number;
+  fillColor?: string;
 }
 
-export function OutlinedText({ children, className = '', style = {} }: OutlinedTextProps) {
+export function OutlinedText({
+  children,
+  className = '',
+  style = {},
+  strokeWidth = 8,
+  glowColor,
+  glowStdDeviation = 2,
+  fillColor = '#EDEDED',
+}: OutlinedTextProps) {
   const fontSize = style.fontSize || '1rem';
+  const filterId = glowColor ? `glow-${Math.random().toString(36).slice(2, 7)}` : undefined;
 
   return (
     <svg
@@ -29,16 +42,24 @@ export function OutlinedText({ children, className = '', style = {} }: OutlinedT
             }
           `}
         </style>
+        {glowColor && filterId && (
+          <filter id={filterId} x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation={glowStdDeviation} result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        )}
       </defs>
 
-      {/* Layer 1: Black outline (bottom) */}
       <text
         x="50%"
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
         stroke="#000000"
-        strokeWidth="8"
+        strokeWidth={strokeWidth}
         fill="none"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
@@ -49,17 +70,17 @@ export function OutlinedText({ children, className = '', style = {} }: OutlinedT
         {children}
       </text>
 
-      {/* Layer 3: White fill (top) */}
       <text
         x="50%"
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        fill="#EDEDED"
+        fill={fillColor}
         stroke="none"
         paintOrder="stroke fill"
         shapeRendering="geometricPrecision"
         textRendering="optimizeLegibility"
+        filter={filterId ? `url(#${filterId})` : undefined}
       >
         {children}
       </text>

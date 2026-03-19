@@ -62,9 +62,10 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               className="hero-main-heading"
+              strokeWidth={3}
               style={{
                 fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
-                fontFamily: 'Orbitron, sans-serif',
+                fontFamily: 'BeanTown, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
                 letterSpacing: '0.15em',
@@ -74,9 +75,10 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               className="hero-main-heading"
+              strokeWidth={3}
               style={{
                 fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
-                fontFamily: 'Orbitron, sans-serif',
+                fontFamily: 'BeanTown, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
                 letterSpacing: '0.15em',
@@ -96,6 +98,9 @@ export default function Home({ onNavigate }: HomeProps) {
             }}
           >
             <OutlinedText
+              strokeWidth={3}
+              glowColor="rgba(255,0,0,0.45)"
+              glowStdDeviation={1.5}
               style={{
                 fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -107,6 +112,9 @@ export default function Home({ onNavigate }: HomeProps) {
               BUILT BY REAL COACHES
             </OutlinedText>
             <OutlinedText
+              strokeWidth={3}
+              glowColor="rgba(255,0,0,0.45)"
+              glowStdDeviation={1.5}
               style={{
                 fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -118,6 +126,9 @@ export default function Home({ onNavigate }: HomeProps) {
               TRUSTED BY FIGHTERS
             </OutlinedText>
             <OutlinedText
+              strokeWidth={3}
+              glowColor="rgba(255,0,0,0.45)"
+              glowStdDeviation={1.5}
               style={{
                 fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -160,6 +171,9 @@ export default function Home({ onNavigate }: HomeProps) {
             }}
           >
             <OutlinedText
+              strokeWidth={0}
+              glowColor="rgba(255,0,0,0.35)"
+              glowStdDeviation={2}
               style={{
                 fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -171,6 +185,9 @@ export default function Home({ onNavigate }: HomeProps) {
               START FREE
             </OutlinedText>
             <OutlinedText
+              strokeWidth={0}
+              glowColor="rgba(255,0,0,0.35)"
+              glowStdDeviation={2}
               style={{
                 fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -182,6 +199,9 @@ export default function Home({ onNavigate }: HomeProps) {
               NO COMMITMENT
             </OutlinedText>
             <OutlinedText
+              strokeWidth={0}
+              glowColor="rgba(255,0,0,0.35)"
+              glowStdDeviation={2}
               style={{
                 fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
                 fontFamily: 'Orbitron, sans-serif',
