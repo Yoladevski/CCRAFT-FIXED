@@ -10,12 +10,12 @@ interface MultiDisciplineProps {
 }
 
 const buttonImages: Record<string, string> = {
-  'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/boxing.png',
-  'Muay Thai': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/mauythai.png',
-  'BJJ': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/bjj.png',
-  'Karate': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/karate.png',
-  'Taekwondo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/taekwondo.png',
-  'Judo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/judo.png',
+  'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20boxing.png',
+  'Muay Thai': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20mauythai.png',
+  'BJJ': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20bjj.png',
+  'Karate': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20karate.png',
+  'Taekwondo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20taekwando.png',
+  'Judo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/judo%20new.png',
 };
 
 const cardImages: Record<string, string> = {
