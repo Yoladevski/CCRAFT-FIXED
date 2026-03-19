@@ -11,11 +11,11 @@ interface DisciplinesProps {
 }
 
 const buttonImages: Record<string, string> = {
-  'Boxing': '/generated-1773906145956-umi6i.png',
+  'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20boxing%20(2).png',
   'Muay Thai': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20mauythai.png',
   'BJJ': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20bjj.png',
   'Karate': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20karate.png',
-  'Taekwondo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20taekwando.png',
+  'Taekwondo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20taekwando%20(2).png',
   'Judo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/judo%20new.png',
 };
 
