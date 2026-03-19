@@ -27,7 +27,7 @@ export default function Affiliates({ onBack }: AffiliatesProps) {
           </p>
 
           <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-8 rounded-lg mt-8 relative overflow-hidden">
-            <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
+            <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
             <h2 className="cc-outline-text text-white font-bold text-xl mb-4">Apply for Affiliate Opportunities</h2>
             <div className="flex items-center gap-4">
               <Mail className="text-[#B11226] flex-shrink-0" size={32} />

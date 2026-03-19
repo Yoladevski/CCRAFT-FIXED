@@ -479,7 +479,7 @@ export default function FoundationLesson() {
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
               >
-                <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
+                <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
                 <button
                   onClick={() => toggleSection('why')}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -510,7 +510,7 @@ export default function FoundationLesson() {
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
               >
-                <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
+                <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
                 <button
                   onClick={() => toggleSection('how')}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -541,7 +541,7 @@ export default function FoundationLesson() {
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
               >
-                <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
+                <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
                 <button
                   onClick={() => toggleSection('mistakes')}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -572,7 +572,7 @@ export default function FoundationLesson() {
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
               >
-                <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
+                <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
                 <button
                   onClick={() => toggleSection('drills')}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
@@ -605,7 +605,7 @@ export default function FoundationLesson() {
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
               >
-                <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
+                <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
                 <button
                   onClick={() => toggleSection('coachesTips')}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"

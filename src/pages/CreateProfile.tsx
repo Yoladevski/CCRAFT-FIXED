@@ -75,7 +75,7 @@ export default function CreateProfile() {
   return (
     <div className="min-h-screen flex items-center justify-center p-3 sm:p-4">
       <div className="max-w-md w-full bg-[#1A1A1A] rounded-lg p-6 sm:p-8 border border-[#B11226]/30 relative overflow-hidden">
-        <BGPattern variant="grid" fill="#252525" size={20} mask="fade-edges" />
+        <BGPattern variant="grid" fill="#1E1E1E" size={20} mask="fade-edges" />
         <h1
           className="text-3xl sm:text-4xl font-bold text-white text-center mb-2"
           style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
