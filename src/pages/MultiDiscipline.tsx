@@ -10,7 +10,7 @@ interface MultiDisciplineProps {
 }
 
 const buttonImages: Record<string, string> = {
-  'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20boxing.png',
+  'Boxing': '/generated-1773905992180-suky4.png',
   'Muay Thai': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20mauythai.png',
   'BJJ': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20bjj.png',
   'Karate': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20karate.png',
