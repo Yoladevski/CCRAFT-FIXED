@@ -2,10 +2,9 @@ interface OutlinedTextProps {
   children: string;
   className?: string;
   style?: React.CSSProperties;
-  variant?: 'black' | 'black-red';
 }
 
-export function OutlinedText({ children, className = '', style = {}, variant = 'black' }: OutlinedTextProps) {
+export function OutlinedText({ children, className = '', style = {} }: OutlinedTextProps) {
   const fontSize = style.fontSize || '1rem';
 
   return (
@@ -32,25 +31,7 @@ export function OutlinedText({ children, className = '', style = {}, variant = '
         </style>
       </defs>
 
-      {variant === 'black-red' && (
-        <text
-          x="50%"
-          y="50%"
-          textAnchor="middle"
-          dominantBaseline="middle"
-          stroke="#B11226"
-          strokeWidth="14"
-          fill="none"
-          strokeLinejoin="round"
-          vectorEffect="non-scaling-stroke"
-          paintOrder="stroke fill"
-          shapeRendering="geometricPrecision"
-          textRendering="optimizeLegibility"
-        >
-          {children}
-        </text>
-      )}
-
+      {/* Layer 1: Black outline (bottom) */}
       <text
         x="50%"
         y="50%"
@@ -68,6 +49,7 @@ export function OutlinedText({ children, className = '', style = {}, variant = '
         {children}
       </text>
 
+      {/* Layer 3: White fill (top) */}
       <text
         x="50%"
         y="50%"

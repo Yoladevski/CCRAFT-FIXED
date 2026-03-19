@@ -62,7 +62,6 @@ export default function Home({ onNavigate }: HomeProps) {
           >
             <OutlinedText
               className="hero-main-heading"
-              variant="black"
               style={{
                 fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -75,7 +74,6 @@ export default function Home({ onNavigate }: HomeProps) {
             </OutlinedText>
             <OutlinedText
               className="hero-main-heading"
-              variant="black"
               style={{
                 fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
                 fontFamily: 'Orbitron, sans-serif',
@@ -98,25 +96,34 @@ export default function Home({ onNavigate }: HomeProps) {
             }}
           >
             <OutlinedText
-              variant="black-red"
               style={{
-                fontSize: 'clamp(0.75rem, 2.6vw, 1.4rem)',
+                fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.1rem, 3.6vw, 2rem)',
-                letterSpacing: '0.12em',
+                letterSpacing: '0.2em',
               }}
             >
-              BUILT BY REAL COACHES, TRUSTED BY FIGHTERS
+              BUILT BY REAL COACHES
             </OutlinedText>
             <OutlinedText
-              variant="black-red"
               style={{
-                fontSize: 'clamp(0.75rem, 2.6vw, 1.4rem)',
+                fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 height: 'clamp(1.1rem, 3.6vw, 2rem)',
-                letterSpacing: '0.12em',
+                letterSpacing: '0.2em',
+              }}
+            >
+              TRUSTED BY FIGHTERS
+            </OutlinedText>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1.1rem, 3.6vw, 2rem)',
+                letterSpacing: '0.2em',
               }}
             >
               POWERED BY AI
@@ -146,24 +153,45 @@ export default function Home({ onNavigate }: HomeProps) {
           <div
             className="hero-bottom-text"
             style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.4rem',
               width: '100%',
-              textAlign: 'center',
             }}
           >
-            <p
+            <OutlinedText
               style={{
-                fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
-                fontWeight: 600,
-                fontSize: 'clamp(0.72rem, 2.4vw, 1.1rem)',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: '#EDEDED',
-                textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
-                margin: 0,
+                fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1rem, 3.2vw, 1.9rem)',
+                letterSpacing: '0.2em',
               }}
             >
-              START FREE &nbsp;&bull;&nbsp; NO COMMITMENT &nbsp;&bull;&nbsp; CANCEL ANYTIME
-            </p>
+              START FREE
+            </OutlinedText>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1rem, 3.2vw, 1.9rem)',
+                letterSpacing: '0.2em',
+              }}
+            >
+              NO COMMITMENT
+            </OutlinedText>
+            <OutlinedText
+              style={{
+                fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1rem, 3.2vw, 1.9rem)',
+                letterSpacing: '0.2em',
+              }}
+            >
+              CANCEL ANYTIME
+            </OutlinedText>
           </div>
         </div>
       </section>
