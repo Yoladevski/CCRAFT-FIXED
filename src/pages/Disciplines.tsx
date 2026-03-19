@@ -128,7 +128,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 disabled={!discipline.is_active && !isAdmin}
                 className={`mt-1 focus:outline-none group w-full ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed opacity-60' : ''}`}
               >
-                <div className="w-full h-[205px] sm:h-[256px] flex items-center justify-center">
+                <div className="w-full h-[205px] sm:h-[256px] flex items-center justify-center" style={{filter: 'drop-shadow(0 0 12px rgba(177,18,38,0.9)) drop-shadow(0 0 28px rgba(177,18,38,0.6))'}}>
                   <img
                     src={buttonImages[discipline.name] || buttonImages['Boxing']}
                     alt={`${discipline.name} button`}
