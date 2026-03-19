@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
+import { BGPattern } from '../components/ui/bg-pattern';
 
 export default function BoxingWorkouts() {
   const navigate = useNavigate();
@@ -68,10 +69,11 @@ export default function BoxingWorkouts() {
               <button
                 key={session.id}
                 onClick={() => navigate(`/boxing-workouts/${session.slug}`)}
-                className="w-full flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#2E2E2E] transition-all hover:scale-[1.01] hover:border-[#B11226] hover:bg-[rgba(177,18,38,0.06)] cursor-pointer text-center"
-                style={{ background: '#1A1A1A' }}
+                className="w-full relative overflow-hidden flex items-center px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-[#2E2E2E] transition-all hover:scale-[1.01] hover:border-[#B11226] hover:bg-[rgba(177,18,38,0.06)] cursor-pointer"
+                style={{ background: '#111111' }}
               >
-                <div className="flex flex-col gap-1.5 flex-1 text-center min-w-0">
+                <BGPattern variant="grid" fill="#3a3a3a" opacity={0.08} size={20} mask="none" />
+                <div className="flex flex-col gap-1.5 flex-1 text-center min-w-0 relative z-10 px-2">
                   <span
                     className="text-[#B11226] text-xs font-semibold tracking-widest uppercase block"
                     style={{ fontFamily: 'Orbitron, sans-serif' }}
@@ -86,7 +88,7 @@ export default function BoxingWorkouts() {
                   </span>
                 </div>
                 <svg
-                  className="text-[#B11226] flex-shrink-0 ml-3"
+                  className="text-[#B11226] flex-shrink-0 ml-3 relative z-10"
                   width="18"
                   height="18"
                   viewBox="0 0 24 24"
