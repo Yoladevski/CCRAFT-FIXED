@@ -13,7 +13,7 @@ export default function AboutUs({ onNavigate, onBack }: AboutUsProps) {
           <BackButton onClick={onBack} />
         </div>
 
-        <h1 className="cc-outline-text text-4xl md:text-5xl font-bold text-white mb-8 text-center">
+        <h1 className="cc-outline-text text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-8 text-center leading-tight">
           ABOUT COMBATCRAFT
         </h1>
 
@@ -52,7 +52,10 @@ export default function AboutUs({ onNavigate, onBack }: AboutUsProps) {
             <p>Future disciplines will expand the platform to include additional striking and grappling arts, allowing users to develop a wide range of combat skills within a single structured learning system.</p>
           </section>
 
-          <div className="bg-[#1A1A1A] border-l-4 border-[#B11226] p-6 sm:p-8 space-y-4">
+          <div
+            className="bg-[#0D0D0D] border border-[#B11226] rounded-lg p-6 sm:p-8 space-y-4"
+            style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}
+          >
             <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-white">TRAIN ANYWHERE. PROGRESS STEP BY STEP.</h2>
             <p>CombatCraft is built for anyone who wants to improve their martial arts skills through clear instruction, structured training, and consistent practice.</p>
             <ul className="space-y-1 mt-2">

@@ -251,71 +251,69 @@ export default function Home({ onNavigate }: HomeProps) {
               </div>
             </button>
 
-            <div className="grid grid-cols-2 gap-6 md:contents">
-              <button
-                onClick={() => onNavigate('AIInstruction')}
-                className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
-                style={{
-                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
-                  minHeight: '160px',
-                  isolation: 'isolate',
-                }}
-              >
-                <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
-                <div className="relative z-10 flex flex-col items-center">
-                <h3 className="mb-4" style={{
-                  fontFamily: 'Orbitron, sans-serif',
-                  fontWeight: 900,
-                  fontSize: '14px',
-                  letterSpacing: '3px',
-                  color: '#FFFFFF',
-                  textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
-                  textTransform: 'uppercase',
-                  lineHeight: '1.3',
-                }}>
-                  INSIDE<br />COMBATCRAFT
-                </h3>
-                <ul className="text-center space-y-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', listStyle: 'none', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
-                  <li>&#8226; Progress Tracking</li>
-                  <li>&#8226; Structured Pathway</li>
-                  <li>&#8226; AI Generated Videos</li>
-                </ul>
-                </div>
-              </button>
+            <button
+              onClick={() => onNavigate('AIInstruction')}
+              className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+                minHeight: '160px',
+                isolation: 'isolate',
+              }}
+            >
+              <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
+              <div className="relative z-10 flex flex-col items-center">
+              <h3 className="mb-4" style={{
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                fontSize: '14px',
+                letterSpacing: '3px',
+                color: '#FFFFFF',
+                textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
+                textTransform: 'uppercase',
+                lineHeight: '1.3',
+              }}>
+                INSIDE<br />COMBATCRAFT
+              </h3>
+              <ul className="text-center space-y-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', listStyle: 'none', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
+                <li>&#8226; Progress Tracking</li>
+                <li>&#8226; Structured Pathway</li>
+                <li>&#8226; AI Generated Videos</li>
+              </ul>
+              </div>
+            </button>
 
-              <button
-                onClick={() => onNavigate('ExploreDisciplines')}
-                className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
-                style={{
-                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
-                  minHeight: '160px',
-                  isolation: 'isolate',
-                }}
-              >
-                <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
-                <div className="relative z-10 flex flex-col items-center">
-                <h3 className="mb-4" style={{
-                  fontFamily: 'Orbitron, sans-serif',
-                  fontWeight: 900,
-                  fontSize: '14px',
-                  letterSpacing: '3px',
-                  color: '#FFFFFF',
-                  textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
-                  textTransform: 'uppercase',
-                  lineHeight: '1.3',
-                }}>
-                  EXPLORE<br />DISCIPLINES
-                </h3>
-                <ul className="text-center space-y-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', listStyle: 'none', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
-                  <li>&#8226; Boxing</li>
-                  <li>&#8226; Muay Thai</li>
-                  <li>&#8226; Brazilian Jiu-Jitsu</li>
-                  <li>&#8226; Judo</li>
-                  <li>&#8226; Taekwondo</li>
-                </ul>
-                </div>
-              </button>
-            </div>
+            <button
+              onClick={() => onNavigate('ExploreDisciplines')}
+              className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+              style={{
+                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+                minHeight: '160px',
+                isolation: 'isolate',
+              }}
+            >
+              <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
+              <div className="relative z-10 flex flex-col items-center">
+              <h3 className="mb-4" style={{
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                fontSize: '14px',
+                letterSpacing: '3px',
+                color: '#FFFFFF',
+                textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
+                textTransform: 'uppercase',
+                lineHeight: '1.3',
+              }}>
+                EXPLORE<br />DISCIPLINES
+              </h3>
+              <ul className="text-center space-y-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '11px', fontWeight: 400, color: '#A0A0A0', listStyle: 'none', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>
+                <li>&#8226; Boxing</li>
+                <li>&#8226; Muay Thai</li>
+                <li>&#8226; Brazilian Jiu-Jitsu</li>
+                <li>&#8226; Judo</li>
+                <li>&#8226; Taekwondo</li>
+              </ul>
+              </div>
+            </button>
 
             <button
               onClick={() => onNavigate('HowItWorks')}
