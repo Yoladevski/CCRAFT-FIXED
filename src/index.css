@@ -111,6 +111,12 @@ h2 {
   line-height: 1.2;
   letter-spacing: 0.06em;
   color: #EDEDED;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000,
+    0 0 4px #ff0000;
 }
 
 h3 {
@@ -206,7 +212,8 @@ nav a {
     2px 2px 0 #000,
     -2px 2px 0 #000,
     2px -2px 0 #000,
-    -2px -2px 0 #000;
+    -2px -2px 0 #000,
+    0 0 4px #ff0000;
 }
 
 .outlined-text {

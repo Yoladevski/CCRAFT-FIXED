@@ -195,7 +195,7 @@ function LevelCompleteModal({
             style={{
               fontFamily: 'Orbitron, sans-serif',
               color: '#B11226',
-              textShadow: '0 0 20px rgba(177, 18, 38, 0.8)',
+              textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
             }}
           >
             {userName.toUpperCase()}

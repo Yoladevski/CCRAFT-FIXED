@@ -70,7 +70,8 @@
     2px 2px 0 #000,
     -2px 2px 0 #000,
     2px -2px 0 #000,
-    -2px -2px 0 #000;
+    -2px -2px 0 #000,
+    0 0 4px #ff0000;
 }
 
 .cc-tertiary-heading {
@@ -171,7 +172,8 @@
     2px 2px 0 #000,
     -2px 2px 0 #000,
     2px -2px 0 #000,
-    -2px -2px 0 #000;
+    -2px -2px 0 #000,
+    0 0 4px #ff0000;
 }
 
 .display-text {

@@ -213,7 +213,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontSize: '14px',
                 letterSpacing: '3px',
                 color: '#FFFFFF',
-                WebkitTextStroke: '1px #B11226',
+                textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
                 textTransform: 'uppercase',
                 lineHeight: '1.3',
               }}>
@@ -239,7 +239,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   fontSize: '14px',
                   letterSpacing: '3px',
                   color: '#FFFFFF',
-                  WebkitTextStroke: '1px #B11226',
+                  textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
                   textTransform: 'uppercase',
                   lineHeight: '1.3',
                 }}>
@@ -266,7 +266,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   fontSize: '14px',
                   letterSpacing: '3px',
                   color: '#FFFFFF',
-                  WebkitTextStroke: '1px #B11226',
+                  textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
                   textTransform: 'uppercase',
                   lineHeight: '1.3',
                 }}>
@@ -296,7 +296,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 fontSize: '14px',
                 letterSpacing: '3px',
                 color: '#FFFFFF',
-                WebkitTextStroke: '1px #B11226',
+                textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
                 textTransform: 'uppercase',
                 lineHeight: '1.3',
               }}>

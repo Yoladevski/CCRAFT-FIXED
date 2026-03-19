@@ -36,7 +36,7 @@ export default function BoxingWorkouts() {
         >
           <h2
             className="text-white font-bold text-base sm:text-lg mb-3 tracking-wide text-center"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{ fontFamily: 'Orbitron, sans-serif', textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000' }}
           >
             Workout Format
           </h2>

@@ -396,7 +396,7 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
             fontFamily: 'Orbitron, sans-serif', color: '#fff',
             fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
             lineHeight: 1.25, margin: 0,
-            textShadow: '0 0 16px rgba(177,18,38,0.35)',
+            textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
             letterSpacing: '0.04em',
           }}>{titleText}</h2>
         </div>
