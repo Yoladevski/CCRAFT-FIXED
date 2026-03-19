@@ -286,9 +286,12 @@ export default function Auth({ onNavigate }: AuthProps) {
                     </div>
                   ) : (
                     <img
-                      src="https://api.combatcraft.co.uk/storage/v1/object/public/images/SIGN%20IN.png"
+                      src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20sign%20in.png"
                       alt="Sign In"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-auto"
+                      style={{ width: '100%', objectFit: 'contain', display: 'block' }}
                     />
                   )}
                 </button>
@@ -308,9 +311,12 @@ export default function Auth({ onNavigate }: AuthProps) {
                 className="w-full transition-transform hover:scale-105"
               >
                 <img
-                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/create%20account.png"
+                  src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/cerate%20account%20new.png"
                   alt="Create Account"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto"
+                  style={{ width: '100%', objectFit: 'contain', display: 'block' }}
                 />
               </button>
 
@@ -484,9 +490,12 @@ export default function Auth({ onNavigate }: AuthProps) {
                   </div>
                 ) : (
                   <img
-                    src="https://api.combatcraft.co.uk/storage/v1/object/public/images/create%20account.png"
+                    src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/cerate%20account%20new.png"
                     alt="Create Account"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto"
+                    style={{ width: '100%', objectFit: 'contain', display: 'block' }}
                   />
                 )}
               </button>

@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
-import continueButton from '../assets/continue.webp';
 import LevelProgressIndicator from '../components/LevelProgressIndicator';
 import WorkoutOfTheDay from '../components/WorkoutOfTheDay';
 import TrainingStreak from '../components/TrainingStreak';
@@ -278,9 +277,12 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             className="w-full lg:w-3/5 transition-transform hover:scale-105"
           >
             <img
-              src={continueButton}
+              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/continue%20new%20(2).png"
               alt="Continue Foundation Pathway"
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto"
+              style={{ width: '100%', objectFit: 'contain', display: 'block' }}
             />
           </button>
         </div>
