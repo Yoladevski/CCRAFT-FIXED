@@ -219,14 +219,14 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="flex flex-col md:grid md:grid-cols-4 gap-6 sm:gap-8 mt-[10px] items-stretch">
             <button
               onClick={() => onNavigate('CombatCraft')}
-              className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+              className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                 minHeight: '160px',
                 isolation: 'isolate',
               }}
             >
-              <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+              <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
@@ -249,14 +249,14 @@ export default function Home({ onNavigate }: HomeProps) {
             <div className="grid grid-cols-2 gap-6 md:contents">
               <button
                 onClick={() => onNavigate('AIInstruction')}
-                className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+                className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                   minHeight: '160px',
                   isolation: 'isolate',
                 }}
               >
-                <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+                <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
                 <div className="relative z-10 flex flex-col items-center">
                 <h3 className="mb-4" style={{
                   fontFamily: 'Orbitron, sans-serif',
@@ -280,14 +280,14 @@ export default function Home({ onNavigate }: HomeProps) {
 
               <button
                 onClick={() => onNavigate('ExploreDisciplines')}
-                className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+                className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                   minHeight: '160px',
                   isolation: 'isolate',
                 }}
               >
-                <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+                <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
                 <div className="relative z-10 flex flex-col items-center">
                 <h3 className="mb-4" style={{
                   fontFamily: 'Orbitron, sans-serif',
@@ -314,14 +314,14 @@ export default function Home({ onNavigate }: HomeProps) {
 
             <button
               onClick={() => onNavigate('HowItWorks')}
-              className="w-full bg-[#1A1A1A] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+              className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.4), 0 0 30px rgba(177, 18, 38, 0.2)',
                 minHeight: '160px',
                 isolation: 'isolate',
               }}
             >
-              <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+              <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',

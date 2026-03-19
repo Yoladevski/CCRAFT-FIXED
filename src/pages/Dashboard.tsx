@@ -134,8 +134,9 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     return (
       <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20 flex items-center justify-center">
         <div className="max-w-2xl mx-auto relative z-10">
-          <div className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center relative overflow-hidden">
-            <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
+          <div className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center relative overflow-hidden" style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)', isolation: 'isolate' }}>
+            <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
+            <div className="relative z-10">
             <div className="mb-6">
               <Lock size={64} className="mx-auto text-[#B11226]" />
             </div>
@@ -158,6 +159,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               >
                 BACK TO HOME
               </button>
+            </div>
             </div>
           </div>
         </div>
@@ -211,13 +213,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
         {/* WELCOME MESSAGE */}
         <div
-          className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center relative overflow-hidden"
+          className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center relative overflow-hidden"
           style={{
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
             isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+          <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
           <div className="relative z-10">
           <h2
             className="mb-2 hidden sm:block"
@@ -293,13 +295,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           {/* CURRENT TRAINING PANEL */}
           <div
-            className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 md:p-10 text-center flex flex-col justify-center relative overflow-hidden"
+            className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-6 md:p-10 text-center flex flex-col justify-center relative overflow-hidden"
             style={{
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
               isolation: 'isolate',
             }}
           >
-            <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+            <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
             <div className="relative z-10">
             <h2 className="cc-section-heading mb-6 md:mb-8 hidden sm:block" data-text="CURRENT TRAINING">
               CURRENT TRAINING
@@ -364,13 +366,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
           {/* CURRENT RANK CARD */}
           <div
-            className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden"
+            className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden"
             style={{
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
               isolation: 'isolate',
             }}
           >
-            <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+            <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
             <div className="relative z-10 w-full flex flex-col items-center">
             <h2 className="cc-section-heading mb-3 md:mb-4 hidden sm:block" data-text="CURRENT RANK">
               CURRENT RANK
@@ -418,7 +420,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </div>
 
             {/* Progress Info */}
-            <div className="w-full pt-3 border-t border-[#2E2E2E] flex flex-col gap-3">
+            <div className="w-full pt-3 border-t border-[#B11226] flex flex-col gap-3" style={{ boxShadow: '0 -1px 8px rgba(177, 18, 38, 0.5)' }}>
               <div className="text-center">
                 <p className="cc-card-label mb-1">
                   FOUNDATION PROGRESS

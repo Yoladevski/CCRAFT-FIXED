@@ -17,14 +17,14 @@ export default function TrainingStreak() {
 
   return (
     <div
-      className="bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-5 sm:p-6 flex flex-col gap-3 relative overflow-hidden"
+      className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-5 sm:p-6 flex flex-col gap-3 relative overflow-hidden"
       style={{
         boxShadow:
           '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
         isolation: 'isolate',
       }}
     >
-      <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+      <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
       <div className="relative z-10 flex flex-col gap-3">
         <div className="flex items-center justify-center gap-2">
           <span className="text-base sm:text-lg leading-none">🔥</span>

@@ -21,13 +21,13 @@ export default function Merchandise({ onBack }: MerchandiseProps) {
         </div>
 
         <div
-          className="mt-12 sm:mt-16 bg-[#1A1A1A] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 max-w-3xl mx-auto text-center relative overflow-hidden"
+          className="mt-12 sm:mt-16 bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 max-w-3xl mx-auto text-center relative overflow-hidden"
           style={{
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
             isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+          <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
           <div className="relative z-10">
             <div className="w-16 h-16 mx-auto bg-[#B11226]/20 rounded-full flex items-center justify-center mb-4">
               <svg

@@ -370,16 +370,16 @@ export default function Account({ onBack }: AccountProps) {
         )}
 
         <div
-          className="bg-[#1A1A1A] border-2 border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg mt-[65px] relative"
+          className="bg-[#0D0D0D] border-2 border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg mt-[65px] relative"
           style={{
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
             isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#3a3a3a" size={20} opacity={0.35} />
+          <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
           <div className="relative z-10">
           {/* Mobile Tab Navigation with Arrows */}
-          <div className="flex sm:hidden border-b border-[#2E2E2E] items-center">
+          <div className="flex sm:hidden border-b border-[#B11226] items-center" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.4)' }}>
             <button
               onClick={() => {
                 if (activeTab === 'security') setActiveTab('profile');
@@ -418,7 +418,7 @@ export default function Account({ onBack }: AccountProps) {
           </div>
 
           {/* Desktop Tab Navigation */}
-          <div className="hidden sm:flex border-b border-[#2E2E2E]">
+          <div className="hidden sm:flex border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.4)' }}>
             <button
               onClick={() => setActiveTab('profile')}
               className={`button-text flex-1 py-2 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
@@ -454,7 +454,7 @@ export default function Account({ onBack }: AccountProps) {
           <div className="p-3 sm:p-6 md:p-8">
             {activeTab === 'profile' && (
               <div className="space-y-6 sm:space-y-8">
-                <div className="flex flex-col items-center gap-3 sm:gap-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
+                <div className="flex flex-col items-center gap-3 sm:gap-4 pb-6 sm:pb-8 border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.35)' }}>
                   <div className="relative">
                     <div className="w-24 h-24 sm:w-32 sm:h-32 min-w-[96px] min-h-[96px] sm:min-w-[128px] sm:min-h-[128px] rounded-full border-4 border-[#B11226] overflow-hidden bg-[#2E2E2E] flex items-center justify-center">
                       {profilePicture ? (
@@ -598,7 +598,7 @@ export default function Account({ onBack }: AccountProps) {
 
             {activeTab === 'security' && (
               <div className="space-y-6 sm:space-y-8">
-                <div className="pb-6 sm:pb-8 border-b border-[#2E2E2E]">
+                <div className="pb-6 sm:pb-8 border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.35)' }}>
                   <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-4">
                     ACCOUNT INFO
                   </h2>
@@ -620,7 +620,7 @@ export default function Account({ onBack }: AccountProps) {
                   )}
                 </div>
 
-                <form onSubmit={handleEmailChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
+                <form onSubmit={handleEmailChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.35)' }}>
                   <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
                     CHANGE EMAIL
                   </h2>
@@ -646,7 +646,7 @@ export default function Account({ onBack }: AccountProps) {
                   </button>
                 </form>
 
-                <form onSubmit={handlePhoneChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#2E2E2E]">
+                <form onSubmit={handlePhoneChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.35)' }}>
                   <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
                     PHONE NUMBER
                   </h2>
@@ -836,7 +836,7 @@ export default function Account({ onBack }: AccountProps) {
                         YOUR REFERRAL CODE
                       </div>
                       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-                        <div className="flex-1 bg-[#1A1A1A] border border-[#2E2E2E] rounded px-3 sm:px-4 py-2 sm:py-3 overflow-x-auto">
+                        <div className="flex-1 bg-[#0D0D0D] border border-[#2E2E2E] rounded px-3 sm:px-4 py-2 sm:py-3 overflow-x-auto">
                           <code className="text-[#B11226] font-bold text-sm sm:text-lg whitespace-nowrap" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                             {profile.referral_code}
                           </code>
@@ -864,7 +864,7 @@ export default function Account({ onBack }: AccountProps) {
                   )}
                 </div>
 
-                <div className="pt-6 sm:pt-8 border-t border-[#2E2E2E]">
+                <div className="pt-6 sm:pt-8 border-t border-[#B11226]" style={{ boxShadow: '0 -1px 8px rgba(177, 18, 38, 0.4)' }}>
                   <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B11226]">
                     DANGER ZONE
                   </h2>
