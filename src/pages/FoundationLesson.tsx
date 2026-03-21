@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ChevronDown, Check } from 'lucide-react';
+import { ChevronDown, Check } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
@@ -407,13 +408,7 @@ export default function FoundationLesson() {
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-2xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
-          <button
-            onClick={() => navigate(`/boxing/foundations/level/${currentLevel}`)}
-            className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
-          >
-            <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
-            <span className="text-body font-medium">BACK</span>
-          </button>
+          <BackButton onClick={() => navigate(`/boxing/foundations/level/${currentLevel}`)} />
         </div>
 
         <div className="text-center mb-2">

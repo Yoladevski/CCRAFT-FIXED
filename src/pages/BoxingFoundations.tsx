@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { BOXING_FOUNDATIONS_LEVELS, FoundationLesson } from '../data/foundationsLessons';
 import LevelProgressIndicator from '../components/LevelProgressIndicator';
 import { BGPattern } from '../components/ui/bg-pattern';
+import BackButton from '../components/BackButton';
 
 const VICTORY_QUOTES = [
   "CHAMPION!",
@@ -390,13 +391,7 @@ export default function BoxingFoundations() {
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-3xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
-          <button
-            onClick={() => navigate('/boxing/5c45a8e7-aa73-433a-8344-dd8aadf2eed2')}
-            className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
-          >
-            <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
-            <span className="text-body font-medium">BACK</span>
-          </button>
+          <BackButton onClick={() => navigate('/boxing/5c45a8e7-aa73-433a-8344-dd8aadf2eed2')} />
         </div>
 
         <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-10">

@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, ChevronDown, Check } from 'lucide-react';
+import { CheckCircle, ChevronDown, Check } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
@@ -232,13 +233,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
     <div className="min-h-screen py-6 sm:py-12 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
-          <button
-            onClick={onBack}
-            className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
-          >
-            <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
-            <span className="text-body font-medium">BACK TO CATEGORY</span>
-          </button>
+          <BackButton onClick={onBack} label="BACK TO CATEGORY" />
         </div>
 
         <div className="flex items-center justify-between mb-8">

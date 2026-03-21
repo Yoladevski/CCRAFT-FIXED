@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
 import { BGPattern } from '../components/ui/bg-pattern';
+import BackButton from '../components/BackButton';
 
 export default function BoxingWorkouts() {
   const navigate = useNavigate();
@@ -10,13 +10,7 @@ export default function BoxingWorkouts() {
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-3xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
-          <button
-            onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
-          >
-            <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
-            <span className="text-body font-medium">BACK</span>
-          </button>
+          <BackButton onClick={() => navigate(-1)} />
         </div>
 
         <div className="text-center mb-6 sm:mb-8">

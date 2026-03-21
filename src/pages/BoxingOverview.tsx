@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import workoutsImg from '../assets/file_0000000072dc7246919b2e83c454badf.png';
+import BackButton from '../components/BackButton';
 
 interface BoxingOverviewProps {
   onNavigate: (page: string, id?: string) => void;
@@ -14,13 +14,7 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
-          <button
-            onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-[#A0A0A0] hover:text-white transition-colors group"
-          >
-            <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
-            <span className="text-body font-medium">BACK</span>
-          </button>
+          <BackButton onClick={() => navigate(-1)} />
         </div>
 
         <div className="text-center mb-10 sm:mb-14">
