@@ -99,7 +99,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                   onClick={() => handleNavigate('Auth')}
                   className="px-5 py-2 bg-[#B11226] hover:bg-[#8B0E1C] transition-all whitespace-nowrap cursor-pointer text-white text-sm font-bold tracking-wider flex items-center justify-center"
                 >
-                  SIGN UP
+                  SIGN IN
                 </button>
               )}
             </div>
@@ -135,7 +135,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                     className="px-3 py-1.5 bg-[#B11226] hover:bg-[#8B0E1C] transition-all text-white text-[10px] font-bold whitespace-nowrap"
                     style={{ letterSpacing: '0.1em' }}
                   >
-                    SIGN UP
+                    SIGN IN
                   </button>
                 )}
                 <div className="scale-110">
@@ -357,7 +357,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
               }}
             >
-              SIGN UP
+              SIGN IN
             </button>
           )}
         </div>
