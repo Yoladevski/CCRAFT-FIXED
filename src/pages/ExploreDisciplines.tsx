@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
+
 const cardImages: Record<string, string> = {
   'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/booxing.PNG',
   'Muay Thai': 'https://i.postimg.cc/qMxH91nW/fightcraft3.jpg',
@@ -17,9 +20,13 @@ const disciplines = [
 ];
 
 export default function ExploreDisciplines() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
       <div className="max-w-7xl mx-auto relative z-10">
+        <div className="mb-6 sm:mb-8">
+          <BackButton onClick={() => navigate(-1)} />
+        </div>
         <h1 className="cc-red-shadow-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
           EXPLORE DISCIPLINES
         </h1>
