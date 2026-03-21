@@ -327,47 +327,36 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </h2>
 
             {nextLesson ? (
-              <div className="space-y-6 md:space-y-8">
-                <div>
-                  <h2
-                    className="mb-2 md:mb-3 tracking-wider uppercase"
-                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.6rem', color: '#A0A0A0' }}
-                  >
-                    DISCIPLINE
-                  </h2>
-                  <h2
-                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.75rem', color: '#FFFFFF' }}
-                  >
-                    BOXING
-                  </h2>
+              <div className="flex flex-col gap-6 md:gap-8">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.55rem', color: '#A0A0A0', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                      DISCIPLINE
+                    </span>
+                    <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.8rem', color: '#FFFFFF', letterSpacing: '0.05em' }}>
+                      BOXING
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1.5">
+                    <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.55rem', color: '#A0A0A0', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                      LEVEL
+                    </span>
+                    <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.8rem', color: '#FFFFFF', letterSpacing: '0.05em' }}>
+                      {nextLesson.levelTitle.toUpperCase()}
+                    </span>
+                  </div>
                 </div>
 
-                <div>
-                  <h2
-                    className="mb-2 md:mb-3 tracking-wider uppercase"
-                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.6rem', color: '#A0A0A0' }}
-                  >
-                    LEVEL {nextLesson.level}
-                  </h2>
-                  <h2
-                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.75rem', color: '#FFFFFF' }}
-                  >
-                    {nextLesson.levelTitle.toUpperCase()}
-                  </h2>
-                </div>
-
-                <div>
-                  <h2
-                    className="mb-2 md:mb-3 tracking-wider uppercase"
-                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.6rem', color: '#A0A0A0' }}
-                  >
+                <div
+                  className="flex flex-col items-center gap-2 pt-5 md:pt-6"
+                  style={{ borderTop: '1px solid #2a2a2a' }}
+                >
+                  <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.55rem', color: '#A0A0A0', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                     NEXT LESSON
-                  </h2>
-                  <h2
-                    style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.75rem', color: '#B11226' }}
-                  >
+                  </span>
+                  <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: 'clamp(1rem, 3.5vw, 1.25rem)', color: '#B11226', letterSpacing: '0.06em', lineHeight: 1.2, textAlign: 'center' }}>
                     {nextLesson.lessonTitle.toUpperCase()}
-                  </h2>
+                  </span>
                 </div>
               </div>
             ) : (
