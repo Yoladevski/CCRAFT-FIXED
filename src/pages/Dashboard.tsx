@@ -265,7 +265,20 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
         </div>
 
         {/* CONTINUE BUTTON */}
-        <div className="flex justify-center">
+        <div className="flex flex-col items-center gap-1">
+          <p
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              fontSize: '10px',
+              letterSpacing: '0.08em',
+              color: 'rgba(160, 160, 160, 0.65)',
+              textTransform: 'uppercase',
+              textAlign: 'center',
+              margin: 0,
+            }}
+          >
+            Resume your next lesson
+          </p>
           <button
             onClick={() => {
               if (nextLesson) {
@@ -274,7 +287,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 navigate('/boxing/foundations');
               }
             }}
-            className="w-full lg:w-3/5 transition-transform hover:scale-105"
+            className="w-full lg:w-3/5 transition-transform hover:scale-105 self-stretch lg:self-auto"
             style={{ filter: 'drop-shadow(0 0 12px rgba(177, 18, 38, 0.85)) drop-shadow(0 0 28px rgba(177, 18, 38, 0.5))' }}
           >
             <img
