@@ -606,18 +606,10 @@ export default function Account({ onBack }: AccountProps) {
                     <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>CURRENT EMAIL</div>
                     <div className="text-sm sm:text-base break-all" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{user?.email}</div>
                   </div>
-                  {profile && (
-                    <div className="grid grid-cols-2 gap-3 sm:gap-6 mt-6">
-                      <div>
-                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>RANK</div>
-                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{profile.rank}</div>
-                      </div>
-                      <div>
-                        <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>POWER LEVEL</div>
-                        <div className="text-lg sm:text-2xl font-bold text-[#B11226]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{profile.power_level}</div>
-                      </div>
-                    </div>
-                  )}
+                  <div className="mt-4">
+                    <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>CURRENT PHONE NUMBER</div>
+                    <div className="text-sm sm:text-base" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{user?.phone || '—'}</div>
+                  </div>
                 </div>
 
                 <form onSubmit={handleEmailChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.35)' }}>
