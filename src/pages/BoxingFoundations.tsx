@@ -270,14 +270,14 @@ function LevelCompleteModal({
 
           <button
             onClick={onClose}
-            className="w-full py-3 rounded-xl font-bold text-white transition-all hover:scale-[1.02]"
-            style={{
-              background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
-              boxShadow: '0 0 20px rgba(177, 18, 38, 0.5)',
-              fontFamily: 'Orbitron, sans-serif',
-            }}
+            className="w-full transition-transform hover:scale-[1.02] active:scale-95"
           >
-            CONTINUE
+            <img
+              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/continue%20new%20(2).png"
+              alt="Continue"
+              className="w-full h-auto"
+              style={{ objectFit: 'contain', display: 'block' }}
+            />
           </button>
         </div>
       </div>

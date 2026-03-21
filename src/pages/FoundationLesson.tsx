@@ -114,17 +114,14 @@ function LessonCompletePopup({ onContinue }: LessonCompletePopupProps) {
 
         <button
           onClick={onContinue}
-          className="mt-2 px-10 py-3 text-white font-black tracking-widest transition-all hover:scale-105 active:scale-95"
-          style={{
-            fontFamily: 'Orbitron, sans-serif',
-            fontSize: '0.9rem',
-            letterSpacing: '0.15em',
-            background: 'linear-gradient(135deg, #B11226 0%, #8a0d1c 100%)',
-            boxShadow: '0 0 20px rgba(177,18,38,0.7), 0 0 40px rgba(177,18,38,0.3)',
-            borderRadius: '9999px',
-          }}
+          className="mt-2 w-full transition-transform hover:scale-105 active:scale-95"
         >
-          CONTINUE
+          <img
+            src="https://api.combatcraft.co.uk/storage/v1/object/public/images/continue%20new%20(2).png"
+            alt="Continue"
+            className="w-full h-auto"
+            style={{ objectFit: 'contain', display: 'block' }}
+          />
         </button>
       </div>
     </div>
@@ -789,9 +786,14 @@ export default function FoundationLesson() {
             <div className="text-7xl font-bold text-[#B11226] mb-8">{newRank}</div>
             <button
               onClick={handleRankUpContinue}
-              className="button-text px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
+              className="transition-transform hover:scale-105 active:scale-95 w-64"
             >
-              CONTINUE
+              <img
+                src="https://api.combatcraft.co.uk/storage/v1/object/public/images/continue%20new%20(2).png"
+                alt="Continue"
+                className="w-full h-auto"
+                style={{ objectFit: 'contain', display: 'block' }}
+              />
             </button>
           </div>
         </div>

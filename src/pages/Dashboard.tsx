@@ -277,7 +277,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             className="w-full lg:w-3/5 transition-transform hover:scale-105"
           >
             <img
-              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/continue%20new%20(2).png"
+              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/continue%20new%20(2).png"
               alt="Continue Foundation Pathway"
               loading="lazy"
               decoding="async"
