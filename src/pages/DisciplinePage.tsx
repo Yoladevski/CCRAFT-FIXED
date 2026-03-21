@@ -57,7 +57,7 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
           {discipline?.name === 'Boxing' ? (
-            <BackButton onClick={() => navigate(`/boxing/${disciplineId}`)} label="BOXING MENU" />
+            <BackButton onClick={() => navigate(`/boxing/${disciplineId}`)} />
           ) : (
             <BackButton onClick={() => navigate(-1)} />
           )}
