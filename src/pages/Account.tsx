@@ -836,6 +836,9 @@ export default function Account({ onBack }: AccountProps) {
                     <LogOut size={18} />
                     SIGN OUT
                   </button>
+                  <p className="text-xs text-center mt-2 text-[#A0A0A0]/70" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                    You'll be signed out of your account on this device.
+                  </p>
                 </div>
 
                 <div
@@ -846,13 +849,18 @@ export default function Account({ onBack }: AccountProps) {
                     DELETE ACCOUNT
                   </h2>
                   {!showDeleteConfirm ? (
-                    <button
-                      onClick={() => setShowDeleteConfirm(true)}
-                      className="button-text w-full py-3 sm:py-4 bg-[#B11226]/20 border-2 border-[#B11226] text-[#B11226] text-sm sm:text-base font-bold rounded hover:bg-[#B11226] hover:text-white transition-all flex items-center justify-center gap-2"
-                    >
-                      <Trash2 size={18} />
-                      DELETE ACCOUNT
-                    </button>
+                    <>
+                      <button
+                        onClick={() => setShowDeleteConfirm(true)}
+                        className="button-text w-full py-3 sm:py-4 bg-[#B11226]/20 border-2 border-[#B11226] text-[#B11226] text-sm sm:text-base font-bold rounded hover:bg-[#B11226] hover:text-white transition-all flex items-center justify-center gap-2"
+                      >
+                        <Trash2 size={18} />
+                        DELETE ACCOUNT
+                      </button>
+                      <p className="text-xs text-center mt-2 text-[#A0A0A0]/70" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                        This action is permanent and cannot be undone.
+                      </p>
+                    </>
                   ) : (
                     <div className="space-y-3 sm:space-y-4">
                       <p className="text-xs sm:text-sm text-[#B11226] font-bold" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
