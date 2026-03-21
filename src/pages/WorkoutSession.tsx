@@ -1,10 +1,10 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import BackButton from '../components/BackButton';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
 import ActiveWorkout from '../components/WorkoutMode';
-import { unlockAudioContext, speak } from '../lib/audioController';
+import { unlockAudioContext } from '../lib/audioController';
 
 function AccordionCard({ title, children, defaultOpen = false }: { title: React.ReactNode; children: React.ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -51,7 +51,6 @@ export default function WorkoutSession() {
   const navigate = useNavigate();
   const { sessionSlug } = useParams<{ sessionSlug: string }>();
   const [workoutMode, setWorkoutMode] = useState<WorkoutMode>('preview');
-  const firstCueSpokenRef = useRef(false);
 
   const session = BOXING_WORKOUT_SESSIONS.find(s => s.slug === sessionSlug);
 
@@ -73,9 +72,7 @@ export default function WorkoutSession() {
     return (
       <ActiveWorkout
         session={session}
-        skipFirstVoiceCue={firstCueSpokenRef.current}
         onExit={() => {
-          firstCueSpokenRef.current = false;
           setWorkoutMode('preview');
           navigate('/boxing-workouts');
         }}
@@ -150,7 +147,7 @@ export default function WorkoutSession() {
 
             {canStartWorkout && (
               <button
-                onClick={() => { unlockAudioContext(); speak('Round 1', true); firstCueSpokenRef.current = true; setWorkoutMode('active'); }}
+                onClick={() => { unlockAudioContext(); setWorkoutMode('active'); }}
                 className="w-full py-4 rounded-lg text-white text-sm font-black tracking-widest uppercase transition-all active:scale-95 hover:brightness-110"
                 style={{
                   fontFamily: 'Orbitron, sans-serif',
