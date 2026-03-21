@@ -3,7 +3,7 @@ import { Pause, Play, RotateCcw, ChevronLeft, Volume2, VolumeX } from 'lucide-re
 import type { WorkoutSession } from '../data/boxingWorkouts';
 import { playBell, speak } from '../lib/audioController';
 
-type Phase = 'getReady' | 'round' | 'rest' | 'complete';
+type Phase = 'round' | 'rest' | 'complete';
 
 interface WorkoutModeProps {
   session: WorkoutSession;
@@ -13,7 +13,6 @@ interface WorkoutModeProps {
 
 const ROUND_DURATION = 3 * 60;
 const REST_DURATION = 1 * 60;
-const GET_READY_DURATION = 10;
 const URGENCY_THRESHOLD = 10;
 
 function formatTime(seconds: number): string {
@@ -116,12 +115,11 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
 
   const [mounted, setMounted] = useState(false);
   const [roundIndex, setRoundIndex] = useState(0);
-  const [phase, setPhase] = useState<Phase>('getReady');
-  const [timeLeft, setTimeLeft] = useState(GET_READY_DURATION);
+  const [phase, setPhase] = useState<Phase>('round');
+  const [timeLeft, setTimeLeft] = useState(ROUND_DURATION);
   const [paused, setPaused] = useState(false);
   const [voiceEnabled, setVoiceEnabled] = useState(true);
   const [overlay, setOverlay] = useState<{ visible: boolean; label: string; sublabel?: string }>({ visible: false, label: '' });
-  const getReadyCueSpokenRef = useRef(false);
 
   const bellPlayedRef = useRef(false);
   const voicePlayedRef = useRef(false);
@@ -147,17 +145,9 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
     };
   }, []);
 
-  useEffect(() => {
-    if (!mounted) return;
-    if (phase === 'getReady' && !getReadyCueSpokenRef.current) {
-      getReadyCueSpokenRef.current = true;
-      speak('Get ready.', voiceEnabledRef.current);
-    }
-  }, [mounted, phase]);
-
   const currentRound = rounds[roundIndex];
   const nextRound = rounds[roundIndex + 1];
-  const isUrgent = timeLeft <= URGENCY_THRESHOLD && phase !== 'complete' && phase !== 'getReady';
+  const isUrgent = timeLeft <= URGENCY_THRESHOLD && phase !== 'complete';
   const isFinalRound = phase === 'round' && roundIndex === totalRounds - 1;
 
   const showOverlay = useCallback((label: string, sublabel?: string) => {
@@ -166,17 +156,6 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
   }, []);
 
   const handleTransition = useCallback(() => {
-    if (phase === 'getReady') {
-      playBell();
-      setPhase('round');
-      setTimeLeft(ROUND_DURATION);
-      bellPlayedRef.current = true;
-      voicePlayedRef.current = false;
-      urgencySpokenRef.current = false;
-      showOverlay('ROUND 1');
-      setTimeout(() => speak('Round 1. Begin.', voiceEnabledRef.current), 400);
-      return;
-    }
     if (phase === 'round') {
       playBell();
       if (roundIndex >= totalRounds - 1) {
@@ -216,7 +195,7 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
   useEffect(() => {
     if (!mounted || phase === 'complete' || paused) return;
     if (timeLeft <= 0) { handleTransition(); return; }
-    if (phase !== 'getReady' && timeLeft === URGENCY_THRESHOLD && !urgencySpokenRef.current) {
+    if (timeLeft === URGENCY_THRESHOLD && !urgencySpokenRef.current) {
       urgencySpokenRef.current = true;
       setTimeout(() => speak('Ten seconds.', voiceEnabledRef.current), 100);
     }
@@ -226,7 +205,6 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
 
   useEffect(() => {
     if (!mounted) return;
-    if (phase === 'getReady') return;
     if (!bellPlayedRef.current && phase !== 'complete') {
       bellPlayedRef.current = true;
       playBell();
@@ -235,26 +213,29 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
 
   useEffect(() => {
     if (!mounted) return;
-    if (phase !== 'round') return;
-    if (roundIndex === 0) return;
-    if (!voicePlayedRef.current) {
+    if (phase === 'round' && !voicePlayedRef.current) {
       voicePlayedRef.current = true;
+      if (roundIndex === 0) {
+        showOverlay('ROUND 1');
+        if (!skipFirstVoiceCue) {
+          setTimeout(() => speak('Round 1. Begin.', voiceEnabledRef.current), 600);
+        }
+      }
     }
   }, [mounted, phase, roundIndex, totalRounds, showOverlay, skipFirstVoiceCue]);
 
   const handleRestart = () => {
     setRoundIndex(0);
-    setPhase('getReady');
-    setTimeLeft(GET_READY_DURATION);
+    setPhase('round');
+    setTimeLeft(ROUND_DURATION);
     setPaused(false);
     bellPlayedRef.current = false;
     voicePlayedRef.current = false;
     urgencySpokenRef.current = false;
-    getReadyCueSpokenRef.current = false;
     setOverlay({ visible: false, label: '' });
   };
 
-  const duration = phase === 'getReady' ? GET_READY_DURATION : phase === 'round' ? ROUND_DURATION : REST_DURATION;
+  const duration = phase === 'round' ? ROUND_DURATION : REST_DURATION;
   const progress = ((duration - timeLeft) / duration) * 100;
   const radius = 88;
   const circumference = 2 * Math.PI * radius;
@@ -264,91 +245,6 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
   const timerGlow = isUrgent
     ? 'drop-shadow(0 0 12px rgba(255,26,51,1)) drop-shadow(0 0 24px rgba(255,26,51,0.5))'
     : 'drop-shadow(0 0 10px rgba(177,18,38,0.8)) drop-shadow(0 0 20px rgba(177,18,38,0.3))';
-
-  if (phase === 'getReady') {
-    return (
-      <>
-        <style>{keyframes}</style>
-        <div style={{ ...shell, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 28px' }}>
-          <TransitionOverlay visible={overlay.visible} label={overlay.label} sublabel={overlay.sublabel} />
-
-          <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0,
-            paddingTop: 'calc(10px + env(safe-area-inset-top, 0px))',
-            paddingBottom: '8px', paddingLeft: '16px', paddingRight: '16px',
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between', zIndex: 2,
-          }}>
-            <button onClick={onExit} style={{
-              display: 'flex', alignItems: 'center', gap: '4px',
-              color: '#444', background: 'none', border: 'none', cursor: 'pointer',
-              fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
-            }}>
-              <ChevronLeft size={13} />EXIT
-            </button>
-            <span style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#2e2e2e',
-              fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
-            }}>
-              {session.title}
-            </span>
-            <button
-              onClick={() => setVoiceEnabled(v => !v)}
-              style={{ color: voiceEnabled ? '#B11226' : '#3a3a3a', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', transition: 'color 0.2s' }}
-            >
-              {voiceEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
-            </button>
-          </div>
-
-          <div style={{ textAlign: 'center', width: '100%', maxWidth: '320px' }}>
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#B11226',
-              fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase',
-              margin: '0 0 20px',
-            }}>
-              GET READY
-            </p>
-
-            <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-              <svg
-                style={{ transform: 'rotate(-90deg)', width: 'clamp(190px, 52vw, 220px)', height: 'clamp(190px, 52vw, 220px)' }}
-                viewBox="0 0 240 240"
-              >
-                <circle cx="120" cy="120" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="8" />
-                <circle cx="120" cy="120" r={radius} fill="none" stroke="#B11226" strokeWidth="8" strokeLinecap="round"
-                  strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
-                  style={{ transition: 'stroke-dashoffset 1s linear' }} />
-              </svg>
-              <div style={{ position: 'absolute', textAlign: 'center' }}>
-                <span style={{
-                  fontFamily: 'Orbitron, sans-serif', color: '#fff',
-                  fontSize: 'clamp(42px, 11vw, 52px)', fontWeight: 900,
-                  fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em',
-                }}>{timeLeft}</span>
-                <p style={{
-                  fontFamily: 'Orbitron, sans-serif', color: '#3a3a3a',
-                  fontSize: '9px', marginTop: '4px', letterSpacing: '0.12em', textTransform: 'uppercase',
-                }}>REMAINING</p>
-              </div>
-            </div>
-
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#5a5a5a',
-              fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7, margin: '0 0 32px',
-            }}>
-              Prepare to begin the session.
-            </p>
-
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#333',
-              fontSize: '9px', letterSpacing: '0.15em', textTransform: 'uppercase',
-            }}>
-              Round 1 coming up
-            </p>
-          </div>
-        </div>
-      </>
-    );
-  }
 
   const bgColor = paused ? '#060606' : '#0a0a0a';
 
