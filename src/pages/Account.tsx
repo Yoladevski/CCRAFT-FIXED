@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { LogOut, User, Camera, Copy, Check, Eye, EyeOff, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { LogOut, User, Camera, Eye, EyeOff, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
@@ -398,7 +398,7 @@ export default function Account({ onBack }: AccountProps) {
               <span className="button-text text-sm font-bold text-white bg-[#B11226] px-4 py-1 rounded">
                 {activeTab === 'profile' && 'PROFILE'}
                 {activeTab === 'security' && 'SECURITY'}
-                {activeTab === 'settings' && 'SETTINGS'}
+                {activeTab === 'settings' && 'DANGER ZONE'}
               </span>
             </div>
             <button
@@ -447,7 +447,7 @@ export default function Account({ onBack }: AccountProps) {
                   : 'bg-transparent text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
             >
-              SETTINGS
+              DANGER ZONE
             </button>
           </div>
 
@@ -821,94 +821,61 @@ export default function Account({ onBack }: AccountProps) {
             )}
 
             {activeTab === 'settings' && (
-              <div className="space-y-6 sm:space-y-8">
-                <div>
-                  <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
-                    REFERRAL PROGRAM
+              <div className="space-y-4 sm:space-y-6">
+                <div
+                  className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-4 sm:p-6"
+                  style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}
+                >
+                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold mb-4">
+                    SIGN OUT
                   </h2>
-                  <p className="text-sm sm:text-base text-[#A0A0A0] mb-4 sm:mb-6" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                    Share your unique referral link with friends and earn rewards when they join!
-                  </p>
+                  <button
+                    onClick={handleSignOut}
+                    className="button-text w-full py-3 sm:py-4 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all flex items-center justify-center gap-2"
+                  >
+                    <LogOut size={18} />
+                    SIGN OUT
+                  </button>
+                </div>
 
-                  {profile?.referral_code && (
-                    <div className="bg-[#0E0E0E] border border-[#2E2E2E] rounded p-3 sm:p-4">
-                      <div className="text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                        YOUR REFERRAL CODE
-                      </div>
-                      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-                        <div className="flex-1 bg-[#0D0D0D] border border-[#2E2E2E] rounded px-3 sm:px-4 py-2 sm:py-3 overflow-x-auto">
-                          <code className="text-[#B11226] font-bold text-sm sm:text-lg whitespace-nowrap" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                            {profile.referral_code}
-                          </code>
-                        </div>
+                <div
+                  className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-4 sm:p-6"
+                  style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}
+                >
+                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold mb-4">
+                    DELETE ACCOUNT
+                  </h2>
+                  {!showDeleteConfirm ? (
+                    <button
+                      onClick={() => setShowDeleteConfirm(true)}
+                      className="button-text w-full py-3 sm:py-4 bg-[#B11226]/20 border-2 border-[#B11226] text-[#B11226] text-sm sm:text-base font-bold rounded hover:bg-[#B11226] hover:text-white transition-all flex items-center justify-center gap-2"
+                    >
+                      <Trash2 size={18} />
+                      DELETE ACCOUNT
+                    </button>
+                  ) : (
+                    <div className="space-y-3 sm:space-y-4">
+                      <p className="text-xs sm:text-sm text-[#B11226] font-bold" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                        WARNING: This action cannot be undone. All your data will be permanently deleted.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                         <button
-                          onClick={handleCopyReferralLink}
-                          className="button-text px-4 sm:px-6 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all flex items-center justify-center gap-2">
-                          {copiedReferral ? (
-                            <>
-                              <Check size={18} />
-                              COPIED
-                            </>
-                          ) : (
-                            <>
-                              <Copy size={18} />
-                              COPY LINK
-                            </>
-                          )}
+                          onClick={handleDeleteAccount}
+                          disabled={saving}
+                          className="button-text flex-1 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50"
+                        >
+                          {saving ? 'DELETING...' : 'CONFIRM DELETE'}
                         </button>
-                      </div>
-                      <div className="mt-2 sm:mt-3 text-[10px] sm:text-xs text-[#A0A0A0] break-all" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                        {window.location.origin}?ref={profile.referral_code}
+                        <button
+                          onClick={() => setShowDeleteConfirm(false)}
+                          disabled={saving}
+                          className="button-text flex-1 py-2 sm:py-3 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all disabled:opacity-50"
+                        >
+                          CANCEL
+                        </button>
                       </div>
                     </div>
                   )}
-                </div>
-
-                <div className="pt-6 sm:pt-8 border-t border-[#B11226]" style={{ boxShadow: '0 -1px 8px rgba(177, 18, 38, 0.4)' }}>
-                  <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B11226]">
-                    DANGER ZONE
-                  </h2>
-                  <div className="space-y-3">
-                    <button
-                      onClick={handleSignOut}
-                      className="button-text w-full py-3 sm:py-4 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all flex items-center justify-center gap-2"
-                    >
-                      <LogOut size={18} />
-                      SIGN OUT
-                    </button>
-
-                    {!showDeleteConfirm ? (
-                      <button
-                        onClick={() => setShowDeleteConfirm(true)}
-                        className="button-text w-full py-3 sm:py-4 bg-[#B11226]/20 border-2 border-[#B11226] text-[#B11226] text-sm sm:text-base font-bold rounded hover:bg-[#B11226] hover:text-white transition-all flex items-center justify-center gap-2"
-                      >
-                        <Trash2 size={18} />
-                        DELETE ACCOUNT
-                      </button>
-                    ) : (
-                      <div className="bg-[#B11226]/10 border-2 border-[#B11226] rounded p-3 sm:p-4" style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}>
-                        <p className="text-xs sm:text-sm text-[#B11226] mb-3 sm:mb-4 font-bold" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                          WARNING: This action cannot be undone. All your data will be permanently deleted.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                          <button
-                            onClick={handleDeleteAccount}
-                            disabled={saving}
-                            className="button-text flex-1 py-2 sm:py-3 bg-[#B11226] text-white text-sm sm:text-base font-bold rounded hover:bg-[#8B0E1C] transition-all disabled:opacity-50"
-                          >
-                            {saving ? 'DELETING...' : 'CONFIRM DELETE'}
-                          </button>
-                          <button
-                            onClick={() => setShowDeleteConfirm(false)}
-                            disabled={saving}
-                            className="button-text flex-1 py-2 sm:py-3 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all disabled:opacity-50"
-                          >
-                            CANCEL
-                          </button>
-                        </div>
-                      </div>
-                    )}
-                  </div>
                 </div>
               </div>
             )}
