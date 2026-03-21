@@ -56,11 +56,13 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
     <div className="min-h-screen py-6 sm:py-12 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
-          {discipline?.name === 'Boxing' ? (
-            <BackButton onClick={() => navigate(`/boxing/${disciplineId}`)} />
-          ) : (
-            <BackButton onClick={() => navigate(-1)} />
-          )}
+          <BackButton
+            onClick={() =>
+              discipline?.name === 'Boxing'
+                ? navigate(`/boxing/${disciplineId}`)
+                : navigate('/disciplines')
+            }
+          />
         </div>
 
         <h1 className="cc-outline-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-8 sm:mb-12">
