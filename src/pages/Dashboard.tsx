@@ -275,6 +275,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               }
             }}
             className="w-full lg:w-3/5 transition-transform hover:scale-105"
+            style={{ filter: 'drop-shadow(0 0 12px rgba(177, 18, 38, 0.85)) drop-shadow(0 0 28px rgba(177, 18, 38, 0.5))' }}
           >
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/continue%20new%20(2).png"
