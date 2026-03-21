@@ -52,7 +52,7 @@ const S = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<PageFallback />}>{children}</Suspense>
 );
 
-type Page = 'Home' | 'Auth' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline' | 'BoxingOverview' | 'BoxingFoundations' | 'CombatCraft' | 'ExploreDisciplines' | 'HowItWorks';
+type Page = 'Home' | 'Auth' | 'SignIn' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline' | 'BoxingOverview' | 'BoxingFoundations' | 'CombatCraft' | 'ExploreDisciplines' | 'HowItWorks';
 
 interface NavSnapshot {
   page: Page;
@@ -79,6 +79,7 @@ function AppContent() {
     const routes: Record<string, string> = {
       'Home': '/',
       'Auth': '/auth',
+      'SignIn': '/signin',
       'Disciplines': '/disciplines',
       'Dashboard': '/dashboard',
       'News': '/news',
@@ -166,6 +167,7 @@ function AppContent() {
       <Route element={<S><MainLayout currentPage={navState.page} onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>}>
         <Route path="/" element={<S><Home onNavigate={(page) => handleNavigate(page as Page)} /></S>} />
         <Route path="/auth" element={<S><Auth onNavigate={(page) => handleNavigate(page as Page)} /></S>} />
+        <Route path="/signin" element={<S><Auth onNavigate={(page) => handleNavigate(page as Page)} initialMode="signin" /></S>} />
         <Route path="/disciplines" element={<S><Disciplines onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
         <Route path="/discipline/:id" element={<S><DisciplinePage onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
         <Route path="/category/:id" element={<S><CategoryPage onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />

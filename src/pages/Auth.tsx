@@ -5,12 +5,13 @@ import { BGPattern } from '../components/ui/bg-pattern';
 
 interface AuthProps {
   onNavigate: (page: string) => void;
+  initialMode?: 'signin' | 'signup';
 }
 
 const WAIVER_VERSION = '1.0_Feb_2026';
 
-export default function Auth({ onNavigate }: AuthProps) {
-  const [isSignUp, setIsSignUp] = useState(true);
+export default function Auth({ onNavigate, initialMode = 'signup' }: AuthProps) {
+  const [isSignUp, setIsSignUp] = useState(initialMode === 'signup');
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

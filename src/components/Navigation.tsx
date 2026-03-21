@@ -96,7 +96,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 </button>
               ) : (
                 <button
-                  onClick={() => handleNavigate('Auth')}
+                  onClick={() => handleNavigate('SignIn')}
                   className="px-5 py-2 bg-[#B11226] hover:bg-[#8B0E1C] transition-all whitespace-nowrap cursor-pointer text-white text-sm font-bold tracking-wider flex items-center justify-center"
                 >
                   SIGN IN
@@ -131,7 +131,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
               <div className="flex items-center justify-end gap-2">
                 {!user && (
                   <button
-                    onClick={() => handleNavigate('Auth')}
+                    onClick={() => handleNavigate('SignIn')}
                     className="px-3 py-1.5 bg-[#B11226] hover:bg-[#8B0E1C] transition-all text-white text-[10px] font-bold whitespace-nowrap"
                     style={{ letterSpacing: '0.1em' }}
                   >
@@ -347,7 +347,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
             </button>
           ) : (
             <button
-              onClick={() => handleNavigate('Auth')}
+              onClick={() => handleNavigate('SignIn')}
               className="w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
               style={{
                 fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
