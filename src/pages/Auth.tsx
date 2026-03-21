@@ -302,7 +302,7 @@ export default function Auth({ onNavigate }: AuthProps) {
                   <div className="w-full border-t border-[#2E2E2E]"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-black text-[#A0A0A0]">OR</span>
+                  <span className="px-4 bg-black text-[#A0A0A0]">New to CombatCraft?</span>
                 </div>
               </div>
 
