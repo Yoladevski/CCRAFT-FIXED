@@ -45,6 +45,12 @@ export default function WorkoutOfTheDay() {
     checkCompletion();
   }, [user, workout, todayStr]);
 
+  function handleTrainAgain() {
+    const others = BOXING_WORKOUT_SESSIONS.filter(w => w.slug !== workout.slug);
+    const pick = others[Math.floor(Math.random() * others.length)];
+    navigate(`/boxing-workouts/${pick.slug}`);
+  }
+
   async function handleStart() {
     if (!user) {
       navigate(`/boxing-workouts/${workout.slug}`);
@@ -137,14 +143,23 @@ export default function WorkoutOfTheDay() {
         </div>
 
         {completed ? (
-          <div
-            className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded border border-[#2E7D32] bg-[#1B2B1B] text-[#4CAF50]"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
-          >
-            <CheckCircle size={14} className="shrink-0" />
-            <span className="text-[9px] sm:text-[10px] tracking-[0.18em] font-bold uppercase">
-              Workout Completed Today
-            </span>
+          <div className="flex flex-col gap-3">
+            <div
+              className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded border border-[#2E7D32] bg-[#1B2B1B] text-[#4CAF50]"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              <CheckCircle size={14} className="shrink-0" />
+              <span className="text-[9px] sm:text-[10px] tracking-[0.18em] font-bold uppercase">
+                Workout Completed Today
+              </span>
+            </div>
+            <button
+              onClick={handleTrainAgain}
+              className="w-full py-3 px-4 rounded font-bold text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#A0A0A0] transition-all duration-200 hover:scale-[1.02] hover:text-white active:scale-[0.98] border border-[#3E3E3E] bg-[#111] hover:border-[#B11226] hover:bg-[#1A0A0D]"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              Train Again
+            </button>
           </div>
         ) : (
           <button
