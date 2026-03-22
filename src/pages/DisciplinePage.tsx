@@ -69,7 +69,7 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
           {discipline?.name === 'Boxing' ? 'TECHNIQUE LIBRARY' : discipline?.name}
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {categories.map((category) => (
             <button
               key={category.id}
@@ -77,35 +77,49 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
                 category.is_active && onNavigate('Category', category.id)
               }
               disabled={!category.is_active}
-              className={`relative group h-48 rounded-2xl overflow-hidden border-2 transition-all transform ${
+              className={`relative group overflow-hidden border-2 transition-all card-btn ${
                 category.is_active
-                  ? 'border-[#B11226] hover:scale-105 cursor-pointer'
+                  ? 'border-[#B11226] sm:hover:scale-105 cursor-pointer'
                   : 'border-[#2E2E2E] opacity-60 cursor-not-allowed'
               }`}
-              style={category.is_active ? {
-                boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+              style={{
+                ...(category.is_active ? {
+                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+                } : {}),
                 isolation: 'isolate',
-              } : { isolation: 'isolate' }}
+                borderRadius: '0.75rem',
+                padding: '1.25rem 1.5rem',
+                minHeight: '4.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0E0E0E]" />
               <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
 
               {!category.is_active && (
                 <div className="absolute inset-0 bg-black/80 z-20 flex items-center justify-center">
-                  <div className="text-center">
-                    <Lock size={40} className="mx-auto mb-3 text-[#A0A0A0]" />
-                    <p className="text-lg font-bold text-[#A0A0A0]">LOCKED</p>
+                  <div className="flex items-center gap-2">
+                    <Lock size={18} className="text-[#A0A0A0]" />
+                    <p className="text-sm font-bold text-[#A0A0A0]">LOCKED</p>
                   </div>
                 </div>
               )}
 
-              <div className="relative z-10 h-full flex items-center justify-center p-6">
-                <h3 className="cc-outline-text text-3xl font-bold text-center">{category.name}</h3>
+              <div className="relative z-10 flex-1 flex items-center justify-between gap-3">
+                <h3
+                  className="cc-outline-text text-xl sm:text-2xl font-bold text-left"
+                  style={{ textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000' }}
+                >
+                  {category.name === 'Combinations' ? 'Combos' : category.name}
+                </h3>
+                {category.is_active && (
+                  <svg className="text-[#B11226] flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                )}
               </div>
-
-              {category.is_active && (
-                <div className="absolute inset-0 bg-[#B11226]/0 group-hover:bg-[#B11226]/10 transition-colors" />
-              )}
             </button>
           ))}
         </div>

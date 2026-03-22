@@ -504,7 +504,7 @@ export default function BoxingFoundations() {
                   <button
                     key={lesson.id}
                     onClick={() => handleLessonClick(lesson)}
-                    className="w-full flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 rounded-xl border transition-all hover:scale-[1.01] cursor-pointer text-left"
+                    className="w-full flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 rounded-xl border transition-all sm:hover:scale-[1.01] cursor-pointer text-left card-btn"
                     style={{
                       borderColor: isDone ? '#B11226' : '#2E2E2E',
                       background: isDone ? 'rgba(177, 18, 38, 0.08)' : '#1A1A1A',

@@ -238,7 +238,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 fontWeight: 900,
                 fontSize: '0.935rem',
                 color: '#FFFFFF',
-                textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 2px 2px 0 #cc0000, -2px 2px 0 #cc0000, 2px -2px 0 #cc0000, -2px -2px 0 #cc0000',
+                textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
                 WebkitFontSmoothing: 'antialiased',
               }}
             >
@@ -250,7 +250,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 fontWeight: 900,
                 fontSize: '0.935rem',
                 color: '#FFFFFF',
-                textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 2px 2px 0 #cc0000, -2px 2px 0 #cc0000, 2px -2px 0 #cc0000, -2px -2px 0 #cc0000',
+                textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
                 WebkitFontSmoothing: 'antialiased',
               }}
             >
@@ -439,79 +439,47 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
             {/* Progress Info */}
             <div className="w-full pt-3 border-t border-[#B11226] flex flex-col gap-3" style={{ boxShadow: '0 -1px 8px rgba(177, 18, 38, 0.5)' }}>
-              {/* Foundation Progress Card */}
-              <div
-                style={{
-                  background: 'linear-gradient(135deg, #1A1A1A 0%, #111111 100%)',
-                  border: '1px solid rgba(177,18,38,0.3)',
-                  borderRadius: '0.75rem',
-                  padding: '0.75rem 1rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.5rem',
-                  boxShadow: '0 0 8px rgba(177,18,38,0.15)',
-                }}
-              >
-                <div className="flex items-baseline justify-between gap-2 flex-wrap">
-                  <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.62rem', color: '#A0A0A0', letterSpacing: '0.14em', textTransform: 'uppercase', lineHeight: 1 }}>
+              {/* Foundation Progress */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '0.5rem' }}>
+                  <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.6rem', color: '#A0A0A0', letterSpacing: '0.14em', textTransform: 'uppercase', lineHeight: 1 }}>
                     Foundation Progress
                   </p>
-                  <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.72rem', color: '#FFFFFF', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
-                    {completionPercentage}%
+                  <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.68rem', color: '#FFFFFF', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+                    {completionPercentage}% &middot; {completedLessons}/{totalLessons}
                   </p>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <div style={{ width: '100%', borderRadius: '9999px', overflow: 'hidden', height: '6px', background: '#1E1E1E', border: '1px solid #2E2E2E' }}>
+                  <div style={{
+                    height: '100%',
+                    borderRadius: '9999px',
+                    width: `${completionPercentage}%`,
+                    background: 'linear-gradient(90deg, #8a0d1c 0%, #B11226 100%)',
+                    boxShadow: completionPercentage > 0 ? '0 0 8px rgba(177,18,38,0.7), 0 0 16px rgba(177,18,38,0.3)' : 'none',
+                    transition: 'width 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
+                  }} />
+                </div>
+              </div>
+              {/* Level Technique Progress */}
+              {currentLevelProgress && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '0.5rem' }}>
+                    <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.6rem', color: '#A0A0A0', letterSpacing: '0.14em', textTransform: 'uppercase', lineHeight: 1 }}>
+                      Level {currentLevelProgress.level} Techniques
+                    </p>
+                    <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.68rem', color: '#FFFFFF', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+                      {currentLevelProgress.total > 0 ? Math.round((currentLevelProgress.completed / currentLevelProgress.total) * 100) : 0}% &middot; {currentLevelProgress.completed}/{currentLevelProgress.total}
+                    </p>
+                  </div>
                   <div style={{ width: '100%', borderRadius: '9999px', overflow: 'hidden', height: '6px', background: '#1E1E1E', border: '1px solid #2E2E2E' }}>
                     <div style={{
                       height: '100%',
                       borderRadius: '9999px',
-                      width: `${completionPercentage}%`,
+                      width: `${currentLevelProgress.total > 0 ? Math.round((currentLevelProgress.completed / currentLevelProgress.total) * 100) : 0}%`,
                       background: 'linear-gradient(90deg, #8a0d1c 0%, #B11226 100%)',
-                      boxShadow: completionPercentage > 0 ? '0 0 8px rgba(177,18,38,0.7), 0 0 16px rgba(177,18,38,0.3)' : 'none',
+                      boxShadow: currentLevelProgress.completed > 0 ? '0 0 8px rgba(177,18,38,0.7), 0 0 16px rgba(177,18,38,0.3)' : 'none',
                       transition: 'width 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
                     }} />
-                  </div>
-                  <p style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 600, fontSize: '0.65rem', color: '#666666', letterSpacing: '0.06em', textAlign: 'right' }}>
-                    {completedLessons}/{totalLessons} lessons
-                  </p>
-                </div>
-              </div>
-              {/* Level Technique Progress Card */}
-              {currentLevelProgress && (
-                <div
-                  style={{
-                    background: 'linear-gradient(135deg, #1A1A1A 0%, #111111 100%)',
-                    border: '1px solid rgba(177,18,38,0.3)',
-                    borderRadius: '0.75rem',
-                    padding: '0.75rem 1rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.5rem',
-                    boxShadow: '0 0 8px rgba(177,18,38,0.15)',
-                  }}
-                >
-                  <div className="flex items-baseline justify-between gap-2 flex-wrap">
-                    <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.62rem', color: '#A0A0A0', letterSpacing: '0.14em', textTransform: 'uppercase', lineHeight: 1 }}>
-                      Level {currentLevelProgress.level} Technique Progress
-                    </p>
-                    <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.72rem', color: '#FFFFFF', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
-                      {currentLevelProgress.completed}/{currentLevelProgress.total}
-                    </p>
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                    <div style={{ width: '100%', borderRadius: '9999px', overflow: 'hidden', height: '6px', background: '#1E1E1E', border: '1px solid #2E2E2E' }}>
-                      <div style={{
-                        height: '100%',
-                        borderRadius: '9999px',
-                        width: `${currentLevelProgress.total > 0 ? Math.round((currentLevelProgress.completed / currentLevelProgress.total) * 100) : 0}%`,
-                        background: 'linear-gradient(90deg, #8a0d1c 0%, #B11226 100%)',
-                        boxShadow: currentLevelProgress.completed > 0 ? '0 0 8px rgba(177,18,38,0.7), 0 0 16px rgba(177,18,38,0.3)' : 'none',
-                        transition: 'width 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
-                      }} />
-                    </div>
-                    <p style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 600, fontSize: '0.65rem', color: '#666666', letterSpacing: '0.06em', textAlign: 'right' }}>
-                      {currentLevelProgress.total > 0 ? Math.round((currentLevelProgress.completed / currentLevelProgress.total) * 100) : 0}% Complete
-                    </p>
                   </div>
                 </div>
               )}

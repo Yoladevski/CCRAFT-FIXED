@@ -11,11 +11,11 @@ function AccordionCard({ title, children, defaultOpen = false }: { title: React.
 
   return (
     <div
-      className="rounded-lg overflow-hidden"
+      className="rounded-lg overflow-hidden card-btn"
       style={{
-        backgroundColor: '#2a2a2a',
+        backgroundColor: '#191919',
         border: '1px solid #B11226',
-        boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+        boxShadow: '0 0 12px rgba(177, 18, 38, 0.5), 0 0 24px rgba(177, 18, 38, 0.2), inset 0 0 8px rgba(177, 18, 38, 0.08)',
         fontFamily: 'Orbitron, sans-serif',
         fontSize: '11px',
         fontWeight: 400,
@@ -25,7 +25,7 @@ function AccordionCard({ title, children, defaultOpen = false }: { title: React.
     >
       <button
         onClick={() => setOpen(o => !o)}
-        className="w-full flex items-center justify-between px-5 py-4 text-left"
+        className="w-full flex items-center justify-between px-4 sm:px-5 py-3.5 sm:py-4 text-left"
         style={{ fontFamily: 'Orbitron, sans-serif' }}
       >
         <span className="flex-1 pr-3">{title}</span>
@@ -39,7 +39,7 @@ function AccordionCard({ title, children, defaultOpen = false }: { title: React.
         className="overflow-hidden transition-all duration-300"
         style={{ maxHeight: open ? '2000px' : '0px' }}
       >
-        <div className="px-5 pb-5 text-center">{children}</div>
+        <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-center">{children}</div>
       </div>
     </div>
   );
@@ -84,23 +84,29 @@ export default function WorkoutSession() {
   }
 
   return (
-    <div className="py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
+    <div className="py-6 px-4 relative -mt-20 pt-24 sm:pt-28">
       <div className="max-w-3xl mx-auto relative z-10">
-        <div className="mb-6 sm:mb-8">
+        <div className="mb-5 sm:mb-8">
           <BackButton onClick={() => navigate('/boxing-workouts')} />
         </div>
 
-        <div className="text-center mb-8 sm:mb-10">
+        <div className="text-center mb-6 sm:mb-10">
           <p
-            className="text-[#B11226] text-sm font-semibold tracking-widest uppercase mb-2"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            className="text-[#B11226] font-bold tracking-widest uppercase mb-2"
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              fontSize: 'clamp(0.8rem, 3.5vw, 0.875rem)',
+            }}
           >
             Session {session.number}
           </p>
-          <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold">
+          <h1
+            className="cc-outline-text font-bold sm:text-4xl md:text-5xl"
+            style={{ fontSize: 'clamp(1.2rem, 5vw, 1.875rem)', lineHeight: 1.25 }}
+          >
             {session.title.toUpperCase()}
           </h1>
-          <p className="text-[#A0A0A0] text-lg sm:text-xl mt-3 leading-relaxed">
+          <p className="text-[#A0A0A0] sm:text-xl mt-2 leading-relaxed" style={{ fontSize: 'clamp(0.8rem, 3.5vw, 1.125rem)' }}>
             {session.description}
           </p>
         </div>

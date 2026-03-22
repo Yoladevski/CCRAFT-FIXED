@@ -168,7 +168,7 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="flex flex-col gap-3">
           {techniques.map((technique) => {
             const unlocked = isUnlocked(technique.order_index);
             const completed = isCompleted(technique.id);
@@ -178,36 +178,49 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
                 key={technique.id}
                 onClick={() => unlocked && onNavigate('Technique', technique.id)}
                 disabled={!unlocked}
-                className={`w-full p-6 rounded-lg border-2 transition-all transform ${
+                className={`w-full px-4 py-3 sm:p-6 border-2 transition-all sm:transform card-btn ${
                   completed
                     ? 'border-[#B11226] bg-[#B11226]/10'
                     : unlocked
-                    ? 'border-[#B11226] hover:scale-105 bg-[#1A1A1A]'
+                    ? 'border-[#B11226] sm:hover:scale-105 bg-[#1A1A1A]'
                     : 'border-[#2E2E2E] opacity-50 cursor-not-allowed bg-[#1A1A1A]'
                 }`}
-                style={unlocked ? {
-                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
-                } : undefined}
+                style={{
+                  borderRadius: '0.625rem',
+                  ...(unlocked ? {
+                    boxShadow: '0 0 12px rgba(177, 18, 38, 0.5), 0 0 24px rgba(177, 18, 38, 0.2)'
+                  } : {}),
+                }}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="text-3xl font-bold text-[#2E2E2E]">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div
+                      className="text-base sm:text-3xl font-bold shrink-0"
+                      style={{ color: '#3E3E3E', fontFamily: 'Orbitron, sans-serif', minWidth: '1.5rem' }}
+                    >
                       {technique.order_index}
                     </div>
-                    <div className="text-left">
-                      <h3 className="cc-outline-text text-2xl font-bold">{technique.name}</h3>
-                      <p className="text-sm text-[#A0A0A0] text-body">
+                    <div className="text-left min-w-0">
+                      <h3
+                        className="font-bold text-sm sm:text-2xl text-white"
+                        style={{ fontFamily: 'Orbitron, sans-serif', lineHeight: 1.3 }}
+                      >
+                        {technique.name}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-[#A0A0A0] mt-0.5">
                         {technique.xp_reward} XP
                       </p>
                     </div>
                   </div>
-                  <div>
+                  <div className="shrink-0">
                     {completed ? (
-                      <CheckCircle size={32} className="text-[#B11226]" />
+                      <CheckCircle size={20} className="text-[#B11226]" />
                     ) : !unlocked ? (
-                      <Lock size={32} className="text-[#A0A0A0]" />
+                      <Lock size={20} className="text-[#A0A0A0]" />
                     ) : (
-                      <div className="w-8 h-8 rounded-full border-2 border-[#2E2E2E]" />
+                      <svg className="text-[#B11226]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
                     )}
                   </div>
                 </div>
