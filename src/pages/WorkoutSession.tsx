@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import BackButton from '../components/BackButton';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
 import ActiveWorkout from '../components/WorkoutMode';
-import { unlockAudioContext, speak } from '../lib/audioController';
+import { unlockAudioContext } from '../lib/audioController';
 
 function AccordionCard({ title, children, defaultOpen = false }: { title: React.ReactNode; children: React.ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -73,7 +73,6 @@ export default function WorkoutSession() {
     return (
       <ActiveWorkout
         session={session}
-        skipFirstVoiceCue={true}
         onExit={() => {
           firstCueSpokenRef.current = false;
           setWorkoutMode('preview');
@@ -158,8 +157,6 @@ export default function WorkoutSession() {
               <button
                 onClick={() => {
                   unlockAudioContext();
-                  speak('Get ready', true);
-                  console.log('[Audio] Get Ready voice played (from tap)');
                   setWorkoutMode('active');
                 }}
                 className="w-full py-4 rounded-lg text-white text-sm font-black tracking-widest uppercase transition-all active:scale-95 hover:brightness-110"

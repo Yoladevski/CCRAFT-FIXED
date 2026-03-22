@@ -8,7 +8,6 @@ type Phase = 'getReady' | 'round' | 'rest' | 'complete';
 interface WorkoutModeProps {
   session: WorkoutSession;
   onExit: () => void;
-  skipFirstVoiceCue?: boolean;
 }
 
 const ROUND_DURATION = 3 * 60;
@@ -146,9 +145,12 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
   }, []);
 
   useEffect(() => {
-    if (mounted) {
-      getReadyCueFiredRef.current = true;
-    }
+    if (!mounted || getReadyCueFiredRef.current) return;
+    getReadyCueFiredRef.current = true;
+    setTimeout(() => {
+      speak('Get ready', voiceEnabledRef.current);
+      console.log('[Audio] Get Ready voice played');
+    }, 100);
   }, [mounted]);
 
   const currentRound = rounds[roundIndex];
