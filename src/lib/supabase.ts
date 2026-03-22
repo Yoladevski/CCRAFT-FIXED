@@ -25,10 +25,6 @@ export type Database = {
           power_level: number;
           rank: string;
           referral_code: string | null;
-          role: string;
-          onboarding_complete: boolean;
-          current_streak: number;
-          last_training_date: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -44,10 +40,6 @@ export type Database = {
           power_level?: number;
           rank?: string;
           referral_code?: string | null;
-          role?: string;
-          onboarding_complete?: boolean;
-          current_streak?: number;
-          last_training_date?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -63,10 +55,6 @@ export type Database = {
           power_level?: number;
           rank?: string;
           referral_code?: string | null;
-          role?: string;
-          onboarding_complete?: boolean;
-          current_streak?: number;
-          last_training_date?: string | null;
           created_at?: string;
           updated_at?: string;
         };
