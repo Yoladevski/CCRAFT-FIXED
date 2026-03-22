@@ -141,12 +141,6 @@ button {
   text-transform: uppercase;
   letter-spacing: 5px;
   border-radius: 9999px !important;
-  box-shadow: 0 0 8px rgba(177, 18, 38, 0.7), 0 0 18px rgba(177, 18, 38, 0.35);
-  transition: box-shadow 0.2s ease;
-}
-
-button:hover {
-  box-shadow: 0 0 14px rgba(177, 18, 38, 0.9), 0 0 30px rgba(177, 18, 38, 0.5);
 }
 
 label, input, select, textarea {
