@@ -639,7 +639,7 @@ export default function FoundationLesson() {
                 className="text-center text-[#A0A0A0] text-sm tracking-wide"
                 style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
               >
-                Next technique unlocked. Continue your training.
+                Next lesson unlocked. Continue your training.
               </p>
             )}
 
@@ -668,7 +668,7 @@ export default function FoundationLesson() {
             >
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/nr.png"
-                alt="Next Round"
+                alt="Next Lesson"
                 className="w-full max-w-[300px] sm:max-w-[400px] h-auto"
                 style={showNextRoundActive ? {
                   filter: 'drop-shadow(0 0 12px rgba(177,18,38,0.8)) drop-shadow(0 0 24px rgba(177,18,38,0.4))',
@@ -678,7 +678,7 @@ export default function FoundationLesson() {
 
             {!isUnlocked && (
               <p className="text-center text-[#666666] text-sm" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                Read all sections to unlock the next round
+                Read all sections to unlock the next lesson
               </p>
             )}
           </div>
@@ -700,7 +700,7 @@ export default function FoundationLesson() {
                 className="text-center text-[#A0A0A0] text-sm tracking-wide"
                 style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
               >
-                Level complete. Continue your training.
+                Level Complete. Continue your training.
               </p>
             )}
 

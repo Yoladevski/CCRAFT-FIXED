@@ -190,7 +190,7 @@ export default function WorkoutSession() {
               <AccordionCard
                 title={
                   <span style={{ fontWeight: 900, fontSize: '13px', letterSpacing: '0.03em', lineHeight: '1.3' }}>
-                    SESSION COMPLETE
+                    WORKOUT COMPLETE
                   </span>
                 }
               >

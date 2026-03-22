@@ -439,7 +439,7 @@ export default function Dashboard() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '0.5rem' }}>
                   <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.6rem', color: '#A0A0A0', letterSpacing: '0.14em', textTransform: 'uppercase', lineHeight: 1 }}>
-                    Foundation Progress
+                    Technique Progress
                   </p>
                   <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.68rem', color: '#FFFFFF', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
                     {completionPercentage}% &middot; {completedLessons}/{totalLessons}
@@ -461,7 +461,7 @@ export default function Dashboard() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '0.5rem' }}>
                     <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.6rem', color: '#A0A0A0', letterSpacing: '0.14em', textTransform: 'uppercase', lineHeight: 1 }}>
-                      Level {currentLevelProgress.level} Techniques
+                      Level {currentLevelProgress.level} Technique Progress
                     </p>
                     <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.68rem', color: '#FFFFFF', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
                       {currentLevelProgress.total > 0 ? Math.round((currentLevelProgress.completed / currentLevelProgress.total) * 100) : 0}% &middot; {currentLevelProgress.completed}/{currentLevelProgress.total}

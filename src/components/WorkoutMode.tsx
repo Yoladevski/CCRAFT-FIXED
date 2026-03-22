@@ -265,7 +265,7 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
               fontFamily: 'Orbitron, sans-serif', color: '#B11226',
               fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px',
             }}>
-              Session Complete
+              Workout Complete
             </p>
             <h1 style={{
               fontFamily: 'Orbitron, sans-serif', color: '#fff',
