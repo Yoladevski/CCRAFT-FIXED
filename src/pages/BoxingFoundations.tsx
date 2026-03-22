@@ -391,7 +391,7 @@ export default function BoxingFoundations() {
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-3xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
-          <BackButton onClick={() => navigate('/discipline/5c45a8e7-aa73-433a-8344-dd8aadf2eed2')} />
+          <BackButton onClick={() => navigate('/boxing/5c45a8e7-aa73-433a-8344-dd8aadf2eed2')} />
         </div>
 
         <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-10">
