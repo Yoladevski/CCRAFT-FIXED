@@ -6,6 +6,7 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
 import { BGPattern } from '../components/ui/bg-pattern';
+import CommonMistakesContent from '../components/CommonMistakesContent';
 
 type Technique = Database['public']['Tables']['techniques']['Row'];
 
@@ -351,7 +352,7 @@ export default function TechniquePage() {
               </button>
               {openSections.mistakes && (
                 <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.common_mistakes}</p>
+                  <CommonMistakesContent text={technique.common_mistakes} />
                 </div>
               )}
             </div>
