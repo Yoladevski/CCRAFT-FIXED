@@ -12,10 +12,6 @@ import { BGPattern } from '../components/ui/bg-pattern';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
-interface DashboardProps {
-  onNavigate: (page: string) => void;
-}
-
 
 const motivationalMessages = [
   "RISE AND GRIND",
@@ -44,7 +40,7 @@ const getRandomMotivation = () => {
   return motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
 };
 
-export default function Dashboard({ onNavigate }: DashboardProps) {
+export default function Dashboard() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -147,13 +143,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => onNavigate('Auth')}
+                onClick={() => navigate('/auth')}
                 className="button-text px-8 py-4 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all transform hover:scale-105"
               >
                 SIGN UP / LOG IN
               </button>
               <button
-                onClick={() => onNavigate('Home')}
+                onClick={() => navigate('/')}
                 className="button-text px-8 py-4 bg-[#2E2E2E] text-white font-bold rounded hover:bg-[#3E3E3E] transition-all"
               >
                 BACK TO HOME
@@ -175,7 +171,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             Please complete your profile setup to access the dashboard.
           </p>
           <button
-            onClick={() => onNavigate('Account')}
+            onClick={() => navigate('/account')}
             className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
           >
             COMPLETE PROFILE
@@ -194,7 +190,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             Welcome! Let's set up your profile to get started with your training journey.
           </p>
           <button
-            onClick={() => onNavigate('Account')}
+            onClick={() => navigate('/account')}
             className="button-text px-6 py-3 bg-[#B11226] text-white font-bold rounded hover:bg-[#8B0E1C] transition-all"
           >
             SET UP PROFILE

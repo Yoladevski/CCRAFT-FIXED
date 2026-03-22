@@ -9,11 +9,6 @@ import { BGPattern } from '../components/ui/bg-pattern';
 type Category = Database['public']['Tables']['categories']['Row'];
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
 
-interface DisciplinePageProps {
-  disciplineId?: string;
-  onNavigate: (page: string, id?: string) => void;
-}
-
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   'Punches': 'From jabs and crosses to hooks and uppercuts. Learn your core striking fundamentals.',
   'Attacks': 'From jabs and crosses to hooks and uppercuts. Learn your core striking fundamentals.',
@@ -23,7 +18,7 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   'Combinations': 'Jab cross, jab cross jab, lead hook cross and more. Learn fluid, fight-ready combinations.',
 };
 
-export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
+export default function DisciplinePage() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const disciplineId = id || '';
@@ -60,7 +55,7 @@ export default function DisciplinePage({ onNavigate }: DisciplinePageProps) {
     return (
       <button
         key={category.id}
-        onClick={() => category.is_active && onNavigate('Category', category.id)}
+        onClick={() => category.is_active && navigate(`/category/${category.id}`)}
         disabled={!category.is_active}
         className={`relative group overflow-hidden border-2 transition-all card-btn ${
           category.is_active

@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
 
-interface NavigationProps {
-  currentPage: string;
-  onNavigate: (page: string, disciplineId?: string) => void;
-}
-
-const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: NavigationProps) {
+const Navigation = React.memo(function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleNavigate = (page: string, id?: string) => {
-    onNavigate(page, id);
+  const handleNavigate = (path: string) => {
+    navigate(path);
     setIsMobileMenuOpen(false);
   };
+
+  const pathname = location.pathname;
+  const isHome = pathname === '/';
+  const isDashboard = pathname === '/dashboard';
+  const isDisciplines = pathname.startsWith('/discipline') || pathname === '/disciplines';
+  const isNews = pathname === '/news';
+  const isMerchandise = pathname === '/merchandise';
+  const isAccount = pathname === '/account';
 
   return (
     <>
@@ -24,7 +30,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
           <div className="flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8">
             <div className="hidden lg:flex items-center justify-start">
               <button
-                onClick={() => handleNavigate('Home')}
+                onClick={() => handleNavigate('/')}
                 className="hover:opacity-80 transition-opacity"
               >
                 <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px]" />
@@ -33,70 +39,70 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
 
             <div className="hidden lg:flex items-center justify-center space-x-5 py-[3px]">
               <button
-                onClick={() => handleNavigate('Home')}
+                onClick={() => handleNavigate('/')}
                 className="nav-menu-item relative transition-all duration-300 pb-1"
               >
                 HOME
-                {currentPage === 'Home' && (
+                {isHome && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                 )}
               </button>
 
               {user && (
                 <button
-                  onClick={() => handleNavigate('Dashboard')}
+                  onClick={() => handleNavigate('/dashboard')}
                   className="nav-menu-item relative transition-all duration-300 pb-1"
                 >
                   DASHBOARD
-                  {currentPage === 'Dashboard' && (
+                  {isDashboard && (
                     <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                   )}
                 </button>
               )}
 
               <button
-                onClick={() => handleNavigate('Disciplines')}
+                onClick={() => handleNavigate('/disciplines')}
                 className="nav-menu-item relative transition-all duration-300 pb-1"
               >
                 DISCIPLINES
-                {(currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique') && (
+                {isDisciplines && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                 )}
               </button>
 
               <button
-                onClick={() => handleNavigate('News')}
+                onClick={() => handleNavigate('/news')}
                 className="nav-menu-item relative transition-all duration-300 pb-1"
               >
                 NEWS
-                {currentPage === 'News' && (
+                {isNews && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                 )}
               </button>
 
               <button
-                onClick={() => handleNavigate('Merchandise')}
+                onClick={() => handleNavigate('/merchandise')}
                 className="nav-menu-item relative transition-all duration-300 pb-1"
               >
                 MERCHANDISE
-                {currentPage === 'Merchandise' && (
+                {isMerchandise && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                 )}
               </button>
 
               {user ? (
                 <button
-                  onClick={() => handleNavigate('Account')}
+                  onClick={() => handleNavigate('/account')}
                   className="nav-menu-item relative transition-all duration-300 pb-1 whitespace-nowrap"
                 >
                   MY ACCOUNT
-                  {currentPage === 'Account' && (
+                  {isAccount && (
                     <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B11226]" />
                   )}
                 </button>
               ) : (
                 <button
-                  onClick={() => handleNavigate('SignIn')}
+                  onClick={() => handleNavigate('/signin')}
                   className="px-5 py-2 bg-[#B11226] hover:bg-[#8B0E1C] transition-all whitespace-nowrap cursor-pointer text-white text-sm font-bold tracking-wider flex items-center justify-center"
                 >
                   SIGN IN
@@ -121,7 +127,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
 
               <div className="flex items-center justify-center">
                 <button
-                  onClick={() => handleNavigate('Home')}
+                  onClick={() => handleNavigate('/')}
                   className="hover:opacity-80 transition-opacity"
                 >
                   <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-11 w-auto max-w-[143px]" />
@@ -131,7 +137,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
               <div className="flex items-center justify-end gap-2">
                 {!user && (
                   <button
-                    onClick={() => handleNavigate('SignIn')}
+                    onClick={() => handleNavigate('/signin')}
                     className="px-3 py-1.5 bg-[#B11226] hover:bg-[#8B0E1C] transition-all text-white text-[10px] font-bold whitespace-nowrap"
                     style={{ letterSpacing: '0.1em' }}
                   >
@@ -161,7 +167,7 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
       >
         <div className="flex items-center justify-between p-4 border-b border-[#2E2E2E]">
           <button
-            onClick={() => handleNavigate('Home')}
+            onClick={() => handleNavigate('/')}
             className="hover:opacity-80 transition-opacity flex-shrink-0"
           >
             <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px] object-contain" />
@@ -176,9 +182,9 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
 
         <div className="flex flex-col p-6 space-y-2">
           <button
-            onClick={() => handleNavigate('Home')}
+            onClick={() => handleNavigate('/')}
             className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              currentPage === 'Home'
+              isHome
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
@@ -190,14 +196,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
               textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
             }}
             onMouseEnter={(e) => {
-              if (currentPage !== 'Home') {
-                e.currentTarget.style.color = 'white';
-              }
+              if (!isHome) e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
-              if (currentPage !== 'Home') {
-                e.currentTarget.style.color = '#A0A0A0';
-              }
+              if (!isHome) e.currentTarget.style.color = '#A0A0A0';
             }}
           >
             HOME
@@ -205,9 +207,9 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
 
           {user && (
             <button
-              onClick={() => handleNavigate('Dashboard')}
+              onClick={() => handleNavigate('/dashboard')}
               className={`text-left text-xl py-4 px-4 rounded transition-all ${
-                currentPage === 'Dashboard'
+                isDashboard
                   ? 'bg-[#B11226] text-white'
                   : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
@@ -218,14 +220,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 letterSpacing: '0.05em'
               }}
               onMouseEnter={(e) => {
-                if (currentPage !== 'Dashboard') {
-                  e.currentTarget.style.color = 'white';
-                }
+                if (!isDashboard) e.currentTarget.style.color = 'white';
               }}
               onMouseLeave={(e) => {
-                if (currentPage !== 'Dashboard') {
-                  e.currentTarget.style.color = '#A0A0A0';
-                }
+                if (!isDashboard) e.currentTarget.style.color = '#A0A0A0';
               }}
             >
               DASHBOARD
@@ -233,9 +231,9 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
           )}
 
           <button
-            onClick={() => handleNavigate('Disciplines')}
+            onClick={() => handleNavigate('/disciplines')}
             className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique'
+              isDisciplines
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
@@ -247,25 +245,19 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
               textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
             }}
             onMouseEnter={(e) => {
-              const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
-              if (!isActive) {
-                e.currentTarget.style.color = 'white';
-              }
+              if (!isDisciplines) e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
-              const isActive = currentPage === 'Disciplines' || currentPage === 'Discipline' || currentPage === 'Category' || currentPage === 'Technique';
-              if (!isActive) {
-                e.currentTarget.style.color = '#A0A0A0';
-              }
+              if (!isDisciplines) e.currentTarget.style.color = '#A0A0A0';
             }}
           >
             DISCIPLINES
           </button>
 
           <button
-            onClick={() => handleNavigate('News')}
+            onClick={() => handleNavigate('/news')}
             className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              currentPage === 'News'
+              isNews
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
@@ -277,23 +269,19 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
               textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
             }}
             onMouseEnter={(e) => {
-              if (currentPage !== 'News') {
-                e.currentTarget.style.color = 'white';
-              }
+              if (!isNews) e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
-              if (currentPage !== 'News') {
-                e.currentTarget.style.color = '#A0A0A0';
-              }
+              if (!isNews) e.currentTarget.style.color = '#A0A0A0';
             }}
           >
             NEWS
           </button>
 
           <button
-            onClick={() => handleNavigate('Merchandise')}
+            onClick={() => handleNavigate('/merchandise')}
             className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              currentPage === 'Merchandise'
+              isMerchandise
                 ? 'bg-[#B11226] text-white'
                 : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
             }`}
@@ -305,14 +293,10 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
               textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
             }}
             onMouseEnter={(e) => {
-              if (currentPage !== 'Merchandise') {
-                e.currentTarget.style.color = 'white';
-              }
+              if (!isMerchandise) e.currentTarget.style.color = 'white';
             }}
             onMouseLeave={(e) => {
-              if (currentPage !== 'Merchandise') {
-                e.currentTarget.style.color = '#A0A0A0';
-              }
+              if (!isMerchandise) e.currentTarget.style.color = '#A0A0A0';
             }}
           >
             MERCHANDISE
@@ -320,9 +304,9 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
 
           {user ? (
             <button
-              onClick={() => handleNavigate('Account')}
+              onClick={() => handleNavigate('/account')}
               className={`text-left text-xl py-4 px-4 rounded transition-all ${
-                currentPage === 'Account'
+                isAccount
                   ? 'bg-[#B11226] text-white'
                   : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
               }`}
@@ -333,21 +317,17 @@ const Navigation = React.memo(function Navigation({ currentPage, onNavigate }: N
                 letterSpacing: '0.05em'
               }}
               onMouseEnter={(e) => {
-                if (currentPage !== 'Account') {
-                  e.currentTarget.style.color = 'white';
-                }
+                if (!isAccount) e.currentTarget.style.color = 'white';
               }}
               onMouseLeave={(e) => {
-                if (currentPage !== 'Account') {
-                  e.currentTarget.style.color = '#A0A0A0';
-                }
+                if (!isAccount) e.currentTarget.style.color = '#A0A0A0';
               }}
             >
               MY ACCOUNT
             </button>
           ) : (
             <button
-              onClick={() => handleNavigate('SignIn')}
+              onClick={() => handleNavigate('/signin')}
               className="w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
               style={{
                 fontFamily: 'system-ui, -apple-system, Arial, sans-serif',

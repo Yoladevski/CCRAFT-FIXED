@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import Auth from './Auth';
 
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
-
-interface DisciplinesProps {
-  onNavigate: (page: string, disciplineId?: string) => void;
-}
 
 const buttonImages: Record<string, string> = {
   'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20boxing%20(2).png',
@@ -28,7 +25,8 @@ const cardImages: Record<string, string> = {
   'Judo': 'https://i.postimg.cc/JzQ751PX/judo.png',
 };
 
-export default function Disciplines({ onNavigate }: DisciplinesProps) {
+export default function Disciplines() {
+  const navigate = useNavigate();
   const { user, isAdmin } = useAuth();
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
   const [loading, setLoading] = useState(true);
@@ -58,7 +56,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
   }
 
   if (!user) {
-    return <Auth onNavigate={onNavigate} />;
+    return <Auth />;
   }
 
   return (
@@ -128,9 +126,9 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 onClick={() => {
                   if (!discipline.is_active && !isAdmin) return;
                   if (discipline.name === 'Boxing') {
-                    onNavigate('BoxingOverview', discipline.id);
+                    navigate(`/boxing/${discipline.id}`);
                   } else {
-                    onNavigate('Discipline', discipline.id);
+                    navigate(`/discipline/${discipline.id}`);
                   }
                 }}
                 disabled={!discipline.is_active && !isAdmin}

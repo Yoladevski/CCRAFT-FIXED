@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
 import { BGPattern } from '../components/ui/bg-pattern';
 
 interface AuthProps {
-  onNavigate: (page: string) => void;
   initialMode?: 'signin' | 'signup';
 }
 
 const WAIVER_VERSION = '1.0_Feb_2026';
 
-export default function Auth({ onNavigate, initialMode = 'signup' }: AuthProps) {
+export default function Auth({ initialMode = 'signup' }: AuthProps) {
+  const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(initialMode === 'signup');
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [email, setEmail] = useState('');
@@ -84,7 +85,7 @@ export default function Auth({ onNavigate, initialMode = 'signup' }: AuthProps) 
           setError(signInError.message);
         } else {
           window.scrollTo(0, 0);
-          onNavigate('Dashboard');
+          navigate('/dashboard');
         }
       }
     } catch (err: any) {
@@ -426,7 +427,7 @@ export default function Auth({ onNavigate, initialMode = 'signup' }: AuthProps) 
                   </div>
                   <button
                     type="button"
-                    onClick={() => onNavigate('TermsOfService')}
+                    onClick={() => navigate('/terms-of-service')}
                     className="text-xs text-[#B11226] hover:underline font-bold mt-1"
                   >
                     Terms of Service
@@ -448,7 +449,7 @@ export default function Auth({ onNavigate, initialMode = 'signup' }: AuthProps) 
                   </div>
                   <button
                     type="button"
-                    onClick={() => onNavigate('Disclaimer')}
+                    onClick={() => navigate('/disclaimer')}
                     className="text-xs text-[#B11226] hover:underline font-bold mt-1"
                   >
                     Training Risk Disclaimer
@@ -473,7 +474,7 @@ export default function Auth({ onNavigate, initialMode = 'signup' }: AuthProps) 
                 By creating an account I also agree to the CombatCraft{' '}
                 <button
                   type="button"
-                  onClick={() => onNavigate('PrivacyPolicy')}
+                  onClick={() => navigate('/privacy-policy')}
                   className="text-[#B11226] hover:underline font-bold"
                 >
                   Privacy Policy

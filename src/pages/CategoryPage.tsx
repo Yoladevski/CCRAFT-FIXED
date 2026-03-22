@@ -10,12 +10,7 @@ type Category = Database['public']['Tables']['categories']['Row'];
 type Technique = Database['public']['Tables']['techniques']['Row'];
 type UserProgress = Database['public']['Tables']['user_progress']['Row'];
 
-interface CategoryPageProps {
-  categoryId?: string;
-  onNavigate: (page: string, id?: string) => void;
-}
-
-export default function CategoryPage({ onNavigate }: CategoryPageProps) {
+export default function CategoryPage() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const categoryId = id || '';
@@ -176,7 +171,7 @@ export default function CategoryPage({ onNavigate }: CategoryPageProps) {
             return (
               <button
                 key={technique.id}
-                onClick={() => unlocked && onNavigate('Technique', technique.id)}
+                onClick={() => unlocked && navigate(`/technique/${technique.id}`)}
                 disabled={!unlocked}
                 className={`w-full px-4 py-3 sm:p-6 border-2 transition-all sm:transform card-btn ${
                   completed

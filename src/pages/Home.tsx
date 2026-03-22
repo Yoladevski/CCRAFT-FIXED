@@ -1,14 +1,12 @@
 import { useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { OutlinedText } from '../components/OutlinedText';
 import { BGPattern } from '../components/ui/bg-pattern';
 
-interface HomeProps {
-  onNavigate: (page: string) => void;
-}
-
-export default function Home({ onNavigate }: HomeProps) {
+export default function Home() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
 
@@ -165,7 +163,7 @@ export default function Home({ onNavigate }: HomeProps) {
 
           <div className="hero-middle-button">
             <button
-              onClick={() => onNavigate(user ? 'Dashboard' : 'Auth')}
+              onClick={() => navigate(user ? '/dashboard' : '/auth')}
               className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
               style={{
                 width: 'clamp(325px, 78vw, 520px)',
@@ -247,7 +245,7 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:grid md:grid-cols-4 gap-6 sm:gap-8 mt-[10px] items-stretch">
             <button
-              onClick={() => onNavigate('CombatCraft')}
+              onClick={() => navigate('/combat-craft')}
               className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
@@ -276,7 +274,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </button>
 
             <button
-              onClick={() => onNavigate('AIInstruction')}
+              onClick={() => navigate('/ai-instruction')}
               className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
@@ -307,7 +305,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </button>
 
             <button
-              onClick={() => onNavigate('ExploreDisciplines')}
+              onClick={() => navigate('/explore-disciplines')}
               className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
@@ -340,7 +338,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </button>
 
             <button
-              onClick={() => onNavigate('HowItWorks')}
+              onClick={() => navigate('/how-it-works')}
               className="w-full bg-[#0D0D0D] p-6 rounded-lg border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',

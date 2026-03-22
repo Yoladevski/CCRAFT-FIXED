@@ -5,9 +5,6 @@ import BackButton from '../components/BackButton';
 
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
 
-interface MultiDisciplineProps {
-  onNavigate: (page: string, disciplineId?: string) => void;
-}
 
 const buttonImages: Record<string, string> = {
   'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20boxing%20(2).png',
@@ -27,7 +24,7 @@ const cardImages: Record<string, string> = {
   'Judo': 'https://i.postimg.cc/JzQ751PX/judo.png',
 };
 
-export default function MultiDiscipline({ onNavigate }: MultiDisciplineProps) {
+export default function MultiDiscipline() {
   const navigate = useNavigate();
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
   const [loading, setLoading] = useState(true);
@@ -54,7 +51,7 @@ export default function MultiDiscipline({ onNavigate }: MultiDisciplineProps) {
 
   const handleDisciplineClick = (discipline: Discipline) => {
     if (discipline.name === 'Boxing') {
-      onNavigate('BoxingOverview', discipline.id);
+      navigate(`/boxing/${discipline.id}`);
     }
   };
 

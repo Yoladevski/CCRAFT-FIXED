@@ -1,9 +1,6 @@
+import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import { BGPattern } from '../components/ui/bg-pattern';
-
-interface NewsProps {
-  onBack: () => void;
-}
 
 const newsCards = [
   {
@@ -20,12 +17,13 @@ const newsCards = [
   },
 ];
 
-export default function News({ onBack }: NewsProps) {
+export default function News() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen py-6 sm:py-12 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="mb-4 sm:mb-6">
-          <BackButton onClick={onBack} />
+          <BackButton onClick={() => navigate(-1)} />
         </div>
         <h1 className="cc-outline-text text-4xl sm:text-5xl font-bold text-center mb-10 sm:mb-14">NEWS</h1>
 

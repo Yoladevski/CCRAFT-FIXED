@@ -1,15 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import { BGPattern } from '../components/ui/bg-pattern';
 
-interface MerchandiseProps {
-  onBack: () => void;
-}
-
-export default function Merchandise({ onBack }: MerchandiseProps) {
+export default function Merchandise() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen text-white relative">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <BackButton onClick={onBack} />
+        <BackButton onClick={() => navigate(-1)} />
 
         <div className="text-center mb-8 sm:mb-12 mt-8">
           <h1

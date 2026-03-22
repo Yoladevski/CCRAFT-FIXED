@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { CheckCircle, ChevronDown, Check } from 'lucide-react';
 import BackButton from '../components/BackButton';
 import { supabase } from '../lib/supabase';
@@ -9,11 +9,6 @@ import { BGPattern } from '../components/ui/bg-pattern';
 
 type Technique = Database['public']['Tables']['techniques']['Row'];
 
-interface TechniquePageProps {
-  techniqueId?: string;
-  onNavigate: (page: string, id?: string) => void;
-  onBack: () => void;
-}
 
 function formatHowSection(text: string) {
   const lines = text.split('\n');
@@ -69,7 +64,8 @@ function formatText(text: string) {
   });
 }
 
-export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps) {
+export default function TechniquePage() {
+  const navigate = useNavigate();
   const { id: techniqueId = '' } = useParams<{ id: string }>();
   const { user } = useAuth();
   const [technique, setTechnique] = useState<Technique | null>(null);
@@ -208,7 +204,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
 
   const handleNextTechnique = () => {
     if (nextTechnique) {
-      onNavigate('Technique', nextTechnique.id);
+      navigate(`/technique/${nextTechnique.id}`);
       window.scrollTo(0, 0);
     }
   };
@@ -233,7 +229,7 @@ export default function TechniquePage({ onNavigate, onBack }: TechniquePageProps
     <div className="min-h-screen py-6 sm:py-12 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
-          <BackButton onClick={onBack} label="BACK TO CATEGORY" />
+          <BackButton onClick={() => navigate(-1)} label="BACK TO CATEGORY" />
         </div>
 
         <div className="flex items-center justify-between mb-8">

@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LogOut, User, Camera, Eye, EyeOff, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
@@ -8,11 +9,8 @@ import { BGPattern } from '../components/ui/bg-pattern';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
-interface AccountProps {
-  onBack: () => void;
-}
-
-export default function Account({ onBack }: AccountProps) {
+export default function Account() {
+  const navigate = useNavigate();
   const { user, signOut } = useAuth();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
@@ -195,7 +193,7 @@ export default function Account({ onBack }: AccountProps) {
         setIsFirstTimeSetup(false);
         setTimeout(() => {
           setMessage('');
-          onBack();
+          navigate(-1);
         }, 2000);
       } else {
         setMessage('Profile updated successfully');
@@ -342,7 +340,7 @@ export default function Account({ onBack }: AccountProps) {
     <div className="min-h-screen py-4 sm:py-12 px-3 sm:px-4 relative -mt-20 pt-16 sm:pt-24 overflow-x-hidden">
       <div className="max-w-4xl mx-auto relative z-10 w-full box-border">
         <div className="mb-3 sm:mb-6">
-          <BackButton onClick={onBack} />
+          <BackButton onClick={() => navigate(-1)} />
         </div>
         <h1 className="cc-outline-text text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-4 sm:mb-12">
           {isFirstTimeSetup ? 'COMPLETE YOUR PROFILE' : 'ACCOUNT'}

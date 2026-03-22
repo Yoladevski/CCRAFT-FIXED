@@ -1,18 +1,17 @@
 import React from 'react';
 import { Instagram } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-interface FooterProps {
-  onNavigate: (page: string) => void;
-}
+const Footer = React.memo(function Footer() {
+  const navigate = useNavigate();
 
-const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="bg-black border-t border-[#2E2E2E] mt-auto relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center space-y-8">
           <div className="flex justify-center">
             <button
-              onClick={() => onNavigate('Home')}
+              onClick={() => navigate('/')}
               className="hover:opacity-80 transition-opacity bg-transparent border-0 outline-none p-0 appearance-none"
               aria-label="Go to home page"
             >
@@ -26,19 +25,19 @@ const Footer = React.memo(function Footer({ onNavigate }: FooterProps) {
 
           <div className="flex justify-center items-center gap-6">
             <button
-              onClick={() => onNavigate('Legal')}
+              onClick={() => navigate('/legal')}
               className="text-[#A0A0A0] hover:text-white transition-colors text-xs font-medium uppercase tracking-wide"
             >
               Legal
             </button>
             <button
-              onClick={() => onNavigate('AboutUs')}
+              onClick={() => navigate('/about-us')}
               className="text-[#A0A0A0] hover:text-white transition-colors text-xs font-medium uppercase tracking-wide"
             >
               About Us
             </button>
             <button
-              onClick={() => onNavigate('Contact')}
+              onClick={() => navigate('/contact')}
               className="text-[#A0A0A0] hover:text-white transition-colors text-xs font-medium uppercase tracking-wide"
             >
               Contact

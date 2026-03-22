@@ -2,11 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import workoutsImg from '../assets/file_0000000072dc7246919b2e83c454badf.png';
 import BackButton from '../components/BackButton';
 
-interface BoxingOverviewProps {
-  onNavigate: (page: string, id?: string) => void;
-}
-
-export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
+export default function BoxingOverview() {
   const navigate = useNavigate();
   const { disciplineId } = useParams<{ disciplineId: string }>();
 
@@ -66,7 +62,7 @@ export default function BoxingOverview({ onNavigate }: BoxingOverviewProps) {
             </div>
 
             <button
-              onClick={() => onNavigate('Discipline', disciplineId)}
+              onClick={() => navigate(`/discipline/${disciplineId}`)}
               className="flex-1 relative group rounded-2xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer min-h-[140px] sm:min-h-[180px] flex items-center justify-center order-1 sm:order-2 bg-transparent border-0 p-0"
             >
               <img

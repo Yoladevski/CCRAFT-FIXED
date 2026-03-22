@@ -1,5 +1,5 @@
-import React, { useState, useCallback, lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useState, lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { StreakProvider } from './contexts/StreakContext';
@@ -52,101 +52,13 @@ const S = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<PageFallback />}>{children}</Suspense>
 );
 
-type Page = 'Home' | 'Auth' | 'SignIn' | 'Disciplines' | 'Discipline' | 'Category' | 'Technique' | 'Dashboard' | 'News' | 'Merchandise' | 'Account' | 'PrivacyPolicy' | 'TermsOfService' | 'CookiePolicy' | 'Disclaimer' | 'Legal' | 'AboutUs' | 'Vision' | 'Contact' | 'Affiliates' | 'StructuredProgression' | 'AIInstruction' | 'MultiDiscipline' | 'BoxingOverview' | 'BoxingFoundations' | 'CombatCraft' | 'ExploreDisciplines' | 'HowItWorks';
-
-interface NavSnapshot {
-  page: Page;
-  disciplineId?: string;
-  categoryId?: string;
-  techniqueId?: string;
-}
-
-interface NavigationState extends NavSnapshot {
-  history: NavSnapshot[];
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { user } = useAuth();
+  return user ? <>{children}</> : <S><Auth /></S>;
 }
 
 function AppContent() {
-  const { user, loading } = useAuth();
-  const navigate = useNavigate();
-  const [navState, setNavState] = useState<NavigationState>({
-    page: 'Home',
-    history: [],
-  });
-
-  const handleNavigate = useCallback((page: Page, id?: string) => {
-    window.scrollTo(0, 0);
-
-    const routes: Record<string, string> = {
-      'Home': '/',
-      'Auth': '/auth',
-      'SignIn': '/signin',
-      'Disciplines': '/disciplines',
-      'Dashboard': '/dashboard',
-      'News': '/news',
-      'Merchandise': '/merchandise',
-      'Account': '/account',
-      'PrivacyPolicy': '/privacy-policy',
-      'TermsOfService': '/terms-of-service',
-      'CookiePolicy': '/cookie-policy',
-      'Disclaimer': '/disclaimer',
-      'Legal': '/legal',
-      'AboutUs': '/about-us',
-      'Vision': '/vision',
-      'Contact': '/contact',
-      'Affiliates': '/affiliates',
-      'StructuredProgression': '/structured-progression',
-      'AIInstruction': '/ai-instruction',
-      'MultiDiscipline': '/multi-discipline',
-      'BoxingFoundations': '/boxing/foundations',
-      'CombatCraft': '/combat-craft',
-      'ExploreDisciplines': '/explore-disciplines',
-      'HowItWorks': '/how-it-works',
-    };
-
-    if (page === 'BoxingOverview' && id) {
-      navigate(`/boxing/${id}`);
-    } else if (page === 'Discipline' && id) {
-      navigate(`/discipline/${id}`);
-    } else if (page === 'Category' && id) {
-      navigate(`/category/${id}`);
-    } else if (page === 'Technique' && id) {
-      navigate(`/technique/${id}`);
-    } else if (routes[page]) {
-      navigate(routes[page]);
-    }
-
-    setNavState((prev) => {
-      const snapshot: NavSnapshot = {
-        page: prev.page,
-        disciplineId: prev.disciplineId,
-        categoryId: prev.categoryId,
-        techniqueId: prev.techniqueId,
-      };
-
-      const newState: NavigationState = {
-        page,
-        history: [...prev.history, snapshot],
-      };
-
-      if (page === 'Discipline') {
-        newState.disciplineId = id;
-      } else if (page === 'Category') {
-        newState.categoryId = id;
-        newState.disciplineId = prev.disciplineId;
-      } else if (page === 'Technique') {
-        newState.techniqueId = id;
-        newState.categoryId = prev.categoryId;
-        newState.disciplineId = prev.disciplineId;
-      }
-
-      return newState;
-    });
-  }, [navigate]);
-
-  const goBack = useCallback(() => {
-    window.scrollTo(0, 0);
-    navigate(-1);
-  }, [navigate]);
+  const { loading } = useAuth();
 
   if (loading) {
     return (
@@ -158,47 +70,48 @@ function AppContent() {
 
   return (
     <>
-    <ScrollToTop />
-    <Routes>
-      <Route path="/email-assets" element={<S><EmailAssets /></S>} />
-      <Route path="/post-verify" element={<S><PostVerify /></S>} />
-      <Route path="/create-profile" element={<S><CreateProfile /></S>} />
-      <Route path="/auth/callback" element={<S><AuthCallback /></S>} />
-      <Route element={<S><MainLayout currentPage={navState.page} onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>}>
-        <Route path="/" element={<S><Home onNavigate={(page) => handleNavigate(page as Page)} /></S>} />
-        <Route path="/auth" element={<S><Auth onNavigate={(page) => handleNavigate(page as Page)} /></S>} />
-        <Route path="/signin" element={<S><Auth onNavigate={(page) => handleNavigate(page as Page)} initialMode="signin" /></S>} />
-        <Route path="/disciplines" element={<S><Disciplines onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
-        <Route path="/discipline/:id" element={<S><DisciplinePage onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
-        <Route path="/category/:id" element={<S><CategoryPage onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
-        <Route path="/technique/:id" element={<S><TechniquePage onNavigate={(page, id) => handleNavigate(page as Page, id)} onBack={goBack} /></S>} />
-        <Route path="/dashboard" element={user ? <S><Dashboard onNavigate={(page) => handleNavigate(page as Page)} /></S> : <S><Auth onNavigate={(page) => handleNavigate(page as Page)} /></S>} />
-        <Route path="/news" element={<S><News onBack={goBack} /></S>} />
-        <Route path="/merchandise" element={<S><Merchandise onBack={goBack} /></S>} />
-        <Route path="/account" element={user ? <S><Account onBack={goBack} /></S> : <S><Auth onNavigate={(page) => handleNavigate(page as Page)} /></S>} />
-        <Route path="/privacy-policy" element={<S><PrivacyPolicy onBack={goBack} /></S>} />
-        <Route path="/terms-of-service" element={<S><TermsOfService onBack={goBack} /></S>} />
-        <Route path="/cookie-policy" element={<S><CookiePolicy onBack={goBack} /></S>} />
-        <Route path="/disclaimer" element={<S><Disclaimer onBack={goBack} /></S>} />
-        <Route path="/legal" element={<S><Legal onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} /></S>} />
-        <Route path="/about-us" element={<S><AboutUs onNavigate={(page) => handleNavigate(page as Page)} onBack={goBack} /></S>} />
-        <Route path="/vision" element={<S><Vision onBack={goBack} /></S>} />
-        <Route path="/contact" element={<S><Contact onBack={goBack} /></S>} />
-        <Route path="/affiliates" element={<S><Affiliates onBack={goBack} /></S>} />
-        <Route path="/structured-progression" element={<S><StructuredProgression /></S>} />
-        <Route path="/ai-instruction" element={<S><AIInstruction /></S>} />
-        <Route path="/combat-craft" element={<S><CombatCraft /></S>} />
-        <Route path="/explore-disciplines" element={<S><ExploreDisciplines /></S>} />
-        <Route path="/how-it-works" element={<S><HowItWorks onBack={goBack} /></S>} />
-        <Route path="/multi-discipline" element={<S><MultiDiscipline onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
-        <Route path="/boxing/foundations/lesson/:lessonId" element={<S><FoundationLesson /></S>} />
-        <Route path="/boxing/foundations/level/:levelNumber" element={<S><BoxingFoundations /></S>} />
-        <Route path="/boxing/foundations" element={<S><BoxingFoundations /></S>} />
-        <Route path="/boxing-workouts" element={<S><BoxingWorkouts /></S>} />
-        <Route path="/boxing-workouts/:sessionSlug" element={<S><WorkoutSession /></S>} />
-        <Route path="/boxing/:disciplineId" element={<S><BoxingOverview onNavigate={(page, id) => handleNavigate(page as Page, id)} /></S>} />
-      </Route>
-    </Routes>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/email-assets" element={<S><EmailAssets /></S>} />
+        <Route path="/post-verify" element={<S><PostVerify /></S>} />
+        <Route path="/create-profile" element={<S><CreateProfile /></S>} />
+        <Route path="/auth/callback" element={<S><AuthCallback /></S>} />
+        <Route element={<S><MainLayout /></S>}>
+          <Route path="/" element={<S><Home /></S>} />
+          <Route path="/auth" element={<S><Auth /></S>} />
+          <Route path="/signin" element={<S><Auth initialMode="signin" /></S>} />
+          <Route path="/disciplines" element={<S><Disciplines /></S>} />
+          <Route path="/discipline/:id" element={<S><DisciplinePage /></S>} />
+          <Route path="/category/:id" element={<S><CategoryPage /></S>} />
+          <Route path="/technique/:id" element={<S><TechniquePage /></S>} />
+          <Route path="/dashboard" element={<ProtectedRoute><S><Dashboard /></S></ProtectedRoute>} />
+          <Route path="/news" element={<S><News /></S>} />
+          <Route path="/merchandise" element={<S><Merchandise /></S>} />
+          <Route path="/account" element={<ProtectedRoute><S><Account /></S></ProtectedRoute>} />
+          <Route path="/privacy-policy" element={<S><PrivacyPolicy /></S>} />
+          <Route path="/terms-of-service" element={<S><TermsOfService /></S>} />
+          <Route path="/cookie-policy" element={<S><CookiePolicy /></S>} />
+          <Route path="/disclaimer" element={<S><Disclaimer /></S>} />
+          <Route path="/legal" element={<S><Legal /></S>} />
+          <Route path="/about-us" element={<S><AboutUs /></S>} />
+          <Route path="/vision" element={<S><Vision /></S>} />
+          <Route path="/contact" element={<S><Contact /></S>} />
+          <Route path="/affiliates" element={<S><Affiliates /></S>} />
+          <Route path="/structured-progression" element={<S><StructuredProgression /></S>} />
+          <Route path="/ai-instruction" element={<S><AIInstruction /></S>} />
+          <Route path="/combat-craft" element={<S><CombatCraft /></S>} />
+          <Route path="/explore-disciplines" element={<S><ExploreDisciplines /></S>} />
+          <Route path="/how-it-works" element={<S><HowItWorks /></S>} />
+          <Route path="/multi-discipline" element={<S><MultiDiscipline /></S>} />
+          <Route path="/boxing/foundations/lesson/:lessonId" element={<S><FoundationLesson /></S>} />
+          <Route path="/boxing/foundations/level/:levelNumber" element={<S><BoxingFoundations /></S>} />
+          <Route path="/boxing/foundations" element={<S><BoxingFoundations /></S>} />
+          <Route path="/boxing-workouts" element={<S><BoxingWorkouts /></S>} />
+          <Route path="/boxing-workouts/:sessionSlug" element={<S><WorkoutSession /></S>} />
+          <Route path="/boxing/:disciplineId" element={<S><BoxingOverview /></S>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
     </>
   );
 }

@@ -1,15 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 
-interface DisclaimerProps {
-  onBack: () => void;
-}
-
-export default function Disclaimer({ onBack }: DisclaimerProps) {
+export default function Disclaimer() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen py-6 sm:py-16 px-4 sm:px-6 lg:px-8 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="mb-4 sm:mb-6">
-          <BackButton onClick={onBack} />
+          <BackButton onClick={() => navigate(-1)} />
         </div>
         <h1 className="cc-outline-text text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
           TRAINING RISK DISCLAIMER & LIABILITY WAIVER
