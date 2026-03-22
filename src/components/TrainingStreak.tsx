@@ -12,7 +12,7 @@ export default function TrainingStreak() {
   } else if (trainedToday) {
     subMessage = 'Training complete today.';
   } else {
-    subMessage = 'Train today to keep your streak alive.';
+    subMessage = 'Train today to keep\nyour streak alive.';
   }
 
   return (
@@ -25,17 +25,25 @@ export default function TrainingStreak() {
       }}
     >
       <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
-      <div className="relative z-10 flex flex-col gap-3">
-        <div className="flex items-center justify-center gap-2">
-          <span className="text-base sm:text-lg leading-none">🔥</span>
-          <h3
-            className="text-[10px] sm:text-xs tracking-[0.2em] font-bold text-[#B11226] uppercase"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
-          >
-            Training Streak
-          </h3>
-        </div>
+      <div className="relative z-10 flex flex-col gap-3 items-center text-center">
+        {/* Title - no flame emoji, larger on mobile */}
+        <h3
+          className="sm:text-xs"
+          style={{
+            fontFamily: 'Orbitron, sans-serif',
+            fontWeight: 700,
+            fontSize: 'clamp(0.72rem, 3.5vw, 0.75rem)',
+            letterSpacing: '0.2em',
+            color: '#FFFFFF',
+            textTransform: 'uppercase',
+            textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
+            WebkitFontSmoothing: 'antialiased',
+          }}
+        >
+          Training Streak
+        </h3>
 
+        {/* Streak number + label */}
         <div className="flex items-end gap-3 justify-center">
           <span
             className="text-4xl sm:text-5xl font-black text-white leading-none"
@@ -49,26 +57,32 @@ export default function TrainingStreak() {
             {currentStreak}
           </span>
           <span
-            className="text-[10px] sm:text-xs font-bold tracking-[0.22em] text-white uppercase pb-1.5"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            className="sm:text-xs font-bold tracking-[0.22em] uppercase pb-1.5"
+            style={{
+              fontFamily: 'Orbitron, sans-serif',
+              fontSize: 'clamp(0.62rem, 3vw, 0.75rem)',
+              color: '#B11226',
+              textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
+            }}
           >
             DAY{currentStreak !== 1 ? 'S' : ''} STREAK
           </span>
         </div>
 
-        <div className="flex items-center gap-2 justify-center">
-          <span
-            className={`w-2 h-2 rounded-full shrink-0 ${trainedToday ? 'bg-[#4CAF50]' : 'bg-[#B11226]'}`}
-          />
-          <p
-            className={`text-[10px] sm:text-[11px] tracking-wide font-medium ${
-              trainedToday ? 'text-[#4CAF50]' : 'text-[#A0A0A0]'
-            }`}
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
-          >
-            {subMessage}
-          </p>
-        </div>
+        {/* Sub message - no bullet point, centred, two lines if needed */}
+        <p
+          className={`sm:text-[11px] tracking-wide font-medium whitespace-pre-line ${
+            trainedToday ? 'text-[#4CAF50]' : 'text-[#A0A0A0]'
+          }`}
+          style={{
+            fontFamily: 'Orbitron, sans-serif',
+            fontSize: 'clamp(0.6rem, 2.5vw, 0.69rem)',
+            textAlign: 'center',
+            WebkitFontSmoothing: 'antialiased',
+          }}
+        >
+          {subMessage}
+        </p>
 
         {currentStreak >= 3 && (
           <div className="flex gap-1 flex-wrap pt-1 justify-center">

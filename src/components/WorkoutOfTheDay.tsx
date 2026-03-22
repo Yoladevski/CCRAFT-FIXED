@@ -80,65 +80,78 @@ export default function WorkoutOfTheDay() {
     >
       <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
       <div className="relative z-10 flex flex-col gap-4">
-        <div className="flex items-center justify-center gap-2">
-          <span className="text-base sm:text-lg leading-none">🔥</span>
+        {/* Header - mobile: larger, no flame emoji */}
+        <div className="flex items-center justify-center">
           <h1
-            className="text-[10px] sm:text-xs tracking-[0.2em] font-bold text-[#B11226] uppercase"
+            className="tracking-[0.2em] font-bold text-white uppercase text-center sm:text-[10px] sm:text-[#B11226]"
             style={{
               fontFamily: 'Beantown, sans-serif',
+              fontSize: 'clamp(0.72rem, 3.5vw, 0.72rem)',
+              color: '#FFFFFF',
               textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
+              WebkitFontSmoothing: 'antialiased',
             }}
           >
             Workout of the Day
           </h1>
         </div>
 
-        <div className="space-y-1 text-center">
+        {/* Session info - centralised */}
+        <div className="flex flex-col items-center gap-2 text-center">
           <h2
-            className="text-[10px] tracking-widest text-[#A0A0A0] uppercase"
             style={{
               fontFamily: 'Orbitron, sans-serif',
               fontWeight: 700,
               fontSize: '0.6rem',
+              color: '#A0A0A0',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
             }}
           >
             Session {workout.number}
           </h2>
           <h2
-            className="text-sm sm:text-base font-bold text-white leading-tight uppercase tracking-wide"
             style={{
               fontFamily: 'Beantown, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(0.82rem, 4vw, 0.92rem)',
+              color: '#B11226',
               textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              lineHeight: 1.3,
+              textAlign: 'center',
             }}
           >
             {workout.title}
           </h2>
           <p
-            className="text-[11px] sm:text-xs text-[#A0A0A0] leading-relaxed pt-1"
+            className="text-[11px] sm:text-xs text-[#A0A0A0] leading-relaxed pt-1 text-center"
             style={{ fontFamily: 'Orbitron, sans-serif' }}
           >
             {workout.description}
           </p>
         </div>
 
+        {/* Round badges - equal size, centred */}
         <div className="flex flex-wrap gap-2 justify-center">
           {workout.roundLength && (
-            <h2
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
-              style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.55rem' }}
+            <span
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
+              style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.55rem', minWidth: '90px', justifyContent: 'center' }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#B11226] inline-block shrink-0" />
               {workout.roundLength} rounds
-            </h2>
+            </span>
           )}
           {workout.totalRounds && (
-            <h2
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
-              style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.55rem' }}
+            <span
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full tracking-widest uppercase font-bold text-[#A0A0A0] border border-[#2E2E2E] bg-[#111]"
+              style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.55rem', minWidth: '90px', justifyContent: 'center' }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#B11226] inline-block shrink-0" />
               {workout.totalRounds} rounds total
-            </h2>
+            </span>
           )}
         </div>
 
@@ -165,19 +178,19 @@ export default function WorkoutOfTheDay() {
           <button
             onClick={handleStart}
             disabled={marking}
-            className="w-full py-3 px-4 rounded font-bold text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60"
+            className="w-full py-3 px-4 rounded font-bold text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 mobile-btn-glow"
             style={{
               fontFamily: 'Orbitron, sans-serif',
               background: '#B11226',
-              boxShadow: '0 0 12px rgba(177, 18, 38, 0.7), 0 0 24px rgba(177, 18, 38, 0.35)',
+              boxShadow: '0 0 0 1.5px #000, 0 0 12px rgba(177, 18, 38, 0.7), 0 0 24px rgba(177, 18, 38, 0.35)',
             }}
             onMouseEnter={e => {
               (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                '0 0 18px rgba(177, 18, 38, 0.9), 0 0 36px rgba(177, 18, 38, 0.5)';
+                '0 0 0 1.5px #000, 0 0 18px rgba(177, 18, 38, 0.9), 0 0 36px rgba(177, 18, 38, 0.5)';
             }}
             onMouseLeave={e => {
               (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                '0 0 12px rgba(177, 18, 38, 0.7), 0 0 24px rgba(177, 18, 38, 0.35)';
+                '0 0 0 1.5px #000, 0 0 12px rgba(177, 18, 38, 0.7), 0 0 24px rgba(177, 18, 38, 0.35)';
             }}
           >
             {marking ? 'Loading...' : 'Start Workout'}

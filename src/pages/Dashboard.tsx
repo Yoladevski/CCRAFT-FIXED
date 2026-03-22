@@ -236,9 +236,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               style={{
                 fontFamily: 'Beantown, sans-serif',
                 fontWeight: 900,
-                fontSize: '0.85rem',
+                fontSize: '0.935rem',
                 color: '#FFFFFF',
                 textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 2px 2px 0 #cc0000, -2px 2px 0 #cc0000, 2px -2px 0 #cc0000, -2px -2px 0 #cc0000',
+                WebkitFontSmoothing: 'antialiased',
               }}
             >
               WELCOME BACK
@@ -247,9 +248,10 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
               style={{
                 fontFamily: 'Beantown, sans-serif',
                 fontWeight: 900,
-                fontSize: '0.85rem',
+                fontSize: '0.935rem',
                 color: '#FFFFFF',
                 textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 2px 2px 0 #cc0000, -2px 2px 0 #cc0000, 2px -2px 0 #cc0000, -2px -2px 0 #cc0000',
+                WebkitFontSmoothing: 'antialiased',
               }}
             >
               {(profile.full_name || 'FIGHTER').toUpperCase()}
@@ -258,7 +260,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           <p className="cc-quote hidden sm:block" style={{ textShadow: 'none' }}>
             {dailyMotivation}
           </p>
-          <p className="cc-quote sm:hidden" style={{ fontSize: '0.6rem', textShadow: 'none' }}>
+          <p className="cc-quote sm:hidden" style={{ fontSize: '0.66rem', textShadow: 'none', WebkitFontSmoothing: 'antialiased' as 'antialiased' }}>
             {dailyMotivation}
           </p>
           </div>
@@ -279,6 +281,14 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           >
             Resume your next lesson
           </p>
+          <style>{`
+            @media (max-width: 639px) {
+              .continue-btn-mobile {
+                transform: scale(0.9);
+                transform-origin: center;
+              }
+            }
+          `}</style>
           <button
             onClick={() => {
               if (nextLesson) {
@@ -287,8 +297,11 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 navigate('/boxing/foundations');
               }
             }}
-            className="w-full lg:w-3/5 transition-transform hover:scale-105 self-stretch lg:self-auto"
-            style={{ filter: 'drop-shadow(0 0 12px rgba(177, 18, 38, 0.85)) drop-shadow(0 0 28px rgba(177, 18, 38, 0.5))' }}
+            className="w-full lg:w-3/5 transition-transform hover:scale-105 self-stretch lg:self-auto sm:w-full continue-btn-mobile"
+            style={{
+              filter: 'drop-shadow(0 0 10px rgba(177, 18, 38, 0.85)) drop-shadow(0 0 22px rgba(177, 18, 38, 0.5))',
+              outline: 'none',
+            }}
           >
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/continue%20new%20(2).png"
@@ -333,7 +346,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                     <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.55rem', color: '#A0A0A0', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                       DISCIPLINE
                     </span>
-                    <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.8rem', color: '#FFFFFF', letterSpacing: '0.05em' }}>
+                    <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.8rem', color: '#FFFFFF', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
                       BOXING
                     </span>
                   </div>
@@ -341,7 +354,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                     <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.55rem', color: '#A0A0A0', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                       LEVEL
                     </span>
-                    <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.8rem', color: '#FFFFFF', letterSpacing: '0.05em' }}>
+                    <span style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 700, fontSize: '0.8rem', color: '#FFFFFF', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
                       {nextLesson.levelTitle.toUpperCase()}
                     </span>
                   </div>
@@ -382,7 +395,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             <h2 className="cc-section-heading mb-3 md:mb-4 hidden sm:block" data-text="CURRENT RANK">
               CURRENT RANK
             </h2>
-            <h2 className="cc-section-heading mb-3 sm:hidden" data-text="CURRENT RANK" style={{ textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000' }}>
+            <h2 className="cc-section-heading mb-3 sm:hidden" data-text="CURRENT RANK" style={{ textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000', fontSize: '1.056rem' }}>
               CURRENT RANK
             </h2>
             <div className="flex-1 flex flex-col items-center justify-center w-full">
@@ -405,7 +418,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                   WebkitTextStroke: '1px black',
                   textStroke: '1px black',
                   paintOrder: 'stroke fill',
-                  fontSize: '0.56rem'
+                  fontSize: '0.616rem'
                 }}
                 data-text={profile.rank.toUpperCase()}
               >
@@ -426,26 +439,81 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
 
             {/* Progress Info */}
             <div className="w-full pt-3 border-t border-[#B11226] flex flex-col gap-3" style={{ boxShadow: '0 -1px 8px rgba(177, 18, 38, 0.5)' }}>
-              <div className="text-center">
-                <p className="cc-card-label mb-1">
-                  FOUNDATION PROGRESS
-                </p>
-                <div className="flex items-center justify-center gap-2 flex-wrap">
-                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+              {/* Foundation Progress Card */}
+              <div
+                style={{
+                  background: 'linear-gradient(135deg, #1A1A1A 0%, #111111 100%)',
+                  border: '1px solid rgba(177,18,38,0.3)',
+                  borderRadius: '0.75rem',
+                  padding: '0.75rem 1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.5rem',
+                  boxShadow: '0 0 8px rgba(177,18,38,0.15)',
+                }}
+              >
+                <div className="flex items-baseline justify-between gap-2 flex-wrap">
+                  <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.62rem', color: '#A0A0A0', letterSpacing: '0.14em', textTransform: 'uppercase', lineHeight: 1 }}>
+                    Foundation Progress
+                  </p>
+                  <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.72rem', color: '#FFFFFF', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
                     {completionPercentage}%
-                  </span>
-                  <span className="text-xs sm:text-sm md:text-base text-[#A0A0A0]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                    ({completedLessons}/{totalLessons})
-                  </span>
+                  </p>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                  <div style={{ width: '100%', borderRadius: '9999px', overflow: 'hidden', height: '6px', background: '#1E1E1E', border: '1px solid #2E2E2E' }}>
+                    <div style={{
+                      height: '100%',
+                      borderRadius: '9999px',
+                      width: `${completionPercentage}%`,
+                      background: 'linear-gradient(90deg, #8a0d1c 0%, #B11226 100%)',
+                      boxShadow: completionPercentage > 0 ? '0 0 8px rgba(177,18,38,0.7), 0 0 16px rgba(177,18,38,0.3)' : 'none',
+                      transition: 'width 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
+                    }} />
+                  </div>
+                  <p style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 600, fontSize: '0.65rem', color: '#666666', letterSpacing: '0.06em', textAlign: 'right' }}>
+                    {completedLessons}/{totalLessons} lessons
+                  </p>
                 </div>
               </div>
+              {/* Level Technique Progress Card */}
               {currentLevelProgress && (
-                <LevelProgressIndicator
-                  level={currentLevelProgress.level}
-                  completed={currentLevelProgress.completed}
-                  total={currentLevelProgress.total}
-                  compact={true}
-                />
+                <div
+                  style={{
+                    background: 'linear-gradient(135deg, #1A1A1A 0%, #111111 100%)',
+                    border: '1px solid rgba(177,18,38,0.3)',
+                    borderRadius: '0.75rem',
+                    padding: '0.75rem 1rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.5rem',
+                    boxShadow: '0 0 8px rgba(177,18,38,0.15)',
+                  }}
+                >
+                  <div className="flex items-baseline justify-between gap-2 flex-wrap">
+                    <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.62rem', color: '#A0A0A0', letterSpacing: '0.14em', textTransform: 'uppercase', lineHeight: 1 }}>
+                      Level {currentLevelProgress.level} Technique Progress
+                    </p>
+                    <p style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 900, fontSize: '0.72rem', color: '#FFFFFF', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+                      {currentLevelProgress.completed}/{currentLevelProgress.total}
+                    </p>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                    <div style={{ width: '100%', borderRadius: '9999px', overflow: 'hidden', height: '6px', background: '#1E1E1E', border: '1px solid #2E2E2E' }}>
+                      <div style={{
+                        height: '100%',
+                        borderRadius: '9999px',
+                        width: `${currentLevelProgress.total > 0 ? Math.round((currentLevelProgress.completed / currentLevelProgress.total) * 100) : 0}%`,
+                        background: 'linear-gradient(90deg, #8a0d1c 0%, #B11226 100%)',
+                        boxShadow: currentLevelProgress.completed > 0 ? '0 0 8px rgba(177,18,38,0.7), 0 0 16px rgba(177,18,38,0.3)' : 'none',
+                        transition: 'width 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
+                      }} />
+                    </div>
+                    <p style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 600, fontSize: '0.65rem', color: '#666666', letterSpacing: '0.06em', textAlign: 'right' }}>
+                      {currentLevelProgress.total > 0 ? Math.round((currentLevelProgress.completed / currentLevelProgress.total) * 100) : 0}% Complete
+                    </p>
+                  </div>
+                </div>
               )}
             </div>
             </div>
