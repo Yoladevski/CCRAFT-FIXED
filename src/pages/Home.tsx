@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { OutlinedText } from '../components/OutlinedText';
 import { BGPattern } from '../components/ui/bg-pattern';
@@ -8,6 +9,21 @@ interface HomeProps {
 
 export default function Home({ onNavigate }: HomeProps) {
   const { user } = useAuth();
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const tryPlay = (video: HTMLVideoElement | null) => {
+      if (!video) return;
+      video.load();
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    };
+    tryPlay(desktopVideoRef.current);
+    tryPlay(mobileVideoRef.current);
+  }, []);
 
   return (
     <div>
@@ -16,16 +32,20 @@ export default function Home({ onNavigate }: HomeProps) {
 
         <div className="absolute inset-0 overflow-hidden">
           <video
+            ref={desktopVideoRef}
             autoPlay
             loop
             muted
             playsInline
+            preload="auto"
             className="w-full h-full hidden md:block"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center'
+              objectPosition: 'center',
+              transition: 'opacity 0.4s ease',
             }}
-            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
+            onCanPlay={(e) => { (e.currentTarget as HTMLVideoElement).style.opacity = '1'; }}
+            onLoadStart={(e) => { (e.currentTarget as HTMLVideoElement).style.opacity = '0'; }}
           >
             <source
               src="https://image2url.com/r2/default/videos/1771664442251-d7340661-5e0d-4641-afae-c12227116d28.mp4"
@@ -33,16 +53,20 @@ export default function Home({ onNavigate }: HomeProps) {
             />
           </video>
           <video
+            ref={mobileVideoRef}
             autoPlay
             loop
             muted
             playsInline
+            preload="auto"
             className="w-full h-full md:hidden"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 20%'
+              objectPosition: 'center 20%',
+              transition: 'opacity 0.4s ease',
             }}
-            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect width='1920' height='1080' fill='%231A1A1A'/%3E%3C/svg%3E"
+            onCanPlay={(e) => { (e.currentTarget as HTMLVideoElement).style.opacity = '1'; }}
+            onLoadStart={(e) => { (e.currentTarget as HTMLVideoElement).style.opacity = '0'; }}
           >
             <source
               src="https://image2url.com/r2/default/videos/1770858582620-ae5b1808-3859-4637-b784-cc115c44e502.mp4"
