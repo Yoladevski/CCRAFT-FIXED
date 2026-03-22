@@ -10,7 +10,7 @@ export default function BoxingOverview() {
     <div className="min-h-screen py-6 px-4 relative -mt-20 pt-20 sm:pt-24">
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-8">
-          <BackButton onClick={() => navigate(-1)} />
+          <BackButton onClick={() => navigate(`/discipline/${disciplineId}`)} />
         </div>
 
         <div className="text-center mb-10 sm:mb-14">
