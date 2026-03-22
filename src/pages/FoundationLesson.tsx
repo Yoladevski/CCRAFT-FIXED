@@ -8,7 +8,6 @@ import { Database } from '../lib/supabase';
 import LevelProgressIndicator from '../components/LevelProgressIndicator';
 import { useStreakContext } from '../contexts/StreakContext';
 import { BGPattern } from '../components/ui/bg-pattern';
-import CommonMistakesContent from '../components/CommonMistakesContent';
 import {
   getLessonById,
   getNextLesson,
@@ -552,7 +551,7 @@ export default function FoundationLesson() {
                 </button>
                 {openSections.mistakes && (
                   <div className="px-6 pb-6">
-                    <CommonMistakesContent text={technique.common_mistakes} />
+                    <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.common_mistakes}</p>
                   </div>
                 )}
               </div>
