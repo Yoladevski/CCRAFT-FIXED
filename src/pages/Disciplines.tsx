@@ -64,7 +64,15 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
   return (
     <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20">
       <div className="max-w-7xl mx-auto relative z-10">
-        <h1 className="cc-red-shadow-text text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12">
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 sm:cc-red-shadow-text"
+          style={{
+            fontFamily: 'Beantown, sans-serif',
+            color: '#FFFFFF',
+            textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
+            WebkitFontSmoothing: 'antialiased',
+          }}
+        >
           CHOOSE YOUR DISCIPLINE
         </h1>
 
@@ -79,7 +87,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                   !discipline.is_active && !isAdmin ? 'opacity-60' : ''
                 }`}
                 style={{
-                  boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
+                  boxShadow: '0 0 10px rgba(177, 18, 38, 0.45), 0 0 22px rgba(177, 18, 38, 0.2), inset 0 0 8px rgba(177, 18, 38, 0.07)'
                 }}
               >
                 {!discipline.is_active && !isAdmin && (
@@ -128,7 +136,7 @@ export default function Disciplines({ onNavigate }: DisciplinesProps) {
                 disabled={!discipline.is_active && !isAdmin}
                 className={`mt-1 focus:outline-none group w-full ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed opacity-60' : ''}`}
               >
-                <div className="w-full h-[205px] sm:h-[256px] flex items-center justify-center" style={{filter: 'drop-shadow(0 0 12px rgba(177,18,38,0.9)) drop-shadow(0 0 28px rgba(177,18,38,0.6))'}}>
+                <div className="w-full h-[205px] sm:h-[256px] flex items-center justify-center" style={{filter: 'drop-shadow(0 0 9px rgba(177,18,38,0.7)) drop-shadow(0 0 20px rgba(177,18,38,0.4))'}}>
                   <img
                     src={buttonImages[discipline.name] || buttonImages['Boxing']}
                     alt={`${discipline.name} button`}

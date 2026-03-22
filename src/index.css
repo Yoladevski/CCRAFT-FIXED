@@ -533,16 +533,16 @@ nav a {
   .mobile-btn-glow {
     box-shadow:
       0 0 0 1.5px #000,
-      0 0 10px rgba(177, 18, 38, 0.7),
-      0 0 22px rgba(177, 18, 38, 0.35);
+      0 0 8px rgba(177, 18, 38, 0.52),
+      0 0 18px rgba(177, 18, 38, 0.26);
   }
 
   .mobile-btn-glow:hover,
   .mobile-btn-glow:active {
     box-shadow:
       0 0 0 1.5px #000,
-      0 0 16px rgba(177, 18, 38, 0.9),
-      0 0 32px rgba(177, 18, 38, 0.5);
+      0 0 12px rgba(177, 18, 38, 0.68),
+      0 0 24px rgba(177, 18, 38, 0.38);
   }
 
   .card-btn {
