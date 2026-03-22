@@ -8,6 +8,7 @@ type Phase = 'getReady' | 'round' | 'rest' | 'complete';
 interface WorkoutModeProps {
   session: WorkoutSession;
   onExit: () => void;
+  skipGetReadyCue?: boolean;
 }
 
 const ROUND_DURATION = 3 * 60;
@@ -108,7 +109,7 @@ function TransitionOverlay({ visible, label, sublabel }: TransitionOverlayProps)
   );
 }
 
-export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
+export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }: WorkoutModeProps) {
   const rounds = session.rounds ?? [];
   const totalRounds = rounds.length;
 
@@ -147,11 +148,13 @@ export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
   useEffect(() => {
     if (!mounted || getReadyCueFiredRef.current) return;
     getReadyCueFiredRef.current = true;
-    setTimeout(() => {
-      speak('Get ready', voiceEnabledRef.current);
-      console.log('[Audio] Get Ready voice played');
-    }, 100);
-  }, [mounted]);
+    if (!skipGetReadyCue) {
+      setTimeout(() => {
+        speak('Get ready', voiceEnabledRef.current);
+        console.log('[Audio] Get Ready voice played');
+      }, 100);
+    }
+  }, [mounted, skipGetReadyCue]);
 
   const currentRound = rounds[roundIndex];
   const nextRound = rounds[roundIndex + 1];
