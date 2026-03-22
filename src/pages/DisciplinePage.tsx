@@ -132,7 +132,7 @@ export default function DisciplinePage() {
         )}
       </button>
     );
-  }), [categories, onNavigate]);
+  }), [categories, navigate]);
 
   if (loading) {
     return (
