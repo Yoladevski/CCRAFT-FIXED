@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Pause, Play, RotateCcw, ChevronLeft, Volume2, VolumeX } from 'lucide-react';
 import type { WorkoutSession } from '../data/boxingWorkouts';
-import { playBell, speak } from '../lib/audioController';
+import { playBell, playBellThenSpeak, speak } from '../lib/audioController';
 
 type Phase = 'getReady' | 'round' | 'rest' | 'complete';
 
@@ -121,11 +121,10 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
   const [voiceEnabled, setVoiceEnabled] = useState(true);
   const [overlay, setOverlay] = useState<{ visible: boolean; label: string; sublabel?: string }>({ visible: false, label: '' });
 
-  const bellPlayedRef = useRef(false);
-  const voicePlayedRef = useRef(false);
-  const urgencySpokenRef = useRef(false);
   const voiceEnabledRef = useRef(true);
-  const getReadyCueSpokenRef = useRef(false);
+  const getReadyCueFiredRef = useRef(false);
+  const urgencySpokenRef = useRef(false);
+  const transitionFiredRef = useRef(false);
 
   useEffect(() => { voiceEnabledRef.current = voiceEnabled; }, [voiceEnabled]);
 
@@ -147,9 +146,10 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
   }, []);
 
   useEffect(() => {
-    if (!mounted || getReadyCueSpokenRef.current) return;
-    getReadyCueSpokenRef.current = true;
+    if (!mounted || getReadyCueFiredRef.current) return;
+    getReadyCueFiredRef.current = true;
     speak('Get ready', voiceEnabledRef.current);
+    console.log('[Audio] Get Ready voice played');
   }, [mounted]);
 
   const currentRound = rounds[roundIndex];
@@ -163,77 +163,88 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
   }, []);
 
   const handleTransition = useCallback(() => {
+    if (transitionFiredRef.current) return;
+    transitionFiredRef.current = true;
+
     if (phase === 'getReady') {
-      playBell();
+      showOverlay('ROUND 1');
       setPhase('round');
       setTimeLeft(ROUND_DURATION);
-      bellPlayedRef.current = true;
-      voicePlayedRef.current = false;
       urgencySpokenRef.current = false;
-      showOverlay('ROUND 1');
-      setTimeout(() => {
-        if (!skipFirstVoiceCue) {
-          speak('Round 1. Begin.', voiceEnabledRef.current);
-        }
-      }, 400);
+      const voiceText = skipFirstVoiceCue ? '' : 'Round 1. Begin.';
+      if (voiceText) {
+        playBellThenSpeak(voiceText, voiceEnabledRef.current, 400);
+      } else {
+        playBell();
+        console.log('[Audio] Bell played (no voice cue)');
+      }
+      console.log('[Audio] Bell played, Round 1 voice queued');
+
     } else if (phase === 'round') {
-      playBell();
       if (roundIndex >= totalRounds - 1) {
         setPhase('complete');
-        speak('Workout complete. Outstanding work.', voiceEnabledRef.current);
+        playBell();
+        setTimeout(() => speak('Workout complete. Outstanding work.', voiceEnabledRef.current), 400);
+        console.log('[Audio] Bell played, workout complete voice queued');
       } else {
+        showOverlay('REST', 'ROUND OVER');
         setPhase('rest');
         setTimeLeft(REST_DURATION);
-        bellPlayedRef.current = false;
-        voicePlayedRef.current = false;
         urgencySpokenRef.current = false;
-        showOverlay('REST', 'ROUND OVER');
+        playBell();
         setTimeout(() => speak('Rest. Recover.', voiceEnabledRef.current), 400);
+        console.log('[Audio] Bell played, rest voice queued');
       }
+
     } else if (phase === 'rest') {
-      playBell();
       const nextIndex = roundIndex + 1;
       setRoundIndex(nextIndex);
       setPhase('round');
       setTimeLeft(ROUND_DURATION);
-      bellPlayedRef.current = false;
-      voicePlayedRef.current = false;
       urgencySpokenRef.current = false;
       const isFinal = nextIndex === totalRounds - 1;
       const label = isFinal ? 'FINAL ROUND' : `ROUND ${nextIndex + 1}`;
       showOverlay(label);
-      setTimeout(() => {
-        if (isFinal) {
-          speak('Final round. Give everything.', voiceEnabledRef.current);
-        } else {
-          speak(`Round ${nextIndex + 1}. Let's go.`, voiceEnabledRef.current);
-        }
-      }, 400);
+      const voiceText = isFinal
+        ? 'Final round. Give everything.'
+        : `Round ${nextIndex + 1}. Let's go.`;
+      playBellThenSpeak(voiceText, voiceEnabledRef.current, 400);
+      console.log('[Audio] Bell played, round voice queued:', voiceText);
     }
   }, [phase, roundIndex, totalRounds, showOverlay, skipFirstVoiceCue]);
 
   useEffect(() => {
     if (!mounted || phase === 'complete' || paused) return;
-    if (timeLeft <= 0) { handleTransition(); return; }
+
+    if (timeLeft <= 0) {
+      handleTransition();
+      return;
+    }
+
+    transitionFiredRef.current = false;
+
     if (phase === 'round' && timeLeft === URGENCY_THRESHOLD && !urgencySpokenRef.current) {
       urgencySpokenRef.current = true;
       setTimeout(() => speak('Ten seconds.', voiceEnabledRef.current), 100);
     }
+
     const id = setTimeout(() => setTimeLeft(t => t - 1), 1000);
     return () => clearTimeout(id);
   }, [mounted, timeLeft, paused, phase, handleTransition]);
 
   const handleRestart = () => {
+    transitionFiredRef.current = false;
+    getReadyCueFiredRef.current = false;
+    urgencySpokenRef.current = false;
     setRoundIndex(0);
     setPhase('getReady');
     setTimeLeft(GET_READY_DURATION);
     setPaused(false);
-    bellPlayedRef.current = false;
-    voicePlayedRef.current = false;
-    urgencySpokenRef.current = false;
-    getReadyCueSpokenRef.current = false;
     setOverlay({ visible: false, label: '' });
-    setTimeout(() => speak('Get ready', voiceEnabledRef.current), 100);
+    setTimeout(() => {
+      speak('Get ready', voiceEnabledRef.current);
+      console.log('[Audio] Get Ready voice played (restart)');
+    }, 100);
   };
 
   const bgColor = paused ? '#060606' : '#0a0a0a';
