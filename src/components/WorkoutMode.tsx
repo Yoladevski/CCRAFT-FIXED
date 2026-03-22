@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Pause, Play, RotateCcw, ChevronLeft, Volume2, VolumeX } from 'lucide-react';
 import type { WorkoutSession } from '../data/boxingWorkouts';
-import { playBell, playBellThenSpeak, speak } from '../lib/audioController';
+import { playBellThenSpeak, speak } from '../lib/audioController';
 
 type Phase = 'getReady' | 'round' | 'rest' | 'complete';
 
@@ -109,7 +109,7 @@ function TransitionOverlay({ visible, label, sublabel }: TransitionOverlayProps)
   );
 }
 
-export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false }: WorkoutModeProps) {
+export default function WorkoutMode({ session, onExit }: WorkoutModeProps) {
   const rounds = session.rounds ?? [];
   const totalRounds = rounds.length;
 
@@ -146,10 +146,9 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
   }, []);
 
   useEffect(() => {
-    if (!mounted || getReadyCueFiredRef.current) return;
-    getReadyCueFiredRef.current = true;
-    speak('Get ready', voiceEnabledRef.current);
-    console.log('[Audio] Get Ready voice played');
+    if (mounted) {
+      getReadyCueFiredRef.current = true;
+    }
   }, [mounted]);
 
   const currentRound = rounds[roundIndex];
@@ -171,28 +170,20 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
       setPhase('round');
       setTimeLeft(ROUND_DURATION);
       urgencySpokenRef.current = false;
-      const voiceText = skipFirstVoiceCue ? '' : 'Round 1. Begin.';
-      if (voiceText) {
-        playBellThenSpeak(voiceText, voiceEnabledRef.current, 400);
-      } else {
-        playBell();
-        console.log('[Audio] Bell played (no voice cue)');
-      }
+      playBellThenSpeak('Round 1. Begin.', voiceEnabledRef.current, 500);
       console.log('[Audio] Bell played, Round 1 voice queued');
 
     } else if (phase === 'round') {
       if (roundIndex >= totalRounds - 1) {
         setPhase('complete');
-        playBell();
-        setTimeout(() => speak('Workout complete. Outstanding work.', voiceEnabledRef.current), 400);
+        playBellThenSpeak('Workout complete. Outstanding work.', voiceEnabledRef.current, 500);
         console.log('[Audio] Bell played, workout complete voice queued');
       } else {
         showOverlay('REST', 'ROUND OVER');
         setPhase('rest');
         setTimeLeft(REST_DURATION);
         urgencySpokenRef.current = false;
-        playBell();
-        setTimeout(() => speak('Rest. Recover.', voiceEnabledRef.current), 400);
+        playBellThenSpeak('Rest. Recover.', voiceEnabledRef.current, 500);
         console.log('[Audio] Bell played, rest voice queued');
       }
 
@@ -208,10 +199,10 @@ export default function WorkoutMode({ session, onExit, skipFirstVoiceCue = false
       const voiceText = isFinal
         ? 'Final round. Give everything.'
         : `Round ${nextIndex + 1}. Let's go.`;
-      playBellThenSpeak(voiceText, voiceEnabledRef.current, 400);
+      playBellThenSpeak(voiceText, voiceEnabledRef.current, 500);
       console.log('[Audio] Bell played, round voice queued:', voiceText);
     }
-  }, [phase, roundIndex, totalRounds, showOverlay, skipFirstVoiceCue]);
+  }, [phase, roundIndex, totalRounds, showOverlay]);
 
   useEffect(() => {
     if (!mounted || phase === 'complete' || paused) return;

@@ -1,5 +1,4 @@
 let audioCtx: AudioContext | null = null;
-let audioUnlocked = false;
 
 function getAudioContext(): AudioContext {
   if (!audioCtx) {
@@ -19,8 +18,7 @@ export function unlockAudioContext(): void {
       src.connect(ctx.destination);
       src.start(0);
       src.stop(0.001);
-      audioUnlocked = true;
-      console.log('[Audio] Context unlocked, state:', ctx.state);
+      console.log('[Audio] AudioContext unlocked, state:', ctx.state);
     }).catch(() => {});
   } catch {
     // best effort
@@ -68,17 +66,72 @@ export function playBell(): void {
   }
 }
 
-function _speakText(text: string): void {
+// ─── Speech Synthesis ──────────────────────────────────────────────────────
+
+let cachedVoice: SpeechSynthesisVoice | null = null;
+let voicesLoaded = false;
+
+function loadVoices(): void {
   if (!('speechSynthesis' in window)) return;
+  const voices = window.speechSynthesis.getVoices();
+  if (voices.length > 0) {
+    cachedVoice = pickVoice(voices);
+    voicesLoaded = true;
+    console.log('[Audio] Voices loaded:', voices.length, '| Selected:', cachedVoice?.name ?? 'none');
+  }
+}
+
+function pickVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
+  const preferred = [
+    'Samantha', 'Karen', 'Moira', 'Tessa',
+    'Google US English', 'Google UK English Female',
+    'Alex', 'Daniel', 'en-US', 'en-GB',
+  ];
+  for (const name of preferred) {
+    const match = voices.find(v => v.name === name || v.name.includes(name));
+    if (match) return match;
+  }
+  const english = voices.find(v => v.lang.startsWith('en'));
+  return english ?? voices[0] ?? null;
+}
+
+if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  loadVoices();
+  window.speechSynthesis.onvoiceschanged = () => {
+    loadVoices();
+  };
+}
+
+function _speakNow(text: string): void {
+  if (!('speechSynthesis' in window)) {
+    console.warn('[Audio] speechSynthesis not available');
+    return;
+  }
   try {
     window.speechSynthesis.cancel();
+
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.9;
-    utterance.pitch = 0.85;
+    utterance.rate = 0.88;
+    utterance.pitch = 0.9;
     utterance.volume = 1;
-    utterance.onerror = (e) => console.error('[Audio] Speech error:', e.error);
+
+    if (!voicesLoaded) {
+      loadVoices();
+    }
+
+    if (cachedVoice) {
+      utterance.voice = cachedVoice;
+      utterance.lang = cachedVoice.lang;
+    } else {
+      utterance.lang = 'en-US';
+    }
+
+    utterance.onstart = () => console.log('[Audio] Speech started:', text);
+    utterance.onend = () => console.log('[Audio] Speech ended:', text);
+    utterance.onerror = (e) => console.error('[Audio] Speech error:', e.error, 'text:', text);
+
+    console.log('[Audio] Attempting to speak:', text, '| Voice:', utterance.voice?.name ?? 'default');
     window.speechSynthesis.speak(utterance);
-    console.log('[Audio] Voice played:', text);
   } catch (err) {
     console.error('[Audio] Speech exception:', err);
   }
@@ -86,28 +139,26 @@ function _speakText(text: string): void {
 
 export function speak(text: string, voiceEnabled: boolean): void {
   if (!voiceEnabled) return;
-  _speakText(text);
+  _speakNow(text);
 }
 
-export function playBellThenSpeak(text: string, voiceEnabled: boolean, delayMs = 400): void {
+export function playBellThenSpeak(text: string, voiceEnabled: boolean, delayMs = 500): void {
   try {
     ensureResumed().then(ctx => {
       _playBellTones(ctx);
       console.log('[Audio] Bell played');
       if (voiceEnabled) {
         setTimeout(() => {
-          _speakText(text);
+          _speakNow(text);
         }, delayMs);
       }
     }).catch(err => {
       console.error('[Audio] Bell+voice error:', err);
       if (voiceEnabled) {
-        setTimeout(() => _speakText(text), delayMs);
+        setTimeout(() => _speakNow(text), delayMs);
       }
     });
   } catch (err) {
     console.error('[Audio] Bell+voice exception:', err);
   }
 }
-
-export { audioUnlocked };
