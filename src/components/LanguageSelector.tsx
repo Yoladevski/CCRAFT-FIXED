@@ -38,7 +38,7 @@ interface LanguageSelectorProps {
 export default function LanguageSelector({ compact = false }: LanguageSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [_isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('preferredLanguage');
@@ -115,8 +115,6 @@ export default function LanguageSelector({ compact = false }: LanguageSelectorPr
       triggerLanguageChange(langCode);
     }
   };
-
-  const currentLanguage = languages.find(l => l.code === selectedLanguage) || languages[0];
 
   return (
     <div className="relative">

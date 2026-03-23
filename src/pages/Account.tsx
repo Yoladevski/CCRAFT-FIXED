@@ -12,7 +12,7 @@ type Profile = Database['public']['Tables']['profiles']['Row'];
 export default function Account() {
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const [_profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'profile' | 'security' | 'settings'>('profile');
 
@@ -37,7 +37,6 @@ export default function Account() {
 
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
-  const [copiedReferral, setCopiedReferral] = useState(false);
   const [isFirstTimeSetup, setIsFirstTimeSetup] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -101,7 +100,7 @@ export default function Account() {
       const fileExt = file.name.split('.').pop();
       const fileName = `${user.id}/profile.${fileExt}`;
 
-      const { error: deleteError } = await supabase.storage
+      const { error: _deleteError } = await supabase.storage
         .from('profile-pictures')
         .remove([fileName]);
 
@@ -245,15 +244,6 @@ export default function Account() {
     } finally {
       setSaving(false);
     }
-  };
-
-  const handleCopyReferralLink = () => {
-    if (!profile?.referral_code) return;
-
-    const referralLink = `${window.location.origin}?ref=${profile.referral_code}`;
-    navigator.clipboard.writeText(referralLink);
-    setCopiedReferral(true);
-    setTimeout(() => setCopiedReferral(false), 2000);
   };
 
   const handleSignOut = async () => {

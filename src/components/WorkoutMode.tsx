@@ -743,7 +743,7 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
               }}>
-                {phase === 'rest' ? 'REST' : phase === 'complete' ? 'DONE' : `ROUND ${roundIndex + 1}`}
+                {phase === 'rest' ? 'REST' : `ROUND ${roundIndex + 1}`}
               </span>
               <span style={{ color: '#282828', fontSize: '9px' }}>/</span>
               <span style={{

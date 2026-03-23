@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Database } from '../lib/supabase';
-import LevelProgressIndicator from '../components/LevelProgressIndicator';
 import WorkoutOfTheDay from '../components/WorkoutOfTheDay';
 import TrainingStreak from '../components/TrainingStreak';
 import { BOXING_FOUNDATIONS_LEVELS } from '../data/foundationsLessons';
@@ -400,7 +399,6 @@ export default function Dashboard() {
                 style={{
                   color: getRankColor(profile.rank),
                   WebkitTextStroke: '2px black',
-                  textStroke: '2px black',
                   paintOrder: 'stroke fill'
                 }}
                 data-text={profile.rank.toUpperCase()}
@@ -412,7 +410,6 @@ export default function Dashboard() {
                 style={{
                   color: getRankColor(profile.rank),
                   WebkitTextStroke: '1px black',
-                  textStroke: '1px black',
                   paintOrder: 'stroke fill',
                   fontSize: '0.616rem'
                 }}

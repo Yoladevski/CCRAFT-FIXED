@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
-import { Lock, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight, Facebook, MessageCircle } from 'lucide-react';
+import { Lock, CheckCircle, ChevronLeft, ChevronRight, Facebook, MessageCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { BOXING_FOUNDATIONS_LEVELS, FoundationLesson } from '../data/foundationsLessons';

@@ -71,11 +71,11 @@ export default function PostVerify() {
   };
 
   if (loading) {
-    return <LoadingScreen />;
+    return <LoadingScreen onComplete={() => {}} />;
   }
 
   if (!showWaiver) {
-    return <LoadingScreen />;
+    return <LoadingScreen onComplete={() => {}} />;
   }
 
   return (
