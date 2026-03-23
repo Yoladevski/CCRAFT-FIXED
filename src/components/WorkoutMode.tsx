@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Pause, Play, RotateCcw, ChevronLeft, Volume2, VolumeX } from 'lucide-react';
 import type { WorkoutSession } from '../data/boxingWorkouts';
-import { playBellThenSpeak, speak } from '../lib/audioController';
+import { playBellThenSpeak, speak, unlockAudioContext } from '../lib/audioController';
 
 type Phase = 'getReady' | 'round' | 'rest' | 'complete';
 
@@ -175,12 +175,14 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
       setPhase('round');
       setTimeLeft(ROUND_DURATION);
       urgencySpokenRef.current = false;
+      unlockAudioContext();
       playBellThenSpeak('Round 1. Begin.', voiceEnabledRef.current, 500);
-      console.log('[Audio] Bell played, Round 1 voice queued');
+      console.log('Bell played: Round 1 start');
 
     } else if (phase === 'round') {
       if (roundIndex >= totalRounds - 1) {
         setPhase('complete');
+        unlockAudioContext();
         playBellThenSpeak('Workout complete. Outstanding work.', voiceEnabledRef.current, 500);
         console.log('[Audio] Bell played, workout complete voice queued');
       } else {
@@ -188,8 +190,9 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
         setPhase('rest');
         setTimeLeft(REST_DURATION);
         urgencySpokenRef.current = false;
+        unlockAudioContext();
         playBellThenSpeak('Rest. Recover.', voiceEnabledRef.current, 500);
-        console.log('[Audio] Bell played, rest voice queued');
+        console.log('Bell played: Rest start');
       }
 
     } else if (phase === 'rest') {
@@ -204,8 +207,9 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
       const voiceText = isFinal
         ? 'Final round. Give everything.'
         : `Round ${nextIndex + 1}. Let's go.`;
+      unlockAudioContext();
       playBellThenSpeak(voiceText, voiceEnabledRef.current, 500);
-      console.log('[Audio] Bell played, round voice queued:', voiceText);
+      console.log(`Bell played: Round ${nextIndex + 1} start`);
     }
   }, [phase, roundIndex, totalRounds, showOverlay]);
 
