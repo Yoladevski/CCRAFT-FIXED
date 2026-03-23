@@ -55,7 +55,7 @@ AS $$
 BEGIN
   RETURN EXISTS (
     SELECT 1 FROM public.profiles
-    WHERE id = user_id AND role = 'admin'
+    WHERE public.profiles.user_id = $1 AND public.profiles.role = 'admin'
   );
 END;
 $$;
