@@ -151,7 +151,6 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
     if (!skipGetReadyCue) {
       setTimeout(() => {
         speak('Get ready', voiceEnabledRef.current);
-        console.log('[Audio] Get Ready voice played');
       }, 100);
     }
   }, [mounted, skipGetReadyCue]);
@@ -177,14 +176,12 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
       urgencySpokenRef.current = false;
       unlockAudioContext();
       playBellThenSpeak('Round 1. Begin.', voiceEnabledRef.current, 500);
-      console.log('Bell played: Round 1 start');
 
     } else if (phase === 'round') {
       if (roundIndex >= totalRounds - 1) {
         setPhase('complete');
         unlockAudioContext();
         playBellThenSpeak('Workout complete. Outstanding work.', voiceEnabledRef.current, 500);
-        console.log('[Audio] Bell played, workout complete voice queued');
       } else {
         showOverlay('REST', 'ROUND OVER');
         setPhase('rest');
@@ -192,7 +189,6 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
         urgencySpokenRef.current = false;
         unlockAudioContext();
         playBellThenSpeak('Rest. Recover.', voiceEnabledRef.current, 500);
-        console.log('Bell played: Rest start');
       }
 
     } else if (phase === 'rest') {
@@ -209,7 +205,6 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
         : `Round ${nextIndex + 1}. Let's go.`;
       unlockAudioContext();
       playBellThenSpeak(voiceText, voiceEnabledRef.current, 500);
-      console.log(`Bell played: Round ${nextIndex + 1} start`);
     }
   }, [phase, roundIndex, totalRounds, showOverlay]);
 
@@ -243,7 +238,6 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
     setOverlay({ visible: false, label: '' });
     setTimeout(() => {
       speak('Get ready', voiceEnabledRef.current);
-      console.log('[Audio] Get Ready voice played (restart)');
     }, 100);
   };
 

@@ -19,7 +19,6 @@ export function unlockAudioContext(): void {
       src.connect(ctx.destination);
       src.start(0);
       src.stop(0.001);
-      console.log('[Audio] AudioContext unlocked, state:', ctx.state);
     }).catch(() => {});
   } catch {
     // best effort
@@ -58,7 +57,6 @@ export function playBell(): void {
   try {
     ensureResumed().then(ctx => {
       _playBellTones(ctx);
-      console.log('[Audio] Bell played');
     }).catch(err => {
       console.error('[Audio] Bell playback error:', err);
     });
@@ -78,7 +76,6 @@ function loadVoices(): void {
   if (voices.length > 0) {
     cachedVoice = pickVoice(voices);
     voicesLoaded = true;
-    console.log('[Audio] Voices loaded:', voices.length, '| Selected:', cachedVoice?.name ?? 'none');
   }
 }
 
@@ -127,11 +124,8 @@ function _speakNow(text: string): void {
       utterance.lang = 'en-US';
     }
 
-    utterance.onstart = () => console.log('[Audio] Speech started:', text);
-    utterance.onend = () => console.log('[Audio] Speech ended:', text);
     utterance.onerror = (e) => console.error('[Audio] Speech error:', e.error, 'text:', text);
 
-    console.log('[Audio] Attempting to speak:', text, '| Voice:', utterance.voice?.name ?? 'default');
     window.speechSynthesis.speak(utterance);
   } catch (err) {
     console.error('[Audio] Speech exception:', err);
@@ -147,7 +141,6 @@ export function playBellThenSpeak(text: string, voiceEnabled: boolean, delayMs =
   try {
     ensureResumed().then(ctx => {
       _playBellTones(ctx);
-      console.log('[Audio] Bell played');
       if (voiceEnabled) {
         setTimeout(() => {
           _speakNow(text);
