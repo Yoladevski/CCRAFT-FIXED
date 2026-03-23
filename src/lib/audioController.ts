@@ -25,43 +25,112 @@ export function unlockAudioContext(): void {
   }
 }
 
-function ensureResumed(): Promise<AudioContext> {
-  const ctx = getAudioContext();
-  if (ctx.state === 'suspended') {
-    return ctx.resume().then(() => ctx);
+// ─── Bell via HTMLAudioElement ──────────────────────────────────────────────
+
+function generateBellWavBlob(): Blob {
+  const sampleRate = 22050;
+  const duration = 1.5;
+  const numSamples = Math.floor(sampleRate * duration);
+  const buffer = new ArrayBuffer(44 + numSamples * 2);
+  const view = new DataView(buffer);
+
+  const writeString = (offset: number, str: string) => {
+    for (let i = 0; i < str.length; i++) {
+      view.setUint8(offset + i, str.charCodeAt(i));
+    }
+  };
+
+  writeString(0, 'RIFF');
+  view.setUint32(4, 36 + numSamples * 2, true);
+  writeString(8, 'WAVE');
+  writeString(12, 'fmt ');
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);
+  view.setUint16(22, 1, true);
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true);
+  view.setUint16(34, 16, true);
+  writeString(36, 'data');
+  view.setUint32(40, numSamples * 2, true);
+
+  for (let i = 0; i < numSamples; i++) {
+    const t = i / sampleRate;
+    const env = Math.exp(-t * 3.5);
+    const sample =
+      0.55 * Math.sin(2 * Math.PI * 880 * t) * env +
+      0.30 * Math.sin(2 * Math.PI * 1100 * t) * Math.exp(-t * 4.5) +
+      0.20 * Math.sin(2 * Math.PI * 660 * t) * Math.exp(-t * 5.0);
+    const clamped = Math.max(-1, Math.min(1, sample));
+    view.setInt16(44 + i * 2, Math.round(clamped * 32767), true);
   }
-  return Promise.resolve(ctx);
+
+  return new Blob([buffer], { type: 'audio/wav' });
 }
 
-function _playBellTones(ctx: AudioContext): void {
-  const createTone = (freq: number, startTime: number, duration: number, gainVal: number) => {
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(freq, startTime);
-    gain.gain.setValueAtTime(0, startTime);
-    gain.gain.linearRampToValueAtTime(gainVal, startTime + 0.01);
-    gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-    osc.start(startTime);
-    osc.stop(startTime + duration);
-  };
-  const now = ctx.currentTime;
-  createTone(880, now, 1.2, 0.6);
-  createTone(1100, now + 0.05, 1.0, 0.4);
-  createTone(660, now + 0.1, 0.8, 0.3);
+let bellBlobUrl: string | null = null;
+let bellAudio: HTMLAudioElement | null = null;
+let bellPrimed = false;
+
+function getBellAudio(): HTMLAudioElement {
+  if (!bellAudio) {
+    if (!bellBlobUrl) {
+      bellBlobUrl = URL.createObjectURL(generateBellWavBlob());
+    }
+    bellAudio = new Audio(bellBlobUrl);
+    bellAudio.preload = 'auto';
+    bellAudio.volume = 1.0;
+  }
+  return bellAudio;
+}
+
+export function primeBell(): void {
+  try {
+    const bell = getBellAudio();
+    bell.volume = 0;
+    bell.currentTime = 0;
+    const playPromise = bell.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        bell.pause();
+        bell.currentTime = 0;
+        bell.volume = 1.0;
+        bellPrimed = true;
+        console.log('[Bell] Bell primed on Start Workout');
+      }).catch(() => {
+        bellPrimed = true;
+        bell.volume = 1.0;
+        console.log('[Bell] Bell primed (play rejected, unlocked via attempt)');
+      });
+    } else {
+      bell.pause();
+      bell.currentTime = 0;
+      bell.volume = 1.0;
+      bellPrimed = true;
+      console.log('[Bell] Bell primed on Start Workout');
+    }
+  } catch (err) {
+    bellPrimed = true;
+    console.warn('[Bell] Prime failed:', err);
+  }
 }
 
 export function playBell(): void {
   try {
-    ensureResumed().then(ctx => {
-      _playBellTones(ctx);
-    }).catch(err => {
-      console.error('[Audio] Bell playback error:', err);
-    });
+    const bell = getBellAudio();
+    bell.currentTime = 0;
+    bell.volume = 1.0;
+    const playPromise = bell.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        console.error('[Bell] playBell error:', err);
+      });
+    }
+    if (!bellPrimed) {
+      console.warn('[Bell] Bell played without being primed - may fail on mobile');
+    }
   } catch (err) {
-    console.error('[Audio] Bell error:', err);
+    console.error('[Bell] playBell exception:', err);
   }
 }
 
@@ -138,21 +207,10 @@ export function speak(text: string, voiceEnabled: boolean): void {
 }
 
 export function playBellThenSpeak(text: string, voiceEnabled: boolean, delayMs = 500): void {
-  try {
-    ensureResumed().then(ctx => {
-      _playBellTones(ctx);
-      if (voiceEnabled) {
-        setTimeout(() => {
-          _speakNow(text);
-        }, delayMs);
-      }
-    }).catch(err => {
-      console.error('[Audio] Bell+voice error:', err);
-      if (voiceEnabled) {
-        setTimeout(() => _speakNow(text), delayMs);
-      }
-    });
-  } catch (err) {
-    console.error('[Audio] Bell+voice exception:', err);
+  playBell();
+  if (voiceEnabled) {
+    setTimeout(() => {
+      _speakNow(text);
+    }, delayMs);
   }
 }
