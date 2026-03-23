@@ -341,7 +341,9 @@ export default function TechniquePage() {
               </button>
               {openSections.why && (
                 <div className="px-6 pb-6">
-                  <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.why}</p>
+                  <div className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">
+                    {formatText(technique.why)}
+                  </div>
                 </div>
               )}
             </div>
