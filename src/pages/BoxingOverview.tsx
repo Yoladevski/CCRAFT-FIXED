@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import workoutsImg from '../assets/file_0000000072dc7246919b2e83c454badf.webp';
+import workoutsImg from '../assets/file_0000000072dc7246919b2e83c454badf.png';
 import BackButton from '../components/BackButton';
 
 export default function BoxingOverview() {
