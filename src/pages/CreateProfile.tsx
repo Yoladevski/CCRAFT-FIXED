@@ -63,9 +63,9 @@ export default function CreateProfile() {
 
       // Only navigate after confirming successful update
       navigate('/dashboard', { replace: true });
-    } catch (err: any) {
+    } catch (err) {
       console.error('Error updating profile:', err);
-      setError(err.message || 'Failed to update profile. Please try again.');
+      setError(err instanceof Error ? err.message : 'Failed to update profile. Please try again.');
       setLoading(false);
     }
   };

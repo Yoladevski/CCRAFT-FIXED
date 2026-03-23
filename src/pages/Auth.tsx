@@ -96,8 +96,8 @@ export default function Auth({ initialMode = 'signup' }: AuthProps) {
           navigate('/dashboard');
         }
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false);
     }
@@ -118,8 +118,8 @@ export default function Auth({ initialMode = 'signup' }: AuthProps) {
       if (error) throw error;
       setSuccessMessage('Password reset email sent! Check your inbox.');
       setEmail('');
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false);
     }

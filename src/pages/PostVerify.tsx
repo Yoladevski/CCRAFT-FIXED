@@ -15,36 +15,35 @@ export default function PostVerify() {
   const [accepted, setAccepted] = useState(false);
 
   useEffect(() => {
-    checkWaiverStatus();
-  }, [user]);
-
-  const checkWaiverStatus = async () => {
-    if (!user) {
-      navigate('/auth', { replace: true });
-      return;
-    }
-
-    try {
-      const { data, error } = await supabase
-        .from('user_legal_acceptance')
-        .select('id')
-        .eq('user_id', user.id)
-        .eq('waiver_version', WAIVER_VERSION)
-        .maybeSingle();
-
-      if (error) throw error;
-
-      if (data) {
-        navigate('/create-profile', { replace: true });
-      } else {
-        setShowWaiver(true);
+    const checkWaiverStatus = async () => {
+      if (!user) {
+        navigate('/auth', { replace: true });
+        return;
       }
-    } catch (error) {
-      console.error('Error checking waiver status:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+
+      try {
+        const { data, error } = await supabase
+          .from('user_legal_acceptance')
+          .select('id')
+          .eq('user_id', user.id)
+          .eq('waiver_version', WAIVER_VERSION)
+          .maybeSingle();
+
+        if (error) throw error;
+
+        if (data) {
+          navigate('/create-profile', { replace: true });
+        } else {
+          setShowWaiver(true);
+        }
+      } catch (error) {
+        console.error('Error checking waiver status:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    checkWaiverStatus();
+  }, [user, navigate]);
 
   const handleAcceptWaiver = async () => {
     if (!user || !accepted) return;

@@ -301,7 +301,7 @@ export default function FoundationLesson() {
       setAccessChecked(true);
     }
     checkCompletion();
-  }, [user, lessonId, lesson?.level, navigate]);
+  }, [user, lessonId, lesson, navigate]);
 
   useEffect(() => {
     async function fetchUserName() {

@@ -103,7 +103,7 @@ export default function Dashboard() {
     }
 
     loadDashboardData();
-  }, [user]);
+  }, [user, navigate]);
 
   const getRankColor = (rank: string) => {
     switch (rank) {
@@ -255,7 +255,7 @@ export default function Dashboard() {
           <p className="cc-quote hidden sm:block" style={{ textShadow: 'none' }}>
             {dailyMotivation}
           </p>
-          <p className="cc-quote sm:hidden" style={{ fontSize: '0.66rem', textShadow: 'none', WebkitFontSmoothing: 'antialiased' as 'antialiased' }}>
+          <p className="cc-quote sm:hidden" style={{ fontSize: '0.66rem', textShadow: 'none', WebkitFontSmoothing: 'antialiased' as const }}>
             {dailyMotivation}
           </p>
           </div>

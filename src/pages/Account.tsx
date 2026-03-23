@@ -3,16 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { LogOut, User, Camera, Eye, EyeOff, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
-import { Database } from '../lib/supabase';
 import BackButton from '../components/BackButton';
 import { BGPattern } from '../components/ui/bg-pattern';
 
-type Profile = Database['public']['Tables']['profiles']['Row'];
 
 export default function Account() {
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
-  const [_profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'profile' | 'security' | 'settings'>('profile');
 
@@ -52,7 +49,6 @@ export default function Account() {
         .maybeSingle();
 
       if (data) {
-        setProfile(data);
         setFullName(data.full_name || '');
         setWeight(data.weight?.toString() || '');
         setHeight(data.height?.toString() || '');
@@ -100,7 +96,7 @@ export default function Account() {
       const fileExt = file.name.split('.').pop();
       const fileName = `${user.id}/profile.${fileExt}`;
 
-      const { error: _deleteError } = await supabase.storage
+      await supabase.storage
         .from('profile-pictures')
         .remove([fileName]);
 
@@ -127,7 +123,7 @@ export default function Account() {
       setProfilePicture(publicUrl);
       setMessage('Profile picture updated successfully');
       setTimeout(() => setMessage(''), 3000);
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error uploading picture:', error);
       setMessage('Error uploading picture');
       setTimeout(() => setMessage(''), 3000);
@@ -198,7 +194,7 @@ export default function Account() {
         setMessage('Profile updated successfully');
         setTimeout(() => setMessage(''), 3000);
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error('[DIAGNOSTIC] Caught error:', error);
       setMessage('Error updating profile');
       setTimeout(() => setMessage(''), 3000);
@@ -238,7 +234,7 @@ export default function Account() {
       setNewPassword('');
       setConfirmPassword('');
       setTimeout(() => setMessage(''), 3000);
-    } catch (error: any) {
+    } catch {
       setMessage('Error updating password');
       setTimeout(() => setMessage(''), 3000);
     } finally {
@@ -267,7 +263,7 @@ export default function Account() {
       setMessage('Email update initiated. Please check your new email for confirmation.');
       setNewEmail('');
       setTimeout(() => setMessage(''), 5000);
-    } catch (error: any) {
+    } catch {
       setMessage('Error updating email');
       setTimeout(() => setMessage(''), 3000);
     } finally {
@@ -291,7 +287,7 @@ export default function Account() {
 
       setMessage('Phone number updated successfully');
       setTimeout(() => setMessage(''), 3000);
-    } catch (error: any) {
+    } catch {
       setMessage('Error updating phone number');
       setTimeout(() => setMessage(''), 3000);
     } finally {
@@ -311,7 +307,7 @@ export default function Account() {
       if (error) throw error;
 
       await signOut();
-    } catch (error: any) {
+    } catch {
       setMessage('Error deleting account. Please contact support.');
       setTimeout(() => setMessage(''), 3000);
       setSaving(false);

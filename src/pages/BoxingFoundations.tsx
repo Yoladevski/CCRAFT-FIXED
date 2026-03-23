@@ -103,8 +103,10 @@ function LevelCompleteModal({
     };
   }, [createConfetti]);
 
+  const hasConfetti = confetti.length > 0;
+
   useEffect(() => {
-    if (confetti.length === 0) return;
+    if (!hasConfetti) return;
 
     const animate = () => {
       setConfetti(prev =>
@@ -127,7 +129,7 @@ function LevelCompleteModal({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [confetti.length > 0]);
+  }, [hasConfetti]);
 
   const shareText = `I just completed Level ${levelNumber}: ${levelTitle} on CombatCraft! Training like a champion.`;
   const shareUrl = 'https://combatcraft.co.uk';
@@ -343,7 +345,7 @@ export default function BoxingFoundations() {
       const lvl = state.level ?? state.levelNumber!;
       navigate(`/boxing/foundations/level/${lvl}`, { replace: true, state: {} });
     }
-  }, [location.pathname, loadProgress]);
+  }, [location.pathname, location.state, loadProgress, levelParam, navigate]);
 
   useEffect(() => {
     const handleVisibilityChange = () => {

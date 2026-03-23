@@ -1,9 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Globe } from 'lucide-react';
 
+interface GoogleTranslateAPI {
+  translate: {
+    TranslateElement: {
+      new (options: { pageLanguage: string; includedLanguages: string; layout: unknown; autoDisplay: boolean }, elementId: string): void;
+      InlineLayout: { SIMPLE: unknown };
+    };
+  };
+}
+
 declare global {
   interface Window {
-    google: any;
+    google: GoogleTranslateAPI | undefined;
     googleTranslateElementInit: () => void;
   }
 }
@@ -38,8 +47,6 @@ interface LanguageSelectorProps {
 export default function LanguageSelector({ compact = false }: LanguageSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
-  const [_isInitialized, setIsInitialized] = useState(false);
-
   useEffect(() => {
     const savedLanguage = localStorage.getItem('preferredLanguage');
     if (savedLanguage) {
@@ -64,7 +71,6 @@ export default function LanguageSelector({ compact = false }: LanguageSelectorPr
               },
               'google_translate_element'
             );
-            setIsInitialized(true);
 
             if (savedLanguage && savedLanguage !== 'en') {
               setTimeout(() => {
@@ -77,8 +83,6 @@ export default function LanguageSelector({ compact = false }: LanguageSelectorPr
         };
 
         document.body.appendChild(script);
-      } else if (window.google && window.google.translate) {
-        setIsInitialized(true);
       }
     };
 
