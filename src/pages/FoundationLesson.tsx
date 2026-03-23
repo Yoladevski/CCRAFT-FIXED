@@ -72,6 +72,58 @@ function formatText(text: string) {
   });
 }
 
+function formatMistakes(text: string) {
+  const blocks = text.split(/\n\n+/);
+  const items: { heading: string; lines: { type: 'body' | 'fix' | 'think'; text: string }[] }[] = [];
+
+  for (const block of blocks) {
+    const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+    if (!lines.length) continue;
+
+    const firstLine = lines[0];
+    const isBoldHeading = firstLine.startsWith('**') && firstLine.endsWith('**');
+    const heading = isBoldHeading ? firstLine.slice(2, -2) : firstLine;
+    const bodyLines = lines.slice(1);
+
+    const parsed = bodyLines.map(l => {
+      if (l.startsWith('How to fix:')) return { type: 'fix' as const, text: l.replace('How to fix:', '').trim() };
+      if (l.startsWith('Think:')) return { type: 'think' as const, text: l.replace('Think:', '').trim() };
+      return { type: 'body' as const, text: l };
+    });
+
+    items.push({ heading, lines: parsed });
+  }
+
+  return (
+    <div className="space-y-6">
+      {items.map((item, i) => (
+        <div key={i} className="space-y-1">
+          <p className="text-xl font-bold text-white">{item.heading}</p>
+          {item.lines.map((l, j) => {
+            if (l.type === 'fix') {
+              return (
+                <p key={j} className="text-body leading-relaxed">
+                  <span className="text-[#B11226] font-semibold">How to fix: </span>
+                  <span className="text-[#A0A0A0]">{l.text}</span>
+                </p>
+              );
+            }
+            if (l.type === 'think') {
+              return (
+                <p key={j} className="text-body leading-relaxed">
+                  <span className="text-[#B11226] font-semibold">Think: </span>
+                  <span className="text-[#A0A0A0] italic">{l.text}</span>
+                </p>
+              );
+            }
+            return <p key={j} className="text-[#A0A0A0] text-body leading-relaxed">{l.text}</p>;
+          })}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 const XP_PER_LESSON = 50;
 
 interface LessonCompletePopupProps {
@@ -489,7 +541,9 @@ export default function FoundationLesson() {
                 </button>
                 {openSections.why && (
                   <div className="px-6 pb-6">
-                    <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.why}</p>
+                    <div className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">
+                      {formatText(technique.why)}
+                    </div>
                   </div>
                 )}
               </div>
@@ -551,7 +605,7 @@ export default function FoundationLesson() {
                 </button>
                 {openSections.mistakes && (
                   <div className="px-6 pb-6">
-                    <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.common_mistakes}</p>
+                    {formatMistakes(technique.common_mistakes)}
                   </div>
                 )}
               </div>
@@ -615,7 +669,9 @@ export default function FoundationLesson() {
                 </button>
                 {openSections.coachesTips && (
                   <div className="px-6 pb-6">
-                    <p className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">{technique.coaches_tips}</p>
+                    <div className="text-[#A0A0A0] text-body leading-relaxed whitespace-pre-line">
+                      {formatText(technique.coaches_tips)}
+                    </div>
                   </div>
                 )}
               </div>
