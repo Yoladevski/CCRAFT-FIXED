@@ -1,108 +1,139 @@
 # COMBATCRAFT
 
-A premium AI-powered combat training platform built around structured progression, gamified ranking, and discipline-based training paths.
-
-## Features
-
-- **Structured Progression System**: Sequential unlock system ensures proper skill development
-- **Gamified Ranking**: Automatic rank progression from Amateur to Champion based on XP
-- **Multi-Discipline Training**: Boxing fully implemented, with 6+ more disciplines coming soon
-- **Mobile-First Design**: Optimized for all screen sizes with cinematic UI
-- **Real-Time Progress Tracking**: Persistent user progress with detailed statistics
-- **Premium Design**: Custom fonts, dark theme, controlled aesthetic
+A combat training platform built around structured progression, gamified ranking, and discipline-based training paths.
 
 ## Tech Stack
 
 - **Frontend**: React + TypeScript + Vite
 - **Styling**: Tailwind CSS with custom design system
-- **Database**: Supabase (PostgreSQL)
+- **Database**: Supabase (PostgreSQL with RLS)
 - **Authentication**: Supabase Auth (email/password)
 - **State Management**: React Context + Hooks
 
-## Rank System
-
-Power Level progression:
-- 0-199 XP: Amateur
-- 200-499 XP: Contender
-- 500-999 XP: Challenger
-- 1000-1999 XP: Elite
-- 2000+ XP: Champion
-
-## Database Structure
-
-### Tables
-- `profiles`: User profile data, power level, and rank
-- `disciplines`: Available martial arts disciplines
-- `categories`: Technique categories per discipline
-- `techniques`: Individual techniques with video and instruction
-- `user_progress`: User completion tracking
-
-### Row Level Security
-All tables have RLS enabled with appropriate policies for secure data access.
-
 ## Getting Started
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+### 1. Install dependencies
 
-2. Set up environment variables in `.env`:
-   ```
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
+```bash
+npm install
+```
 
-3. Run development server:
-   ```bash
-   npm run dev
-   ```
+### 2. Set up environment variables
 
-4. Build for production:
-   ```bash
-   npm run build
-   ```
+Copy `.env.example` to `.env` and fill in your Supabase project details:
+
+```
+VITE_SUPABASE_URL=https://your-project-ref.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key-here
+```
+
+### 3. Run the development server
+
+```bash
+npm run dev
+```
+
+### 4. Build for production
+
+```bash
+npm run build
+```
 
 ## Project Structure
 
 ```
 src/
-├── assets/           # Static assets (fonts)
-├── components/       # Reusable components (Navigation)
-├── contexts/         # React contexts (AuthContext)
-├── lib/             # Utilities and configurations (Supabase)
-├── pages/           # Page components
-│   ├── Home.tsx
-│   ├── Auth.tsx
-│   ├── Disciplines.tsx
-│   ├── DisciplinePage.tsx
-│   ├── CategoryPage.tsx
-│   ├── TechniquePage.tsx
-│   ├── Dashboard.tsx
-│   ├── News.tsx
-│   └── Account.tsx
-├── App.tsx          # Main app with routing
-└── main.tsx         # Entry point
+├── assets/
+│   └── fonts/          # Custom fonts (Beantown, Orbitron, Redhawk, Lato-Black)
+├── components/         # Shared UI components
+│   ├── Navigation.tsx
+│   ├── Footer.tsx
+│   ├── MainLayout.tsx
+│   ├── TrainingStreak.tsx
+│   ├── WorkoutOfTheDay.tsx
+│   ├── WorkoutMode.tsx
+│   ├── LevelProgressIndicator.tsx
+│   └── ...
+├── contexts/
+│   ├── AuthContext.tsx  # Authentication state
+│   ├── StreakContext.tsx # Training streak tracking
+│   └── ThemeContext.tsx
+├── data/
+│   ├── boxingWorkouts.ts      # Workout session definitions
+│   └── foundationsLessons.ts  # Foundation level/lesson definitions
+├── lib/
+│   ├── supabase.ts       # Supabase client
+│   ├── audioController.ts # Audio cues for workout mode
+│   └── utils.ts
+├── pages/              # Route-level page components
+├── styles/
+│   └── typography.css
+├── App.tsx             # Router and route definitions
+└── main.tsx
 ```
+
+## Features
+
+### Disciplines
+Two disciplines are fully implemented with technique libraries, coach's tips, and progression tracking:
+- **Boxing** — Attacks, Defence, Footwork, Combos categories
+- **Muay Thai** — Full technique library with coach's tips
+
+### Foundation Lessons
+Boxing has 5 structured foundation levels (32 lessons total):
+1. Foundation — Stance, footwork, jab, cross, guard
+2. Control — Sidestep, pivot, uppercut, parry, slip
+3. Rotation — Hooks, uppercuts, advanced combos
+4. Flow and Reaction — Combos with defensive integration
+5. Advanced Control — Slip pivot, L-step, clinch
+
+Lesson completion is tracked per user. Progress bars show level and overall completion on the dashboard.
+
+### Workout Sessions
+Workout sessions are defined in `src/data/boxingWorkouts.ts`. Each session includes rounds, rest periods, coach's brief, and per-round instructions. Sessions run in an active workout mode with optional audio cues.
+
+### Training Streak
+A daily training streak is tracked via `StreakContext` and persisted to the `profiles` table (`current_streak`, `last_training_date`). The streak resets if a day is missed.
+
+### Rank / Power Level
+Power level is calculated from completed foundation lessons (50 XP per lesson). Rank tiers:
+
+| Rank | Power Level |
+|---|---|
+| Amateur | 0 – 199 |
+| Contender | 200 – 499 |
+| Challenger | 500 – 999 |
+| Elite | 1000 – 1999 |
+| Champion | 2000+ |
+
+Rank updates automatically via a database trigger.
+
+## Database
+
+Migrations are in `supabase/migrations/`. Key tables:
+
+| Table | Purpose |
+|---|---|
+| `profiles` | User profile, power level, rank, streak |
+| `disciplines` | Available martial arts disciplines |
+| `categories` | Technique categories per discipline |
+| `techniques` | Individual techniques with content blocks and coach's tips |
+| `user_progress` | Technique completion tracking per user |
+| `foundations_progress` | Foundation lesson completion per user |
+| `workout_completions` | Workout session completion records |
+| `user_legal_acceptance` | Legal waiver acceptance records |
+
+All tables have Row Level Security enabled.
 
 ## Design System
 
-### Colors
-- Primary Background: #0E0E0E
-- Secondary Surface: #1A1A1A
-- Accent Red: #B11226
-- Steel Grey: #2E2E2E
-- Primary Text: #FFFFFF
-- Secondary Text: #A0A0A0
+### Colors (Tailwind custom tokens)
+- `bg-primary` — `#0E0E0E`
+- `bg-secondary` — `#1A1A1A`
+- `accent-red` — `#B11226`
+- `steel-grey` — `#2E2E2E`
 
-### Typography
-- **Headings**: Progress font (custom, uppercase, bold)
-- **Body**: KGRedHands font (custom, readable)
-
-## Future Enhancements
-
-- Additional disciplines (Muay Thai, BJJ, Kickboxing, Karate, Taekwondo, Judo)
-- Video completion tracking
-- Social features and leaderboards
-- Advanced analytics and insights
-- Mobile app version
+### Fonts
+- `font-heading` — Beantown
+- `font-subheading` — Orbitron
+- Body — system sans-serif stack
