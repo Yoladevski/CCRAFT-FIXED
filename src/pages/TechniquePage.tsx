@@ -457,7 +457,7 @@ export default function TechniquePage() {
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-[#252525] transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">COACHES' TIPS</h3>
+                  <h3 className="cc-outline-text text-2xl font-bold text-[#B11226]">COACH'S TIPS</h3>
                   {sectionsRead.coachesTips && (
                     <Check size={24} className="text-[#B11226]" />
                   )}
