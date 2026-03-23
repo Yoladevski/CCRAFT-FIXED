@@ -64,10 +64,18 @@ export default function Auth({ initialMode = 'signup' }: AuthProps) {
         if (signUpError) {
           setError(signUpError.message);
         } else if (data?.user) {
-          await supabase.from('user_legal_acceptance').insert({
-            user_id: data.user.id,
-            waiver_version: WAIVER_VERSION,
-          });
+          const { data: existingAcceptance } = await supabase
+            .from('user_legal_acceptance')
+            .select('id')
+            .eq('user_id', data.user.id)
+            .maybeSingle();
+
+          if (!existingAcceptance) {
+            await supabase.from('user_legal_acceptance').insert({
+              user_id: data.user.id,
+              waiver_version: WAIVER_VERSION,
+            });
+          }
 
           setSuccessMessage('Account created successfully! Please check your email to verify your account.');
           setEmail('');
