@@ -11,22 +11,26 @@ function getAudioContext(): AudioContext {
 export function unlockAudioContext(): void {
   try {
     const ctx = getAudioContext();
-    const doUnlock = () => {
+    const resume = ctx.state === 'suspended' ? ctx.resume() : Promise.resolve();
+    resume.then(() => {
       const buf = ctx.createBuffer(1, 1, 22050);
       const src = ctx.createBufferSource();
       src.buffer = buf;
       src.connect(ctx.destination);
       src.start(0);
       src.stop(0.001);
-    };
-    if (ctx.state === 'suspended') {
-      ctx.resume().then(doUnlock).catch(() => {});
-    } else {
-      try { doUnlock(); } catch { /* best effort */ }
-    }
+    }).catch(() => {});
   } catch {
     // best effort
   }
+}
+
+function ensureResumed(): Promise<AudioContext> {
+  const ctx = getAudioContext();
+  if (ctx.state === 'suspended') {
+    return ctx.resume().then(() => ctx);
+  }
+  return Promise.resolve(ctx);
 }
 
 function _playBellTones(ctx: AudioContext): void {
@@ -49,22 +53,15 @@ function _playBellTones(ctx: AudioContext): void {
   createTone(660, now + 0.1, 0.8, 0.3);
 }
 
-export function playBell(label?: string): void {
+export function playBell(): void {
   try {
-    const ctx = getAudioContext();
-    const fire = () => {
+    ensureResumed().then(ctx => {
       _playBellTones(ctx);
-      console.log(`[Bell] Bell played: ${label ?? 'transition'}`);
-    };
-    if (ctx.state === 'running') {
-      fire();
-    } else if (ctx.state === 'suspended') {
-      ctx.resume().then(fire).catch(err => {
-        console.error('[Bell] Bell error:', err);
-      });
-    }
+    }).catch(err => {
+      console.error('[Audio] Bell playback error:', err);
+    });
   } catch (err) {
-    console.error('[Bell] Bell error:', err);
+    console.error('[Audio] Bell error:', err);
   }
 }
 
@@ -141,10 +138,21 @@ export function speak(text: string, voiceEnabled: boolean): void {
 }
 
 export function playBellThenSpeak(text: string, voiceEnabled: boolean, delayMs = 500): void {
-  playBell(text);
-  if (voiceEnabled) {
-    setTimeout(() => {
-      _speakNow(text);
-    }, delayMs);
+  try {
+    ensureResumed().then(ctx => {
+      _playBellTones(ctx);
+      if (voiceEnabled) {
+        setTimeout(() => {
+          _speakNow(text);
+        }, delayMs);
+      }
+    }).catch(err => {
+      console.error('[Audio] Bell+voice error:', err);
+      if (voiceEnabled) {
+        setTimeout(() => _speakNow(text), delayMs);
+      }
+    });
+  } catch (err) {
+    console.error('[Audio] Bell+voice exception:', err);
   }
 }
