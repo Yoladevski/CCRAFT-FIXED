@@ -29,23 +29,23 @@ DROP POLICY IF EXISTS "Users can delete own profile" ON public.profiles;
 CREATE POLICY "Users can view own profile"
   ON public.profiles FOR SELECT
   TO authenticated
-  USING (id = (select auth.uid()));
+  USING (user_id = (select auth.uid()));
 
 CREATE POLICY "Users can insert own profile"
   ON public.profiles FOR INSERT
   TO authenticated
-  WITH CHECK (id = (select auth.uid()));
+  WITH CHECK (user_id = (select auth.uid()));
 
 CREATE POLICY "Users can update own profile"
   ON public.profiles FOR UPDATE
   TO authenticated
-  USING (id = (select auth.uid()))
-  WITH CHECK (id = (select auth.uid()));
+  USING (user_id = (select auth.uid()))
+  WITH CHECK (user_id = (select auth.uid()));
 
 CREATE POLICY "Users can delete own profile"
   ON public.profiles FOR DELETE
   TO authenticated
-  USING (id = (select auth.uid()));
+  USING (user_id = (select auth.uid()));
 
 -- ============================================================
 -- content_blocks table
