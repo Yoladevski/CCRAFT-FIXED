@@ -62,6 +62,7 @@ export default function LanguageSelector({ compact = false }: LanguageSelectorPr
 
         window.googleTranslateElementInit = () => {
           try {
+            if (!window.google) return;
             new window.google.translate.TranslateElement(
               {
                 pageLanguage: 'en',
