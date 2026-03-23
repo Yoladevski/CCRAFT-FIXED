@@ -7,41 +7,43 @@ export default function AuthCallback() {
   const [message, setMessage] = useState('Completing sign in...');
 
   useEffect(() => {
+    let cancelled = false;
+
     const handleCallback = async () => {
-      // Detect session after email verification
       const { data, error } = await supabase.auth.getSession();
+
+      if (cancelled) return;
 
       if (error) {
         console.error('Error during callback:', error);
         setMessage('Error signing in. Please try again.');
-        setTimeout(() => navigate('/auth', { replace: true }), 2000);
+        navigate('/auth', { replace: true });
         return;
       }
 
-      // No session means verification failed - redirect to auth
       if (!data.session) {
         setMessage('No session found. Redirecting...');
-        setTimeout(() => navigate('/auth', { replace: true }), 1500);
+        navigate('/auth', { replace: true });
         return;
       }
 
       const userId = data.session.user.id;
 
-      // Check if profile exists and get onboarding status
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
         .select('id, onboarding_complete, full_name')
         .eq('user_id', userId)
         .maybeSingle();
 
+      if (cancelled) return;
+
       if (profileError) {
         console.error('Error fetching profile:', profileError);
         setMessage('Error loading profile. Redirecting...');
-        setTimeout(() => navigate('/auth', { replace: true }), 2000);
+        navigate('/auth', { replace: true });
         return;
       }
 
-      // If no profile exists, create one immediately
       if (!profile) {
         setMessage('Setting up your account...');
         const { error: insertError } = await supabase
@@ -53,32 +55,32 @@ export default function AuthCallback() {
             onboarding_complete: false,
           });
 
+        if (cancelled) return;
+
         if (insertError) {
           console.error('Error creating profile:', insertError);
           setMessage('Error setting up profile. Please try again.');
-          setTimeout(() => navigate('/auth', { replace: true }), 2000);
+          navigate('/auth', { replace: true });
           return;
         }
 
-        // Redirect to complete profile (never to homepage)
         setMessage('Welcome! Let\'s complete your profile...');
-        setTimeout(() => navigate('/create-profile', { replace: true }), 1000);
+        navigate('/create-profile', { replace: true });
         return;
       }
 
-      // Profile exists - check onboarding_complete status
       if (profile.onboarding_complete === true && profile.full_name) {
-        // Onboarding complete - redirect to dashboard
         setMessage('Welcome back! Redirecting to dashboard...');
-        setTimeout(() => navigate('/dashboard', { replace: true }), 1000);
+        navigate('/dashboard', { replace: true });
       } else {
-        // Onboarding incomplete - redirect to complete profile
         setMessage('Welcome! Let\'s complete your profile...');
-        setTimeout(() => navigate('/create-profile', { replace: true }), 1000);
+        navigate('/create-profile', { replace: true });
       }
     };
 
     handleCallback();
+
+    return () => { cancelled = true; };
   }, [navigate]);
 
   return (
