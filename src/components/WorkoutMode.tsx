@@ -594,162 +594,164 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
           top: 'calc(44px + env(safe-area-inset-top, 0px))',
           left: 0,
           right: 0,
-          textAlign: 'center',
-          padding: '0 28px',
-          zIndex: 2,
-        }}>
-          <p style={{
-            fontFamily: 'Orbitron, sans-serif',
-            color: labelColor,
-            fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase',
-            margin: '0 0 5px',
-            transition: 'color 0.3s',
-          }}>{roundTypeLabel}</p>
-          <h2 style={{
-            fontFamily: 'Orbitron, sans-serif', color: '#fff',
-            fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
-            lineHeight: 1.25, margin: 0,
-            textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
-            letterSpacing: '0.04em',
-          }}>{titleText}</h2>
-        </div>
-
-        <div style={{
-          position: 'absolute',
-          top: '20%',
-          left: 0,
-          right: 0,
-          textAlign: 'center',
-          padding: '0 28px',
-          zIndex: 2,
-          transform: 'translateY(-50%)',
-        }}>
-          <p style={{
-            fontFamily: 'Orbitron, sans-serif',
-            color: isRest ? '#444' : '#5a5a5a',
-            fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
-            textAlign: 'center', margin: 0,
-            maxWidth: '300px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            opacity: isUrgent ? 0.3 : 1,
-            transition: 'opacity 0.5s ease',
-          }}>{bodyText}</p>
-        </div>
-
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -38%)',
+          bottom: 0,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          width: '100%',
           zIndex: 1,
+          overflowY: 'hidden',
         }}>
           <div style={{
-            position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            animation: isUrgent ? 'timerPulse 0.6s ease-in-out infinite' : 'none',
-          }}>
-            <svg
-              style={{ transform: 'rotate(-90deg)', width: 'clamp(190px, 52vw, 220px)', height: 'clamp(190px, 52vw, 220px)' }}
-              viewBox="0 0 240 240"
-            >
-              <circle cx="120" cy="120" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="8" />
-              <circle cx="120" cy="120" r={radius} fill="none" stroke={timerColor} strokeWidth="8" strokeLinecap="round"
-                strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
-                style={{ transition: 'stroke-dashoffset 1s linear, stroke 0.4s ease', filter: isUrgent ? timerGlow : 'none' }} />
-            </svg>
-            <div style={{ position: 'absolute', textAlign: 'center' }}>
-              <span style={{
-                fontFamily: 'Orbitron, sans-serif',
-                color: isUrgent ? '#FF1A33' : '#fff',
-                fontSize: 'clamp(42px, 11vw, 52px)', fontWeight: 900,
-                fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em',
-                transition: 'color 0.3s ease',
-                textShadow: isUrgent ? '0 0 24px rgba(255,26,51,0.4)' : '0 0 24px rgba(255,255,255,0.08)',
-              }}>{formatTime(timeLeft)}</span>
-              <p style={{
-                fontFamily: 'Orbitron, sans-serif',
-                color: paused ? '#B11226' : isUrgent ? '#FF1A33' : '#3a3a3a',
-                fontSize: '9px', marginTop: '4px', letterSpacing: '0.12em', textTransform: 'uppercase',
-                transition: 'color 0.3s ease',
-              }}>{paused ? 'PAUSED' : 'REMAINING'}</p>
-            </div>
-          </div>
-
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
             width: '100%',
-            gap: '24px',
-            paddingTop: '16px',
+            textAlign: 'center',
+            padding: '10px 28px 0',
+            flexShrink: 0,
           }}>
-          <button
-            onClick={() => setPaused(p => !p)}
-            style={{
-              fontFamily: 'Orbitron, sans-serif',
-              display: 'flex', alignItems: 'center', gap: '8px',
-              padding: '12px 38px', borderRadius: '8px',
-              color: paused ? '#fff' : '#888',
-              fontSize: '11px', fontWeight: 900,
-              letterSpacing: '0.1em', textTransform: 'uppercase',
-              background: paused ? 'linear-gradient(135deg, #B11226, #8a0d1c)' : 'transparent',
-              border: paused ? 'none' : '1px solid #2a2a2a',
-              boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
-          >
-            {paused ? <Play size={14} /> : <Pause size={14} />}
-            {paused ? 'RESUME' : 'PAUSE'}
-          </button>
-
-          {nextText && (
             <p style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#4a4a4a',
-              fontSize: 'clamp(9.5px, 2.3vw, 11px)', letterSpacing: '0.06em',
+              fontFamily: 'Orbitron, sans-serif',
+              color: labelColor,
+              fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase',
+              margin: '0 0 4px',
+              transition: 'color 0.3s',
+            }}>{roundTypeLabel}</p>
+            <h2 style={{
+              fontFamily: 'Orbitron, sans-serif', color: '#fff',
+              fontSize: 'clamp(14px, 3.8vw, 18px)', fontWeight: 900,
+              lineHeight: 1.25, margin: '0 0 6px',
+              textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
+              letterSpacing: '0.04em',
+              wordBreak: 'break-word',
+            }}>{titleText}</h2>
+            <p style={{
+              fontFamily: 'Orbitron, sans-serif',
+              color: isRest ? '#444' : '#5a5a5a',
+              fontSize: 'clamp(9px, 2.2vw, 11px)', lineHeight: 1.6,
               textAlign: 'center', margin: 0,
-            }}>
-              {nextText}
-            </p>
-          )}
+              maxWidth: '300px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              opacity: isUrgent ? 0.3 : 1,
+              transition: 'opacity 0.5s ease',
+              wordBreak: 'break-word',
+            }}>{bodyText}</p>
+          </div>
 
           <div style={{
-            borderTop: '1px solid #181818',
-            width: '100%',
-            background: '#080808',
-            paddingTop: '10px',
-            paddingBottom: '2px',
+            flex: 1,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '6px',
+            justifyContent: 'center',
+            width: '100%',
+            minHeight: 0,
+            paddingTop: '8px',
+            paddingBottom: '8px',
           }}>
-            <RoundDots rounds={rounds} roundIndex={roundIndex} phase={phase} />
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{
-                fontFamily: 'Orbitron, sans-serif',
-                color: '#3a3a3a',
-                fontSize: '9px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-              }}>
-                {phase === 'rest' ? 'REST' : `ROUND ${roundIndex + 1}`}
-              </span>
-              <span style={{ color: '#282828', fontSize: '9px' }}>/</span>
-              <span style={{
-                fontFamily: 'Orbitron, sans-serif',
-                color: '#3a3a3a',
-                fontSize: '9px',
-                letterSpacing: '0.12em',
-              }}>
-                {totalRounds}
-              </span>
+            <div style={{
+              position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              animation: isUrgent ? 'timerPulse 0.6s ease-in-out infinite' : 'none',
+            }}>
+              <svg
+                style={{ transform: 'rotate(-90deg)', width: 'clamp(180px, 48vw, 220px)', height: 'clamp(180px, 48vw, 220px)' }}
+                viewBox="0 0 240 240"
+              >
+                <circle cx="120" cy="120" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="8" />
+                <circle cx="120" cy="120" r={radius} fill="none" stroke={timerColor} strokeWidth="8" strokeLinecap="round"
+                  strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
+                  style={{ transition: 'stroke-dashoffset 1s linear, stroke 0.4s ease', filter: isUrgent ? timerGlow : 'none' }} />
+              </svg>
+              <div style={{ position: 'absolute', textAlign: 'center' }}>
+                <span style={{
+                  fontFamily: 'Orbitron, sans-serif',
+                  color: isUrgent ? '#FF1A33' : '#fff',
+                  fontSize: 'clamp(38px, 10vw, 52px)', fontWeight: 900,
+                  fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em',
+                  transition: 'color 0.3s ease',
+                  textShadow: isUrgent ? '0 0 24px rgba(255,26,51,0.4)' : '0 0 24px rgba(255,255,255,0.08)',
+                }}>{formatTime(timeLeft)}</span>
+                <p style={{
+                  fontFamily: 'Orbitron, sans-serif',
+                  color: paused ? '#B11226' : isUrgent ? '#FF1A33' : '#3a3a3a',
+                  fontSize: '9px', marginTop: '4px', letterSpacing: '0.12em', textTransform: 'uppercase',
+                  transition: 'color 0.3s ease',
+                }}>{paused ? 'PAUSED' : 'REMAINING'}</p>
+              </div>
             </div>
           </div>
+
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+            gap: '16px',
+            paddingBottom: '8px',
+            flexShrink: 0,
+          }}>
+            <button
+              onClick={() => setPaused(p => !p)}
+              style={{
+                fontFamily: 'Orbitron, sans-serif',
+                display: 'flex', alignItems: 'center', gap: '8px',
+                padding: '12px 38px', borderRadius: '8px',
+                color: paused ? '#fff' : '#888',
+                fontSize: '11px', fontWeight: 900,
+                letterSpacing: '0.1em', textTransform: 'uppercase',
+                background: paused ? 'linear-gradient(135deg, #B11226, #8a0d1c)' : 'transparent',
+                border: paused ? 'none' : '1px solid #2a2a2a',
+                boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              {paused ? <Play size={14} /> : <Pause size={14} />}
+              {paused ? 'RESUME' : 'PAUSE'}
+            </button>
+
+            {nextText && (
+              <p style={{
+                fontFamily: 'Orbitron, sans-serif', color: '#4a4a4a',
+                fontSize: 'clamp(9px, 2.2vw, 11px)', letterSpacing: '0.06em',
+                textAlign: 'center', margin: 0,
+                padding: '0 28px',
+              }}>
+                {nextText}
+              </p>
+            )}
+
+            <div style={{
+              borderTop: '1px solid #181818',
+              width: '100%',
+              background: '#080808',
+              paddingTop: '10px',
+              paddingBottom: '2px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '6px',
+            }}>
+              <RoundDots rounds={rounds} roundIndex={roundIndex} phase={phase} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{
+                  fontFamily: 'Orbitron, sans-serif',
+                  color: '#3a3a3a',
+                  fontSize: '9px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                }}>
+                  {phase === 'rest' ? 'REST' : `ROUND ${roundIndex + 1}`}
+                </span>
+                <span style={{ color: '#282828', fontSize: '9px' }}>/</span>
+                <span style={{
+                  fontFamily: 'Orbitron, sans-serif',
+                  color: '#3a3a3a',
+                  fontSize: '9px',
+                  letterSpacing: '0.12em',
+                }}>
+                  {totalRounds}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
