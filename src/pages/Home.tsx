@@ -402,7 +402,7 @@ export default function Home() {
                 textAlign: 'center',
                 margin: 0,
               }}>
-                Learn the technique. Apply it in training. Build real skills step by step.
+                Learn the technique.<br />Apply it in training.<br />Build real skills step by step.
               </p>
               </div>
             </button>
