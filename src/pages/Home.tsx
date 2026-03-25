@@ -94,7 +94,7 @@ export default function Home() {
                 letterSpacing: '0.15em',
               }}
             >
-              MASTER MARTIAL ARTS
+              BUILD REAL COMBAT
             </OutlinedText>
             <OutlinedText
               className="hero-main-heading"
@@ -107,7 +107,7 @@ export default function Home() {
                 letterSpacing: '0.15em',
               }}
             >
-              STEP BY STEP
+              SKILLS STEP BY STEP
             </OutlinedText>
           </div>
 
@@ -268,7 +268,7 @@ export default function Home() {
                 COMBAT<br />CRAFT
               </h3>
               <p className="leading-relaxed text-body" style={{ color: '#FFFFFF' }}>
-                Structured martial arts training platform designed to teach real fighting techniques step-by-step.
+                A structured combat training platform built to teach real skills step by step.
               </p>
               </div>
             </button>
@@ -297,9 +297,10 @@ export default function Home() {
                 INSIDE<br />COMBATCRAFT
               </h3>
               <ul className="text-center space-y-1 text-body" style={{ color: '#FFFFFF', listStyle: 'none' }}>
-                <li>&#8226; Progress Tracking</li>
-                <li>&#8226; Structured Pathway</li>
-                <li>&#8226; AI Generated Videos</li>
+                <li>&#8226; Structured training pathway</li>
+                <li>&#8226; Progress tracking</li>
+                <li>&#8226; Guided workout sessions</li>
+                <li>&#8226; AI-powered lesson videos</li>
               </ul>
               </div>
             </button>
@@ -328,11 +329,9 @@ export default function Home() {
                 EXPLORE<br />DISCIPLINES
               </h3>
               <ul className="text-center space-y-1 text-body" style={{ color: '#FFFFFF', listStyle: 'none' }}>
-                <li>&#8226; Boxing</li>
-                <li>&#8226; Muay Thai</li>
-                <li>&#8226; Brazilian Jiu-Jitsu</li>
-                <li>&#8226; Judo</li>
-                <li>&#8226; Taekwondo</li>
+                <li>&#8226; Boxing available at launch</li>
+                <li>&#8226; Muay Thai coming next</li>
+                <li>&#8226; More disciplines planned</li>
               </ul>
               </div>
             </button>
@@ -361,7 +360,7 @@ export default function Home() {
                 HOW IT<br />WORKS
               </h3>
               <p className="leading-relaxed text-body" style={{ color: '#FFFFFF' }}>
-                Learn how the CombatCraft training system works and how techniques, lessons and workouts combine to build real martial arts skills through structured training.
+                Learn the technique. Apply it in training. Build real skill step by step.
               </p>
               </div>
             </button>
