@@ -267,8 +267,16 @@ export default function Home() {
               }}>
                 COMBAT<br />CRAFT
               </h3>
-              <p className="leading-relaxed text-body" style={{ color: '#FFFFFF' }}>
-                A structured combat training platform built to teach real skills step by step.
+              <p style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '13px',
+                lineHeight: 1.5,
+                letterSpacing: '0.02em',
+                color: '#C8C8C8',
+                textAlign: 'center',
+                margin: 0,
+              }}>
+                A structured training platform built to teach real combat skills step by step.
               </p>
               </div>
             </button>
@@ -296,11 +304,24 @@ export default function Home() {
               }}>
                 INSIDE<br />COMBATCRAFT
               </h3>
-              <ul className="text-center space-y-1 text-body" style={{ color: '#FFFFFF', listStyle: 'none' }}>
-                <li>&#8226; Structured training pathway</li>
-                <li>&#8226; Progress tracking</li>
-                <li>&#8226; Guided workout sessions</li>
-                <li>&#8226; AI-powered lesson videos</li>
+              <ul style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '13px',
+                lineHeight: 1.5,
+                letterSpacing: '0.02em',
+                color: '#C8C8C8',
+                listStyle: 'none',
+                textAlign: 'center',
+                margin: 0,
+                padding: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '6px',
+              }}>
+                <li>Structured training pathway</li>
+                <li>Progress tracking</li>
+                <li>Guided workout sessions</li>
+                <li>AI-powered lesson videos</li>
               </ul>
               </div>
             </button>
@@ -328,10 +349,23 @@ export default function Home() {
               }}>
                 EXPLORE<br />DISCIPLINES
               </h3>
-              <ul className="text-center space-y-1 text-body" style={{ color: '#FFFFFF', listStyle: 'none' }}>
-                <li>&#8226; Boxing available at launch</li>
-                <li>&#8226; Muay Thai coming next</li>
-                <li>&#8226; More disciplines planned</li>
+              <ul style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '13px',
+                lineHeight: 1.5,
+                letterSpacing: '0.02em',
+                color: '#C8C8C8',
+                listStyle: 'none',
+                textAlign: 'center',
+                margin: 0,
+                padding: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '6px',
+              }}>
+                <li>Boxing available at launch</li>
+                <li>Muay Thai coming next</li>
+                <li>More disciplines planned</li>
               </ul>
               </div>
             </button>
@@ -359,8 +393,16 @@ export default function Home() {
               }}>
                 HOW IT<br />WORKS
               </h3>
-              <p className="leading-relaxed text-body" style={{ color: '#FFFFFF' }}>
-                Learn the technique. Apply it in training. Build real skill step by step.
+              <p style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '13px',
+                lineHeight: 1.5,
+                letterSpacing: '0.02em',
+                color: '#C8C8C8',
+                textAlign: 'center',
+                margin: 0,
+              }}>
+                Learn the technique. Apply it in training. Build real skills step by step.
               </p>
               </div>
             </button>
