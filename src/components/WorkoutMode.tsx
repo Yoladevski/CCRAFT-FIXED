@@ -382,7 +382,7 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
             <p style={{
               fontFamily: 'Orbitron, sans-serif',
               color: '#5a5a5a',
-              fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
+              fontSize: 'clamp(11px, 2.8vw, 13px)', lineHeight: 1.55,
               textAlign: 'center', margin: 0,
               maxWidth: '300px',
               marginLeft: 'auto',
@@ -628,7 +628,7 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
           <p style={{
             fontFamily: 'Orbitron, sans-serif',
             color: isRest ? '#444' : '#5a5a5a',
-            fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
+            fontSize: 'clamp(11px, 2.8vw, 13px)', lineHeight: 1.55,
             textAlign: 'center', margin: 0,
             maxWidth: '300px',
             marginLeft: 'auto',
