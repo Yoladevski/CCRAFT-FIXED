@@ -300,135 +300,127 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
   }
 
   if (phase === 'getReady') {
+    const grCircumference = 2 * Math.PI * 88;
+    const grDashoffset = grCircumference - ((GET_READY_DURATION - timeLeft) / GET_READY_DURATION) * grCircumference;
     return (
       <>
         <style>{keyframes}</style>
         <div style={shell}>
           <div style={{
             position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            paddingTop: 'calc(10px + env(safe-area-inset-top, 0px))',
-            paddingBottom: '8px',
-            paddingLeft: '16px',
-            paddingRight: '16px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            zIndex: 2,
-          }}>
-            <button onClick={onExit} style={{
-              display: 'flex', alignItems: 'center', gap: '4px',
-              color: '#444', background: 'none', border: 'none', cursor: 'pointer',
-              fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
-            }}>
-              <ChevronLeft size={13} />EXIT
-            </button>
-            <span style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#2e2e2e',
-              fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
-            }}>
-              {session.title}
-            </span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <button
-                onClick={() => setVoiceEnabled(v => !v)}
-                title={voiceEnabled ? 'Voice ON' : 'Voice OFF'}
-                style={{ color: voiceEnabled ? '#B11226' : '#3a3a3a', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', transition: 'color 0.2s' }}
-              >
-                {voiceEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
-              </button>
-              <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
-                <RotateCcw size={13} />
-              </button>
-            </div>
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: 'calc(44px + env(safe-area-inset-top, 0px))',
-            left: 0,
-            right: 0,
-            textAlign: 'center',
-            padding: '0 28px',
-            zIndex: 2,
-          }}>
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif',
-              color: '#B11226',
-              fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase',
-              margin: '0 0 5px',
-            }}>GET READY</p>
-            <h2 style={{
-              fontFamily: 'Orbitron, sans-serif', color: '#fff',
-              fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
-              lineHeight: 1.25, margin: 0,
-              textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
-              letterSpacing: '0.04em',
-            }}>GET READY</h2>
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: '20%',
-            left: 0,
-            right: 0,
-            textAlign: 'center',
-            padding: '0 28px',
-            zIndex: 2,
-            transform: 'translateY(-50%)',
-          }}>
-            <p style={{
-              fontFamily: 'Orbitron, sans-serif',
-              color: '#5a5a5a',
-              fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.7,
-              textAlign: 'center', margin: 0,
-              maxWidth: '300px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}>Prepare to begin the session.</p>
-          </div>
-
-          <div style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -38%)',
+            top: 0, left: 0, right: 0, bottom: 0,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            width: '100%',
-            zIndex: 1,
+            overflow: 'hidden',
           }}>
             <div style={{
-              position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              paddingTop: 'calc(10px + env(safe-area-inset-top, 0px))',
+              paddingBottom: '8px',
+              paddingLeft: '16px',
+              paddingRight: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexShrink: 0,
+              zIndex: 2,
             }}>
-              <svg
-                style={{ transform: 'rotate(-90deg)', width: 'clamp(190px, 52vw, 220px)', height: 'clamp(190px, 52vw, 220px)' }}
-                viewBox="0 0 240 240"
-              >
-                <circle cx="120" cy="120" r={88} fill="none" stroke="#1c1c1c" strokeWidth="8" />
-                <circle
-                  cx="120" cy="120" r={88} fill="none" stroke="#B11226" strokeWidth="8" strokeLinecap="round"
-                  strokeDasharray={2 * Math.PI * 88}
-                  strokeDashoffset={2 * Math.PI * 88 - ((GET_READY_DURATION - timeLeft) / GET_READY_DURATION) * (2 * Math.PI * 88)}
-                  style={{ transition: 'stroke-dashoffset 1s linear' }}
-                />
-              </svg>
-              <div style={{ position: 'absolute', textAlign: 'center' }}>
-                <span style={{
-                  fontFamily: 'Orbitron, sans-serif',
-                  color: '#fff',
-                  fontSize: 'clamp(42px, 11vw, 52px)', fontWeight: 900,
-                  fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em',
-                  textShadow: '0 0 24px rgba(255,255,255,0.08)',
-                }}>{timeLeft}</span>
-                <p style={{
-                  fontFamily: 'Orbitron, sans-serif',
-                  color: '#3a3a3a',
-                  fontSize: '9px', marginTop: '4px', letterSpacing: '0.12em', textTransform: 'uppercase',
-                }}>{paused ? 'PAUSED' : 'SECONDS'}</p>
+              <button onClick={onExit} style={{
+                display: 'flex', alignItems: 'center', gap: '4px',
+                color: '#444', background: 'none', border: 'none', cursor: 'pointer',
+                fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
+              }}>
+                <ChevronLeft size={13} />EXIT
+              </button>
+              <span style={{
+                fontFamily: 'Orbitron, sans-serif', color: '#2e2e2e',
+                fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
+              }}>
+                {session.title}
+              </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <button
+                  onClick={() => setVoiceEnabled(v => !v)}
+                  title={voiceEnabled ? 'Voice ON' : 'Voice OFF'}
+                  style={{ color: voiceEnabled ? '#B11226' : '#3a3a3a', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', transition: 'color 0.2s' }}
+                >
+                  {voiceEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
+                </button>
+                <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
+                  <RotateCcw size={13} />
+                </button>
+              </div>
+            </div>
+
+            <div style={{
+              width: '100%',
+              textAlign: 'center',
+              padding: '8px 28px 0',
+              flexShrink: 0,
+            }}>
+              <p style={{
+                fontFamily: 'Orbitron, sans-serif',
+                color: '#B11226',
+                fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase',
+                margin: '0 0 4px',
+              }}>GET READY</p>
+              <h2 style={{
+                fontFamily: 'Orbitron, sans-serif', color: '#fff',
+                fontSize: 'clamp(15px, 4vw, 18px)', fontWeight: 900,
+                lineHeight: 1.25, margin: '0 0 6px',
+                textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
+                letterSpacing: '0.04em',
+              }}>GET READY</h2>
+              <p style={{
+                fontFamily: 'Orbitron, sans-serif',
+                color: '#5a5a5a',
+                fontSize: 'clamp(9.5px, 2.3vw, 11px)', lineHeight: 1.6,
+                textAlign: 'center', margin: 0,
+                maxWidth: '300px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}>Prepare to begin the session.</p>
+            </div>
+
+            <div style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '100%',
+              minHeight: 0,
+              paddingTop: '8px',
+              paddingBottom: '8px',
+            }}>
+              <div style={{
+                position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <svg
+                  style={{ transform: 'rotate(-90deg)', width: 'clamp(180px, 48vw, 220px)', height: 'clamp(180px, 48vw, 220px)' }}
+                  viewBox="0 0 240 240"
+                >
+                  <circle cx="120" cy="120" r={88} fill="none" stroke="#1c1c1c" strokeWidth="8" />
+                  <circle
+                    cx="120" cy="120" r={88} fill="none" stroke="#B11226" strokeWidth="8" strokeLinecap="round"
+                    strokeDasharray={grCircumference}
+                    strokeDashoffset={grDashoffset}
+                    style={{ transition: 'stroke-dashoffset 1s linear' }}
+                  />
+                </svg>
+                <div style={{ position: 'absolute', textAlign: 'center' }}>
+                  <span style={{
+                    fontFamily: 'Orbitron, sans-serif',
+                    color: '#fff',
+                    fontSize: 'clamp(42px, 11vw, 52px)', fontWeight: 900,
+                    fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em',
+                    textShadow: '0 0 24px rgba(255,255,255,0.08)',
+                  }}>{timeLeft}</span>
+                  <p style={{
+                    fontFamily: 'Orbitron, sans-serif',
+                    color: '#3a3a3a',
+                    fontSize: '9px', marginTop: '4px', letterSpacing: '0.12em', textTransform: 'uppercase',
+                  }}>{paused ? 'PAUSED' : 'SECONDS'}</p>
+                </div>
               </div>
             </div>
 
@@ -437,8 +429,9 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
               flexDirection: 'column',
               alignItems: 'center',
               width: '100%',
-              gap: '24px',
-              paddingTop: '16px',
+              gap: '14px',
+              paddingBottom: '8px',
+              flexShrink: 0,
             }}>
               <button
                 onClick={() => setPaused(p => !p)}
@@ -550,61 +543,53 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
 
         <div style={{
           position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          paddingTop: 'calc(10px + env(safe-area-inset-top, 0px))',
-          paddingBottom: '8px',
-          paddingLeft: '16px',
-          paddingRight: '16px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          zIndex: 2,
-        }}>
-          <button onClick={onExit} style={{
-            display: 'flex', alignItems: 'center', gap: '4px',
-            color: '#444', background: 'none', border: 'none', cursor: 'pointer',
-            fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
-          }}>
-            <ChevronLeft size={13} />EXIT
-          </button>
-          <span style={{
-            fontFamily: 'Orbitron, sans-serif', color: '#2e2e2e',
-            fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
-          }}>
-            {session.title}
-          </span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <button
-              onClick={() => setVoiceEnabled(v => !v)}
-              title={voiceEnabled ? 'Voice ON' : 'Voice OFF'}
-              style={{ color: voiceEnabled ? '#B11226' : '#3a3a3a', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', transition: 'color 0.2s' }}
-            >
-              {voiceEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
-            </button>
-            <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
-              <RotateCcw size={13} />
-            </button>
-          </div>
-        </div>
-
-        <div style={{
-          position: 'absolute',
-          top: 'calc(44px + env(safe-area-inset-top, 0px))',
-          left: 0,
-          right: 0,
-          bottom: 0,
+          top: 0, left: 0, right: 0, bottom: 0,
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          overflow: 'hidden',
           zIndex: 1,
-          overflowY: 'hidden',
         }}>
+          <div style={{
+            paddingTop: 'calc(10px + env(safe-area-inset-top, 0px))',
+            paddingBottom: '8px',
+            paddingLeft: '16px',
+            paddingRight: '16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexShrink: 0,
+          }}>
+            <button onClick={onExit} style={{
+              display: 'flex', alignItems: 'center', gap: '4px',
+              color: '#444', background: 'none', border: 'none', cursor: 'pointer',
+              fontFamily: 'Orbitron, sans-serif', fontSize: '9px', letterSpacing: '0.08em',
+            }}>
+              <ChevronLeft size={13} />EXIT
+            </button>
+            <span style={{
+              fontFamily: 'Orbitron, sans-serif', color: '#2e2e2e',
+              fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase',
+            }}>
+              {session.title}
+            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <button
+                onClick={() => setVoiceEnabled(v => !v)}
+                title={voiceEnabled ? 'Voice ON' : 'Voice OFF'}
+                style={{ color: voiceEnabled ? '#B11226' : '#3a3a3a', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', transition: 'color 0.2s' }}
+              >
+                {voiceEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
+              </button>
+              <button onClick={handleRestart} style={{ color: '#444', background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
+                <RotateCcw size={13} />
+              </button>
+            </div>
+          </div>
+
           <div style={{
             width: '100%',
             textAlign: 'center',
-            padding: '10px 28px 0',
+            padding: '8px 28px 0',
             flexShrink: 0,
           }}>
             <p style={{
@@ -684,7 +669,7 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
             flexDirection: 'column',
             alignItems: 'center',
             width: '100%',
-            gap: '16px',
+            gap: '14px',
             paddingBottom: '8px',
             flexShrink: 0,
           }}>
