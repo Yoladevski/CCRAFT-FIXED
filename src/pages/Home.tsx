@@ -300,10 +300,9 @@ export default function Home() {
                 letterSpacing: '3px',
                 color: '#FFFFFF',
                 textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
-                textTransform: 'uppercase',
                 lineHeight: '1.3',
               }}>
-                INSIDE<br />COMBATCRAFT
+                Inside<br />CombatCraft
               </h3>
               <ul style={{
                 fontFamily: 'var(--font-body)',
