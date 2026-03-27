@@ -264,8 +264,9 @@ export default function Home() {
                 textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
                 textTransform: 'uppercase',
                 lineHeight: '1.3',
+                whiteSpace: 'nowrap',
               }}>
-                COMBAT<br />CRAFT
+                COMBATCRAFT
               </h3>
               <p style={{
                 fontFamily: 'var(--font-body)',
