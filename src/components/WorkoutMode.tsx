@@ -644,15 +644,16 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
             justifyContent: 'center',
             width: '100%',
             minHeight: 0,
-            paddingTop: '8px',
-            paddingBottom: '8px',
+            paddingTop: '6px',
+            paddingBottom: '0',
+            gap: '12px',
           }}>
             <div style={{
               position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center',
               animation: isUrgent ? 'timerPulse 0.6s ease-in-out infinite' : 'none',
             }}>
               <svg
-                style={{ transform: 'rotate(-90deg)', width: 'clamp(180px, 48vw, 220px)', height: 'clamp(180px, 48vw, 220px)' }}
+                style={{ transform: 'rotate(-90deg)', width: 'clamp(160px, 44vw, 200px)', height: 'clamp(160px, 44vw, 200px)' }}
                 viewBox="0 0 240 240"
               >
                 <circle cx="120" cy="120" r={radius} fill="none" stroke="#1c1c1c" strokeWidth="8" />
@@ -664,7 +665,7 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
                 <span style={{
                   fontFamily: 'Orbitron, sans-serif',
                   color: isUrgent ? '#FF1A33' : '#fff',
-                  fontSize: 'clamp(38px, 10vw, 52px)', fontWeight: 900,
+                  fontSize: 'clamp(34px, 9vw, 48px)', fontWeight: 900,
                   fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em',
                   transition: 'color 0.3s ease',
                   textShadow: isUrgent ? '0 0 24px rgba(255,26,51,0.4)' : '0 0 24px rgba(255,255,255,0.08)',
@@ -677,17 +678,7 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
                 }}>{paused ? 'PAUSED' : 'REMAINING'}</p>
               </div>
             </div>
-          </div>
 
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            width: '100%',
-            gap: '16px',
-            paddingBottom: '8px',
-            flexShrink: 0,
-          }}>
             <button
               onClick={() => setPaused(p => !p)}
               style={{
@@ -702,12 +693,23 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
                 boxShadow: paused ? '0 0 20px rgba(177,18,38,0.4)' : 'none',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
+                flexShrink: 0,
               }}
             >
               {paused ? <Play size={14} /> : <Pause size={14} />}
               {paused ? 'RESUME' : 'PAUSE'}
             </button>
+          </div>
 
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+            gap: '10px',
+            paddingBottom: '6px',
+            flexShrink: 0,
+          }}>
             {nextText && (
               <p style={{
                 fontFamily: 'Orbitron, sans-serif', color: '#4a4a4a',
@@ -723,8 +725,8 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
               borderTop: '1px solid #181818',
               width: '100%',
               background: '#080808',
-              paddingTop: '10px',
-              paddingBottom: '2px',
+              paddingTop: '8px',
+              paddingBottom: 'max(6px, env(safe-area-inset-bottom, 6px))',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
