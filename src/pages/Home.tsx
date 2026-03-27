@@ -296,14 +296,15 @@ export default function Home() {
               <h3 className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
-                fontSize: '18px',
-                letterSpacing: '3px',
+                fontSize: 'clamp(12px, 3.5vw, 18px)',
+                letterSpacing: '2px',
                 color: '#FFFFFF',
                 textShadow: '2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000, 0 0 4px #ff0000',
                 textTransform: 'uppercase',
                 lineHeight: '1.3',
+                whiteSpace: 'nowrap',
               }}>
-                INSIDE<br />COMBATCRAFT
+                INSIDE COMBATCRAFT
               </h3>
               <ul style={{
                 fontFamily: 'var(--font-body)',
