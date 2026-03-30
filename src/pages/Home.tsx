@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <div>
-      <section className="relative w-full overflow-hidden -mt-20" style={{ height: '100vh' }}>
+      <section className="relative w-full overflow-hidden -mt-20" style={{ height: '100vh', minHeight: '640px' }}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0E0E0E] z-10" />
 
         <div className="absolute inset-0 overflow-hidden">
@@ -97,7 +97,7 @@ export default function Home() {
               />
             </button>
           </div>
-          <div className="hero-h3-image" style={{ marginTop: '150px', display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '0' }}>
+          <div className="hero-h3-image" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h3.PNG"
               alt=""

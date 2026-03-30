@@ -487,14 +487,19 @@ nav a {
 
 .hero-middle-button {
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+}
+
+.hero-h3-image {
+  margin-top: 150px;
 }
 
 @media (max-width: 767px) {
   .hero-content-grid {
-    gap: 1rem;
-    padding-top: 2vh;
-    margin-top: -100px;
+    gap: 0;
+    padding-top: 0;
+    align-content: center;
+    padding-bottom: 0;
   }
 
   .hero-top-text .hero-main-heading {
@@ -509,17 +514,8 @@ nav a {
     letter-spacing: 0.1em !important;
   }
 
-  .hero-taglines,
-  .hero-bottom-text {
-    transform: translateY(200px);
-  }
-
-  .hero-middle-button {
-    transform: translateY(500px);
-  }
-
   .hero-h3-image {
-    transform: translateY(500px);
+    margin-top: 150px;
   }
 
   .hero-taglines .outlined-text,
