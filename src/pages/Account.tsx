@@ -415,136 +415,141 @@ export default function Account() {
 
           <div className="p-3 sm:p-6 md:p-8">
             {activeTab === 'profile' && (
-              <div className="space-y-6 sm:space-y-8">
-                <div className="flex flex-col items-center gap-3 sm:gap-4 pb-6 sm:pb-8 border-b-2 border-[#B11226]">
-                  <div className="relative">
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 min-w-[96px] min-h-[96px] sm:min-w-[128px] sm:min-h-[128px] rounded-full border-2 border-[#B11226] overflow-hidden bg-[#2E2E2E] flex items-center justify-center">
-                      {profilePicture ? (
-                        <img src={profilePicture} alt="Profile" className="w-full h-full object-cover" width="128" height="128" />
-                      ) : (
-                        <User size={48} className="text-[#A0A0A0] sm:hidden" />
-                      )}
-                      {!profilePicture && (
-                        <User size={64} className="text-[#A0A0A0] hidden sm:block" />
-                      )}
+              <div className="space-y-4 sm:space-y-6">
+                <div className="border border-[#B11226] rounded-lg p-4 sm:p-6 text-center" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
+                  <h2 className="cc-outline-text text-base sm:text-lg font-bold mb-4 text-center">PROFILE PHOTO</h2>
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="relative">
+                      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-2 border-[#B11226] overflow-hidden bg-[#2E2E2E] flex items-center justify-center">
+                        {profilePicture ? (
+                          <img src={profilePicture} alt="Profile" className="w-full h-full object-cover" width="128" height="128" />
+                        ) : (
+                          <User size={48} className="text-[#A0A0A0]" />
+                        )}
+                      </div>
+                      <button
+                        onClick={handleProfilePictureClick}
+                        disabled={uploadingPicture}
+                        className="absolute bottom-0 right-0 bg-[#B11226] p-2 sm:p-3 rounded-full hover:bg-[#8B0E1C] transition-colors disabled:opacity-50"
+                        title="Upload profile picture"
+                      >
+                        <Camera size={16} className="text-white sm:hidden" />
+                        <Camera size={20} className="text-white hidden sm:block" />
+                      </button>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
                     </div>
-                    <button
-                      onClick={handleProfilePictureClick}
-                      disabled={uploadingPicture}
-                      className="absolute bottom-0 right-0 bg-[#B11226] p-3 rounded-full hover:bg-[#8B0E1C] transition-colors disabled:opacity-50"
-                      title="Upload profile picture"
-                    >
-                      <Camera size={20} className="text-white" />
-                    </button>
-                    <input
-                      ref={fileInputRef}
-                      type="file"
-                      accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
-                      onChange={handleFileChange}
-                      className="hidden"
-                    />
-                  </div>
-                  {uploadingPicture && (
-                    <p className="text-sm text-[#A0A0A0]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                      UPLOADING...
-                    </p>
-                  )}
-                  <p className="text-xs text-[#A0A0A0] text-center max-w-sm" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                    Click the camera icon to upload a profile picture (max 5MB)
-                  </p>
-                </div>
-
-                <form onSubmit={handleProfileSave} className="space-y-4 sm:space-y-6">
-                  <div>
-                    <label className="block text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                      FULL NAME {isFirstTimeSetup && <span className="text-[#B11226]">*</span>}
-                    </label>
-                    <input
-                      type="text"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className={`w-full px-4 py-3 bg-[#0E0E0E] border rounded text-white focus:outline-none transition-colors ${
-                        isFirstTimeSetup
-                          ? 'border-[#B11226] focus:border-[#B11226]'
-                          : 'border-[#2E2E2E] focus:border-[#B11226]'
-                      }`}
-                      style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
-                      placeholder="John Doe"
-                      required={isFirstTimeSetup}
-                    />
-                    {isFirstTimeSetup && (
-                      <p className="text-xs text-[#B11226] mt-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                        Required to continue
+                    {uploadingPicture && (
+                      <p className="text-sm text-[#A0A0A0]" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                        UPLOADING...
                       </p>
                     )}
+                    <p className="text-xs text-[#A0A0A0] text-center max-w-xs" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                      Tap the camera icon to upload (max 5MB)
+                    </p>
                   </div>
+                </div>
 
-                  <div className="grid grid-cols-2 gap-3 sm:gap-6">
-                    <div>
-                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                        WEIGHT (LBS)
+                <form onSubmit={handleProfileSave} className="space-y-4 sm:space-y-5">
+                  <div className="border border-[#B11226] rounded-lg p-4 sm:p-6 space-y-4" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
+                    <h2 className="cc-outline-text text-base sm:text-lg font-bold text-center">PERSONAL INFO</h2>
+                    <div className="text-center">
+                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                        FULL NAME {isFirstTimeSetup && <span className="text-[#B11226]">*</span>}
                       </label>
                       <input
-                        type="number"
-                        value={weight}
-                        onChange={(e) => setWeight(e.target.value)}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
+                        type="text"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        className={`w-full px-4 py-3 bg-[#0E0E0E] border rounded text-white text-center focus:outline-none transition-colors ${
+                          isFirstTimeSetup
+                            ? 'border-[#B11226] focus:border-[#B11226]'
+                            : 'border-[#2E2E2E] focus:border-[#B11226]'
+                        }`}
                         style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
-                        placeholder="185"
+                        placeholder="John Doe"
+                        required={isFirstTimeSetup}
                       />
+                      {isFirstTimeSetup && (
+                        <p className="text-xs text-[#B11226] mt-1 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                          Required to continue
+                        </p>
+                      )}
                     </div>
 
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                      <div className="text-center">
+                        <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                          WEIGHT (LBS)
+                        </label>
+                        <input
+                          type="number"
+                          value={weight}
+                          onChange={(e) => setWeight(e.target.value)}
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base text-center focus:outline-none focus:border-[#B11226] transition-colors"
+                          style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
+                          placeholder="185"
+                        />
+                      </div>
+                      <div className="text-center">
+                        <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                          HEIGHT (IN)
+                        </label>
+                        <input
+                          type="number"
+                          value={height}
+                          onChange={(e) => setHeight(e.target.value)}
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base text-center focus:outline-none focus:border-[#B11226] transition-colors"
+                          style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
+                          placeholder="72"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="border border-[#B11226] rounded-lg p-4 sm:p-6 space-y-4" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
+                    <h2 className="cc-outline-text text-base sm:text-lg font-bold text-center">TRAINING DETAILS</h2>
                     <div>
-                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                        HEIGHT (IN)
+                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                        EXPERIENCE LEVEL
                       </label>
-                      <input
-                        type="number"
-                        value={height}
-                        onChange={(e) => setHeight(e.target.value)}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
+                      <select
+                        value={experienceLevel}
+                        onChange={(e) => setExperienceLevel(e.target.value)}
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base text-center focus:outline-none focus:border-[#B11226] transition-colors"
                         style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
-                        placeholder="72"
-                      />
+                      >
+                        <option value="Beginner">BEGINNER</option>
+                        <option value="Intermediate">INTERMEDIATE</option>
+                        <option value="Advanced">ADVANCED</option>
+                        <option value="Expert">EXPERT</option>
+                      </select>
                     </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                      EXPERIENCE LEVEL
-                    </label>
-                    <select
-                      value={experienceLevel}
-                      onChange={(e) => setExperienceLevel(e.target.value)}
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
-                    >
-                      <option value="Beginner">BEGINNER</option>
-                      <option value="Intermediate">INTERMEDIATE</option>
-                      <option value="Advanced">ADVANCED</option>
-                      <option value="Expert">EXPERT</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
-                      PREFERRED DISCIPLINE
-                    </label>
-                    <select
-                      value={preferredDiscipline}
-                      onChange={(e) => setPreferredDiscipline(e.target.value)}
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
-                      style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
-                    >
-                      <option value="">SELECT...</option>
-                      <option value="Boxing">BOXING</option>
-                      <option value="Muay Thai">MUAY THAI</option>
-                      <option value="BJJ">BJJ</option>
-                      <option value="Kickboxing">KICKBOXING</option>
-                      <option value="Karate">KARATE</option>
-                      <option value="Taekwondo">TAEKWONDO</option>
-                      <option value="Judo">JUDO</option>
-                    </select>
+                    <div>
+                      <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-1 sm:mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                        PREFERRED DISCIPLINE
+                      </label>
+                      <select
+                        value={preferredDiscipline}
+                        onChange={(e) => setPreferredDiscipline(e.target.value)}
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base text-center focus:outline-none focus:border-[#B11226] transition-colors"
+                        style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
+                      >
+                        <option value="">SELECT...</option>
+                        <option value="Boxing">BOXING</option>
+                        <option value="Muay Thai">MUAY THAI</option>
+                        <option value="BJJ">BJJ</option>
+                        <option value="Kickboxing">KICKBOXING</option>
+                        <option value="Karate">KARATE</option>
+                        <option value="Taekwondo">TAEKWONDO</option>
+                        <option value="Judo">JUDO</option>
+                      </select>
+                    </div>
                   </div>
 
                   <button
@@ -559,34 +564,32 @@ export default function Account() {
             )}
 
             {activeTab === 'security' && (
-              <div className="space-y-6 sm:space-y-8">
-                <div className="pb-6 sm:pb-8 border-b-2 border-[#B11226]">
-                  <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-4">
-                    ACCOUNT INFO
-                  </h2>
-                  <div className="mt-4">
-                    <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>CURRENT EMAIL</div>
-                    <div className="text-sm sm:text-base break-all" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{user?.email}</div>
-                  </div>
-                  <div className="mt-4">
-                    <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>CURRENT PHONE NUMBER</div>
-                    <div className="text-sm sm:text-base" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{user?.phone || '—'}</div>
+              <div className="space-y-4 sm:space-y-6">
+                <div className="border border-[#B11226] rounded-lg p-4 sm:p-6 text-center" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
+                  <h2 className="cc-outline-text text-base sm:text-lg font-bold mb-4 text-center">ACCOUNT INFO</h2>
+                  <div className="space-y-3">
+                    <div>
+                      <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>CURRENT EMAIL</div>
+                      <div className="text-sm sm:text-base break-all text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{user?.email}</div>
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm text-[#A0A0A0] mb-1 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>CURRENT PHONE NUMBER</div>
+                      <div className="text-sm sm:text-base text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>{user?.phone || '—'}</div>
+                    </div>
                   </div>
                 </div>
 
-                <form onSubmit={handleEmailChange} className="space-y-4 pb-6 sm:pb-8 border-b-2 border-[#B11226]">
-                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
-                    CHANGE EMAIL
-                  </h2>
+                <form onSubmit={handleEmailChange} className="border border-[#B11226] rounded-lg p-4 sm:p-6 space-y-4" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
+                  <h2 className="cc-outline-text text-base sm:text-lg font-bold text-center">CHANGE EMAIL</h2>
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       NEW EMAIL ADDRESS
                     </label>
                     <input
                       type="email"
                       value={newEmail}
                       onChange={(e) => setNewEmail(e.target.value)}
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base text-center focus:outline-none focus:border-[#B11226] transition-colors"
                       style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                       placeholder="newemail@example.com"
                     />
@@ -600,12 +603,10 @@ export default function Account() {
                   </button>
                 </form>
 
-                <form onSubmit={handlePhoneChange} className="space-y-4 pb-6 sm:pb-8 border-b-2 border-[#B11226]">
-                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
-                    PHONE NUMBER
-                  </h2>
+                <form onSubmit={handlePhoneChange} className="border border-[#B11226] rounded-lg p-4 sm:p-6 space-y-4" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
+                  <h2 className="cc-outline-text text-base sm:text-lg font-bold text-center">PHONE NUMBER</h2>
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       PHONE NUMBER
                     </label>
                     <div className="flex gap-2">
@@ -674,7 +675,7 @@ export default function Account() {
                         type="tel"
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
-                        className="flex-1 min-w-0 px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors"
+                        className="flex-1 min-w-0 px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base text-center focus:outline-none focus:border-[#B11226] transition-colors"
                         style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="7911 123456"
                       />
@@ -689,13 +690,10 @@ export default function Account() {
                   </button>
                 </form>
 
-                <form onSubmit={handlePasswordChange} className="space-y-4 sm:space-y-6">
-                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
-                    CHANGE PASSWORD
-                  </h2>
-
+                <form onSubmit={handlePasswordChange} className="border border-[#B11226] rounded-lg p-4 sm:p-6 space-y-4" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
+                  <h2 className="cc-outline-text text-base sm:text-lg font-bold text-center">CHANGE PASSWORD</h2>
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       CURRENT PASSWORD
                     </label>
                     <div className="relative">
@@ -703,7 +701,7 @@ export default function Account() {
                         type={showCurrentPassword ? 'text' : 'password'}
                         value={currentPassword}
                         onChange={(e) => setCurrentPassword(e.target.value)}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base text-center focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
                         style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="••••••••"
                       />
@@ -716,9 +714,8 @@ export default function Account() {
                       </button>
                     </div>
                   </div>
-
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       NEW PASSWORD
                     </label>
                     <div className="relative">
@@ -726,7 +723,7 @@ export default function Account() {
                         type={showNewPassword ? 'text' : 'password'}
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base text-center focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
                         style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="••••••••"
                       />
@@ -739,9 +736,8 @@ export default function Account() {
                       </button>
                     </div>
                   </div>
-
                   <div>
-                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                    <label className="block text-xs sm:text-sm text-[#A0A0A0] mb-2 text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                       CONFIRM NEW PASSWORD
                     </label>
                     <div className="relative">
@@ -749,7 +745,7 @@ export default function Account() {
                         type={showConfirmPassword ? 'text' : 'password'}
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-[#0E0E0E] border border-[#2E2E2E] rounded text-white text-sm sm:text-base text-center focus:outline-none focus:border-[#B11226] transition-colors pr-10 sm:pr-12"
                         style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}
                         placeholder="••••••••"
                       />
@@ -762,7 +758,6 @@ export default function Account() {
                       </button>
                     </div>
                   </div>
-
                   <button
                     type="submit"
                     disabled={saving || !newPassword || !confirmPassword}
@@ -776,10 +771,8 @@ export default function Account() {
 
             {activeTab === 'settings' && (
               <div className="space-y-4 sm:space-y-6">
-                <div className="pb-6 sm:pb-8 border-b-2 border-[#B11226]">
-                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold mb-4">
-                    SIGN OUT
-                  </h2>
+                <div className="border border-[#B11226] rounded-lg p-4 sm:p-6 text-center" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
+                  <h2 className="cc-outline-text text-base sm:text-lg font-bold mb-4 text-center">SIGN OUT</h2>
                   <button
                     onClick={handleSignOut}
                     className="button-text w-full py-3 sm:py-4 bg-[#2E2E2E] text-white text-sm sm:text-base font-bold rounded hover:bg-[#3E3E3E] transition-all flex items-center justify-center gap-2"
@@ -787,15 +780,13 @@ export default function Account() {
                     <LogOut size={18} />
                     SIGN OUT
                   </button>
-                  <p className="text-xs text-center mt-2 text-[#A0A0A0]/70" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                  <p className="text-xs text-center mt-3 text-[#A0A0A0]/70" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                     You'll be signed out of your account on this device.
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="cc-outline-text text-lg sm:text-xl font-bold mb-4">
-                    DELETE ACCOUNT
-                  </h2>
+                <div className="border border-[#B11226] rounded-lg p-4 sm:p-6 text-center" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
+                  <h2 className="cc-outline-text text-base sm:text-lg font-bold mb-4 text-center">DELETE ACCOUNT</h2>
                   {!showDeleteConfirm ? (
                     <>
                       <button
@@ -805,13 +796,13 @@ export default function Account() {
                         <Trash2 size={18} />
                         DELETE ACCOUNT
                       </button>
-                      <p className="text-xs text-center mt-2 text-[#A0A0A0]/70" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                      <p className="text-xs text-center mt-3 text-[#A0A0A0]/70" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                         This action is permanent and cannot be undone.
                       </p>
                     </>
                   ) : (
                     <div className="space-y-3 sm:space-y-4">
-                      <p className="text-xs sm:text-sm text-[#B11226] font-bold" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
+                      <p className="text-xs sm:text-sm text-[#B11226] font-bold text-center" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
                         WARNING: This action cannot be undone. All your data will be permanently deleted.
                       </p>
                       <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
