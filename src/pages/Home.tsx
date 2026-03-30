@@ -117,15 +117,15 @@ export default function Home() {
             />
             <button
               onClick={() => navigate(user ? '/dashboard' : '/auth')}
-              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0 -translate-y-[50px]"
-              style={{ width: 'clamp(280px, 72vw, 440px)', maxWidth: '100%' }}
+              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0 -translate-y-[150px]"
+              style={{ width: 'clamp(280px, 72vw, 440px)', maxWidth: '100%', filter: 'drop-shadow(0 0 12px rgba(177,18,38,0.9)) drop-shadow(0 0 24px rgba(177,18,38,0.5))' }}
             >
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20start%20training.png"
                 alt="Start Training"
                 decoding="async"
                 className="w-full h-auto"
-                style={{ objectFit: 'contain', display: 'block', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}
+                style={{ objectFit: 'contain', display: 'block' }}
               />
             </button>
           </div>
