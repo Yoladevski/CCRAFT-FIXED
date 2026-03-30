@@ -11,7 +11,7 @@ html, body, #root {
   src: url('/src/assets/fonts/Orbitron-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
@@ -19,7 +19,7 @@ html, body, #root {
   src: url('/src/assets/fonts/Orbitron-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
@@ -27,7 +27,7 @@ html, body, #root {
   src: url('/src/assets/fonts/Beantown.ttf') format('truetype');
   font-weight: 400 900;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 :root {
@@ -115,22 +115,6 @@ img {
   filter: drop-shadow(0 0 6px rgba(177, 18, 38, 0.45)) drop-shadow(0 0 14px rgba(177, 18, 38, 0.25));
 }
 
-
-.goog-te-banner-frame {
-  display: none !important;
-}
-
-.goog-te-gadget {
-  display: none !important;
-}
-
-.skiptranslate {
-  display: none !important;
-}
-
-#google_translate_element {
-  display: none !important;
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
@@ -579,6 +563,11 @@ nav a {
 }
 
 @media (max-width: 639px) {
+  .continue-btn-mobile {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
   .mobile-btn-glow {
     box-shadow:
       0 0 0 1.5px #000,

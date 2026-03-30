@@ -56,7 +56,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             className="w-full h-full hidden md:block"
             style={{
               objectFit: 'cover',
@@ -75,7 +75,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             className="w-full h-full md:hidden"
             style={{
               objectFit: 'cover',

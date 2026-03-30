@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from './AuthContext';
 
@@ -99,8 +99,13 @@ export function StreakProvider({ children }: { children: React.ReactNode }) {
     return newStreak;
   }, [user]);
 
+  const contextValue = useMemo(
+    () => ({ ...state, recordTraining }),
+    [state, recordTraining]
+  );
+
   return (
-    <StreakContext.Provider value={{ ...state, recordTraining }}>
+    <StreakContext.Provider value={contextValue}>
       {children}
     </StreakContext.Provider>
   );

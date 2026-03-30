@@ -11,7 +11,7 @@ import { BOXING_FOUNDATIONS_LEVELS } from '../data/foundationsLessons';
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
 
-const motivationalMessages = [
+const MOTIVATIONAL_MESSAGES = [
   "RISE AND GRIND",
   "EMBRACE THE WARRIOR WITHIN",
   "EVERY CHAMPION WAS ONCE A CONTENDER",
@@ -34,9 +34,8 @@ const motivationalMessages = [
   "DOMINATE YOUR DOUBTS"
 ];
 
-const getRandomMotivation = () => {
-  return motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
-};
+const getRandomMotivation = () =>
+  MOTIVATIONAL_MESSAGES[Math.floor(Math.random() * MOTIVATIONAL_MESSAGES.length)];
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -53,11 +52,10 @@ export default function Dashboard() {
     async function loadDashboardData() {
       if (!user) return;
 
-      const { data: profileData } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('user_id', user.id)
-        .single();
+      const [{ data: profileData }, { data: foundationsData }] = await Promise.all([
+        supabase.from('profiles').select('*').eq('user_id', user.id).single(),
+        supabase.from('foundations_progress').select('lesson_id').eq('user_id', user.id).eq('discipline', 'boxing').eq('completed', true),
+      ]);
 
       if (profileData && (!profileData.onboarding_complete || !profileData.full_name)) {
         navigate('/create-profile', { replace: true });
@@ -68,13 +66,6 @@ export default function Dashboard() {
 
       const allLessons = BOXING_FOUNDATIONS_LEVELS.flatMap(level => level.lessons);
       setTotalLessons(allLessons.length);
-
-      const { data: foundationsData } = await supabase
-        .from('foundations_progress')
-        .select('lesson_id')
-        .eq('user_id', user.id)
-        .eq('discipline', 'boxing')
-        .eq('completed', true);
 
       const completedIds = new Set(foundationsData?.map(r => r.lesson_id) || []);
       setCompletedLessons(completedIds.size);
@@ -273,14 +264,6 @@ export default function Dashboard() {
           >
             Resume your next lesson
           </p>
-          <style>{`
-            @media (max-width: 639px) {
-              .continue-btn-mobile {
-                transform: scale(0.9);
-                transform-origin: center;
-              }
-            }
-          `}</style>
           <button
             onClick={() => {
               if (nextLesson) {
