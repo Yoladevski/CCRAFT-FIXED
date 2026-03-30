@@ -7,7 +7,8 @@ import MainLayout from './components/MainLayout';
 import LoadingScreen from './components/LoadingScreen';
 import ScrollToTop from './components/ScrollToTop';
 
-const Home = lazy(() => import('./pages/Home'));
+const homeModule = import('./pages/Home');
+const Home = lazy(() => homeModule);
 const Auth = lazy(() => import('./pages/Auth'));
 const Disciplines = lazy(() => import('./pages/Disciplines'));
 const DisciplinePage = lazy(() => import('./pages/DisciplinePage'));
