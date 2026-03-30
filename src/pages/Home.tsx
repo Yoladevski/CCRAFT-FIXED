@@ -104,7 +104,7 @@ export default function Home() {
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
               alt="Built by real coaches trusted by fighters powered by AI"
               className="w-auto h-auto home-heading-glow"
-              style={{ maxWidth: 'clamp(312px, 86vw, 576px)' }}
+              style={{ width: '112vw', maxWidth: '96vw' }}
             />
           </div>
 
