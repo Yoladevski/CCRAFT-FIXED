@@ -50,7 +50,7 @@ export default function ExploreDisciplines() {
                   </div>
                 )}
 
-                <div className="absolute inset-0 bg-[#1A1A1A]">
+                <div className="absolute inset-0 bg-black">
                   <img
                     src={cardImages[discipline.name] || cardImages['Boxing']}
                     alt={discipline.name}

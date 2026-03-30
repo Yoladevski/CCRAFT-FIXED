@@ -28,7 +28,7 @@ export default function Vision() {
             </ul>
           </section>
 
-          <div className="bg-[#1A1A1A] border-l-4 border-[#B11226] p-8 mt-8 relative overflow-hidden">
+          <div className="bg-black border-l-4 border-[#B11226] p-8 mt-8 relative overflow-hidden">
             <p className="text-white font-bold text-xl text-center">
               COMBATCRAFT is built around progression, not shortcuts.
             </p>

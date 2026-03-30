@@ -498,7 +498,7 @@ export default function FoundationLesson() {
           <div
             className="w-full rounded-2xl overflow-hidden border-2 border-[#2E2E2E] mb-8 sm:mb-10 flex items-center justify-center"
             style={{
-              background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
+              background: '#000000',
               aspectRatio: '16 / 9',
             }}
           >
@@ -517,7 +517,7 @@ export default function FoundationLesson() {
           <div className="space-y-8 mb-8 sm:mb-10">
             {technique.why && (
               <div
-                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
+                className="bg-black rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
@@ -549,7 +549,7 @@ export default function FoundationLesson() {
 
             {technique.how && (
               <div
-                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
+                className="bg-black rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
@@ -579,7 +579,7 @@ export default function FoundationLesson() {
 
             {technique.common_mistakes && (
               <div
-                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
+                className="bg-black rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
@@ -609,7 +609,7 @@ export default function FoundationLesson() {
 
             {technique.simple_drills && (
               <div
-                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
+                className="bg-black rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}
@@ -641,7 +641,7 @@ export default function FoundationLesson() {
 
             {technique.coaches_tips && (
               <div
-                className="bg-[#1A1A1A] rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
+                className="bg-black rounded-2xl border-2 border-[#B11226] overflow-hidden relative"
                 style={{
                   boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                 }}

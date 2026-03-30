@@ -28,7 +28,7 @@ export default function Legal() {
             <button
               key={page.route}
               onClick={() => navigate(page.route)}
-              className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 rounded-lg text-left hover:border-[#B11226] transition-all group"
+              className="bg-black border border-[#2E2E2E] p-6 rounded-lg text-left hover:border-[#B11226] transition-all group"
             >
               <h2 className="cc-outline-text text-2xl font-bold text-white mb-2 group-hover:text-[#B11226] transition-colors">
                 {page.name}

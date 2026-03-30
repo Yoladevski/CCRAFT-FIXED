@@ -333,7 +333,7 @@ export default function Account() {
         )}
 
         <div
-          className="bg-[#0D0D0D] border-2 border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg mt-[65px] relative"
+          className="bg-black border-2 border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg mt-[65px] relative"
           style={{
             boxShadow: '0 0 12px rgba(177, 18, 38, 0.4), 0 0 24px rgba(177, 18, 38, 0.2)',
             isolation: 'isolate',

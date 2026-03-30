@@ -13,7 +13,7 @@ function AccordionCard({ title, children, defaultOpen = false }: { title: React.
     <div
       className="rounded-lg overflow-hidden card-btn"
       style={{
-        backgroundColor: '#191919',
+        backgroundColor: '#000000',
         border: '1px solid #B11226',
         boxShadow: '0 0 12px rgba(177, 18, 38, 0.5), 0 0 24px rgba(177, 18, 38, 0.2), inset 0 0 8px rgba(177, 18, 38, 0.08)',
         fontFamily: 'Orbitron, sans-serif',
@@ -211,7 +211,7 @@ export default function WorkoutSession() {
           <div
             className="rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 text-center"
             style={{
-              background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
+              background: '#000000',
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
             }}
           >

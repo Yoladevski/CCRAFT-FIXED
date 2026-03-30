@@ -115,7 +115,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pt-4 pb-16 sm:py-24 px-4 bg-[#0E0E0E] relative">
+      <section className="pt-4 pb-16 sm:py-24 px-4 bg-black relative main-grid">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:grid md:grid-cols-4 gap-6 sm:gap-8 mt-[10px] items-stretch">
             <button

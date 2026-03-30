@@ -127,7 +127,7 @@ export default function Dashboard() {
     return (
       <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20 flex items-center justify-center">
         <div className="max-w-2xl mx-auto relative z-10">
-          <div className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center relative overflow-hidden" style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)', isolation: 'isolate' }}>
+          <div className="bg-black border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center relative overflow-hidden" style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)', isolation: 'isolate' }}>
             <div className="relative z-10">
             <div className="mb-6">
               <Lock size={64} className="mx-auto text-[#B11226]" />
@@ -161,7 +161,7 @@ export default function Dashboard() {
 
   if (!profile) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0E0E0E]">
+      <div className="min-h-screen flex items-center justify-center bg-black">
         <div className="text-center max-w-md px-4">
           <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>PROFILE NOT FOUND</div>
           <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
@@ -180,7 +180,7 @@ export default function Dashboard() {
 
   if (!profile.full_name) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0E0E0E]">
+      <div className="min-h-screen flex items-center justify-center bg-black">
         <div className="text-center max-w-md px-4">
           <div className="text-2xl text-[#B11226] mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>COMPLETE YOUR PROFILE</div>
           <p className="text-[#A0A0A0] mb-6" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif' }}>
@@ -205,7 +205,7 @@ export default function Dashboard() {
 
         {/* WELCOME MESSAGE */}
         <div
-          className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center relative overflow-hidden"
+          className="bg-black border-2 border-[#B11226] rounded-lg p-4 md:p-6 text-center relative overflow-hidden"
           style={{
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
             isolation: 'isolate',
@@ -316,7 +316,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           {/* CURRENT TRAINING PANEL */}
           <div
-            className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-6 md:p-10 text-center flex flex-col justify-center relative overflow-hidden"
+            className="bg-black border-2 border-[#B11226] rounded-lg p-6 md:p-10 text-center flex flex-col justify-center relative overflow-hidden"
             style={{
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
               isolation: 'isolate',
@@ -375,7 +375,7 @@ export default function Dashboard() {
 
           {/* CURRENT RANK CARD */}
           <div
-            className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden"
+            className="bg-black border-2 border-[#B11226] rounded-lg p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden"
             style={{
               boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
               isolation: 'isolate',

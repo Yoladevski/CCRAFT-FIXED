@@ -89,7 +89,7 @@ export default function QuoteDisplay() {
   }, []);
 
   return (
-    <div className="bg-[#0E0E0E] border border-[#2E2E2E] p-8 relative overflow-hidden">
+    <div className="bg-black border border-[#2E2E2E] p-8 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-1 h-full bg-[#B11226]" />
       <div className="relative z-10">
         <p className="text-white mb-4 leading-relaxed italic" style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontSize: '14px', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}>

@@ -74,7 +74,7 @@ export default function DisciplinePage() {
           justifyContent: 'space-between',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0E0E0E]" />
+        <div className="absolute inset-0 bg-black" />
 
         {!category.is_active && (
           <div className="absolute inset-0 bg-black/80 z-20 flex items-center justify-center">

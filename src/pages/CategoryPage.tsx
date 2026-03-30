@@ -177,8 +177,8 @@ export default function CategoryPage() {
                   completed
                     ? 'border-[#B11226] bg-[#B11226]/10'
                     : unlocked
-                    ? 'border-[#B11226] sm:hover:scale-105 bg-[#1A1A1A]'
-                    : 'border-[#2E2E2E] opacity-50 cursor-not-allowed bg-[#1A1A1A]'
+                    ? 'border-[#B11226] sm:hover:scale-105 bg-black'
+                    : 'border-[#2E2E2E] opacity-50 cursor-not-allowed bg-black'
                 }`}
                 style={{
                   borderRadius: '0.625rem',

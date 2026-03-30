@@ -20,7 +20,7 @@ export default function Contact() {
           </p>
 
           <div className="space-y-6 mt-8">
-            <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 rounded-lg flex items-center gap-4 relative overflow-hidden">
+            <div className="bg-black border border-[#2E2E2E] p-6 rounded-lg flex items-center gap-4 relative overflow-hidden">
               <Mail className="text-[#B11226] flex-shrink-0" size={32} />
               <div>
                 <p className="text-[#A0A0A0] text-sm mb-1">Email</p>
@@ -33,7 +33,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-[#1A1A1A] border border-[#2E2E2E] p-6 rounded-lg flex items-center gap-4 relative overflow-hidden">
+            <div className="bg-black border border-[#2E2E2E] p-6 rounded-lg flex items-center gap-4 relative overflow-hidden">
               <Mail className="text-[#B11226] flex-shrink-0" size={32} />
               <div>
                 <p className="text-[#A0A0A0] text-sm mb-1">Business Inquiries</p>

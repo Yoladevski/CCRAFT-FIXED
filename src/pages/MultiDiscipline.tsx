@@ -100,7 +100,7 @@ export default function MultiDiscipline() {
                     boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
                   }}
                 >
-                  <div className="absolute inset-0 bg-[#1A1A1A]">
+                  <div className="absolute inset-0 bg-black">
                     <img
                       src={cardImages[discipline.name] || cardImages['Boxing']}
                       alt={discipline.name}

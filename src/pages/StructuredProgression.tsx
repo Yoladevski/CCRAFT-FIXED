@@ -13,7 +13,7 @@ export default function StructuredProgression() {
       <div className="max-w-4xl mx-auto relative z-10">
         <BackButton onClick={goToHome} />
 
-        <div className="bg-[#0D0D0D] rounded-lg border border-[#B11226] p-6 sm:p-12 mt-8 relative overflow-hidden" style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}>
+        <div className="bg-black rounded-lg border border-[#B11226] p-6 sm:p-12 mt-8 relative overflow-hidden" style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}>
           <div className="mb-8 flex justify-center">
             <img
               src="https://i.postimg.cc/D0fKBBM2/fightcraft1.jpg"

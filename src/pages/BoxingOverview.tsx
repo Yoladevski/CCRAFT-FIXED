@@ -38,7 +38,7 @@ export default function BoxingOverview() {
             <div
               className="flex-1 rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 min-h-[140px] sm:min-h-[180px] flex items-center"
               style={{
-                background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
+                background: '#000000',
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
@@ -52,7 +52,7 @@ export default function BoxingOverview() {
             <div
               className="flex-1 rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 min-h-[140px] sm:min-h-[180px] flex items-center order-2 sm:order-1"
               style={{
-                background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
+                background: '#000000',
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)'
               }}
             >
@@ -88,7 +88,7 @@ export default function BoxingOverview() {
             <div
               className="flex-1 rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 min-h-[140px] sm:min-h-[180px] flex items-center"
               style={{
-                background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
+                background: '#000000',
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
               }}
             >

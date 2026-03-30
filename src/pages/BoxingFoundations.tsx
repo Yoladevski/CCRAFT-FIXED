@@ -178,7 +178,7 @@ function LevelCompleteModal({
       <div
         className="relative z-10 flex flex-col items-center mx-4 p-6 sm:p-8 rounded-2xl border border-[#2E2E2E] max-w-sm w-full"
         style={{
-          background: 'linear-gradient(180deg, #1A1A1A 0%, #0E0E0E 100%)',
+          background: '#000000',
           boxShadow: '0 0 40px rgba(177, 18, 38, 0.3), 0 0 80px rgba(0, 0, 0, 0.8)',
         }}
       >
@@ -456,7 +456,7 @@ export default function BoxingFoundations() {
           className="rounded-2xl border-2 p-4 sm:p-6 mb-6 relative overflow-hidden"
           style={{
             borderColor: unlocked ? '#B11226' : '#2E2E2E',
-            background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
+            background: '#000000',
             boxShadow: unlocked ? '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' : 'none',
             isolation: 'isolate',
           }}
@@ -507,7 +507,7 @@ export default function BoxingFoundations() {
                     className="w-full flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 rounded-xl border transition-all sm:hover:scale-[1.01] cursor-pointer text-left card-btn"
                     style={{
                       borderColor: isDone ? '#B11226' : '#2E2E2E',
-                      background: isDone ? 'rgba(177, 18, 38, 0.08)' : '#1A1A1A',
+                      background: isDone ? 'rgba(177, 18, 38, 0.08)' : '#000000',
                       boxShadow: isDone ? '0 0 8px rgba(177, 18, 38, 0.2)' : 'none',
                     }}
                   >

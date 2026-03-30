@@ -69,7 +69,7 @@ export default function WorkoutOfTheDay() {
 
   return (
     <div
-      className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-5 sm:p-6 flex flex-col gap-4 relative overflow-hidden"
+      className="bg-black border-2 border-[#B11226] rounded-lg p-5 sm:p-6 flex flex-col gap-4 relative overflow-hidden"
       style={{
         boxShadow:
           '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',

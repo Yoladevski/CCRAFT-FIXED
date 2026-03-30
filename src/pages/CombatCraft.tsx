@@ -54,7 +54,7 @@ export default function CombatCraft() {
               key={i}
               className="rounded-lg p-5 text-center"
               style={{
-                backgroundColor: '#2a2a2a',
+                backgroundColor: '#000000',
                 border: '1px solid #B11226',
                 fontFamily: 'Orbitron, sans-serif',
                 fontSize: '11px',

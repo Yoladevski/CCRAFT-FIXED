@@ -18,7 +18,7 @@ export default function LevelProgressIndicator({
     <div
       className="w-full flex flex-col"
       style={{
-        background: 'linear-gradient(135deg, #1A1A1A 0%, #111111 100%)',
+        background: '#000000',
         border: `1px solid ${isComplete ? 'rgba(177,18,38,0.7)' : 'rgba(177,18,38,0.3)'}`,
         borderRadius: '0.75rem',
         padding: compact ? '0.75rem 1rem' : '1.1rem 1.4rem',

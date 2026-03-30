@@ -25,7 +25,7 @@ export default function BoxingWorkouts() {
         <div
           className="rounded-2xl border-2 border-[#B11226] p-4 sm:p-6 mb-6 sm:mb-8 relative overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%)',
+            background: '#000000',
             boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
             isolation: 'isolate',
           }}
@@ -61,7 +61,7 @@ export default function BoxingWorkouts() {
               onClick={() => navigate(`/boxing-workouts/${session.slug}`)}
               className="w-full flex items-center cursor-pointer transition-all sm:hover:scale-[1.01] card-btn"
               style={{
-                background: '#111111',
+                background: '#000000',
                 border: '1px solid rgba(177, 18, 38, 0.6)',
                 borderRadius: '0.625rem',
                 boxShadow: '0 0 10px rgba(177, 18, 38, 0.35)',

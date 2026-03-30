@@ -50,7 +50,7 @@ export default function AboutUs() {
           </section>
 
           <div
-            className="bg-[#0D0D0D] border border-[#B11226] rounded-lg p-6 sm:p-8 space-y-4"
+            className="bg-black border border-[#B11226] rounded-lg p-6 sm:p-8 space-y-4"
             style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}
           >
             <h2 className="cc-outline-text text-2xl sm:text-3xl font-bold text-white">TRAIN ANYWHERE. PROGRESS STEP BY STEP.</h2>

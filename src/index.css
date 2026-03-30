@@ -350,7 +350,7 @@ nav a {
 
 .xp-gain-card {
   animation: pulsingGlow 0.75s ease-in-out infinite, scaleIn 0.3s ease-out;
-  background: linear-gradient(135deg, #1A1A1A 0%, #0E0E0E 100%);
+  background: #000000;
   border: 2px solid #B11226;
 }
 
@@ -373,7 +373,7 @@ nav a {
 
 .lesson-complete-panel {
   animation: lessonCompleteGlow 1.5s ease-in-out infinite, scaleIn 0.35s ease-out;
-  background: linear-gradient(160deg, #1c1c1c 0%, #111111 100%);
+  background: #000000;
   border: 2px solid #B11226;
 }
 
