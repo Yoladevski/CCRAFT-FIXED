@@ -80,7 +80,7 @@ img {
 }
 
 .home-heading-glow {
-  filter: drop-shadow(0 0 12px rgba(177, 18, 38, 0.85)) drop-shadow(0 0 28px rgba(177, 18, 38, 0.5));
+  filter: drop-shadow(0 0 6px rgba(177, 18, 38, 0.45)) drop-shadow(0 0 14px rgba(177, 18, 38, 0.25));
 }
 
 
@@ -131,7 +131,7 @@ h2 {
     -2px 2px 0 #000,
     2px -2px 0 #000,
     -2px -2px 0 #000,
-    0 0 4px #ff0000;
+    0 0 2px rgba(255, 0, 0, 0.4);
 }
 
 h3 {
@@ -237,7 +237,7 @@ nav a {
     -2px 2px 0 #000,
     2px -2px 0 #000,
     -2px -2px 0 #000,
-    0 0 4px #ff0000;
+    0 0 2px rgba(255, 0, 0, 0.4);
 }
 
 .outlined-text {
