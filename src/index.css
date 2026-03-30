@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body, #root {
+  background-color: #000;
+}
+
 @font-face {
   font-family: 'Orbitron';
   src: url('/src/assets/fonts/Orbitron-Black.ttf') format('truetype');
