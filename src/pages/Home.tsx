@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -7,19 +7,42 @@ export default function Home() {
   const navigate = useNavigate();
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  const [heroReady, setHeroReady] = useState(false);
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   useEffect(() => {
-    const tryPlay = (video: HTMLVideoElement | null) => {
-      if (!video) return;
-      video.load();
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {});
-      }
+    const targetVideo = isMobile ? mobileVideoRef.current : desktopVideoRef.current;
+    if (!targetVideo) return;
+
+    const handleCanPlay = () => {
+      setHeroReady(true);
+      targetVideo.play().catch(() => {});
     };
-    tryPlay(desktopVideoRef.current);
-    tryPlay(mobileVideoRef.current);
-  }, []);
+
+    if (targetVideo.readyState >= 3) {
+      handleCanPlay();
+    } else {
+      targetVideo.addEventListener('canplay', handleCanPlay, { once: true });
+    }
+
+    targetVideo.load();
+
+    const fallback = setTimeout(() => setHeroReady(true), 3000);
+
+    return () => {
+      targetVideo.removeEventListener('canplay', handleCanPlay);
+      clearTimeout(fallback);
+    };
+  }, [isMobile]);
+
+  useEffect(() => {
+    const otherVideo = isMobile ? desktopVideoRef.current : mobileVideoRef.current;
+    if (otherVideo) {
+      otherVideo.load();
+      otherVideo.play().catch(() => {});
+    }
+  }, [isMobile]);
 
   return (
     <div>
@@ -38,10 +61,8 @@ export default function Home() {
             style={{
               objectFit: 'cover',
               objectPosition: 'center',
-              transition: 'opacity 0.4s ease',
+              opacity: 1,
             }}
-            onCanPlay={(e) => { (e.currentTarget as HTMLVideoElement).style.opacity = '1'; }}
-            onLoadStart={(e) => { (e.currentTarget as HTMLVideoElement).style.opacity = '0'; }}
           >
             <source
               src="https://image2url.com/r2/default/videos/1771664442251-d7340661-5e0d-4641-afae-c12227116d28.mp4"
@@ -59,10 +80,8 @@ export default function Home() {
             style={{
               objectFit: 'cover',
               objectPosition: 'center 20%',
-              transition: 'opacity 0.4s ease',
+              opacity: 1,
             }}
-            onCanPlay={(e) => { (e.currentTarget as HTMLVideoElement).style.opacity = '1'; }}
-            onLoadStart={(e) => { (e.currentTarget as HTMLVideoElement).style.opacity = '0'; }}
           >
             <source
               src="https://image2url.com/r2/default/videos/1770858582620-ae5b1808-3859-4637-b784-cc115c44e502.mp4"
@@ -71,7 +90,15 @@ export default function Home() {
           </video>
         </div>
 
-        <div className="absolute inset-0 z-30 flex flex-col items-center justify-between px-6 py-0" style={{ paddingTop: 'clamp(80px, 15vh, 120px)', paddingBottom: 'clamp(0px, 2vh, 80px)' }}>
+        <div
+          className="absolute inset-0 z-30 flex flex-col items-center justify-between px-6 py-0"
+          style={{
+            paddingTop: 'clamp(80px, 15vh, 120px)',
+            paddingBottom: 'clamp(0px, 2vh, 80px)',
+            opacity: heroReady ? 1 : 0,
+            transition: 'opacity 0.5s ease',
+          }}
+        >
           <div className="flex justify-center w-full -translate-y-[50px] md:-translate-y-[100px]">
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
@@ -96,7 +123,6 @@ export default function Home() {
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20start%20training.png"
                 alt="Start Training"
-                loading="lazy"
                 decoding="async"
                 className="w-full h-auto"
                 style={{ objectFit: 'contain', display: 'block', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}
