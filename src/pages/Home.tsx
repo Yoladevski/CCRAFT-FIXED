@@ -112,12 +112,12 @@ export default function Home() {
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h2.PNG"
               alt="Build Real Combat Skills Step By Step"
-              className="w-auto h-auto -translate-y-[200px] md:-translate-y-[50px] home-heading-glow"
+              className="w-auto h-auto -translate-y-[125px] md:-translate-y-[50px] home-heading-glow"
               style={{ maxWidth: 'clamp(260px, 72vw, 480px)', marginBottom: '16px' }}
             />
             <button
               onClick={() => navigate(user ? '/dashboard' : '/auth')}
-              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0 -translate-y-[200px] md:-translate-y-[150px]"
+              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0 -translate-y-[150px] md:-translate-y-[150px]"
               style={{ width: 'clamp(280px, 72vw, 440px)', maxWidth: '100%', filter: 'drop-shadow(0 0 12px rgba(177,18,38,0.9)) drop-shadow(0 0 24px rgba(177,18,38,0.5))' }}
             >
               <img
@@ -130,7 +130,7 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="flex justify-center w-full -translate-y-[200px] md:-translate-y-[150px]">
+          <div className="flex justify-center w-full -translate-y-[150px] md:-translate-y-[150px]">
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h3.PNG"
               alt="Start Free No Commitment Cancel Anytime"
