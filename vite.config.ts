@@ -1,9 +1,18 @@
-import { defineConfig } from 'vite';
+import { defineConfig, Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
+function lazyImagesPlugin(): Plugin {
+  return {
+    name: 'lazy-images',
+    transform(code, id) {
+      if (!id.endsWith('.tsx') && !id.endsWith('.jsx')) return null;
+      return code.replace(/<img\b(?![^>]*\bloading\s*=)/g, '<img loading="lazy"');
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), lazyImagesPlugin()],
   optimizeDeps: {
     exclude: ['lucide-react'],
   },

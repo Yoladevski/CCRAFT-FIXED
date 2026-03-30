@@ -76,7 +76,7 @@ export default function Home() {
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
               alt="Built by real coaches trusted by fighters powered by AI"
-              className="w-auto h-auto"
+              className="w-auto h-auto home-heading-glow"
               style={{ maxWidth: 'clamp(312px, 86vw, 576px)' }}
             />
           </div>
@@ -85,7 +85,7 @@ export default function Home() {
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h2.PNG"
               alt="Build Real Combat Skills Step By Step"
-              className="w-auto h-auto -translate-y-[50px]"
+              className="w-auto h-auto -translate-y-[50px] home-heading-glow"
               style={{ maxWidth: 'clamp(260px, 72vw, 480px)', marginBottom: '16px' }}
             />
             <button
@@ -108,7 +108,7 @@ export default function Home() {
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h3.PNG"
               alt="Start Free No Commitment Cancel Anytime"
-              className="w-auto h-auto"
+              className="w-auto h-auto home-heading-glow"
               style={{ maxWidth: 'clamp(220px, 65vw, 380px)' }}
             />
           </div>
