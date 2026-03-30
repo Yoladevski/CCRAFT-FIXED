@@ -12,7 +12,7 @@ export default {
         'text-secondary': '#A0A0A0',
       },
       fontFamily: {
-        heading: ['Beantown', 'sans-serif'],
+        heading: ['Orbitron', 'sans-serif'],
         subheading: ['Orbitron', 'sans-serif'],
         body: ['system-ui', '-apple-system', 'Arial', 'sans-serif'],
       },
