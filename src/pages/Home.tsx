@@ -97,6 +97,14 @@ export default function Home() {
               />
             </button>
           </div>
+          <div style={{ marginTop: '150px', display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <img
+              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h3.PNG"
+              alt=""
+              className="w-auto h-auto"
+              style={{ maxWidth: '90%' }}
+            />
+          </div>
         </div>
       </section>
 
