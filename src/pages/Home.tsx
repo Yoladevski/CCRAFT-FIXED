@@ -78,7 +78,7 @@ export default function Home() {
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
               alt="Built by real coaches trusted by fighters powered by AI"
               className="w-auto h-auto"
-              style={{ maxWidth: 'clamp(260px, 72vw, 480px)' }}
+              style={{ maxWidth: 'clamp(312px, 86vw, 576px)' }}
             />
           </div>
 
@@ -105,7 +105,7 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full md:-translate-y-[100px]">
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h3.PNG"
               alt="Start Free No Commitment Cancel Anytime"
