@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import LanguageSelector from './LanguageSelector';
 import UserMenuDropdown from './UserMenuDropdown';
 
 const Navigation = React.memo(function Navigation() {
@@ -112,7 +111,6 @@ const Navigation = React.memo(function Navigation() {
             </div>
 
             <div className="hidden lg:flex items-center justify-end gap-3">
-              <LanguageSelector />
               {user && <UserMenuDropdown />}
             </div>
 
@@ -148,9 +146,6 @@ const Navigation = React.memo(function Navigation() {
                     SIGN IN
                   </button>
                 )}
-                <div className="scale-110">
-                  <LanguageSelector compact />
-                </div>
               </div>
             </div>
           </div>
