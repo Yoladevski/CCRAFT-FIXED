@@ -72,15 +72,27 @@ export default function Home() {
           </video>
         </div>
 
-        <div className="hero-content-grid px-6">
-          <div className="hero-middle-button">
+        <div className="absolute inset-0 z-30 flex flex-col items-center justify-between px-6 py-0" style={{ paddingTop: 'clamp(80px, 15vh, 120px)', paddingBottom: 'clamp(40px, 8vh, 80px)' }}>
+          <div className="flex justify-center w-full">
+            <img
+              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h2.PNG"
+              alt="Build Real Combat Skills Step By Step"
+              className="w-auto h-auto"
+              style={{ maxWidth: 'clamp(260px, 72vw, 480px)' }}
+            />
+          </div>
+
+          <div className="flex flex-col items-center gap-0">
+            <img
+              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
+              alt="Built by real coaches trusted by fighters powered by AI"
+              className="w-auto h-auto"
+              style={{ maxWidth: 'clamp(260px, 72vw, 480px)', marginBottom: '16px' }}
+            />
             <button
               onClick={() => navigate(user ? '/dashboard' : '/auth')}
               className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
-              style={{
-                width: 'clamp(325px, 78vw, 520px)',
-                maxWidth: '100%',
-              }}
+              style={{ width: 'clamp(280px, 72vw, 440px)', maxWidth: '100%' }}
             >
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20start%20training.png"
@@ -88,21 +100,17 @@ export default function Home() {
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto"
-                style={{
-                  width: '100%',
-                  objectFit: 'contain',
-                  display: 'block',
-                  filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
-                }}
+                style={{ objectFit: 'contain', display: 'block', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}
               />
             </button>
           </div>
-          <div className="hero-h3-image" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+
+          <div className="flex justify-center w-full">
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h3.PNG"
-              alt=""
+              alt="Start Free No Commitment Cancel Anytime"
               className="w-auto h-auto"
-              style={{ maxWidth: '90%' }}
+              style={{ maxWidth: 'clamp(220px, 65vw, 380px)' }}
             />
           </div>
         </div>
