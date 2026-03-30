@@ -245,7 +245,7 @@ export default function FoundationLesson() {
   };
 
   useEffect(() => {
-    async function checkCompletion() {
+    async function loadLessonData() {
       if (!lessonId || !lesson) return;
 
       if (!user) {
@@ -254,6 +254,15 @@ export default function FoundationLesson() {
           return;
         }
         setAccessChecked(true);
+        if (lesson.techniqueId) {
+          const { data } = await supabase
+            .from('techniques')
+            .select('*')
+            .eq('id', lesson.techniqueId)
+            .maybeSingle();
+          if (data) setTechnique(data);
+        }
+        setLoadingTechnique(false);
         return;
       }
 
@@ -261,84 +270,62 @@ export default function FoundationLesson() {
         .find(l => l.level === lesson.level)
         ?.lessons.map(l => l.id) ?? [];
 
-      const { data } = await supabase
-        .from('foundations_progress')
-        .select('lesson_id')
-        .eq('user_id', user.id)
-        .eq('completed', true)
-        .in('lesson_id', levelLessonIds);
+      const prevLevelLessons = lesson.level > 1
+        ? BOXING_FOUNDATIONS_LEVELS.find(l => l.level === lesson.level - 1)?.lessons ?? []
+        : [];
 
-      if (data) {
-        const done = new Set(data.map(r => r.lesson_id));
+      const queries: Promise<unknown>[] = [
+        supabase.from('foundations_progress').select('lesson_id').eq('user_id', user.id).eq('completed', true).in('lesson_id', levelLessonIds),
+        supabase.from('profiles').select('full_name').eq('user_id', user.id).maybeSingle(),
+        lesson.techniqueId
+          ? supabase.from('techniques').select('*').eq('id', lesson.techniqueId).maybeSingle()
+          : Promise.resolve({ data: null }),
+      ];
+
+      if (prevLevelLessons.length > 0) {
+        queries.push(
+          supabase.from('foundations_progress').select('lesson_id').eq('user_id', user.id).eq('completed', true).in('lesson_id', prevLevelLessons.map(l => l.id))
+        );
+      }
+
+      const results = await Promise.all(queries) as [
+        { data: { lesson_id: string }[] | null },
+        { data: { full_name: string } | null },
+        { data: Technique | null },
+        { data: { lesson_id: string }[] | null }?,
+      ];
+
+      const [progressResult, profileResult, techniqueResult, prevProgressResult] = results;
+
+      if (progressResult.data) {
+        const done = new Set(progressResult.data.map(r => r.lesson_id));
         setCompletedInLevel(done);
         if (done.has(lessonId)) setAlreadyDone(true);
       }
 
-      if (lesson.level > 1) {
-        const prevLevelLessons = BOXING_FOUNDATIONS_LEVELS
-          .find(l => l.level === lesson.level - 1)
-          ?.lessons ?? [];
+      if (profileResult.data?.full_name) {
+        setUserName(profileResult.data.full_name);
+      }
 
-        if (prevLevelLessons.length > 0) {
-          const { data: prevData } = await supabase
-            .from('foundations_progress')
-            .select('lesson_id')
-            .eq('user_id', user.id)
-            .eq('completed', true)
-            .in('lesson_id', prevLevelLessons.map(l => l.id));
+      if (techniqueResult.data) {
+        setTechnique(techniqueResult.data);
+      }
+      setLoadingTechnique(false);
 
-          const prevDone = new Set((prevData ?? []).map(r => r.lesson_id));
-          const prevComplete = prevLevelLessons.every(l => prevDone.has(l.id));
-
-          if (!prevComplete) {
-            navigate(`/boxing/foundations/level/${lesson.level}`, { replace: true });
-            return;
-          }
+      if (prevProgressResult !== undefined && prevLevelLessons.length > 0) {
+        const prevDone = new Set((prevProgressResult.data ?? []).map(r => r.lesson_id));
+        const prevComplete = prevLevelLessons.every(l => prevDone.has(l.id));
+        if (!prevComplete) {
+          navigate(`/boxing/foundations/level/${lesson.level}`, { replace: true });
+          return;
         }
       }
 
       setAccessChecked(true);
     }
-    checkCompletion();
+
+    loadLessonData();
   }, [user, lessonId, lesson, navigate]);
-
-  useEffect(() => {
-    async function fetchUserName() {
-      if (!user) return;
-      const { data } = await supabase
-        .from('profiles')
-        .select('full_name')
-        .eq('user_id', user.id)
-        .maybeSingle();
-
-      if (data?.full_name) {
-        setUserName(data.full_name);
-      }
-    }
-    fetchUserName();
-  }, [user]);
-
-  useEffect(() => {
-    async function loadTechnique() {
-      if (!lesson?.techniqueId) {
-        setLoadingTechnique(false);
-        return;
-      }
-
-      const { data } = await supabase
-        .from('techniques')
-        .select('*')
-        .eq('id', lesson.techniqueId)
-        .maybeSingle();
-
-      if (data) {
-        setTechnique(data);
-      }
-      setLoadingTechnique(false);
-    }
-
-    loadTechnique();
-  }, [lesson?.techniqueId]);
 
   const toggleSection = (section: keyof typeof openSections) => {
     const wasOpen = openSections[section];

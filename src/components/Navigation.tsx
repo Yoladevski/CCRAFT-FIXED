@@ -183,24 +183,8 @@ const Navigation = React.memo(function Navigation() {
         <div className="flex flex-col p-6 space-y-2">
           <button
             onClick={() => handleNavigate('/')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              isHome
-                ? 'bg-[#B11226] text-white'
-                : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-            }`}
-            style={{
-              fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
-            }}
-            onMouseEnter={(e) => {
-              if (!isHome) e.currentTarget.style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              if (!isHome) e.currentTarget.style.color = '#A0A0A0';
-            }}
+            className={`nav-mobile-item text-left text-xl py-4 px-4 rounded transition-all ${isHome ? 'active bg-[#B11226]' : 'hover:bg-[#2E2E2E]'}`}
+            style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}
           >
             HOME
           </button>
@@ -208,23 +192,8 @@ const Navigation = React.memo(function Navigation() {
           {user && (
             <button
               onClick={() => handleNavigate('/dashboard')}
-              className={`text-left text-xl py-4 px-4 rounded transition-all ${
-                isDashboard
-                  ? 'bg-[#B11226] text-white'
-                  : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-              }`}
-              style={{
-                fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em'
-              }}
-              onMouseEnter={(e) => {
-                if (!isDashboard) e.currentTarget.style.color = 'white';
-              }}
-              onMouseLeave={(e) => {
-                if (!isDashboard) e.currentTarget.style.color = '#A0A0A0';
-              }}
+              className={`nav-mobile-item text-left text-xl py-4 px-4 rounded transition-all ${isDashboard ? 'active bg-[#B11226]' : 'hover:bg-[#2E2E2E]'}`}
+              style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
             >
               DASHBOARD
             </button>
@@ -232,72 +201,24 @@ const Navigation = React.memo(function Navigation() {
 
           <button
             onClick={() => handleNavigate('/disciplines')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              isDisciplines
-                ? 'bg-[#B11226] text-white'
-                : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-            }`}
-            style={{
-              fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
-            }}
-            onMouseEnter={(e) => {
-              if (!isDisciplines) e.currentTarget.style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              if (!isDisciplines) e.currentTarget.style.color = '#A0A0A0';
-            }}
+            className={`nav-mobile-item text-left text-xl py-4 px-4 rounded transition-all ${isDisciplines ? 'active bg-[#B11226]' : 'hover:bg-[#2E2E2E]'}`}
+            style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}
           >
             DISCIPLINES
           </button>
 
           <button
             onClick={() => handleNavigate('/news')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              isNews
-                ? 'bg-[#B11226] text-white'
-                : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-            }`}
-            style={{
-              fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
-            }}
-            onMouseEnter={(e) => {
-              if (!isNews) e.currentTarget.style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              if (!isNews) e.currentTarget.style.color = '#A0A0A0';
-            }}
+            className={`nav-mobile-item text-left text-xl py-4 px-4 rounded transition-all ${isNews ? 'active bg-[#B11226]' : 'hover:bg-[#2E2E2E]'}`}
+            style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}
           >
             NEWS
           </button>
 
           <button
             onClick={() => handleNavigate('/merchandise')}
-            className={`text-left text-xl py-4 px-4 rounded transition-all ${
-              isMerchandise
-                ? 'bg-[#B11226] text-white'
-                : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-            }`}
-            style={{
-              fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
-            }}
-            onMouseEnter={(e) => {
-              if (!isMerchandise) e.currentTarget.style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              if (!isMerchandise) e.currentTarget.style.color = '#A0A0A0';
-            }}
+            className={`nav-mobile-item text-left text-xl py-4 px-4 rounded transition-all ${isMerchandise ? 'active bg-[#B11226]' : 'hover:bg-[#2E2E2E]'}`}
+            style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}
           >
             MERCHANDISE
           </button>
@@ -305,37 +226,16 @@ const Navigation = React.memo(function Navigation() {
           {user ? (
             <button
               onClick={() => handleNavigate('/account')}
-              className={`text-left text-xl py-4 px-4 rounded transition-all ${
-                isAccount
-                  ? 'bg-[#B11226] text-white'
-                  : 'text-[#A0A0A0] hover:bg-[#2E2E2E]'
-              }`}
-              style={{
-                fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em'
-              }}
-              onMouseEnter={(e) => {
-                if (!isAccount) e.currentTarget.style.color = 'white';
-              }}
-              onMouseLeave={(e) => {
-                if (!isAccount) e.currentTarget.style.color = '#A0A0A0';
-              }}
+              className={`nav-mobile-item text-left text-xl py-4 px-4 rounded transition-all ${isAccount ? 'active bg-[#B11226]' : 'hover:bg-[#2E2E2E]'}`}
+              style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
             >
               MY ACCOUNT
             </button>
           ) : (
             <button
               onClick={() => handleNavigate('/signin')}
-              className="w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all"
-              style={{
-                fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-                textShadow: '0 0 6px rgba(255, 0, 0, 0.6)',
-              }}
+              className="w-full text-center text-xl py-4 px-4 rounded bg-[#B11226] hover:bg-[#8B0E1C] transition-all text-white"
+              style={{ fontFamily: 'system-ui, -apple-system, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', textShadow: '0 0 6px rgba(255, 0, 0, 0.6)' }}
             >
               SIGN IN
             </button>

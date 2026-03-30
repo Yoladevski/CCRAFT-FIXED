@@ -255,8 +255,6 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
 
   if (phase === 'complete') {
     return (
-      <>
-        <style>{keyframes}</style>
         <div style={{ ...shell, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 24px' }}>
           <div style={{ textAlign: 'center', width: '100%', maxWidth: '320px' }}>
             <p style={{
@@ -295,14 +293,11 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
             </div>
           </div>
         </div>
-      </>
     );
   }
 
   if (phase === 'getReady') {
     return (
-      <>
-        <style>{keyframes}</style>
         <div style={shell}>
           <div style={{
             position: 'absolute',
@@ -504,7 +499,6 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
             </div>
           </div>
         </div>
-      </>
     );
   }
 
@@ -543,8 +537,6 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
     : 'drop-shadow(0 0 10px rgba(177,18,38,0.8)) drop-shadow(0 0 20px rgba(177,18,38,0.3))';
 
   return (
-    <>
-      <style>{keyframes}</style>
       <div style={shell}>
         <TransitionOverlay visible={overlay.visible} label={overlay.label} sublabel={overlay.sublabel} />
 
@@ -754,22 +746,26 @@ export default function WorkoutMode({ session, onExit, skipGetReadyCue = false }
           </div>
         </div>
       </div>
-    </>
   );
 }
 
-const keyframes = `
-  @keyframes timerPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.025); }
-  }
-  @keyframes dotPulse {
-    0%, 100% { box-shadow: 0 0 6px rgba(177,18,38,0.7); }
-    50% { box-shadow: 0 0 12px rgba(177,18,38,1), 0 0 24px rgba(177,18,38,0.5); }
-  }
-  @keyframes overlayFlash {
-    0% { opacity: 0; transform: scale(0.92); }
-    40% { opacity: 1; transform: scale(1.04); }
-    100% { opacity: 1; transform: scale(1); }
-  }
-`;
+const _styleEl = (() => {
+  const el = document.createElement('style');
+  el.textContent = `
+    @keyframes timerPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.025); }
+    }
+    @keyframes dotPulse {
+      0%, 100% { box-shadow: 0 0 6px rgba(177,18,38,0.7); }
+      50% { box-shadow: 0 0 12px rgba(177,18,38,1), 0 0 24px rgba(177,18,38,0.5); }
+    }
+    @keyframes overlayFlash {
+      0% { opacity: 0; transform: scale(0.92); }
+      40% { opacity: 1; transform: scale(1.04); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  `;
+  document.head.appendChild(el);
+  return el;
+})();

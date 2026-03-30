@@ -562,6 +562,19 @@ nav a {
   }
 }
 
+.nav-mobile-item {
+  color: #A0A0A0;
+  transition: color 0.2s ease;
+}
+
+.nav-mobile-item:hover {
+  color: #ffffff;
+}
+
+.nav-mobile-item.active {
+  color: #ffffff;
+}
+
 @media (max-width: 639px) {
   .continue-btn-mobile {
     transform: scale(0.9);
