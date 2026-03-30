@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import LanguageSelector from './LanguageSelector';
+import UserMenuDropdown from './UserMenuDropdown';
 
 const Navigation = React.memo(function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -110,8 +111,9 @@ const Navigation = React.memo(function Navigation() {
               )}
             </div>
 
-            <div className="hidden lg:flex items-center justify-end">
+            <div className="hidden lg:flex items-center justify-end gap-3">
               <LanguageSelector />
+              {user && <UserMenuDropdown />}
             </div>
 
             <div className="lg:hidden grid grid-cols-[auto_1fr_auto] items-center w-full">
@@ -134,8 +136,10 @@ const Navigation = React.memo(function Navigation() {
                 </button>
               </div>
 
-              <div className="flex items-center justify-end gap-2">
-                {!user && (
+              <div className="flex items-center justify-end gap-2 pr-1">
+                {user ? (
+                  <UserMenuDropdown onNavigate={() => setIsMobileMenuOpen(false)} />
+                ) : (
                   <button
                     onClick={() => handleNavigate('/signin')}
                     className="px-3 py-1.5 bg-[#B11226] hover:bg-[#8B0E1C] transition-all text-white text-[10px] font-bold whitespace-nowrap"

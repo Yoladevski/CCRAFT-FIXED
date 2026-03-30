@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { LogOut, User, Camera, Eye, EyeOff, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
@@ -8,9 +8,13 @@ import BackButton from '../components/BackButton';
 
 export default function Account() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, signOut } = useAuth();
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<'profile' | 'security' | 'settings'>('profile');
+  const locationTab = (location.state as { tab?: string } | null)?.tab;
+  const [activeTab, setActiveTab] = useState<'profile' | 'security' | 'settings'>(
+    locationTab === 'settings' || locationTab === 'security' ? locationTab : 'profile'
+  );
 
   const [fullName, setFullName] = useState('');
   const [weight, setWeight] = useState('');
