@@ -510,9 +510,16 @@ nav a {
   }
 
   .hero-taglines,
-  .hero-middle-button,
   .hero-bottom-text {
     transform: translateY(200px);
+  }
+
+  .hero-middle-button {
+    transform: translateY(500px);
+  }
+
+  .hero-h3-image {
+    transform: translateY(500px);
   }
 
   .hero-taglines .outlined-text,
