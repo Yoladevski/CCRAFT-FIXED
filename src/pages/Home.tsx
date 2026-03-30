@@ -8,41 +8,41 @@ export default function Home() {
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const [heroReady, setHeroReady] = useState(false);
+  const heroReadyRef = useRef(false);
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const markReady = () => {
+    if (heroReadyRef.current) return;
+    heroReadyRef.current = true;
+    setHeroReady(true);
+  };
 
   useEffect(() => {
-    const targetVideo = isMobile ? mobileVideoRef.current : desktopVideoRef.current;
-    if (!targetVideo) return;
+    const fallback = setTimeout(markReady, 3000);
 
-    const handleCanPlay = () => {
-      setHeroReady(true);
-      targetVideo.play().catch(() => {});
+    const setupVideo = (video: HTMLVideoElement | null) => {
+      if (!video) return;
+      const handler = () => {
+        markReady();
+        video.play().catch(() => {});
+      };
+      if (video.readyState >= 3) {
+        handler();
+      } else {
+        video.addEventListener('canplay', handler, { once: true });
+      }
+      video.load();
+      return () => video.removeEventListener('canplay', handler);
     };
 
-    if (targetVideo.readyState >= 3) {
-      handleCanPlay();
-    } else {
-      targetVideo.addEventListener('canplay', handleCanPlay, { once: true });
-    }
-
-    targetVideo.load();
-
-    const fallback = setTimeout(() => setHeroReady(true), 3000);
+    const cleanupDesktop = setupVideo(desktopVideoRef.current);
+    const cleanupMobile = setupVideo(mobileVideoRef.current);
 
     return () => {
-      targetVideo.removeEventListener('canplay', handleCanPlay);
       clearTimeout(fallback);
+      cleanupDesktop?.();
+      cleanupMobile?.();
     };
-  }, [isMobile]);
-
-  useEffect(() => {
-    const otherVideo = isMobile ? desktopVideoRef.current : mobileVideoRef.current;
-    if (otherVideo) {
-      otherVideo.load();
-      otherVideo.play().catch(() => {});
-    }
-  }, [isMobile]);
+  }, []);
 
   return (
     <div>
@@ -117,7 +117,7 @@ export default function Home() {
             />
             <button
               onClick={() => navigate(user ? '/dashboard' : '/auth')}
-              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0 -translate-y-[150px]"
+              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0 -translate-y-[50px] md:-translate-y-[150px]"
               style={{ width: 'clamp(280px, 72vw, 440px)', maxWidth: '100%', filter: 'drop-shadow(0 0 12px rgba(177,18,38,0.9)) drop-shadow(0 0 24px rgba(177,18,38,0.5))' }}
             >
               <img
