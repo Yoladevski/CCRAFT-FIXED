@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { OutlinedText } from '../components/OutlinedText';
 import { BGPattern } from '../components/ui/bg-pattern';
 
 export default function Home() {
@@ -73,32 +74,91 @@ export default function Home() {
         </div>
 
         <div className="hero-content-grid px-6">
-          <div className="hero-top-text animate-fade-in" style={{ width: '100%' }}>
-            <img
-              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
-              alt="Build Real Combat Skills Step By Step"
+          <div
+            className="hero-top-text animate-fade-in"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.5rem',
+              width: '100%',
+            }}
+          >
+            <OutlinedText
+              className="hero-main-heading"
+              strokeWidth={3}
               style={{
-                width: 'clamp(280px, 80vw, 560px)',
-                maxWidth: '100%',
-                height: 'auto',
-                display: 'block',
-                objectFit: 'contain',
+                fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
+                fontFamily: 'Beantown, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
+                letterSpacing: '0.15em',
               }}
-            />
+            >
+              BUILD REAL COMBAT
+            </OutlinedText>
+            <OutlinedText
+              className="hero-main-heading"
+              strokeWidth={3}
+              style={{
+                fontSize: 'clamp(1.3rem, 4.5vw, 2.7rem)',
+                fontFamily: 'Beantown, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1.6rem, 5.2vw, 3.2rem)',
+                letterSpacing: '0.15em',
+              }}
+            >
+              SKILLS STEP BY STEP
+            </OutlinedText>
           </div>
 
-          <div className="hero-taglines" style={{ width: '100%' }}>
-            <img
-              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h2.PNG"
-              alt="Built By Real Coaches. Trusted By Fighters. Powered By AI."
+          <div
+            className="hero-taglines"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.3rem',
+              width: '100%',
+            }}
+          >
+            <OutlinedText
+              strokeWidth={3}
+              redOutline
               style={{
-                width: 'clamp(220px, 65vw, 460px)',
-                maxWidth: '100%',
-                height: 'auto',
-                display: 'block',
-                objectFit: 'contain',
+                fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1.1rem, 3.6vw, 2rem)',
+                letterSpacing: '0.2em',
               }}
-            />
+            >
+              BUILT BY REAL COACHES
+            </OutlinedText>
+            <OutlinedText
+              strokeWidth={3}
+              redOutline
+              style={{
+                fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1.1rem, 3.6vw, 2rem)',
+                letterSpacing: '0.2em',
+              }}
+            >
+              TRUSTED BY FIGHTERS
+            </OutlinedText>
+            <OutlinedText
+              strokeWidth={3}
+              redOutline
+              style={{
+                fontSize: 'clamp(0.85rem, 3vw, 1.6rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1.1rem, 3.6vw, 2rem)',
+                letterSpacing: '0.2em',
+              }}
+            >
+              POWERED BY AI
+            </OutlinedText>
           </div>
 
           <div className="hero-middle-button">
@@ -126,18 +186,57 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="hero-bottom-text" style={{ width: '100%' }}>
-            <img
-              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h3.PNG"
-              alt="Start Free. No Commitment. Cancel Anytime."
+          <div
+            className="hero-bottom-text"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.4rem',
+              width: '100%',
+            }}
+          >
+            <OutlinedText
+              strokeWidth={0}
+              glowColor="rgba(255,0,0,0.35)"
+              glowStdDeviation={2}
               style={{
-                width: 'clamp(180px, 55vw, 380px)',
-                maxWidth: '100%',
-                height: 'auto',
-                display: 'block',
-                objectFit: 'contain',
+                fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1rem, 3.2vw, 1.9rem)',
+                letterSpacing: '0.2em',
               }}
-            />
+            >
+              START FREE
+            </OutlinedText>
+            <OutlinedText
+              strokeWidth={0}
+              glowColor="rgba(255,0,0,0.35)"
+              glowStdDeviation={2}
+              style={{
+                fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1rem, 3.2vw, 1.9rem)',
+                letterSpacing: '0.2em',
+              }}
+            >
+              NO COMMITMENT
+            </OutlinedText>
+            <OutlinedText
+              strokeWidth={0}
+              glowColor="rgba(255,0,0,0.35)"
+              glowStdDeviation={2}
+              style={{
+                fontSize: 'clamp(0.75rem, 2.6vw, 1.5rem)',
+                fontFamily: 'Orbitron, sans-serif',
+                fontWeight: 900,
+                height: 'clamp(1rem, 3.2vw, 1.9rem)',
+                letterSpacing: '0.2em',
+              }}
+            >
+              CANCEL ANYTIME
+            </OutlinedText>
           </div>
         </div>
       </section>
