@@ -467,7 +467,7 @@ export default function BoxingFoundations() {
               <h2 className="cc-outline-text text-xl sm:text-2xl font-bold">
                 LEVEL {activeData.level}
               </h2>
-              <p className="text-[#A0A0A0] text-sm mt-0.5">{activeData.title}</p>
+              <p className="text-[#A0A0A0] text-sm mt-0.5" style={{ fontFamily: 'Orbitron, sans-serif', letterSpacing: '0.05em' }}>{activeData.title}</p>
             </div>
             {!unlocked && (
               <div className="flex items-center gap-2 text-[#A0A0A0]">

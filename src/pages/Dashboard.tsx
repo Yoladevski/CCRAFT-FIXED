@@ -215,7 +215,7 @@ export default function Dashboard() {
           <h2
             className="mb-2 hidden sm:block"
             style={{
-              fontFamily: 'Beantown, sans-serif',
+              fontFamily: 'Orbitron, sans-serif',
               fontWeight: 900,
               color: '#FFFFFF',
               textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 2px 2px 0 #cc0000, -2px 2px 0 #cc0000, 2px -2px 0 #cc0000, -2px -2px 0 #cc0000',
@@ -226,7 +226,7 @@ export default function Dashboard() {
           <div className="sm:hidden mb-2">
             <h2
               style={{
-                fontFamily: 'Beantown, sans-serif',
+                fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 fontSize: '0.935rem',
                 color: '#FFFFFF',
@@ -238,7 +238,7 @@ export default function Dashboard() {
             </h2>
             <h2
               style={{
-                fontFamily: 'Beantown, sans-serif',
+                fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 fontSize: '0.935rem',
                 color: '#FFFFFF',
