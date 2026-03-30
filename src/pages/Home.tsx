@@ -75,8 +75,8 @@ export default function Home() {
         <div className="absolute inset-0 z-30 flex flex-col items-center justify-between px-6 py-0" style={{ paddingTop: 'clamp(80px, 15vh, 120px)', paddingBottom: 'clamp(40px, 8vh, 80px)' }}>
           <div className="flex justify-center w-full">
             <img
-              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h2.PNG"
-              alt="Build Real Combat Skills Step By Step"
+              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
+              alt="Built by real coaches trusted by fighters powered by AI"
               className="w-auto h-auto"
               style={{ maxWidth: 'clamp(260px, 72vw, 480px)' }}
             />
@@ -84,8 +84,8 @@ export default function Home() {
 
           <div className="flex flex-col items-center gap-0">
             <img
-              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
-              alt="Built by real coaches trusted by fighters powered by AI"
+              src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h2.PNG"
+              alt="Build Real Combat Skills Step By Step"
               className="w-auto h-auto"
               style={{ maxWidth: 'clamp(260px, 72vw, 480px)', marginBottom: '16px' }}
             />
