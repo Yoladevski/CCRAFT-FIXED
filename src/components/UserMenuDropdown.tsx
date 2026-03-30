@@ -55,18 +55,44 @@ export default function UserMenuDropdown({ onNavigate }: UserMenuDropdownProps) 
   const [selectedLanguage, setSelectedLanguage] = useState(() => localStorage.getItem('preferredLanguage') || 'en');
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const fetchProfile = useCallback(async () => {
     if (!user) return;
-    supabase
+    const { data } = await supabase
       .from('profiles')
       .select('profile_picture_url, full_name')
       .eq('user_id', user.id)
-      .maybeSingle()
-      .then(({ data }) => {
-        if (data?.profile_picture_url) setProfilePicture(data.profile_picture_url);
-        if (data?.full_name) setFullName(data.full_name);
-      });
+      .maybeSingle();
+    if (data?.profile_picture_url) {
+      try {
+        const url = new URL(data.profile_picture_url);
+        url.searchParams.set('t', Date.now().toString());
+        setProfilePicture(url.toString());
+      } catch {
+        setProfilePicture(data.profile_picture_url);
+      }
+    }
+    if (data?.full_name) setFullName(data.full_name);
   }, [user]);
+
+  useEffect(() => {
+    fetchProfile();
+  }, [fetchProfile]);
+
+  useEffect(() => {
+    if (!user) return;
+    const channel = supabase
+      .channel(`profile-${user.id}`)
+      .on('postgres_changes', {
+        event: 'UPDATE',
+        schema: 'public',
+        table: 'profiles',
+        filter: `user_id=eq.${user.id}`,
+      }, () => {
+        fetchProfile();
+      })
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [user, fetchProfile]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
