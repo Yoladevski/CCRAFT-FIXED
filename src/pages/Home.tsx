@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 export default function Home() {
   const { user } = useAuth();
@@ -26,7 +25,6 @@ export default function Home() {
     <div>
       <section className="relative w-full overflow-hidden -mt-20" style={{ height: '100vh', minHeight: '640px' }}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0E0E0E] z-10" />
-        <BGPattern variant="grid" fill="#2a2a2a" opacity={0.55} size={20} mask="none" className="z-20" />
 
         <div className="absolute inset-0 overflow-hidden">
           <video
