@@ -34,7 +34,7 @@ const Navigation = React.memo(function Navigation() {
                 onClick={() => handleNavigate('/')}
                 className="hover:opacity-80 transition-opacity"
               >
-                <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px]" />
+                <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-[62px] w-auto max-w-[365px]" />
               </button>
             </div>
 
@@ -132,7 +132,7 @@ const Navigation = React.memo(function Navigation() {
                   onClick={() => handleNavigate('/')}
                   className="hover:opacity-80 transition-opacity"
                 >
-                  <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-11 w-auto max-w-[143px]" />
+                  <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-[57px] w-auto max-w-[186px]" />
                 </button>
               </div>
 
@@ -174,7 +174,7 @@ const Navigation = React.memo(function Navigation() {
             onClick={() => handleNavigate('/')}
             className="hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-12 w-auto max-w-[280px] object-contain" />
+            <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" className="h-[62px] w-auto max-w-[365px] object-contain" />
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(false)}

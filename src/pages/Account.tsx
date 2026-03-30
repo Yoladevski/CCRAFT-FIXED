@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { LogOut, User, Camera, Eye, EyeOff, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { LogOut, User, Camera, Eye, EyeOff, Trash2, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import BackButton from '../components/BackButton';
@@ -39,7 +39,47 @@ export default function Account() {
   const [message, setMessage] = useState('');
   const [isFirstTimeSetup, setIsFirstTimeSetup] = useState(false);
 
+  const [selectedLanguage, setSelectedLanguage] = useState(() => localStorage.getItem('preferredLanguage') || 'en');
+
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const languages = [
+    { code: 'en', name: 'English' },
+    { code: 'es', name: 'Español' },
+    { code: 'fr', name: 'Français' },
+    { code: 'de', name: 'Deutsch' },
+    { code: 'it', name: 'Italiano' },
+    { code: 'pt', name: 'Português' },
+    { code: 'ru', name: 'Русский' },
+    { code: 'ja', name: '日本語' },
+    { code: 'ko', name: '한국어' },
+    { code: 'zh-CN', name: '中文 (简体)' },
+    { code: 'zh-TW', name: '中文 (繁體)' },
+    { code: 'ar', name: 'العربية' },
+    { code: 'hi', name: 'हिन्दी' },
+    { code: 'th', name: 'ไทย' },
+    { code: 'vi', name: 'Tiếng Việt' },
+    { code: 'id', name: 'Bahasa Indonesia' },
+    { code: 'tr', name: 'Türkçe' },
+    { code: 'pl', name: 'Polski' },
+    { code: 'nl', name: 'Nederlands' },
+    { code: 'sv', name: 'Svenska' },
+  ];
+
+  const handleLanguageChange = (langCode: string) => {
+    setSelectedLanguage(langCode);
+    localStorage.setItem('preferredLanguage', langCode);
+    if (langCode === 'en') {
+      window.location.hash = '';
+      window.location.reload();
+    } else {
+      const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (selectElement) {
+        selectElement.value = langCode;
+        selectElement.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    }
+  };
 
   useEffect(() => {
     async function loadProfile() {
@@ -775,6 +815,30 @@ export default function Account() {
 
             {activeTab === 'settings' && (
               <div className="space-y-4 sm:space-y-6">
+                <div className="border border-[#2E2E2E] rounded-lg p-4 sm:p-6">
+                  <h2 className="cc-outline-text text-base sm:text-lg font-bold mb-4 flex items-center gap-2">
+                    <Globe size={18} className="text-[#B11226]" />
+                    LANGUAGE
+                  </h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    {languages.map(lang => (
+                      <button
+                        key={lang.code}
+                        onClick={() => handleLanguageChange(lang.code)}
+                        className="px-3 py-2 rounded text-xs font-medium transition-all text-left truncate"
+                        style={{
+                          fontFamily: 'system-ui, -apple-system, Arial, sans-serif',
+                          background: selectedLanguage === lang.code ? '#B11226' : '#1a1a1a',
+                          color: selectedLanguage === lang.code ? '#fff' : '#888',
+                          border: selectedLanguage === lang.code ? '1px solid #B11226' : '1px solid #2E2E2E',
+                        }}
+                      >
+                        {lang.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 <div className="border border-[#B11226] rounded-lg p-4 sm:p-6 text-center" style={{ boxShadow: '0 0 10px rgba(177,18,38,0.25)' }}>
                   <h2 className="cc-outline-text text-base sm:text-lg font-bold mb-4 text-center">SIGN OUT</h2>
                   <button
