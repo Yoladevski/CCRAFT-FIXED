@@ -72,7 +72,7 @@ export default function Home() {
           </video>
         </div>
 
-        <div className="absolute inset-0 z-30 flex flex-col items-center justify-between px-6 py-0" style={{ paddingTop: 'clamp(80px, 15vh, 120px)', paddingBottom: 'clamp(40px, 8vh, 80px)' }}>
+        <div className="absolute inset-0 z-30 flex flex-col items-center justify-between px-6 py-0" style={{ paddingTop: 'clamp(80px, 15vh, 120px)', paddingBottom: 'clamp(0px, 2vh, 80px)' }}>
           <div className="flex justify-center w-full -translate-y-[50px] md:-translate-y-[100px]">
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
@@ -116,7 +116,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-4 bg-[#0E0E0E] relative">
+      <section className="pt-4 pb-16 sm:py-24 px-4 bg-[#0E0E0E] relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:grid md:grid-cols-4 gap-6 sm:gap-8 mt-[10px] items-stretch">
             <button
