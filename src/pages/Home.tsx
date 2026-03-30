@@ -73,7 +73,7 @@ export default function Home() {
         </div>
 
         <div className="absolute inset-0 z-30 flex flex-col items-center justify-between px-6 py-0" style={{ paddingTop: 'clamp(80px, 15vh, 120px)', paddingBottom: 'clamp(40px, 8vh, 80px)' }}>
-          <div className="flex justify-center w-full -translate-y-[100px]">
+          <div className="flex justify-center w-full -translate-y-[50px] md:-translate-y-[100px]">
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
               alt="Built by real coaches trusted by fighters powered by AI"
@@ -86,12 +86,12 @@ export default function Home() {
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h2.PNG"
               alt="Build Real Combat Skills Step By Step"
-              className="w-auto h-auto"
+              className="w-auto h-auto -translate-y-[50px]"
               style={{ maxWidth: 'clamp(260px, 72vw, 480px)', marginBottom: '16px' }}
             />
             <button
               onClick={() => navigate(user ? '/dashboard' : '/auth')}
-              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0"
+              className="transition-all transform hover:scale-105 cursor-pointer bg-transparent border-0 p-0 -translate-y-[50px]"
               style={{ width: 'clamp(280px, 72vw, 440px)', maxWidth: '100%' }}
             >
               <img
@@ -105,7 +105,7 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="flex justify-center w-full md:-translate-y-[100px]">
+          <div className="flex justify-center w-full -translate-y-[50px] md:-translate-y-[150px]">
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h3.PNG"
               alt="Start Free No Commitment Cancel Anytime"
