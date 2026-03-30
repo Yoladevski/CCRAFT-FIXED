@@ -1,6 +1,6 @@
 .cc-hero-heading {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
+  font-family: 'OrbitronBold', 'Orbitron', sans-serif;
+  font-weight: 700;
   font-size: clamp(28px, 5vw, 56px);
   line-height: 1.1;
   letter-spacing: 0.06em;
@@ -31,8 +31,8 @@
 }
 
 .cc-primary-title {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
+  font-family: 'OrbitronBold', 'Orbitron', sans-serif;
+  font-weight: 700;
   font-size: clamp(28px, 5vw, 56px);
   line-height: 1.2;
   letter-spacing: 0.06em;
@@ -178,8 +178,8 @@
 }
 
 .display-text {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
+  font-family: 'OrbitronBold', 'Orbitron', sans-serif;
+  font-weight: 700;
   font-size: clamp(28px, 5vw, 56px);
   line-height: 1.2;
   letter-spacing: 0.06em;

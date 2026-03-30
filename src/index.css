@@ -15,6 +15,14 @@ html, body, #root {
 }
 
 @font-face {
+  font-family: 'OrbitronBold';
+  src: url('/src/assets/fonts/Orbitron-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
   font-family: 'Beantown';
   src: url('/src/assets/fonts/Beantown.ttf') format('truetype');
   font-weight: 400 900;
@@ -23,9 +31,14 @@ html, body, #root {
 }
 
 :root {
-  --font-h1: 'Orbitron', sans-serif;
+  --font-h1: 'OrbitronBold', 'Orbitron', sans-serif;
   --font-h2: 'Orbitron', sans-serif;
   --font-body: system-ui, -apple-system, Arial, sans-serif;
+}
+
+h1 {
+  font-family: 'OrbitronBold', 'Orbitron', sans-serif;
+  font-weight: 700;
 }
 
 [data-theme="dark"] {
