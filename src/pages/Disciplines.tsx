@@ -65,7 +65,8 @@ export default function Disciplines() {
         <h1
           className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 sm:cc-red-shadow-text"
           style={{
-            fontFamily: 'Beantown, sans-serif',
+            fontFamily: "'OrbitronBold', 'Orbitron', sans-serif",
+            fontWeight: 700,
             color: '#FFFFFF',
             textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
             WebkitFontSmoothing: 'antialiased',

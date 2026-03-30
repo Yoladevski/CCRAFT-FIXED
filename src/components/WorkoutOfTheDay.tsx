@@ -82,7 +82,8 @@ export default function WorkoutOfTheDay() {
           <h1
             className="tracking-[0.2em] font-bold text-white uppercase text-center sm:text-[10px] sm:text-[#B11226]"
             style={{
-              fontFamily: 'Beantown, sans-serif',
+              fontFamily: "'OrbitronBold', 'Orbitron', sans-serif",
+              fontWeight: 700,
               fontSize: 'clamp(0.72rem, 3.5vw, 0.72rem)',
               color: '#FFFFFF',
               textShadow: '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',

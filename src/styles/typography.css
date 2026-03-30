@@ -58,8 +58,8 @@
 }
 
 .cc-section-heading {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
+  font-family: 'OrbitronBold', 'Orbitron', sans-serif;
+  font-weight: 700;
   font-size: clamp(16px, 2.5vw, 26px);
   line-height: 1.2;
   letter-spacing: 0.06em;
@@ -124,8 +124,8 @@
 }
 
 .cc-outline-text {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
+  font-family: 'OrbitronBold', 'Orbitron', sans-serif;
+  font-weight: 700;
   letter-spacing: 0.12em;
   color: #EDEDED;
   word-break: break-word;
@@ -138,8 +138,8 @@
 }
 
 .cc-red-shadow-text {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
+  font-family: 'OrbitronBold', 'Orbitron', sans-serif;
+  font-weight: 700;
   letter-spacing: 0.12em;
   color: #B11226;
   word-break: break-word;
@@ -161,8 +161,8 @@
 }
 
 .heading-text {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
+  font-family: 'OrbitronBold', 'Orbitron', sans-serif;
+  font-weight: 700;
   font-size: clamp(16px, 2.5vw, 26px);
   line-height: 1.2;
   letter-spacing: 0.06em;
