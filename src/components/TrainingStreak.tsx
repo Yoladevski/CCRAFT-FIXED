@@ -1,5 +1,4 @@
 import { useStreakContext } from '../contexts/StreakContext';
-import { BGPattern } from './ui/bg-pattern';
 
 export default function TrainingStreak() {
   const { currentStreak, trainedToday, justIncreased, loading } = useStreakContext();
@@ -24,7 +23,6 @@ export default function TrainingStreak() {
         isolation: 'isolate',
       }}
     >
-      <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
       <div className="relative z-10 flex flex-col gap-3 items-center text-center">
         {/* Title - no flame emoji, larger on mobile */}
         <h3

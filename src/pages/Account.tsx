@@ -4,7 +4,6 @@ import { LogOut, User, Camera, Eye, EyeOff, Trash2, ChevronLeft, ChevronRight } 
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import BackButton from '../components/BackButton';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 
 export default function Account() {
@@ -340,7 +339,6 @@ export default function Account() {
             isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
           <div className="relative z-10">
           {/* Mobile Tab Navigation with Arrows */}
           <div className="flex sm:hidden border-b border-[#B11226] items-center" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.4)' }}>

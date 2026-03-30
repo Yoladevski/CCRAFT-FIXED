@@ -5,8 +5,6 @@ import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { useStreakContext } from '../contexts/StreakContext';
-import { BGPattern } from './ui/bg-pattern';
-
 function getTodayWorkout() {
   const epoch = new Date('2024-01-01').getTime();
   const today = new Date();
@@ -78,7 +76,6 @@ export default function WorkoutOfTheDay() {
         isolation: 'isolate',
       }}
     >
-      <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
       <div className="relative z-10 flex flex-col gap-4">
         {/* Header - mobile: larger, no flame emoji */}
         <div className="flex items-center justify-center">

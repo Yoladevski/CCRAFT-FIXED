@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 export default function Vision() {
   const navigate = useNavigate();
@@ -30,7 +29,6 @@ export default function Vision() {
           </section>
 
           <div className="bg-[#1A1A1A] border-l-4 border-[#B11226] p-8 mt-8 relative overflow-hidden">
-            <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
             <p className="text-white font-bold text-xl text-center">
               COMBATCRAFT is built around progression, not shortcuts.
             </p>

@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 export default function Home() {
   const { user } = useAuth();
@@ -121,14 +120,13 @@ export default function Home() {
           <div className="flex flex-col md:grid md:grid-cols-4 gap-6 sm:gap-8 mt-[10px] items-stretch">
             <button
               onClick={() => navigate('/combat-craft')}
-              className="w-full bg-[#0D0D0D] p-6 rounded-none border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+              className="w-full bg-black p-6 rounded-none border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
                 minHeight: '160px',
                 isolation: 'isolate',
               }}
             >
-              <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
               <div className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
@@ -159,14 +157,13 @@ export default function Home() {
 
             <button
               onClick={() => navigate('/ai-instruction')}
-              className="w-full bg-[#0D0D0D] p-6 rounded-none border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+              className="w-full bg-black p-6 rounded-none border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
                 minHeight: '160px',
                 isolation: 'isolate',
               }}
             >
-              <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
               <div className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
@@ -203,14 +200,13 @@ export default function Home() {
 
             <button
               onClick={() => navigate('/explore-disciplines')}
-              className="w-full bg-[#0D0D0D] p-6 rounded-none border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+              className="w-full bg-black p-6 rounded-none border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
                 minHeight: '160px',
                 isolation: 'isolate',
               }}
             >
-              <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
               <div className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
@@ -247,14 +243,13 @@ export default function Home() {
 
             <button
               onClick={() => navigate('/how-it-works')}
-              className="w-full bg-[#0D0D0D] p-6 rounded-none border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
+              className="w-full bg-black p-6 rounded-none border border-[#B11226] hover:border-[#B11226] transition-all transform hover:scale-105 cursor-pointer flex flex-col justify-center items-center text-center relative overflow-hidden"
               style={{
                 boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
                 minHeight: '160px',
                 isolation: 'isolate',
               }}
             >
-              <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
               <div className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',

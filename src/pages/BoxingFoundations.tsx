@@ -5,7 +5,6 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { BOXING_FOUNDATIONS_LEVELS, FoundationLesson } from '../data/foundationsLessons';
 import LevelProgressIndicator from '../components/LevelProgressIndicator';
-import { BGPattern } from '../components/ui/bg-pattern';
 import BackButton from '../components/BackButton';
 
 const VICTORY_QUOTES = [
@@ -462,7 +461,6 @@ export default function BoxingFoundations() {
             isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
           <div className="relative z-10">
           <div className="flex items-center justify-between mb-4">
             <div>

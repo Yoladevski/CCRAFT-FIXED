@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 export default function Merchandise() {
   const navigate = useNavigate();
@@ -25,7 +24,6 @@ export default function Merchandise() {
             isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
           <div className="relative z-10">
             <div className="w-16 h-16 mx-auto bg-[#B11226]/20 rounded-full flex items-center justify-center mb-4">
               <svg

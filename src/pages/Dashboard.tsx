@@ -7,7 +7,6 @@ import { Database } from '../lib/supabase';
 import WorkoutOfTheDay from '../components/WorkoutOfTheDay';
 import TrainingStreak from '../components/TrainingStreak';
 import { BOXING_FOUNDATIONS_LEVELS } from '../data/foundationsLessons';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 type Profile = Database['public']['Tables']['profiles']['Row'];
 
@@ -129,7 +128,6 @@ export default function Dashboard() {
       <div className="min-h-screen py-12 px-4 relative -mt-20 pt-20 flex items-center justify-center">
         <div className="max-w-2xl mx-auto relative z-10">
           <div className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-6 sm:p-8 text-center relative overflow-hidden" style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)', isolation: 'isolate' }}>
-            <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
             <div className="relative z-10">
             <div className="mb-6">
               <Lock size={64} className="mx-auto text-[#B11226]" />
@@ -213,7 +211,6 @@ export default function Dashboard() {
             isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
           <div className="relative z-10">
           <h2
             className="mb-2 hidden sm:block"
@@ -325,7 +322,6 @@ export default function Dashboard() {
               isolation: 'isolate',
             }}
           >
-            <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
             <div className="relative z-10">
             <h2 className="cc-section-heading mb-6 md:mb-8 hidden sm:block" data-text="CURRENT TRAINING">
               CURRENT TRAINING
@@ -385,7 +381,6 @@ export default function Dashboard() {
               isolation: 'isolate',
             }}
           >
-            <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
             <div className="relative z-10 w-full flex flex-col items-center">
             <h2 className="cc-section-heading mb-3 md:mb-4 hidden sm:block" data-text="CURRENT RANK">
               CURRENT RANK

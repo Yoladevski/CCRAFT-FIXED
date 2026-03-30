@@ -4,7 +4,6 @@ import { Lock } from 'lucide-react';
 import BackButton from '../components/BackButton';
 import { supabase } from '../lib/supabase';
 import { Database } from '../lib/supabase';
-import { BGPattern } from '../components/ui/bg-pattern';
 
 type Category = Database['public']['Tables']['categories']['Row'];
 type Discipline = Database['public']['Tables']['disciplines']['Row'];
@@ -76,7 +75,6 @@ export default function DisciplinePage() {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A] to-[#0E0E0E]" />
-        <BGPattern variant="grid" fill="#2a2a2a" size={20} mask="fade-edges" />
 
         {!category.is_active && (
           <div className="absolute inset-0 bg-black/80 z-20 flex items-center justify-center">

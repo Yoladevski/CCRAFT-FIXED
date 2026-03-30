@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { BOXING_WORKOUT_SESSIONS } from '../data/boxingWorkouts';
-import { BGPattern } from '../components/ui/bg-pattern';
 import BackButton from '../components/BackButton';
 
 export default function BoxingWorkouts() {
@@ -31,7 +30,6 @@ export default function BoxingWorkouts() {
             isolation: 'isolate',
           }}
         >
-          <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
           <div className="relative z-10">
             <h2
               className="text-white font-bold text-base sm:text-lg mb-3 tracking-wide text-center"
