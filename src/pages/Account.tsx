@@ -335,13 +335,13 @@ export default function Account() {
         <div
           className="bg-[#0D0D0D] border-2 border-[#B11226] mb-4 sm:mb-6 overflow-hidden rounded-lg mt-[65px] relative"
           style={{
-            boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)',
+            boxShadow: '0 0 12px rgba(177, 18, 38, 0.4), 0 0 24px rgba(177, 18, 38, 0.2)',
             isolation: 'isolate',
           }}
         >
           <div className="relative z-10">
           {/* Mobile Tab Navigation with Arrows */}
-          <div className="flex sm:hidden border-b border-[#B11226] items-center" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.4)' }}>
+          <div className="flex sm:hidden border-b-2 border-[#B11226] items-center">
             <button
               onClick={() => {
                 if (activeTab === 'security') setActiveTab('profile');
@@ -380,7 +380,7 @@ export default function Account() {
           </div>
 
           {/* Desktop Tab Navigation */}
-          <div className="hidden sm:flex border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.4)' }}>
+          <div className="hidden sm:flex border-b-2 border-[#B11226]">
             <button
               onClick={() => setActiveTab('profile')}
               className={`button-text flex-1 py-2 px-6 text-base font-bold transition-colors text-center whitespace-nowrap ${
@@ -416,9 +416,9 @@ export default function Account() {
           <div className="p-3 sm:p-6 md:p-8">
             {activeTab === 'profile' && (
               <div className="space-y-6 sm:space-y-8">
-                <div className="flex flex-col items-center gap-3 sm:gap-4 pb-6 sm:pb-8 border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.35)' }}>
+                <div className="flex flex-col items-center gap-3 sm:gap-4 pb-6 sm:pb-8 border-b-2 border-[#B11226]">
                   <div className="relative">
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 min-w-[96px] min-h-[96px] sm:min-w-[128px] sm:min-h-[128px] rounded-full border-4 border-[#B11226] overflow-hidden bg-[#2E2E2E] flex items-center justify-center">
+                    <div className="w-24 h-24 sm:w-32 sm:h-32 min-w-[96px] min-h-[96px] sm:min-w-[128px] sm:min-h-[128px] rounded-full border-2 border-[#B11226] overflow-hidden bg-[#2E2E2E] flex items-center justify-center">
                       {profilePicture ? (
                         <img src={profilePicture} alt="Profile" className="w-full h-full object-cover" width="128" height="128" />
                       ) : (
@@ -560,7 +560,7 @@ export default function Account() {
 
             {activeTab === 'security' && (
               <div className="space-y-6 sm:space-y-8">
-                <div className="pb-6 sm:pb-8 border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.35)' }}>
+                <div className="pb-6 sm:pb-8 border-b-2 border-[#B11226]">
                   <h2 className="cc-outline-text text-xl sm:text-2xl font-bold mb-4">
                     ACCOUNT INFO
                   </h2>
@@ -574,7 +574,7 @@ export default function Account() {
                   </div>
                 </div>
 
-                <form onSubmit={handleEmailChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.35)' }}>
+                <form onSubmit={handleEmailChange} className="space-y-4 pb-6 sm:pb-8 border-b-2 border-[#B11226]">
                   <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
                     CHANGE EMAIL
                   </h2>
@@ -600,7 +600,7 @@ export default function Account() {
                   </button>
                 </form>
 
-                <form onSubmit={handlePhoneChange} className="space-y-4 pb-6 sm:pb-8 border-b border-[#B11226]" style={{ boxShadow: '0 1px 8px rgba(177, 18, 38, 0.35)' }}>
+                <form onSubmit={handlePhoneChange} className="space-y-4 pb-6 sm:pb-8 border-b-2 border-[#B11226]">
                   <h2 className="cc-outline-text text-lg sm:text-xl font-bold">
                     PHONE NUMBER
                   </h2>
@@ -776,10 +776,7 @@ export default function Account() {
 
             {activeTab === 'settings' && (
               <div className="space-y-4 sm:space-y-6">
-                <div
-                  className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-4 sm:p-6"
-                  style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}
-                >
+                <div className="pb-6 sm:pb-8 border-b-2 border-[#B11226]">
                   <h2 className="cc-outline-text text-lg sm:text-xl font-bold mb-4">
                     SIGN OUT
                   </h2>
@@ -795,10 +792,7 @@ export default function Account() {
                   </p>
                 </div>
 
-                <div
-                  className="bg-[#0D0D0D] border-2 border-[#B11226] rounded-lg p-4 sm:p-6"
-                  style={{ boxShadow: '0 0 15px rgba(177, 18, 38, 0.6), 0 0 30px rgba(177, 18, 38, 0.3), inset 0 0 10px rgba(177, 18, 38, 0.1)' }}
-                >
+                <div>
                   <h2 className="cc-outline-text text-lg sm:text-xl font-bold mb-4">
                     DELETE ACCOUNT
                   </h2>
