@@ -255,7 +255,7 @@ export default function Home() {
             >
               <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
-              <h3 className="mb-4" style={{
+              <div className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 fontSize: '18px',
@@ -267,7 +267,7 @@ export default function Home() {
                 whiteSpace: 'nowrap',
               }}>
                 COMBATCRAFT
-              </h3>
+              </div>
               <p style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '13px',
@@ -293,7 +293,7 @@ export default function Home() {
             >
               <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
-              <h3 className="mb-4" style={{
+              <div className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 fontSize: '18px',
@@ -303,7 +303,7 @@ export default function Home() {
                 lineHeight: '1.3',
               }}>
                 Inside<br />CombatCraft
-              </h3>
+              </div>
               <ul style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '13px',
@@ -337,7 +337,7 @@ export default function Home() {
             >
               <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
-              <h3 className="mb-4" style={{
+              <div className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 fontSize: '18px',
@@ -348,7 +348,7 @@ export default function Home() {
                 lineHeight: '1.3',
               }}>
                 EXPLORE<br />DISCIPLINES
-              </h3>
+              </div>
               <ul style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '13px',
@@ -381,7 +381,7 @@ export default function Home() {
             >
               <BGPattern variant="grid" fill="#4a4a4a" size={20} opacity={0.15} />
               <div className="relative z-10 flex flex-col items-center">
-              <h3 className="mb-4" style={{
+              <div className="mb-4" style={{
                 fontFamily: 'Orbitron, sans-serif',
                 fontWeight: 900,
                 fontSize: '18px',
@@ -392,7 +392,7 @@ export default function Home() {
                 lineHeight: '1.3',
               }}>
                 HOW IT<br />WORKS
-              </h3>
+              </div>
               <p style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '13px',
