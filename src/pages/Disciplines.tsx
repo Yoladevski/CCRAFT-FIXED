@@ -16,6 +16,15 @@ const buttonImages: Record<string, string> = {
   'Judo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/judo%20new.png',
 };
 
+const cardImages: Record<string, string> = {
+  'Boxing': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/diciplines-images/booxing.PNG',
+  'Muay Thai': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/diciplines-images/mauythai.JPG',
+  'BJJ': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/diciplines-images/bjjjj.png',
+  'Karate': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/diciplines-images/karate.PNG',
+  'Taekwondo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/diciplines-images/tikwan.PNG',
+  'Judo': 'https://api.combatcraft.co.uk/storage/v1/object/public/images/diciplines-images/judo.PNG',
+};
+
 export default function Disciplines() {
   const navigate = useNavigate();
   const { user, isAdmin } = useAuth();
@@ -69,6 +78,47 @@ export default function Disciplines() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {disciplines.map((discipline) => (
             <div key={discipline.id} className="flex flex-col">
+              <div
+                className={`relative h-64 sm:h-72 rounded-lg overflow-hidden border-2 border-[#B11226] ${
+                  !discipline.is_active && !isAdmin ? 'opacity-60' : ''
+                }`}
+                style={{
+                  boxShadow: '0 0 10px rgba(177, 18, 38, 0.45), 0 0 22px rgba(177, 18, 38, 0.2), inset 0 0 8px rgba(177, 18, 38, 0.07)'
+                }}
+              >
+                {!discipline.is_active && !isAdmin && (
+                  <div className="absolute inset-0 z-20 flex items-center justify-center p-2 sm:p-4">
+                    <img
+                      src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/coming%20soon.png"
+                      alt="Coming Soon"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-[300%] h-[300%] object-contain"
+                      style={{
+                        filter: 'drop-shadow(0 0 3px black) drop-shadow(0 0 3px black) drop-shadow(0 0 3px black)'
+                      }}
+                    />
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-[#1A1A1A]">
+                  <img
+                    src={cardImages[discipline.name] || cardImages['Boxing']}
+                    alt={discipline.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover object-center brightness-90 contrast-125"
+                  />
+                </div>
+              </div>
+
+              <div className="h-[2.5rem] flex items-center justify-center px-2 mt-1">
+                {discipline.description && (
+                  <p className="text-sm text-[#A0A0A0] text-center line-clamp-2">
+                    {discipline.description}
+                  </p>
+                )}
+              </div>
+
               <button
                 onClick={() => {
                   if (!discipline.is_active && !isAdmin) return;
@@ -79,7 +129,7 @@ export default function Disciplines() {
                   }
                 }}
                 disabled={!discipline.is_active && !isAdmin}
-                className={`focus:outline-none group w-full ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed opacity-60' : ''}`}
+                className={`mt-1 focus:outline-none group w-full ${!discipline.is_active && !isAdmin ? 'cursor-not-allowed opacity-60' : ''}`}
               >
                 <div
                   className="w-full h-[205px] sm:h-[256px] flex items-center justify-center"
