@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -10,18 +10,22 @@ const Navigation = React.memo(function Navigation() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavigate = (path: string) => {
+  const handleNavigate = useCallback((path: string) => {
     navigate(path);
     setIsMobileMenuOpen(false);
-  };
+  }, [navigate]);
 
-  const pathname = location.pathname;
-  const isHome = pathname === '/';
-  const isDashboard = pathname === '/dashboard';
-  const isDisciplines = pathname.startsWith('/discipline') || pathname === '/disciplines';
-  const isNews = pathname === '/news';
-  const isMerchandise = pathname === '/merchandise';
-  const isAccount = pathname === '/account';
+  const { isHome, isDashboard, isDisciplines, isNews, isMerchandise, isAccount } = useMemo(() => {
+    const pathname = location.pathname;
+    return {
+      isHome: pathname === '/',
+      isDashboard: pathname === '/dashboard',
+      isDisciplines: pathname.startsWith('/discipline') || pathname === '/disciplines',
+      isNews: pathname === '/news',
+      isMerchandise: pathname === '/merchandise',
+      isAccount: pathname === '/account',
+    };
+  }, [location.pathname]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
@@ -53,7 +53,7 @@ export default function Dashboard() {
       if (!user) return;
 
       const [{ data: profileData }, { data: foundationsData }] = await Promise.all([
-        supabase.from('profiles').select('*').eq('user_id', user.id).single(),
+        supabase.from('profiles').select('*').eq('user_id', user.id).maybeSingle(),
         supabase.from('foundations_progress').select('lesson_id').eq('user_id', user.id).eq('discipline', 'boxing').eq('completed', true),
       ]);
 
@@ -95,7 +95,7 @@ export default function Dashboard() {
     loadDashboardData();
   }, [user, navigate]);
 
-  const getRankColor = (rank: string) => {
+  const getRankColor = useCallback((rank: string) => {
     switch (rank) {
       case 'Champion': return '#FFD700';
       case 'Elite': return '#C0C0C0';
@@ -103,7 +103,7 @@ export default function Dashboard() {
       case 'Contender': return '#6BCF7F';
       default: return '#A0A0A0';
     }
-  };
+  }, []);
 
   if (loading) {
     return (
@@ -188,7 +188,10 @@ export default function Dashboard() {
     );
   }
 
-  const completionPercentage = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
+  const completionPercentage = useMemo(
+    () => totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0,
+    [completedLessons, totalLessons]
+  );
 
   return (
     <div className="min-h-screen py-4 px-4 relative -mt-20 pt-20">

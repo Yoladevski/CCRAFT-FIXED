@@ -108,17 +108,21 @@ function LevelCompleteModal({
     if (!hasConfetti) return;
 
     const animate = () => {
-      setConfetti(prev =>
-        prev.map(piece => ({
+      setConfetti(prev => {
+        if (prev.length === 0) return prev;
+        const next = prev.map(piece => ({
           ...piece,
           x: piece.x + piece.velocityX,
           y: piece.y + piece.velocityY + 2,
           rotation: piece.rotation + 5,
           velocityX: piece.velocityX * 0.99,
           velocityY: piece.velocityY + 0.1,
-        })).filter(piece => piece.y < window.innerHeight + 50)
-      );
-      animationRef.current = requestAnimationFrame(animate);
+        })).filter(piece => piece.y < window.innerHeight + 50);
+        if (next.length > 0) {
+          animationRef.current = requestAnimationFrame(animate);
+        }
+        return next;
+      });
     };
 
     animationRef.current = requestAnimationFrame(animate);
