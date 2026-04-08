@@ -286,6 +286,8 @@ export default function Dashboard() {
               alt="Continue Foundation Pathway"
               loading="lazy"
               decoding="async"
+              width="800"
+              height="120"
               className="w-full h-auto"
               style={{ width: '100%', objectFit: 'contain', display: 'block' }}
             />

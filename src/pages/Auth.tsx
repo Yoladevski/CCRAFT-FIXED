@@ -301,6 +301,8 @@ export default function Auth({ initialMode = 'signup' }: AuthProps) {
                       alt="Sign In"
                       loading="lazy"
                       decoding="async"
+                      width="420"
+                      height="56"
                       className="w-full h-auto"
                       style={{ width: '100%', objectFit: 'contain', display: 'block' }}
                     />
@@ -326,6 +328,8 @@ export default function Auth({ initialMode = 'signup' }: AuthProps) {
                   alt="Create Account"
                   loading="lazy"
                   decoding="async"
+                  width="420"
+                  height="56"
                   className="w-full h-auto"
                   style={{ width: '100%', objectFit: 'contain', display: 'block' }}
                 />

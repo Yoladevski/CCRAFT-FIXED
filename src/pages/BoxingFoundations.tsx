@@ -194,6 +194,8 @@ function LevelCompleteModal({
           <img
             src="https://api.combatcraft.co.uk/storage/v1/object/public/images/xxlogo.JPG"
             alt="CombatCraft"
+            width="176"
+            height="176"
             className="w-36 h-36 sm:w-44 sm:h-44 object-contain rounded-full mb-4"
           />
 
@@ -281,6 +283,8 @@ function LevelCompleteModal({
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/continue%20new%20(2).png"
               alt="Continue"
+              width="800"
+              height="120"
               className="w-full h-auto"
               style={{ objectFit: 'contain', display: 'block' }}
             />

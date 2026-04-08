@@ -157,6 +157,8 @@ export default function UserMenuDropdown({ onNavigate }: UserMenuDropdownProps) 
           <img
             src={profilePicture}
             alt="Profile"
+            width="36"
+            height="36"
             className="w-full h-full object-cover"
             style={{ display: 'block' }}
           />

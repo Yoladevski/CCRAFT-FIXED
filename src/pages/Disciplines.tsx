@@ -93,6 +93,8 @@ export default function Disciplines() {
                       alt="Coming Soon"
                       loading="eager"
                       decoding="sync"
+                      width="400"
+                      height="288"
                       className="w-[300%] h-[300%] object-contain"
                       style={{
                         filter: 'drop-shadow(0 0 3px black) drop-shadow(0 0 3px black) drop-shadow(0 0 3px black)'
@@ -107,6 +109,8 @@ export default function Disciplines() {
                     loading="eager"
                     decoding="sync"
                     fetchPriority="high"
+                    width="400"
+                    height="288"
                     className="w-full h-full object-cover object-center brightness-90 contrast-125"
                   />
                 </div>
@@ -142,6 +146,8 @@ export default function Disciplines() {
                     loading="eager"
                     decoding="sync"
                     fetchPriority="high"
+                    width="400"
+                    height="256"
                     className="max-w-full max-h-full object-contain transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>

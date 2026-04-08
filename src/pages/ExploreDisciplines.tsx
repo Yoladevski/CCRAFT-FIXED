@@ -45,6 +45,8 @@ export default function ExploreDisciplines() {
                     <img
                       src="https://api.combatcraft.co.uk/storage/v1/object/public/images/coming%20soon.png"
                       alt="Coming Soon"
+                      width="400"
+                      height="288"
                       className="w-full h-full object-contain"
                     />
                   </div>
@@ -54,6 +56,8 @@ export default function ExploreDisciplines() {
                   <img
                     src={cardImages[discipline.name] || cardImages['Boxing']}
                     alt={discipline.name}
+                    width="400"
+                    height="288"
                     className={`w-full h-full object-cover object-center brightness-90 contrast-125 ${discipline.comingSoon ? 'opacity-60' : ''}`}
                   />
                 </div>
