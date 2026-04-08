@@ -91,8 +91,8 @@ export default function Disciplines() {
                     <img
                       src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/coming%20soon.png"
                       alt="Coming Soon"
-                      loading="lazy"
-                      decoding="async"
+                      loading="eager"
+                      decoding="sync"
                       className="w-[300%] h-[300%] object-contain"
                       style={{
                         filter: 'drop-shadow(0 0 3px black) drop-shadow(0 0 3px black) drop-shadow(0 0 3px black)'
@@ -104,8 +104,9 @@ export default function Disciplines() {
                   <img
                     src={cardImages[discipline.name] || cardImages['Boxing']}
                     alt={discipline.name}
-                    loading="lazy"
-                    decoding="async"
+                    loading="eager"
+                    decoding="sync"
+                    fetchPriority="high"
                     className="w-full h-full object-cover object-center brightness-90 contrast-125"
                   />
                 </div>
@@ -138,8 +139,9 @@ export default function Disciplines() {
                   <img
                     src={buttonImages[discipline.name] || buttonImages['Boxing']}
                     alt={`${discipline.name} button`}
-                    loading="lazy"
-                    decoding="async"
+                    loading="eager"
+                    decoding="sync"
+                    fetchPriority="high"
                     className="max-w-full max-h-full object-contain transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>
