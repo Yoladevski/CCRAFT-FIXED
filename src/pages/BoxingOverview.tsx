@@ -31,6 +31,8 @@ export default function BoxingOverview() {
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/technique%20librarytrans%20(1).png"
                 alt="Foundation Pathway"
+                width="400"
+                height="180"
                 className="w-full h-full object-contain"
               />
             </button>
@@ -68,6 +70,8 @@ export default function BoxingOverview() {
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/techniquetrans.png"
                 alt="Technique Library"
+                width="400"
+                height="180"
                 className="w-full h-full object-contain"
               />
             </button>
@@ -81,6 +85,8 @@ export default function BoxingOverview() {
               <img
                 src={workoutsImg}
                 alt="Work Outs"
+                width="400"
+                height="180"
                 className="w-full h-full object-contain"
               />
             </button>

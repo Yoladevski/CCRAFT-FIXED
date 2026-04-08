@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://combatcraft.co.uk/sitemap.xml

@@ -484,6 +484,8 @@ export default function TechniquePage() {
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/nr.png"
                 alt="Next Technique"
+                width="400"
+                height="100"
                 className="w-full max-w-[300px] sm:max-w-[400px] h-auto"
               />
             </button>

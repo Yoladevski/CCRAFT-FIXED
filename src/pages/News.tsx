@@ -41,6 +41,8 @@ export default function News() {
                   alt={card.title}
                   loading="lazy"
                   decoding="async"
+                  width="600"
+                  height="256"
                   className="w-full h-full object-cover object-center brightness-90 contrast-125"
                 />
               </div>

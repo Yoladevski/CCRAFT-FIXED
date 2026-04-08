@@ -37,7 +37,7 @@ const Navigation = React.memo(function Navigation() {
                 onClick={() => handleNavigate('/')}
                 className="hover:opacity-80 transition-opacity"
               >
-                <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" loading="eager" decoding="sync" fetchPriority="high" className="h-[62px] w-auto max-w-[365px]" />
+                <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" loading="eager" decoding="sync" fetchPriority="high" width="365" height="62" className="h-[62px] w-auto max-w-[365px]" />
               </button>
             </div>
 
@@ -134,7 +134,7 @@ const Navigation = React.memo(function Navigation() {
                   onClick={() => handleNavigate('/')}
                   className="hover:opacity-80 transition-opacity"
                 >
-                  <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" loading="eager" decoding="sync" fetchPriority="high" className="h-[57px] w-auto max-w-[186px]" />
+                  <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" loading="eager" decoding="sync" fetchPriority="high" width="186" height="57" className="h-[57px] w-auto max-w-[186px]" />
                 </button>
               </div>
 
@@ -173,7 +173,7 @@ const Navigation = React.memo(function Navigation() {
             onClick={() => handleNavigate('/')}
             className="hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" loading="eager" decoding="sync" fetchPriority="high" className="h-[62px] w-auto max-w-[365px] object-contain" />
+            <img src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png" alt="COMBATCRAFT" loading="eager" decoding="sync" fetchPriority="high" width="365" height="62" className="h-[62px] w-auto max-w-[365px] object-contain" />
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(false)}

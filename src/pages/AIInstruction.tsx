@@ -72,6 +72,8 @@ export default function AIInstruction() {
                 <img
                   src={appScreenshots[currentIndex].url}
                   alt={appScreenshots[currentIndex].description}
+                  width="400"
+                  height="700"
                   className="w-full h-full object-cover"
                 />
               </div>

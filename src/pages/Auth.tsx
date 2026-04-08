@@ -148,6 +148,8 @@ export default function Auth({ initialMode = 'signup' }: AuthProps) {
                 <img
                   src="https://api.combatcraft.co.uk/storage/v1/object/public/images/logo%20small.PNG"
                   alt="CombatCraft"
+                  width="208"
+                  height="208"
                   className="h-52 w-auto object-contain"
                 />
               </div>
@@ -218,6 +220,8 @@ export default function Auth({ initialMode = 'signup' }: AuthProps) {
                 <img
                   src="https://api.combatcraft.co.uk/storage/v1/object/public/images/logo%20small.PNG"
                   alt="CombatCraft"
+                  width="208"
+                  height="208"
                   className="h-52 w-auto object-contain"
                 />
               </div>
@@ -346,6 +350,8 @@ export default function Auth({ initialMode = 'signup' }: AuthProps) {
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/logo%20small.PNG"
                 alt="CombatCraft"
+                width="208"
+                height="208"
                 className="h-52 w-auto object-contain"
               />
             </div>

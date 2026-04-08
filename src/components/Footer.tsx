@@ -18,6 +18,8 @@ const Footer = React.memo(function Footer() {
               <img
                 src="https://i.postimg.cc/KcNxkd4T/new-2.png"
                 alt="CombatCraft Logo"
+                width="208"
+                height="208"
                 className="h-52 w-auto object-contain"
               />
             </button>

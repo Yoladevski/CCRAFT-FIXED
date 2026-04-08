@@ -76,6 +76,8 @@ export default function Home() {
               loading="eager"
               decoding="sync"
               fetchPriority="high"
+              width="576"
+              height="160"
               className="w-auto h-auto home-heading-glow"
               style={{ maxWidth: 'clamp(312px, 86vw, 576px)' }}
             />
@@ -88,6 +90,8 @@ export default function Home() {
               loading="eager"
               decoding="sync"
               fetchPriority="high"
+              width="480"
+              height="120"
               className="w-auto h-auto -translate-y-[125px] md:-translate-y-[50px] home-heading-glow"
               style={{ maxWidth: 'clamp(260px, 72vw, 480px)', marginBottom: '16px' }}
             />
@@ -102,6 +106,8 @@ export default function Home() {
                 loading="eager"
                 decoding="sync"
                 fetchPriority="high"
+                width="440"
+                height="80"
                 className="w-full h-auto"
                 style={{ objectFit: 'contain', display: 'block' }}
               />
@@ -115,6 +121,8 @@ export default function Home() {
               loading="eager"
               decoding="sync"
               fetchPriority="high"
+              width="380"
+              height="80"
               className="w-auto h-auto home-heading-glow"
               style={{ maxWidth: 'clamp(220px, 65vw, 380px)' }}
             />

@@ -85,6 +85,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               <img
                 src="https://i.postimg.cc/zBXKpsK9/xxlogo-removebg-preview.png"
                 alt="CombatCraft"
+                width="365"
+                height="128"
                 className="h-32 w-auto"
                 draggable={false}
               />
