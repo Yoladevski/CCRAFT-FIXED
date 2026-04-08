@@ -105,6 +105,11 @@ export default function Dashboard() {
     }
   }, []);
 
+  const completionPercentage = useMemo(
+    () => totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0,
+    [completedLessons, totalLessons]
+  );
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -187,11 +192,6 @@ export default function Dashboard() {
       </div>
     );
   }
-
-  const completionPercentage = useMemo(
-    () => totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0,
-    [completedLessons, totalLessons]
-  );
 
   return (
     <div className="min-h-screen py-4 px-4 relative -mt-20 pt-20">
