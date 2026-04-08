@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -7,41 +7,13 @@ export default function Home() {
   const navigate = useNavigate();
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
-  const [heroReady, setHeroReady] = useState(false);
-  const heroReadyRef = useRef(false);
-
-  const markReady = () => {
-    if (heroReadyRef.current) return;
-    heroReadyRef.current = true;
-    setHeroReady(true);
-  };
-
   useEffect(() => {
-    const fallback = setTimeout(markReady, 3000);
-
     const setupVideo = (video: HTMLVideoElement | null) => {
       if (!video) return;
-      const handler = () => {
-        markReady();
-        video.play().catch(() => {});
-      };
-      if (video.readyState >= 3) {
-        handler();
-      } else {
-        video.addEventListener('canplay', handler, { once: true });
-      }
-      video.load();
-      return () => video.removeEventListener('canplay', handler);
+      video.play().catch(() => {});
     };
-
-    const cleanupDesktop = setupVideo(desktopVideoRef.current);
-    const cleanupMobile = setupVideo(mobileVideoRef.current);
-
-    return () => {
-      clearTimeout(fallback);
-      cleanupDesktop?.();
-      cleanupMobile?.();
-    };
+    setupVideo(desktopVideoRef.current);
+    setupVideo(mobileVideoRef.current);
   }, []);
 
   return (
@@ -56,7 +28,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="auto"
             className="w-full h-full hidden md:block"
             style={{
               objectFit: 'cover',
@@ -75,7 +47,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="auto"
             className="w-full h-full md:hidden"
             style={{
               objectFit: 'cover',
@@ -95,14 +67,15 @@ export default function Home() {
           style={{
             paddingTop: 'clamp(80px, 15vh, 120px)',
             paddingBottom: 'clamp(0px, 2vh, 80px)',
-            opacity: heroReady ? 1 : 0,
-            transition: 'opacity 0.5s ease',
           }}
         >
           <div className="flex justify-center w-full -translate-y-[50px] md:-translate-y-[100px]">
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h1.PNG"
               alt="Built by real coaches trusted by fighters powered by AI"
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
               className="w-auto h-auto home-heading-glow"
               style={{ maxWidth: 'clamp(312px, 86vw, 576px)' }}
             />
@@ -112,6 +85,9 @@ export default function Home() {
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h2.PNG"
               alt="Build Real Combat Skills Step By Step"
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
               className="w-auto h-auto -translate-y-[125px] md:-translate-y-[50px] home-heading-glow"
               style={{ maxWidth: 'clamp(260px, 72vw, 480px)', marginBottom: '16px' }}
             />
@@ -123,7 +99,9 @@ export default function Home() {
               <img
                 src="https://api.combatcraft.co.uk/storage/v1/object/public/images/buttons/new%20start%20training.png"
                 alt="Start Training"
-                decoding="async"
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
                 className="w-full h-auto"
                 style={{ objectFit: 'contain', display: 'block' }}
               />
@@ -134,6 +112,9 @@ export default function Home() {
             <img
               src="https://api.combatcraft.co.uk/storage/v1/object/public/images/headings/h3.PNG"
               alt="Start Free No Commitment Cancel Anytime"
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
               className="w-auto h-auto home-heading-glow"
               style={{ maxWidth: 'clamp(220px, 65vw, 380px)' }}
             />
